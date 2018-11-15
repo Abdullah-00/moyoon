@@ -25,3 +25,21 @@ class Category(models.Model):
     def __str__(self):
             return self.name
 
+class Question(models.Model):
+    name = models.CharField(max_length=35, null=True)
+    name_ar = models.CharField(max_length=35, null=True, blank=True)
+    age_rating = models.CharField(max_length=3)
+    Correct_answer = models.CharField(max_length=150)
+
+    #  to get the creator ID
+    creator_id = models.ForeignKey('users.User', null=True,
+                                   related_name='maker',
+                                   on_delete=models.SET_NULL)
+    difficulty = models.IntegerField(validators=[MaxValueValidator(5, 'Maximum Limit is 5')])
+
+    # To Belong to a Category
+    parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True,
+                               null=True)
+    photo = models.ImageField ##To DO Fix
+
+
