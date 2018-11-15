@@ -7,7 +7,6 @@ from django.core.validators import MaxValueValidator
 
 
 class Category(models.Model):
-    representation = models.CharField(max_length=150, unique=True, null=False)
     name = models.CharField(max_length=35)
     name_ar = models.CharField(max_length=35)
     age_rating = models.CharField(max_length=3)
@@ -21,3 +20,8 @@ class Category(models.Model):
 
     parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True,
                                null=True)
+
+    ## to represent the Category by the name
+    def __str__(self):
+            return self.name
+
