@@ -25,7 +25,7 @@ SECRET_KEY = '66=vx3(b@5te11jllh_i85ep%$x@rj29*n$n^rd%pt8zr1f6fu'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*nmbj']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

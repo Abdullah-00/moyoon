@@ -50,3 +50,15 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = UserManager()
 
     USERNAME_FIELD = 'email'
+
+"""
+Class Player with its field 
+"""
+class Player(User):
+    comulative_score = models.IntegerField()
+    current_score = models.IntegerField()
+    number_of_games = models.IntegerField()
+    number_of_wins = models.IntegerField()
+    level = models.IntegerField()
+    number_of_loose = models.IntegerField()
+
