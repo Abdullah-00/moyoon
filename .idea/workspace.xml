@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a1235ba-aad0-4516-ab97-9742614d4817" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/back-end/content/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/content/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back-end/untitled/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/untitled/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,10 +41,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="Vagrantfile" value="1" />
+          <entry key="Vagrantfile" value="2" />
           <entry key="gitignore" value="2" />
           <entry key="md" value="1" />
-          <entry key="py" value="49" />
+          <entry key="py" value="50" />
           <entry key="rtf" value="1" />
           <entry key="sql" value="1" />
           <entry key="txt" value="1" />
@@ -53,46 +53,32 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="5" />
-          <entry key="Python" value="49" />
+          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="Python" value="50" />
           <entry key="Scratch" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="Vagrantfile" value="8" />
-          <entry key="py" value="9" />
+          <entry key="py" value="22" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="8" />
-          <entry key="Python" value="9" />
+          <entry key="Python" value="22" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/back-end/untitled/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/back-end/Vagrantfile">
+        <entry file="file://$PROJECT_DIR$/back-end/untitled/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+            <state relative-caret-position="511">
+              <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
             </state>
           </provider>
         </entry>
@@ -113,6 +99,7 @@
         <option value="/private/var/folders/0w/08hmrfyx1f176bkztxwr8l380000gn/T/fz3temp-2/settings.py" />
         <option value="$PROJECT_DIR$/back-end/content/models.py" />
         <option value="$PROJECT_DIR$/back-end/Vagrantfile" />
+        <option value="$PROJECT_DIR$/back-end/untitled/settings.py" />
       </list>
     </option>
   </component>
@@ -143,6 +130,12 @@
               <item name="moyoon" type="b2602c69:ProjectViewProjectNode" />
               <item name="moyoon" type="462c0819:PsiDirectoryNode" />
               <item name="back-end" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="moyoon" type="b2602c69:ProjectViewProjectNode" />
+              <item name="moyoon" type="462c0819:PsiDirectoryNode" />
+              <item name="back-end" type="462c0819:PsiDirectoryNode" />
+              <item name="untitled" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -287,13 +280,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file:///private/var/folders/0w/08hmrfyx1f176bkztxwr8l380000gn/T/fz3temp-2/settings.py" />
-    <entry file="file://$PROJECT_DIR$/back-end/untitled/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="27" column="21" lean-forward="true" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/back-end/manage.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -310,20 +296,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/untitled/urls.py">
+    <entry file="file://$PROJECT_DIR$/back-end/Vagrantfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" selection-end-column="28" />
+        <state relative-caret-position="231">
+          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/Vagrantfile">
+    <entry file="file://$PROJECT_DIR$/back-end/untitled/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+        <state relative-caret-position="368">
+          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back-end/untitled/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
         </state>
       </provider>
     </entry>
