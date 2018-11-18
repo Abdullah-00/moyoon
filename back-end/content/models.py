@@ -40,6 +40,6 @@ class Question(models.Model):
     # To Belong to a Category
     parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True,
                                null=True)
-    photo = models.ImageField ##To DO Fix
+    photo = models.ImageField ##TODO Fix
 
 
