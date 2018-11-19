@@ -44,6 +44,8 @@ class Question(models.Model):
     # To Belong to a Category
 
     Category_parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True, null=True)
+    def __str__(self):
+            return self.name
 
 # define an image to the question
 
