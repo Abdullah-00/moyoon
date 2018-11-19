@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'users.apps.UsersConfig',
     'content.apps.ContentConfig',
+    'session.apps.SessionConfig',
 
 ]
 

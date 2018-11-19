@@ -41,5 +41,8 @@ class Question(models.Model):
     parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True,
                                null=True)
     photo = models.ImageField ##TODO Fix
+    #toString() in java
+    def __str__(self):
+        return self.name
 
 
