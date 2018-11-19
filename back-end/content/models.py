@@ -37,9 +37,11 @@ class Question(models.Model):
                                    on_delete=models.SET_NULL)
     difficulty = models.IntegerField(validators=[MaxValueValidator(5, 'Maximum Limit is 5')])
 
-    # To Belong to a Category
-    parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True,
-                               null=True)
-    photo = models.ImageField ##TODO Fix
+    # needs to be fixed
 
+    photo = models.ImageField
+
+    # To Belong to a Category
+
+    Category_parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True, null=True)
 

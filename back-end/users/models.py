@@ -13,7 +13,7 @@ Khalifah
 """
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, password=None):
+    def create_user(self, email, nick_name, password=None):
         """
         Creates and saves a User with the given email, password.
         """
@@ -28,7 +28,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-    def create_superuser(self, email, password):
+    def create_superuser(self, email, nick_name, password):
         """
         Creates and saves a superuser with the given email, date of
         birth and password.
@@ -43,9 +43,9 @@ class UserManager(BaseUserManager):
         return user
 
 class User(AbstractBaseUser, PermissionsMixin):
-    nick_name = models.CharField(max_length=150, unique=True, blank=False)
+    nick_name = models.CharField(max_length=150, unique=False, blank=False)
     password = models.CharField(max_length=100, null= False)
-    email = models.EmailField(max_length=100, unique=True, blank=True, null=False)
+    email = models.EmailField(max_length=100, unique=True, blank=False, null=False)
     is_active = models.BooleanField(default=True)
     is_superuser = models.BooleanField(default=False)
     is_staff = models.BooleanField(default=False)
