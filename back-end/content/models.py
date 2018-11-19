@@ -42,14 +42,6 @@ class Question(models.Model):
                                    related_name='Image',
                                    on_delete=models.SET_NULL)
     # To Belong to a Category
-<<<<<<< HEAD
-    parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True,
-                               null=True)
-    photo = models.ImageField ##TODO Fix
-    #toString() in java
-    def __str__(self):
-        return self.name
-=======
 
     Category_parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True, null=True)
     def __str__(self):
@@ -66,6 +58,5 @@ class QuestionImage(models.Model):
     def __str__(self):
             return get_image_path(self, 'question_image')
 
->>>>>>> 0045e494d773529b01e0fecbe158f810ce0a7290
 
 

@@ -22,7 +22,6 @@ from session import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-<<<<<<< HEAD
     # route on main page, calls index method on session.views class
     path('session/', views.index, name='index'),
     # ex: /session/5/
@@ -31,7 +30,5 @@ urlpatterns = [
     path('<int:question_id>/results/', views.results, name='results'),
     # ex: /session/5/vote/
     path('<int:question_id>/vote/', views.vote, name='vote'),
-=======
 
->>>>>>> 0045e494d773529b01e0fecbe158f810ce0a7290
 ]
