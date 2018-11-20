@@ -68,9 +68,6 @@
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V1b-jd-mbk">
                                 <rect key="frame" x="114" y="347" width="147" height="30"/>
                                 <state key="normal" title="Join Random Session"/>
-                                <connections>
-                                    <action selector="rtrrrr:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7gb-zY-Mfv"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -90,7 +87,7 @@
         <!--Sign InVC-->
         <scene sceneID="SJm-Hm-uHV">
             <objects>
-                <viewController id="jSQ-6Z-CHi" customClass="SignInVC" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="jSQ-6Z-CHi" customClass="SignInVC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8iU-ZQ-ow4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -102,9 +99,6 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GOV-cH-kZX">
                                         <rect key="frame" x="0.0" y="0.0" width="141" height="30"/>
                                         <state key="normal" title="Login with Facebook"/>
-                                        <connections>
-                                            <action selector="click:" destination="jSQ-6Z-CHi" eventType="touchUpInside" id="h6n-zR-wrm"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSK-81-mwX">
                                         <rect key="frame" x="0.0" y="30" width="141" height="30"/>
@@ -124,9 +118,6 @@
                                         <color key="textColor" red="0.68426165803108807" green="0.68426165803108807" blue="0.68426165803108807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="v:" destination="jSQ-6Z-CHi" eventType="editingDidEnd" id="LRa-hT-hjx"/>
-                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Password" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8O9-gf-RoY">
                                         <rect key="frame" x="0.0" y="35" width="200" height="30"/>
@@ -141,16 +132,10 @@
                                         <rect key="frame" x="0.0" y="70" width="200" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <state key="normal" title="Reset Password"/>
-                                        <connections>
-                                            <action selector="wefw:" destination="jSQ-6Z-CHi" eventType="touchUpInside" id="I6X-Fu-zkE"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hWJ-pu-NNA">
                                         <rect key="frame" x="0.0" y="99" width="200" height="30"/>
                                         <state key="normal" title="Login"/>
-                                        <connections>
-                                            <action selector="test:" destination="jSQ-6Z-CHi" eventType="touchUpInside" id="SHf-2W-W68"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -163,10 +148,10 @@
             </objects>
             <point key="canvasLocation" x="1210" y="-225"/>
         </scene>
-        <!--ReadyVC-->
+        <!--View Controller-->
         <scene sceneID="tLz-qE-wBy">
             <objects>
-                <viewController id="esr-6B-Uf1" customClass="ReadyVC" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="esr-6B-Uf1" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cw8-Ec-P0Y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

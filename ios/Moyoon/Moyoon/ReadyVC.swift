@@ -1,35 +1,26 @@
 //
-//  ViewController.swift
+//  ReadyVC.swift
 //  Moyoon
 //
-//  Created by Bandar on 16/11/2018.
+//  Created by Rayan Alajmi on 11/18/18.
 //  Copyright © 2018 KFUPM-SWE417. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class ViewController: UIViewController {
-
+class ReadyVC: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    @IBOutlet weak var playButton: UIButton!
     
     
-    @IBAction func play(_ sender: UIButton) {
-        
-    }
     
-    @IBAction func rtrrrr(_ sender: Any) {
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
 }
-

@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		96C9A888219E2DAE00AB4A36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A887219E2DAE00AB4A36 /* AppDelegate.swift */; };
 		96C9A88A219E2DAE00AB4A36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A889219E2DAE00AB4A36 /* ViewController.swift */; };
-		96C9A88D219E2DAE00AB4A36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C9A88B219E2DAE00AB4A36 /* Main.storyboard */; };
 		96C9A88F219E2DAE00AB4A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C9A88E219E2DAE00AB4A36 /* Assets.xcassets */; };
 		96C9A892219E2DAE00AB4A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C9A890219E2DAE00AB4A36 /* LaunchScreen.storyboard */; };
 		96C9A89D219E2DAF00AB4A36 /* MoyoonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A89C219E2DAF00AB4A36 /* MoyoonTests.swift */; };
 		96C9A8A8219E2DAF00AB4A36 /* MoyoonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A8A7219E2DAF00AB4A36 /* MoyoonUITests.swift */; };
+		A106AD9521A1B50E00DD1EB8 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A88B219E2DAE00AB4A36 /* Main.storyboard */; };
+		A106AD9721A1B5D300DD1EB8 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106AD9621A1B5D300DD1EB8 /* SignInVC.swift */; };
+		A15EBB3121A1F17C00B68700 /* ReadyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15EBB3021A1F17C00B68700 /* ReadyVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +42,12 @@
 		96C9A88C219E2DAE00AB4A36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		96C9A88E219E2DAE00AB4A36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		96C9A891219E2DAE00AB4A36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		96C9A893219E2DAE00AB4A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96C9A898219E2DAF00AB4A36 /* MoyoonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyoonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C9A89C219E2DAF00AB4A36 /* MoyoonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyoonTests.swift; sourceTree = "<group>"; };
-		96C9A89E219E2DAF00AB4A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		96C9A8A3219E2DAF00AB4A36 /* MoyoonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyoonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		96C9A8A7219E2DAF00AB4A36 /* MoyoonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyoonUITests.swift; sourceTree = "<group>"; };
-		96C9A8A9219E2DAF00AB4A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A106AD9621A1B5D300DD1EB8 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
+		A15EBB3021A1F17C00B68700 /* ReadyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,9 +101,10 @@
 				96C9A887219E2DAE00AB4A36 /* AppDelegate.swift */,
 				96C9A889219E2DAE00AB4A36 /* ViewController.swift */,
 				96C9A88B219E2DAE00AB4A36 /* Main.storyboard */,
+				A15EBB3021A1F17C00B68700 /* ReadyVC.swift */,
 				96C9A88E219E2DAE00AB4A36 /* Assets.xcassets */,
 				96C9A890219E2DAE00AB4A36 /* LaunchScreen.storyboard */,
-				96C9A893219E2DAE00AB4A36 /* Info.plist */,
+				A106AD9621A1B5D300DD1EB8 /* SignInVC.swift */,
 			);
 			path = Moyoon;
 			sourceTree = "<group>";
@@ -111,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				96C9A89C219E2DAF00AB4A36 /* MoyoonTests.swift */,
-				96C9A89E219E2DAF00AB4A36 /* Info.plist */,
 			);
 			path = MoyoonTests;
 			sourceTree = "<group>";
@@ -120,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				96C9A8A7219E2DAF00AB4A36 /* MoyoonUITests.swift */,
-				96C9A8A9219E2DAF00AB4A36 /* Info.plist */,
 			);
 			path = MoyoonUITests;
 			sourceTree = "<group>";
@@ -231,7 +231,6 @@
 			files = (
 				96C9A892219E2DAE00AB4A36 /* LaunchScreen.storyboard in Resources */,
 				96C9A88F219E2DAE00AB4A36 /* Assets.xcassets in Resources */,
-				96C9A88D219E2DAE00AB4A36 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,6 +257,9 @@
 			files = (
 				96C9A88A219E2DAE00AB4A36 /* ViewController.swift in Sources */,
 				96C9A888219E2DAE00AB4A36 /* AppDelegate.swift in Sources */,
+				A106AD9721A1B5D300DD1EB8 /* SignInVC.swift in Sources */,
+				A15EBB3121A1F17C00B68700 /* ReadyVC.swift in Sources */,
+				A106AD9521A1B50E00DD1EB8 /* Main.storyboard in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
