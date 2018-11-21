@@ -1,0 +1,63 @@
+Index: android/Moyoon/.idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- android/Moyoon/.idea/vcs.xml	(date 1542840005792)
++++ android/Moyoon/.idea/vcs.xml	(date 1542840005792)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$/../.." vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: android/Moyoon/app/src/main/res/values-ar-rSA/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- android/Moyoon/app/src/main/res/values-ar-rSA/strings.xml	(date 1542841399188)
++++ android/Moyoon/app/src/main/res/values-ar-rSA/strings.xml	(date 1542841399188)
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++    <string name="app_name">مُيُونْ</string>
++
++</resources>
+\ No newline at end of file
+Index: android/Moyoon/app/src/main/java/example/kfupm/moyoon/moyoon/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- android/Moyoon/app/src/main/java/example/kfupm/moyoon/moyoon/MainActivity.kt	(revision d4c05bf1cad33895e78fe08d7bb54296a7978411)
++++ android/Moyoon/app/src/main/java/example/kfupm/moyoon/moyoon/MainActivity.kt	(date 1542841399211)
+@@ -11,3 +11,4 @@
+     }
+     // This is a test for Editing :)
+ }
++
+Index: android/Moyoon/app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- android/Moyoon/app/src/main/res/layout/activity_main.xml	(revision d4c05bf1cad33895e78fe08d7bb54296a7978411)
++++ android/Moyoon/app/src/main/res/layout/activity_main.xml	(date 1542841286092)
+@@ -7,13 +7,4 @@
+         android:layout_height="match_parent"
+         tools:context=".MainActivity">
+ 
+-    <TextView
+-            android:layout_width="wrap_content"
+-            android:layout_height="16dp"
+-            android:text="Hello World!"
+-            app:layout_constraintBottom_toBottomOf="parent"
+-            app:layout_constraintLeft_toLeftOf="parent"
+-            app:layout_constraintRight_toRightOf="parent"
+-            app:layout_constraintTop_toTopOf="parent"/>
+-
+ </android.support.constraint.ConstraintLayout>
+\ No newline at end of file
