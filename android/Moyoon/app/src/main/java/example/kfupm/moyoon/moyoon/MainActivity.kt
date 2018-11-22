@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
 
         val join = findViewById<Button>(R.id.join)
         join.setOnClickListener{
-            val intent = Intent(this,Sission_Creation::class.java)
+            val intent = Intent(this,Type_Lie::class.java)
             startActivity(intent)
         }
     }

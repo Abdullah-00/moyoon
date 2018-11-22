@@ -3,5 +3,7 @@
     <string name="app_name">مُيُونْ</string>
     <string name="join">انضمام</string>
     <string name="Session_Code">رقم الجلسة</string>
+    <string name="Lie">كيّس</string>
+    <string name="Submit_lie">ارسال</string>
 
 </resources>

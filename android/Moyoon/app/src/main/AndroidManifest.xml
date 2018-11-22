@@ -16,7 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Sission_Creation">
+        <activity android:name=".Type_Lie">
+        </activity>
+        <activity android:name=".Display_Answers">
         </activity>
     </application>
 

@@ -2,4 +2,6 @@
     <string name="app_name">Moyoon</string>
     <string name="join">Join</string>
     <string name="Session_Code">Session Code</string>
+    <string name="Lie">Lie</string>
+    <string name="Submit_lie">Submit</string>
 </resources>
