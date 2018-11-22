@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">مُيُونْ</string>
+    <string name="join">انضمام</string>
+    <string name="Session_Code">رقم الجلسة</string>
 
 </resources>

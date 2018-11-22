@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Moyoon</string>
+    <string name="join">Join</string>
+    <string name="Session_Code">Session Code</string>
 </resources>
