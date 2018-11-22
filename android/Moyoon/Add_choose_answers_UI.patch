@@ -1,0 +1,66 @@
+Index: android/Moyoon/app/src/main/java/example/kfupm/moyoon/moyoon/Sission_Creation.kt
+===================================================================
+--- android/Moyoon/app/src/main/java/example/kfupm/moyoon/moyoon/Sission_Creation.kt	(revision ea8bf2f6ef6f081d5a8dac66db3b43fad47a7b09)
++++ android/Moyoon/app/src/main/java/example/kfupm/moyoon/moyoon/Display_Answers.kt	(date 1542863440248)
+@@ -2,11 +2,28 @@
+ 
+ import android.support.v7.app.AppCompatActivity
+ import android.os.Bundle
++import android.widget.ArrayAdapter
++import android.widget.ListView
++import android.widget.TextView
+ 
+-class Sission_Creation : AppCompatActivity() {
++class Display_Answers : AppCompatActivity() {
+ 
+     override fun onCreate(savedInstanceState: Bundle?) {
+         super.onCreate(savedInstanceState)
+-        setContentView(R.layout.activity_sission__creation)
++        setContentView(R.layout.activity_display__answers)
++
++        val question_desplay = findViewById<TextView>(R.id.quiston_at_selecton)
++        question_desplay.setText("وش افضل مكان بالعالم؟")
++
++        val nebulae = arrayOf<String>("الرياض", "جنيف", "واشنطن", "قنونا")
++
++        val myList = findViewById(R.id.answers_list) as ListView
++
++        var adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1,nebulae)
++        myList.adapter=adapter
++
++
++
++
+     }
+ }
+Index: android/Moyoon/app/src/main/res/layout/activity_sission__creation.xml
+===================================================================
+--- android/Moyoon/app/src/main/res/layout/activity_sission__creation.xml	(revision ea8bf2f6ef6f081d5a8dac66db3b43fad47a7b09)
++++ android/Moyoon/app/src/main/res/layout/activity_display__answers.xml	(date 1542863440172)
+@@ -5,6 +5,24 @@
+         xmlns:app="http://schemas.android.com/apk/res-auto"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent"
+-        tools:context=".Sission_Creation">
++        tools:context=".Display_Answers">
+ 
++    <TextView
++            android:text="TextView"
++            android:layout_width="0dp"
++            android:layout_height="145dp"
++            android:id="@+id/quiston_at_selecton" app:layout_constraintEnd_toEndOf="parent"
++            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
++            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
++            app:layout_constraintBottom_toTopOf="@+id/_dynamic" android:textAlignment="center"/>
++    <ListView
++            android:layout_width="wrap_content"
++            android:layout_height="263dp"
++            app:layout_constraintStart_toStartOf="parent"
++            android:layout_marginStart="16dp"
++            app:layout_constraintEnd_toEndOf="parent"
++            android:layout_marginEnd="16dp" android:layout_marginBottom="16dp"
++            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
++            app:layout_constraintTop_toBottomOf="@+id/quiston_at_selecton" android:id="@+id/answers_list"
++            android:textAlignment="center" android:textDirection="rtl"/>
+ </android.support.constraint.ConstraintLayout>
+\ No newline at end of file
