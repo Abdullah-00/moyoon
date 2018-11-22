@@ -8,7 +8,8 @@ all folders names should be lower cased and without any spaces, replace spaces w
 ## Colors & Fonts
 //TODO
 
-background color = #C9CACE .
+background color = #C9CACE 
+Button Color = #2493C8
 
 ## Commit Messages (Git & Github)
 <article>
