@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "118454694024",
+    "firebase_url": "https://moyoon-abikmmr.firebaseio.com",
+    "project_id": "moyoon-abikmmr",
+    "storage_bucket": "moyoon-abikmmr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:118454694024:android:1e8e73dfb7c5a0fc",
+        "android_client_info": {
+          "package_name": "example.kfupm.moyoon.moyoon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "118454694024-cr6g04kkro3af1ovm8cannt525uhv3mo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBb-wSs-adepk2uv45HNPcFtcfm3MZqR9A"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
