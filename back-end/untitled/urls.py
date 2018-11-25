@@ -17,11 +17,18 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from session import views
+from django.conf.urls import include
+from rest_framework.routers import DefaultRouter
+
+
+router = DefaultRouter()
+router.register('session', views.SessionViewSet)
 
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path(r'api/', include(router.urls)),
     # route on session page, calls index method on session.views class
     path('session/', views.index, name='index'),
     # ex: /session/5/

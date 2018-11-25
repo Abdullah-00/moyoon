@@ -1,6 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
+from . import models
+from rest_framework import viewsets
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from . import serializers
+
 
 from content.models import Category # using categories from content
 # Create your views here.
@@ -24,3 +31,7 @@ def results(request, question_id):
 
 def vote(request, question_id):
     return HttpResponse("You're voting on question %s." % question_id)
+
+class SessionViewSet(viewsets.ModelViewSet):
+    serializer_class = serializers.SessionSerializer
+    queryset = models.Session.objects.all()
