@@ -144,10 +144,10 @@
             </objects>
             <point key="canvasLocation" x="1801" y="539"/>
         </scene>
-        <!--View Controller-->
+        <!--Question-->
         <scene sceneID="MzJ-w6-Lus">
             <objects>
-                <viewController id="1NC-Gj-3k8" sceneMemberID="viewController">
+                <viewController id="1NC-Gj-3k8" customClass="Question" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AQN-gz-pLK">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -164,13 +164,18 @@
                             <constraint firstItem="DUG-uc-PDO" firstAttribute="centerY" secondItem="AQN-gz-pLK" secondAttribute="centerY" id="rZ4-1f-jjc"/>
                             <constraint firstItem="DUG-uc-PDO" firstAttribute="centerX" secondItem="AQN-gz-pLK" secondAttribute="centerX" id="u8h-fx-a6X"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="wGd-yn-OF6"/>
                     </view>
+                    <connections>
+                        <outlet property="question" destination="DUG-uc-PDO" id="Ltz-fC-7bM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hfh-xy-scy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2485" y="133"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vDi-ao-qAf"/>
+        <segue reference="gv6-9i-4Ny"/>
     </inferredMetricsTieBreakers>
 </document>
