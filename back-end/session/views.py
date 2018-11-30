@@ -59,22 +59,3 @@ def createSessionView(request):
     questions = request.GET.get('questions')
     createSession(numOfPlayers, catagory_id, is_provided, questions)
     return HttpResponse("Done")
-
-class sessionTestAPIView(APIView):
-    def get(self, request, format=None):
-        an_apiview = [
-
-        ]
-
-    def post(self, request):
-        """Create a hello message with our name."""
-
-        serializer = serializers.HelloSerializer(data=request.data)
-
-        if serializer.is_valid():
-            name = serializer.data.get('name')
-            message = 'Hello {0}!'.format(name)
-            return Response({'message': message})
-        else:
-            return Response(
-                serializer.errors, status=status.HTTP_400_BAD_REQUEST)

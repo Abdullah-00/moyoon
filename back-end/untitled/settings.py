@@ -42,8 +42,6 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'content.apps.ContentConfig',
     'session.apps.SessionConfig',
-
-
 ]
 
 MIDDLEWARE = [

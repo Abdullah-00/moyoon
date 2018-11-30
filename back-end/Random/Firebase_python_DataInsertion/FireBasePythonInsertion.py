@@ -33,3 +33,5 @@ def createSession(numOfPlayers, catagory_id, is_provided, questions):
         u'Questions' : questions
     }
     doc_ref.set(data2)
+
+
