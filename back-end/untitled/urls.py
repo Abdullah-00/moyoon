@@ -23,6 +23,9 @@ from rest_framework.routers import DefaultRouter
 
 router = DefaultRouter()
 router.register('session', views.SessionViewSet)
+router.register('EnterSession', views.EnterSessionViewSet)
+router.register('SubmitAnswer', views.SubmitAnswerViewSet)
+router.register('SubmitAnswerChoice', views.SubmitAnswerChoiceViewSet)
 
 
 
@@ -30,7 +33,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path(r'api/', include(router.urls)),
     # route on session page, calls index method on session.views class
-    path('session/', views.index, name='index'),
+    path('session/', views.createSessionView, name='index'),
+    # route on enter session page, calls index method on session.views class
+    path('enterSession/', views.index, name='index'),
+    # route on enter session page, calls index method on session.views class
+    path('SubmitAnswer/', views.index, name='index'),
+    # route on enter session page, calls index method on session.views class
+    path('SubmitAnswerChoice/', views.index, name='index'),
     # ex: /session/5/
     path('<int:question_id>/', views.detail, name='detail'),
     # ex: /session/5/results/
