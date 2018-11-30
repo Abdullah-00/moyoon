@@ -52,12 +52,12 @@ class SubmitAnswerChoiceViewSet(viewsets.ModelViewSet):
     queryset = models.SubmitAnswerChoice.objects.all()
 
 def createSessionView(request):
-    session = Session(request.GET)
-    if session.is_valid():
-        numOfPlayers = session.cleaned_data('numOfPlayers')
-        catagory_id = session.cleaned_data('catagory_id')
-        is_provided = session.cleaned_data('is_provided')
-        questions = session.cleaned_data('questions')
+    serializer = serializers.SessionSerializer(request.data)
+    if serializer.is_valid():
+        numOfPlayers = serializer.data.get('numOfPlayers')
+        catagory_id = serializer.data.get('catagory_id')
+        is_provided = serializer.data.get('is_provided')
+        questions = serializer.data.get('questions')
         createSession(100,"123",False,"123")
     return HttpResponse(template.render(context, request))
 
