@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-
 class ReadyVC: UIViewController {
     
     override func viewDidLoad() {
@@ -23,4 +22,7 @@ class ReadyVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
 }
+

@@ -22,8 +22,6 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func rtrrrr(_ sender: Any) {
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
