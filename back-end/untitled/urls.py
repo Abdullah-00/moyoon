@@ -37,11 +37,11 @@ urlpatterns = [
     # route on enter session page, calls index method on session.views class
     path('enterSession/', views.index, name='index'),
     # route on enter session page, calls index method on session.views class
-    path('SubmitAnswer/', views.index, name='index'),
+    path('{sessionID}/SubmitAnswer/', views.index, name='index'),
     # route on enter session page, calls index method on session.views class
     path('SubmitAnswerChoice/', views.index, name='index'),
     # ex: /session/5/
-    path('<int:question_id>/', views.detail, name='detail'),
+    path('<int:question_id>/',  views.detail, name='detail'),
     # ex: /session/5/results/
     path('<int:question_id>/results/', views.results, name='results'),
     # ex: /session/5/vote/

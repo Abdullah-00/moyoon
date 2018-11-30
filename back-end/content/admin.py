@@ -1,7 +1,7 @@
 from django.contrib import admin
 from .models import Category
 from .models import Question
-from .models import QuestionImage
+#from .models import QuestionImage
 
 
 # Register your models here.
@@ -14,6 +14,6 @@ class CategoryAdmin(admin.ModelAdmin):
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'name_ar')
 
-@admin.register(QuestionImage)
-class QuestionImageAdmin(admin.ModelAdmin):
-    list_display = ('id','Question')
+# @admin.register(QuestionImage)
+# class QuestionImageAdmin(admin.ModelAdmin):
+#     list_display = ('id','Question')
