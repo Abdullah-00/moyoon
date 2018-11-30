@@ -1,12 +1,9 @@
 
 from rest_framework import serializers
 from .models import Session
-from .models import EnterSession
-from .models import SubmitAnswer
-from .models import SubmitAnswerChoice
-from Random.Firebase_python_DataInsertion.FireBasePythonInsertion import createSession
 
 
+<<<<<<< HEAD
 class SessionSerializer(serializers.ModelSerializer):
     numOfPlayers = serializers.IntegerField(default=0)
     catagory_id = serializers.IntegerField(default=0)
@@ -16,22 +13,20 @@ class SessionSerializer(serializers.ModelSerializer):
         model = Session
         fields = ('__all__')
 
-
-
-class EnterSessionSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = EnterSession
-        fields = ('__all__')
-
-class SubmitAnswerSerializer(serializers.ModelSerializer):
+||||||| merged common ancestors
+class SessionSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = SubmitAnswer
+        model = Session
         fields = ('__all__')
 
-class SubmitAnswerChoiceSerializer(serializers.ModelSerializer):
+=======
+>>>>>>> e413eaa3e7eb70d3827e0beb4d5e9cb4be57f56a
+
+
+class SessionSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = SubmitAnswerChoice
+        model = Session
         fields = ('__all__')
+
