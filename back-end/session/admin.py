@@ -5,5 +5,4 @@ from .models import Session
 class SessionAdmin(admin.ModelAdmin):
     list_display = ('id', 'numOfPlayers', 'catagory_id', 'questions')
 
-
 # Register your models here.

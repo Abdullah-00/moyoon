@@ -3,16 +3,17 @@ from firebase_admin import credentials
 from firebase_admin import firestore
 
 # Use the application default credentials
-cred = credentials.Certificate('key/Key.json')
-firebase_admin.initialize_app(cred, {
-  'projectId': "moyoon-abikmmr",
-})
+def createSession(numOfPlayers, catagory_id, is_provided, questions):
+    cred = credentials.Certificate('key/Key.json')
+    firebase_admin.initialize_app(cred, {
+        'projectId': "moyoon-abikmmr",
+    })
 
-db = firestore.client()
+    db = firestore.client()
 
-doc_ref = db.collection(u'Players').document(u'insertedByPython')
-doc_ref.set({
-    u'playerId': u'123213123',
-    u'nickname': u'BandarB7',
-    u'born': 1995
-})
+    doc_ref = db.collection(u'Session').document(u'insertedByPython2')
+    doc_ref.set({
+        u'Number of Players': u'123213123',
+        u'nickname': u'BandarB7',
+        u'born': 1995
+    })

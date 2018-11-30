@@ -2,15 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7122a917-339b-4104-abf6-9dff10cc2e64" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../.idea/moyoon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/moyoon.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/back-end.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/back-end.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py" beforeDir="false" afterPath="$PROJECT_DIR$/../Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/content/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/session/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/session/apps.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/session/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/session/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/untitled/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/untitled/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/session/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/session/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/untitled/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/untitled/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/untitled/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -395,6 +397,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.29635626" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
