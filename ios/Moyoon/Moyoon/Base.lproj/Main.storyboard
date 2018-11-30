@@ -18,35 +18,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Session ID" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QhO-ps-kUw">
-                                <rect key="frame" x="124" y="92" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-za-WtT">
-                                <rect key="frame" x="157" y="138" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Join"/>
-                                <connections>
-                                    <segue destination="ffQ-Su-BzR" kind="show" id="PLv-Wp-Ngq"/>
-                                </connections>
-                            </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4sZ-RF-OXd">
-                                <rect key="frame" x="52" y="206" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <connections>
-                                    <segue destination="JFo-EF-4ZW" kind="embed" id="hIC-oe-Kb4"/>
-                                </connections>
-                            </containerView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="MiX-D8-zCt">
+                                <rect key="frame" x="143" y="288.5" width="89" height="90"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Session ID" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QhO-ps-kUw">
+                                        <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-za-WtT">
+                                        <rect key="frame" x="0.0" y="60" width="89" height="30"/>
+                                        <state key="normal" title="Join"/>
+                                        <connections>
+                                            <segue destination="ffQ-Su-BzR" kind="show" id="PLv-Wp-Ngq"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MiX-D8-zCt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GoL-S8-Wfg"/>
+                            <constraint firstItem="MiX-D8-zCt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bOp-sn-STm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
         <!--Write Answer-->
         <scene sceneID="L7C-ow-fgR">
@@ -106,19 +107,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Dbv-YY-e0I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1801" y="539"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="gy6-Hr-J6w">
-            <objects>
-                <viewController id="JFo-EF-4ZW" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nGf-Ja-tfN">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4lA-Xm-VQ6" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
 </document>
