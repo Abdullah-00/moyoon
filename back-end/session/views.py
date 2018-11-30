@@ -8,6 +8,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from . import serializers
 from Random.Firebase_python_DataInsertion.FireBasePythonInsertion import createSession
+import json
 
 
 from content.models import Category # using categories from content
@@ -36,7 +37,7 @@ def vote(request, question_id):
 class SessionViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.SessionSerializer
     queryset = models.Session.objects.all()
-    createSession("123", "123", False, "123")
+    #createSession("123", "123", False, "123")
 
 class EnterSessionViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.EnterSessionSerializer
@@ -52,14 +53,12 @@ class SubmitAnswerChoiceViewSet(viewsets.ModelViewSet):
     queryset = models.SubmitAnswerChoice.objects.all()
 
 def createSessionView(request):
-    serializer = serializers.SessionSerializer(request.data)
-    if serializer.is_valid():
-        numOfPlayers = serializer.data.get('numOfPlayers')
-        catagory_id = serializer.data.get('catagory_id')
-        is_provided = serializer.data.get('is_provided')
-        questions = serializer.data.get('questions')
-        createSession(100,"123",False,"123")
-    return HttpResponse(template.render(context, request))
+    numOfPlayers = request.GET.get('numOfPlayers')
+    catagory_id = request.GET.get('catagory_id')
+    is_provided = request.GET.get('is_provided')
+    questions = request.GET.get('questions')
+    createSession(numOfPlayers, catagory_id, is_provided, questions)
+    return HttpResponse("Done")
 
 class sessionTestAPIView(APIView):
     def get(self, request, format=None):

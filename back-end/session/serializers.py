@@ -8,7 +8,10 @@ from Random.Firebase_python_DataInsertion.FireBasePythonInsertion import createS
 
 
 class SessionSerializer(serializers.ModelSerializer):
-
+    numOfPlayers = serializers.IntegerField(default=0)
+    catagory_id = serializers.IntegerField(default=0)
+    is_provided = serializers.BooleanField(default=False)
+    questions = serializers.CharField()
     class Meta:
         model = Session
         fields = ('__all__')

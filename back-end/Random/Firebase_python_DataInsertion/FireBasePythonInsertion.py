@@ -33,29 +33,3 @@ def createSession(numOfPlayers, catagory_id, is_provided, questions):
         u'Questions' : questions
     }
     doc_ref.set(data2)
-
-# def createSession(request):
-#     db = firestore.client()
-#     doc_ref = db.collection(u'Session').document(u'insertedByPython3')
-#     data = u'City(Number_of_players={}, categoty_id={}, is_provided={}, questions={})'.format(numOfPlayers, catagory_id,
-#                                                                                               is_provided, questions)
-#     data2 = {
-#         u'Number_Of_Players' : numOfPlayers,
-#         u'Category_ID' : catagory_id,
-#         u'Is_Provided' : is_provided,
-#         u'Questions' : questions
-#     }
-#     doc_ref.set(data2)
-#
-# def index(request):
-#     catagory_list = Category.objects.order_by('id')[:5]
-#     template = loader.get_template('session/index.html')
-#     context = {
-#         'catagory_list': catagory_list,
-#     }
-#     return HttpResponse(template.render(context, request))
-#
-# request.POST.get('section','') # => [39]
-# request.POST.get('MAINS','') # => [137]
-# request.GET.get('section','') # => [39]
-# request.GET.get('MAINS','') # => [137]
