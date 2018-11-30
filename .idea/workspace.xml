@@ -2,229 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a1235ba-aad0-4516-ab97-9742614d4817" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/moyoon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/moyoon.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/.idea/back-end.iml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.idea/back-end.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/content/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/content/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/session/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/session/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/session/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/session/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/session/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/session/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/session/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/session/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back-end/untitled/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/untitled/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/untitled/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/untitled/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back-end/untitled/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/back-end/untitled/wsgi.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/DBPlayground.playground/Contents.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/DBPlayground.playground/contents.xcplayground" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/DBPlayground.playground/playground.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/DBPlayground.playground/playground.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/DBPlayground.playground/playground.xcworkspace/xcuserdata/bandar.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/GoogleService-Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcodeproj/project.pbxproj" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcodeproj/project.pbxproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcodeproj/project.xcworkspace/xcuserdata/Rayan.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcodeproj/project.xcworkspace/xcuserdata/Rayan.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcodeproj/project.xcworkspace/xcuserdata/bandar.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcodeproj/project.xcworkspace/xcuserdata/bandar.xcuserdatad/UserInterfaceState.xcuserstate" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcodeproj/xcuserdata/Rayan.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcodeproj/xcuserdata/Rayan.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcodeproj/xcuserdata/bandar.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcodeproj/xcuserdata/bandar.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcworkspace/xcuserdata/Rayan.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon.xcworkspace/xcuserdata/bandar.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon/AppDelegate.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Moyoon/Moyoon/AppDelegate.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon/Base.lproj/Main.storyboard" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Moyoon/Moyoon/Base.lproj/Main.storyboard" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon/ChooseAnswer.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon/GoogleService-Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon/Homepage.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon/Question.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon/ViewController.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Moyoon/Moyoon/ViewController.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Moyoon/WriteAnswer.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/MoyoonTests/MoyoonTests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Moyoon/MoyoonTests/MoyoonTests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/MoyoonUITests/MoyoonUITests.swift" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Moyoon/MoyoonUITests/MoyoonUITests.swift" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Podfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Podfile.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Firebase/CoreOnly/Sources/Firebase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Firebase/CoreOnly/Sources/module.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Firebase/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FIRAnalyticsConnector.framework/FIRAnalyticsConnector" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FIRAnalyticsConnector.framework/Modules/module.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/FirebaseAnalytics" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics+AppDelegate.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRAnalytics.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIREventNames.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRParameterNames.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FIRUserPropertyNames.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Headers/FirebaseAnalytics.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FirebaseAnalytics.framework/Modules/module.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FirebaseCoreDiagnostics.framework/FirebaseCoreDiagnostics" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseAnalytics/Frameworks/FirebaseCoreDiagnostics.framework/Modules/module.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRAnalyticsConfiguration.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRApp.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRAppAssociationRegistration.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRBundleUtil.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRComponent.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRComponentContainer.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRComponentType.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRConfiguration.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRDependency.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRErrors.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRLogger.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIROptions.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/FIRVersion.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRAnalyticsConfiguration+Internal.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRAppAssociationRegistration.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRAppInternal.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRBundleUtil.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRComponent.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRComponentContainer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRComponentContainerInternal.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRComponentRegistrant.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRComponentType.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRCoreConfigurable.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRDependency.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRErrorCode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRErrors.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRLogger.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIROptionsInternal.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Private/FIRVersion.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Public/FIRAnalyticsConfiguration.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Public/FIRApp.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Public/FIRConfiguration.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Public/FIRLoggerLevel.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Public/FIROptions.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/Firebase/Core/Public/FirebaseCore.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseCore/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseInstanceID/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/FirebaseInstanceID" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FIRInstanceID.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Headers/FirebaseInstanceID.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseInstanceID/Frameworks/FirebaseInstanceID.framework/Modules/module.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/FirebaseInstanceID/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.framework/GoogleAppMeasurement" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleAppMeasurement/Frameworks/GoogleAppMeasurement.framework/Modules/module.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/AppDelegateSwizzler/GULAppDelegateSwizzler.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/AppDelegateSwizzler/Internal/GULAppDelegateSwizzler_Private.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/AppDelegateSwizzler/Private/GULAppDelegateSwizzler.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Common/GULLoggerCodes.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Environment/third_party/GULAppEnvironmentUtil.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Environment/third_party/GULAppEnvironmentUtil.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Logger/GULLogger.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Logger/Private/GULLogger.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Logger/Public/GULLoggerLevel.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/MethodSwizzler/GULSwizzler.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/MethodSwizzler/Private/GULOriginalIMPConvenienceMacros.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/MethodSwizzler/Private/GULSwizzler.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/NSData+zlib/GULNSData+zlib.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/NSData+zlib/GULNSData+zlib.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Network/GULMutableDictionary.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Network/GULNetwork.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Network/GULNetworkConstants.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Network/GULNetworkURLSession.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Network/Private/GULMutableDictionary.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Network/Private/GULNetwork.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Network/Private/GULNetworkConstants.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Network/Private/GULNetworkLoggerProtocol.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Network/Private/GULNetworkMessageCode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Network/Private/GULNetworkURLSession.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Reachability/GULReachabilityChecker+Internal.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Reachability/GULReachabilityChecker.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Reachability/Private/GULReachabilityChecker.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/Reachability/Private/GULReachabilityMessageCode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/UserDefaults/GULUserDefaults.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/GoogleUtilities/UserDefaults/Private/GULUserDefaults.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/GoogleUtilities/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Headers/Private/Firebase/Firebase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Headers/Public/Firebase/Firebase.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Manifest.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Pods.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Pods.xcodeproj/xcuserdata/Rayan.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Pods.xcodeproj/xcuserdata/bandar.xcuserdatad/xcschemes/FirebaseCore.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Pods.xcodeproj/xcuserdata/bandar.xcuserdatad/xcschemes/GoogleUtilities.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Pods.xcodeproj/xcuserdata/bandar.xcuserdatad/xcschemes/Pods-Moyoon.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Pods.xcodeproj/xcuserdata/bandar.xcuserdatad/xcschemes/Pods-MoyoonTests.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Pods.xcodeproj/xcuserdata/bandar.xcuserdatad/xcschemes/Pods-MoyoonUITests.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Pods.xcodeproj/xcuserdata/bandar.xcuserdatad/xcschemes/nanopb.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Pods.xcodeproj/xcuserdata/bandar.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/FirebaseCore/FirebaseCore-dummy.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/FirebaseCore/FirebaseCore-umbrella.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/FirebaseCore/FirebaseCore.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/FirebaseCore/FirebaseCore.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/GoogleUtilities/GoogleUtilities-dummy.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/GoogleUtilities/GoogleUtilities-prefix.pch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/GoogleUtilities/GoogleUtilities-umbrella.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/GoogleUtilities/GoogleUtilities.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/GoogleUtilities/GoogleUtilities.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/GoogleUtilities/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-Moyoon/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-acknowledgements.markdown" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-acknowledgements.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-dummy.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-frameworks.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-resources.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-umbrella.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon.debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon.release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonTests/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests-acknowledgements.markdown" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests-acknowledgements.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests-dummy.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests-frameworks.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests-resources.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests-umbrella.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests.debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests.release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonUITests/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests-acknowledgements.markdown" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests-acknowledgements.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests-dummy.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests-frameworks.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests-resources.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests-umbrella.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests.debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests.release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/nanopb/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/nanopb/nanopb-dummy.m" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/nanopb/nanopb-prefix.pch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/nanopb/nanopb-umbrella.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/nanopb/nanopb.modulemap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/Target Support Files/nanopb/nanopb.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/nanopb/LICENSE.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/nanopb/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/nanopb/pb.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/nanopb/pb_common.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/nanopb/pb_common.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/nanopb/pb_decode.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/nanopb/pb_decode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/nanopb/pb_encode.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Moyoon/Pods/nanopb/pb_encode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/MyPlayground.playground/Contents.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/MyPlayground.playground/contents.xcplayground" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/MyPlayground.playground/playground.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/MyPlayground.playground/playground.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/MyPlayground.playground/playground.xcworkspace/xcuserdata/bandar.xcuserdatad/UserInterfaceState.xcuserstate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/MyPlayground.playground/timeline.xctimeline" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Playground/MyPlayground.playground/Contents.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Playground/MyPlayground.playground/contents.xcplayground" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Playground/MyPlayground.playground/timeline.xctimeline" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/moyoon$wsgi.coverage" NAME="wsgi Coverage Results" MODIFIED="1543258251571" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/back-end/untitled" />
-    <SUITE FILE_PATH="coverage/moyoon$settings.coverage" NAME="settings Coverage Results" MODIFIED="1543257534422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/back-end/untitled" />
-    <SUITE FILE_PATH="coverage/moyoon$Test__back_end_untitled.coverage" NAME="Test: back-end.untitled Coverage Results" MODIFIED="1543251584088" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -244,9 +28,6 @@
       </path>
     </expand>
     <select />
-  </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="964603715">
@@ -290,136 +71,26 @@
         </counts>
       </usages-collector>
     </session>
-    <session id="507259592">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="4" />
-          <entry key="project.open.time.0" value="2" />
-          <entry key="project.open.time.11" value="1" />
-          <entry key="project.open.time.22" value="1" />
-          <entry key="project.opened" value="4" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="Vagrantfile" value="1" />
-          <entry key="html" value="1" />
-          <entry key="json" value="2" />
-          <entry key="py" value="38" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="HTML" value="1" />
-          <entry key="JSON" value="2" />
-          <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="38" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="py" value="3415" />
-          <entry key="txt" value="53" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="PLAIN_TEXT" value="53" />
-          <entry key="Python" value="3415" />
-        </counts>
-      </usages-collector>
-    </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/back-end/session/serializers.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-203">
-              <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-              <folding>
-                <element signature="e#1#39#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/back-end/session/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-237">
-              <folding>
-                <element signature="e#0#28#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/back-end/session/apps.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" selection-start-line="5" selection-end-line="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/back-end/untitled/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-220">
-              <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/back-end/session/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="61" column="58" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/back-end/untitled/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="41" column="49" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
-              <folding>
-                <element signature="e#632#664#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/back-end/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="21" selection-start-column="7" selection-end-column="21" />
+            <state relative-caret-position="511">
+              <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>ALLOW</find>
-      <find>EnterSessionViewSet</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -428,17 +99,7 @@
         <option value="/private/var/folders/0w/08hmrfyx1f176bkztxwr8l380000gn/T/fz3temp-2/settings.py" />
         <option value="$PROJECT_DIR$/back-end/content/models.py" />
         <option value="$PROJECT_DIR$/back-end/Vagrantfile" />
-        <option value="$PROJECT_DIR$/back-end/manage.py" />
-        <option value="$PROJECT_DIR$/back-end/untitled/wsgi.py" />
-        <option value="$PROJECT_DIR$/back-end/session/apps.py" />
-        <option value="$PROJECT_DIR$/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py" />
-        <option value="$PROJECT_DIR$/back-end/session/models.py" />
-        <option value="$PROJECT_DIR$/back-end/session/serializers.py" />
         <option value="$PROJECT_DIR$/back-end/untitled/settings.py" />
-        <option value="$PROJECT_DIR$/back-end/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py" />
-        <option value="$PROJECT_DIR$/back-end/untitled/urls.py" />
-        <option value="$PROJECT_DIR$/back-end/session/admin.py" />
-        <option value="$PROJECT_DIR$/back-end/session/views.py" />
       </list>
     </option>
   </component>
@@ -448,10 +109,9 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="21" />
-    <option name="width" value="1440" />
-    <option name="height" value="822" />
+  <component name="ProjectFrameBounds" fullScreen="true">
+    <option name="width" value="1680" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -475,58 +135,7 @@
               <item name="moyoon" type="b2602c69:ProjectViewProjectNode" />
               <item name="moyoon" type="462c0819:PsiDirectoryNode" />
               <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="content" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moyoon" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moyoon" type="462c0819:PsiDirectoryNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="Random" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moyoon" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moyoon" type="462c0819:PsiDirectoryNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="Random" type="462c0819:PsiDirectoryNode" />
-              <item name="Firebase_python_DataInsertion" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moyoon" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moyoon" type="462c0819:PsiDirectoryNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moyoon" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moyoon" type="462c0819:PsiDirectoryNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moyoon" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moyoon" type="462c0819:PsiDirectoryNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="session" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moyoon" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moyoon" type="462c0819:PsiDirectoryNode" />
-              <item name="back-end" type="462c0819:PsiDirectoryNode" />
               <item name="untitled" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moyoon" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moyoon" type="462c0819:PsiDirectoryNode" />
-              <item name="Random" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="moyoon" type="b2602c69:ProjectViewProjectNode" />
-              <item name="moyoon" type="462c0819:PsiDirectoryNode" />
-              <item name="Random" type="462c0819:PsiDirectoryNode" />
-              <item name="Firebase_python_DataInsertion" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -536,10 +145,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/back-end" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -553,108 +161,6 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Django server.Unnamed">
-    <configuration name="Test: back-end.untitled" type="DjangoTestsConfigurationType" factoryName="Django tests">
-      <module name="moyoon" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="back-end.untitled" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="settings" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="moyoon" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/back-end/untitled" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/back-end/untitled/settings.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="wsgi" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="moyoon" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/back-end/untitled" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/back-end/untitled/wsgi.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Unnamed" type="Python.DjangoServer" factoryName="Django server">
-      <module name="moyoon" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="untitled.settings" />
-      </envs>
-      <option name="SDK_HOME" value="C:\Users\mo3sw\moyoon\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
-      <method v="2" />
-    </configuration>
-    <list>
-      <item itemvalue="Django server.Unnamed" />
-      <item itemvalue="Django tests.Test: back-end.untitled" />
-      <item itemvalue="Python.settings" />
-      <item itemvalue="Python.wsgi" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Python.wsgi" />
-        <item itemvalue="Python.settings" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -666,89 +172,40 @@
       <option name="presentableId" value="Default" />
       <updated>1542335246636</updated>
     </task>
-    <task id="LOCAL-00001" summary="To start working, I needed to commit for some reason">
-      <created>1543312499172</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1543312499172</updated>
-    </task>
-    <task id="LOCAL-00002" summary="To start working, I needed to commit for some reason">
-      <created>1543592303880</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1543592303880</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
-  <component name="TestHistory">
-    <history-entry file="Test__back-end_untitled - 2018.11.26 at 19h 59m 35s.xml">
-      <configuration name="Test: back-end.untitled" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-    <history-entry file="Test__back-end_untitled - 2018.11.26 at 19h 59m 44s.xml">
-      <configuration name="Test: back-end.untitled" configurationId="DjangoTestsConfigurationType" />
-    </history-entry>
-  </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="735" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.18765281" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="1" sideWeight="0.49959514" visible="true" weight="0.3089701" />
+      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.20020747" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="4" weight="0.32724252" />
+      <window_info anchor="bottom" id="Python Console" order="4" weight="0.32987553" />
       <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
-      <window_info anchor="bottom" id="Run" order="8" weight="0.45681062" />
+      <window_info anchor="bottom" id="Run" order="8" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
-      <window_info anchor="right" id="Database" order="0" weight="0.32955465" />
+      <window_info anchor="right" id="Database" order="0" weight="0.32967034" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="SciView" order="2" />
       <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.2" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" visible="true" weight="0.3089701" />
-      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="3" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Python Console" order="4" weight="0.32724252" />
-      <window_info anchor="bottom" id="Docker" order="5" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" />
-      <window_info anchor="bottom" id="Run" order="8" weight="0.45681062" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="12" />
-      <window_info anchor="right" id="Database" order="0" weight="0.32955465" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="SciView" order="2" />
-      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="To start working, I needed to commit for some reason" />
-    <option name="LAST_COMMIT_MESSAGE" value="To start working, I needed to commit for some reason" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/back-end/test.rtf">
@@ -777,6 +234,9 @@
     <entry file="file://$PROJECT_DIR$/back-end/content/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/back-end/content/views.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/back-end/content/migrations/0002_auto_20181115_1620.py" />
     <entry file="file://$PROJECT_DIR$/back-end/content/migrations/0003_category_parent.py" />
     <entry file="file://$PROJECT_DIR$/back-end/content/migrations/0004_auto_20181115_1637.py" />
@@ -797,7 +257,9 @@
     <entry file="file://$PROJECT_DIR$/back-end/users/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/706dbb7c-2dcf-44aa-9544-ea70401b47b5/console.sql" />
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/706dbb7c-2dcf-44aa-9544-ea70401b47b5/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file:///private/var/folders/0w/08hmrfyx1f176bkztxwr8l380000gn/T/fz3temp-2/urls.py" />
     <entry file="file://$PROJECT_DIR$/back-end/users/models.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -818,153 +280,43 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file:///private/var/folders/0w/08hmrfyx1f176bkztxwr8l380000gn/T/fz3temp-2/settings.py" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/Vagrantfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/untitled/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="49" selection-start-line="14" selection-start-column="49" selection-end-line="14" selection-end-column="49" />
-          <folding>
-            <element signature="e#224#233#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Random/Firebase_python_DataInsertion/key/key.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/content/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/Random/Firebase_python_DataInsertion/key/key.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="14" lean-forward="true" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/session/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://C:/Program Files/Python37/Lib/site-packages/django/core/checks/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="39" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/back-end/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
-          <folding>
-            <element signature="e#22#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/session/templates/session/index.html">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/content/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" selection-start-column="7" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/untitled/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="41" column="49" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
-          <folding>
-            <element signature="e#632#664#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/session/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/back-end/content/admin.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/session/serializers.py">
+    <entry file="file://$PROJECT_DIR$/back-end/content/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-203">
-          <caret line="9" column="46" selection-start-line="9" selection-start-column="46" selection-end-line="9" selection-end-column="46" />
-          <folding>
-            <element signature="e#1#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/session/apps.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/untitled/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-220">
-          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/session/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-237">
+        <state relative-caret-position="505">
+          <caret line="42" column="34" selection-start-line="42" selection-start-column="34" selection-end-line="42" selection-end-column="34" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/back-end/session/views.py">
+    <entry file="file://$PROJECT_DIR$/back-end/Vagrantfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="61" column="58" selection-start-line="61" selection-start-column="58" selection-end-line="61" selection-end-column="58" />
+        <state relative-caret-position="231">
+          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back-end/untitled/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" selection-start-line="16" selection-end-line="16" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/back-end/untitled/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
         </state>
       </provider>
     </entry>
