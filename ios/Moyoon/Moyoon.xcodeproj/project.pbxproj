@@ -1,0 +1,589 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		961ACCD521B1B44A005E252E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961ACCD421B1B44A005E252E /* AppDelegate.swift */; };
+		961ACCD721B1B44A005E252E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961ACCD621B1B44A005E252E /* ViewController.swift */; };
+		961ACCDA21B1B44A005E252E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961ACCD821B1B44A005E252E /* Main.storyboard */; };
+		961ACCDC21B1B44B005E252E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961ACCDB21B1B44B005E252E /* Assets.xcassets */; };
+		961ACCDF21B1B44B005E252E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961ACCDD21B1B44B005E252E /* LaunchScreen.storyboard */; };
+		961ACCEA21B1B44B005E252E /* MoyoonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961ACCE921B1B44B005E252E /* MoyoonTests.swift */; };
+		961ACCF521B1B44B005E252E /* MoyoonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961ACCF421B1B44B005E252E /* MoyoonUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		961ACCE621B1B44B005E252E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 961ACCC921B1B44A005E252E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 961ACCD021B1B44A005E252E;
+			remoteInfo = Moyoon;
+		};
+		961ACCF121B1B44B005E252E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 961ACCC921B1B44A005E252E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 961ACCD021B1B44A005E252E;
+			remoteInfo = Moyoon;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		961ACCD121B1B44A005E252E /* Moyoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moyoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		961ACCD421B1B44A005E252E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		961ACCD621B1B44A005E252E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		961ACCD921B1B44A005E252E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		961ACCDB21B1B44B005E252E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		961ACCDE21B1B44B005E252E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		961ACCE021B1B44B005E252E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		961ACCE521B1B44B005E252E /* MoyoonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyoonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		961ACCE921B1B44B005E252E /* MoyoonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyoonTests.swift; sourceTree = "<group>"; };
+		961ACCEB21B1B44B005E252E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		961ACCF021B1B44B005E252E /* MoyoonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyoonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		961ACCF421B1B44B005E252E /* MoyoonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyoonUITests.swift; sourceTree = "<group>"; };
+		961ACCF621B1B44B005E252E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		961ACCCE21B1B44A005E252E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		961ACCE221B1B44B005E252E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		961ACCED21B1B44B005E252E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		961ACCC821B1B44A005E252E = {
+			isa = PBXGroup;
+			children = (
+				961ACCD321B1B44A005E252E /* Moyoon */,
+				961ACCE821B1B44B005E252E /* MoyoonTests */,
+				961ACCF321B1B44B005E252E /* MoyoonUITests */,
+				961ACCD221B1B44A005E252E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		961ACCD221B1B44A005E252E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				961ACCD121B1B44A005E252E /* Moyoon.app */,
+				961ACCE521B1B44B005E252E /* MoyoonTests.xctest */,
+				961ACCF021B1B44B005E252E /* MoyoonUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		961ACCD321B1B44A005E252E /* Moyoon */ = {
+			isa = PBXGroup;
+			children = (
+				961ACCD421B1B44A005E252E /* AppDelegate.swift */,
+				961ACCD621B1B44A005E252E /* ViewController.swift */,
+				961ACCD821B1B44A005E252E /* Main.storyboard */,
+				961ACCDB21B1B44B005E252E /* Assets.xcassets */,
+				961ACCDD21B1B44B005E252E /* LaunchScreen.storyboard */,
+				961ACCE021B1B44B005E252E /* Info.plist */,
+			);
+			path = Moyoon;
+			sourceTree = "<group>";
+		};
+		961ACCE821B1B44B005E252E /* MoyoonTests */ = {
+			isa = PBXGroup;
+			children = (
+				961ACCE921B1B44B005E252E /* MoyoonTests.swift */,
+				961ACCEB21B1B44B005E252E /* Info.plist */,
+			);
+			path = MoyoonTests;
+			sourceTree = "<group>";
+		};
+		961ACCF321B1B44B005E252E /* MoyoonUITests */ = {
+			isa = PBXGroup;
+			children = (
+				961ACCF421B1B44B005E252E /* MoyoonUITests.swift */,
+				961ACCF621B1B44B005E252E /* Info.plist */,
+			);
+			path = MoyoonUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		961ACCD021B1B44A005E252E /* Moyoon */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 961ACCF921B1B44B005E252E /* Build configuration list for PBXNativeTarget "Moyoon" */;
+			buildPhases = (
+				961ACCCD21B1B44A005E252E /* Sources */,
+				961ACCCE21B1B44A005E252E /* Frameworks */,
+				961ACCCF21B1B44A005E252E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Moyoon;
+			productName = Moyoon;
+			productReference = 961ACCD121B1B44A005E252E /* Moyoon.app */;
+			productType = "com.apple.product-type.application";
+		};
+		961ACCE421B1B44B005E252E /* MoyoonTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 961ACCFC21B1B44B005E252E /* Build configuration list for PBXNativeTarget "MoyoonTests" */;
+			buildPhases = (
+				961ACCE121B1B44B005E252E /* Sources */,
+				961ACCE221B1B44B005E252E /* Frameworks */,
+				961ACCE321B1B44B005E252E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				961ACCE721B1B44B005E252E /* PBXTargetDependency */,
+			);
+			name = MoyoonTests;
+			productName = MoyoonTests;
+			productReference = 961ACCE521B1B44B005E252E /* MoyoonTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		961ACCEF21B1B44B005E252E /* MoyoonUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 961ACCFF21B1B44B005E252E /* Build configuration list for PBXNativeTarget "MoyoonUITests" */;
+			buildPhases = (
+				961ACCEC21B1B44B005E252E /* Sources */,
+				961ACCED21B1B44B005E252E /* Frameworks */,
+				961ACCEE21B1B44B005E252E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				961ACCF221B1B44B005E252E /* PBXTargetDependency */,
+			);
+			name = MoyoonUITests;
+			productName = MoyoonUITests;
+			productReference = 961ACCF021B1B44B005E252E /* MoyoonUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		961ACCC921B1B44A005E252E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0940;
+				ORGANIZATIONNAME = "KFUPM-SWE417";
+				TargetAttributes = {
+					961ACCD021B1B44A005E252E = {
+						CreatedOnToolsVersion = 9.4.1;
+					};
+					961ACCE421B1B44B005E252E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 961ACCD021B1B44A005E252E;
+					};
+					961ACCEF21B1B44B005E252E = {
+						CreatedOnToolsVersion = 9.4.1;
+						TestTargetID = 961ACCD021B1B44A005E252E;
+					};
+				};
+			};
+			buildConfigurationList = 961ACCCC21B1B44A005E252E /* Build configuration list for PBXProject "Moyoon" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 961ACCC821B1B44A005E252E;
+			productRefGroup = 961ACCD221B1B44A005E252E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				961ACCD021B1B44A005E252E /* Moyoon */,
+				961ACCE421B1B44B005E252E /* MoyoonTests */,
+				961ACCEF21B1B44B005E252E /* MoyoonUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		961ACCCF21B1B44A005E252E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				961ACCDF21B1B44B005E252E /* LaunchScreen.storyboard in Resources */,
+				961ACCDC21B1B44B005E252E /* Assets.xcassets in Resources */,
+				961ACCDA21B1B44A005E252E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		961ACCE321B1B44B005E252E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		961ACCEE21B1B44B005E252E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		961ACCCD21B1B44A005E252E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				961ACCD721B1B44A005E252E /* ViewController.swift in Sources */,
+				961ACCD521B1B44A005E252E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		961ACCE121B1B44B005E252E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				961ACCEA21B1B44B005E252E /* MoyoonTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		961ACCEC21B1B44B005E252E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				961ACCF521B1B44B005E252E /* MoyoonUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		961ACCE721B1B44B005E252E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 961ACCD021B1B44A005E252E /* Moyoon */;
+			targetProxy = 961ACCE621B1B44B005E252E /* PBXContainerItemProxy */;
+		};
+		961ACCF221B1B44B005E252E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 961ACCD021B1B44A005E252E /* Moyoon */;
+			targetProxy = 961ACCF121B1B44B005E252E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		961ACCD821B1B44A005E252E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				961ACCD921B1B44A005E252E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		961ACCDD21B1B44B005E252E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				961ACCDE21B1B44B005E252E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		961ACCF721B1B44B005E252E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		961ACCF821B1B44B005E252E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		961ACCFA21B1B44B005E252E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ACL6D84ZYG;
+				INFOPLIST_FILE = Moyoon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "KFUPM-SWE417.Moyoon";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		961ACCFB21B1B44B005E252E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ACL6D84ZYG;
+				INFOPLIST_FILE = Moyoon/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "KFUPM-SWE417.Moyoon";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		961ACCFD21B1B44B005E252E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ACL6D84ZYG;
+				INFOPLIST_FILE = MoyoonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "KFUPM-SWE417.MoyoonTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moyoon.app/Moyoon";
+			};
+			name = Debug;
+		};
+		961ACCFE21B1B44B005E252E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ACL6D84ZYG;
+				INFOPLIST_FILE = MoyoonTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "KFUPM-SWE417.MoyoonTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moyoon.app/Moyoon";
+			};
+			name = Release;
+		};
+		961ACD0021B1B44B005E252E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ACL6D84ZYG;
+				INFOPLIST_FILE = MoyoonUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "KFUPM-SWE417.MoyoonUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Moyoon;
+			};
+			name = Debug;
+		};
+		961ACD0121B1B44B005E252E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = ACL6D84ZYG;
+				INFOPLIST_FILE = MoyoonUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "KFUPM-SWE417.MoyoonUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Moyoon;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		961ACCCC21B1B44A005E252E /* Build configuration list for PBXProject "Moyoon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				961ACCF721B1B44B005E252E /* Debug */,
+				961ACCF821B1B44B005E252E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		961ACCF921B1B44B005E252E /* Build configuration list for PBXNativeTarget "Moyoon" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				961ACCFA21B1B44B005E252E /* Debug */,
+				961ACCFB21B1B44B005E252E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		961ACCFC21B1B44B005E252E /* Build configuration list for PBXNativeTarget "MoyoonTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				961ACCFD21B1B44B005E252E /* Debug */,
+				961ACCFE21B1B44B005E252E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		961ACCFF21B1B44B005E252E /* Build configuration list for PBXNativeTarget "MoyoonUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				961ACD0021B1B44B005E252E /* Debug */,
+				961ACD0121B1B44B005E252E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 961ACCC921B1B44A005E252E /* Project object */;
+}
