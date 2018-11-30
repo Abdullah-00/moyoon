@@ -7,120 +7,169 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		96C9A888219E2DAE00AB4A36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A887219E2DAE00AB4A36 /* AppDelegate.swift */; };
-		96C9A88A219E2DAE00AB4A36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A889219E2DAE00AB4A36 /* ViewController.swift */; };
-		96C9A88F219E2DAE00AB4A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 96C9A88E219E2DAE00AB4A36 /* Assets.xcassets */; };
-		96C9A892219E2DAE00AB4A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 96C9A890219E2DAE00AB4A36 /* LaunchScreen.storyboard */; };
-		96C9A89D219E2DAF00AB4A36 /* MoyoonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A89C219E2DAF00AB4A36 /* MoyoonTests.swift */; };
-		96C9A8A8219E2DAF00AB4A36 /* MoyoonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A8A7219E2DAF00AB4A36 /* MoyoonUITests.swift */; };
-		A106AD9521A1B50E00DD1EB8 /* Main.storyboard in Sources */ = {isa = PBXBuildFile; fileRef = 96C9A88B219E2DAE00AB4A36 /* Main.storyboard */; };
-		A106AD9721A1B5D300DD1EB8 /* SignInVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A106AD9621A1B5D300DD1EB8 /* SignInVC.swift */; };
-		A15EBB3121A1F17C00B68700 /* ReadyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15EBB3021A1F17C00B68700 /* ReadyVC.swift */; };
+		1F8DD239D7DAEC7BF30CF5D5 /* Pods_MoyoonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7189E7A760DBDEC388FF24 /* Pods_MoyoonTests.framework */; };
+		4BE234BEA22F9A38E04526C5 /* Pods_MoyoonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF7F24D7C42385D157A47803 /* Pods_MoyoonUITests.framework */; };
+		901EC8D6D0FF0070FF8903B7 /* Pods_Moyoon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB3D3F1C221EE70D805C0B5A /* Pods_Moyoon.framework */; };
+		961ACCD521B1B44A005E252E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961ACCD421B1B44A005E252E /* AppDelegate.swift */; };
+		961ACCD721B1B44A005E252E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961ACCD621B1B44A005E252E /* ViewController.swift */; };
+		961ACCDA21B1B44A005E252E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961ACCD821B1B44A005E252E /* Main.storyboard */; };
+		961ACCDC21B1B44B005E252E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 961ACCDB21B1B44B005E252E /* Assets.xcassets */; };
+		961ACCDF21B1B44B005E252E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 961ACCDD21B1B44B005E252E /* LaunchScreen.storyboard */; };
+		961ACCEA21B1B44B005E252E /* MoyoonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961ACCE921B1B44B005E252E /* MoyoonTests.swift */; };
+		961ACCF521B1B44B005E252E /* MoyoonUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961ACCF421B1B44B005E252E /* MoyoonUITests.swift */; };
+		A16AFFD421B18D4000B5255A /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD321B18D4000B5255A /* Homepage.swift */; };
+		A16AFFD621B18F0400B5255A /* WriteAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD521B18F0400B5255A /* WriteAnswer.swift */; };
+		A16AFFD821B1901B00B5255A /* ChooseAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD721B1901B00B5255A /* ChooseAnswer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		96C9A899219E2DAF00AB4A36 /* PBXContainerItemProxy */ = {
+		961ACCE621B1B44B005E252E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 96C9A87C219E2DAE00AB4A36 /* Project object */;
+			containerPortal = 961ACCC921B1B44A005E252E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 96C9A883219E2DAE00AB4A36;
+			remoteGlobalIDString = 961ACCD021B1B44A005E252E;
 			remoteInfo = Moyoon;
 		};
-		96C9A8A4219E2DAF00AB4A36 /* PBXContainerItemProxy */ = {
+		961ACCF121B1B44B005E252E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 96C9A87C219E2DAE00AB4A36 /* Project object */;
+			containerPortal = 961ACCC921B1B44A005E252E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 96C9A883219E2DAE00AB4A36;
+			remoteGlobalIDString = 961ACCD021B1B44A005E252E;
 			remoteInfo = Moyoon;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		96C9A884219E2DAE00AB4A36 /* Moyoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moyoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		96C9A887219E2DAE00AB4A36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		96C9A889219E2DAE00AB4A36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		96C9A88C219E2DAE00AB4A36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		96C9A88E219E2DAE00AB4A36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		96C9A891219E2DAE00AB4A36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		96C9A898219E2DAF00AB4A36 /* MoyoonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyoonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		96C9A89C219E2DAF00AB4A36 /* MoyoonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyoonTests.swift; sourceTree = "<group>"; };
-		96C9A8A3219E2DAF00AB4A36 /* MoyoonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyoonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		96C9A8A7219E2DAF00AB4A36 /* MoyoonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyoonUITests.swift; sourceTree = "<group>"; };
-		A106AD9621A1B5D300DD1EB8 /* SignInVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInVC.swift; sourceTree = "<group>"; };
-		A15EBB3021A1F17C00B68700 /* ReadyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyVC.swift; sourceTree = "<group>"; };
+		18AC8B36BE2B05C9A8B4853F /* Pods-Moyoon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moyoon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon.debug.xcconfig"; sourceTree = "<group>"; };
+		1F7189E7A760DBDEC388FF24 /* Pods_MoyoonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyoonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		74D74D06AD8806F8F985ADCD /* Pods-Moyoon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moyoon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon.release.xcconfig"; sourceTree = "<group>"; };
+		954236324DFDE13D67006BE1 /* Pods-MoyoonTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyoonTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests.release.xcconfig"; sourceTree = "<group>"; };
+		961ACCD121B1B44A005E252E /* Moyoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moyoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		961ACCD421B1B44A005E252E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		961ACCD621B1B44A005E252E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		961ACCD921B1B44A005E252E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		961ACCDB21B1B44B005E252E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		961ACCDE21B1B44B005E252E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		961ACCE021B1B44B005E252E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		961ACCE521B1B44B005E252E /* MoyoonTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyoonTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		961ACCE921B1B44B005E252E /* MoyoonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyoonTests.swift; sourceTree = "<group>"; };
+		961ACCEB21B1B44B005E252E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		961ACCF021B1B44B005E252E /* MoyoonUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoyoonUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		961ACCF421B1B44B005E252E /* MoyoonUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyoonUITests.swift; sourceTree = "<group>"; };
+		961ACCF621B1B44B005E252E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A16AFFD321B18D4000B5255A /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
+		A16AFFD521B18F0400B5255A /* WriteAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteAnswer.swift; sourceTree = "<group>"; };
+		A16AFFD721B1901B00B5255A /* ChooseAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAnswer.swift; sourceTree = "<group>"; };
+		AF7F24D7C42385D157A47803 /* Pods_MoyoonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyoonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B208CCE6444F60CA1B8F14DA /* Pods-MoyoonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyoonUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D042DBDB4622ADDD5CE4B9B2 /* Pods-MoyoonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyoonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests.debug.xcconfig"; sourceTree = "<group>"; };
+		EB3D3F1C221EE70D805C0B5A /* Pods_Moyoon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moyoon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F0BDD3ABC52440A378E8F89B /* Pods-MoyoonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyoonUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		96C9A881219E2DAE00AB4A36 /* Frameworks */ = {
+		961ACCCE21B1B44A005E252E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				901EC8D6D0FF0070FF8903B7 /* Pods_Moyoon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96C9A895219E2DAF00AB4A36 /* Frameworks */ = {
+		961ACCE221B1B44B005E252E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F8DD239D7DAEC7BF30CF5D5 /* Pods_MoyoonTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96C9A8A0219E2DAF00AB4A36 /* Frameworks */ = {
+		961ACCED21B1B44B005E252E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BE234BEA22F9A38E04526C5 /* Pods_MoyoonUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		96C9A87B219E2DAE00AB4A36 = {
+		1B78B1446BA4D9138B32AB85 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				96C9A886219E2DAE00AB4A36 /* Moyoon */,
-				96C9A89B219E2DAF00AB4A36 /* MoyoonTests */,
-				96C9A8A6219E2DAF00AB4A36 /* MoyoonUITests */,
-				96C9A885219E2DAE00AB4A36 /* Products */,
+				18AC8B36BE2B05C9A8B4853F /* Pods-Moyoon.debug.xcconfig */,
+				74D74D06AD8806F8F985ADCD /* Pods-Moyoon.release.xcconfig */,
+				D042DBDB4622ADDD5CE4B9B2 /* Pods-MoyoonTests.debug.xcconfig */,
+				954236324DFDE13D67006BE1 /* Pods-MoyoonTests.release.xcconfig */,
+				B208CCE6444F60CA1B8F14DA /* Pods-MoyoonUITests.debug.xcconfig */,
+				F0BDD3ABC52440A378E8F89B /* Pods-MoyoonUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		82D7972E1F34303CB7210BDB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EB3D3F1C221EE70D805C0B5A /* Pods_Moyoon.framework */,
+				1F7189E7A760DBDEC388FF24 /* Pods_MoyoonTests.framework */,
+				AF7F24D7C42385D157A47803 /* Pods_MoyoonUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		961ACCC821B1B44A005E252E = {
+			isa = PBXGroup;
+			children = (
+				961ACCD321B1B44A005E252E /* Moyoon */,
+				961ACCE821B1B44B005E252E /* MoyoonTests */,
+				961ACCF321B1B44B005E252E /* MoyoonUITests */,
+				961ACCD221B1B44A005E252E /* Products */,
+				1B78B1446BA4D9138B32AB85 /* Pods */,
+				82D7972E1F34303CB7210BDB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		96C9A885219E2DAE00AB4A36 /* Products */ = {
+		961ACCD221B1B44A005E252E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				96C9A884219E2DAE00AB4A36 /* Moyoon.app */,
-				96C9A898219E2DAF00AB4A36 /* MoyoonTests.xctest */,
-				96C9A8A3219E2DAF00AB4A36 /* MoyoonUITests.xctest */,
+				961ACCD121B1B44A005E252E /* Moyoon.app */,
+				961ACCE521B1B44B005E252E /* MoyoonTests.xctest */,
+				961ACCF021B1B44B005E252E /* MoyoonUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		96C9A886219E2DAE00AB4A36 /* Moyoon */ = {
+		961ACCD321B1B44A005E252E /* Moyoon */ = {
 			isa = PBXGroup;
 			children = (
-				96C9A887219E2DAE00AB4A36 /* AppDelegate.swift */,
-				96C9A889219E2DAE00AB4A36 /* ViewController.swift */,
-				96C9A88B219E2DAE00AB4A36 /* Main.storyboard */,
-				A15EBB3021A1F17C00B68700 /* ReadyVC.swift */,
-				96C9A88E219E2DAE00AB4A36 /* Assets.xcassets */,
-				96C9A890219E2DAE00AB4A36 /* LaunchScreen.storyboard */,
-				A106AD9621A1B5D300DD1EB8 /* SignInVC.swift */,
+				961ACCD421B1B44A005E252E /* AppDelegate.swift */,
+				961ACCD621B1B44A005E252E /* ViewController.swift */,
+				961ACCD821B1B44A005E252E /* Main.storyboard */,
+				A16AFFD721B1901B00B5255A /* ChooseAnswer.swift */,
+				A16AFFD521B18F0400B5255A /* WriteAnswer.swift */,
+				A16AFFD321B18D4000B5255A /* Homepage.swift */,
+				961ACCDB21B1B44B005E252E /* Assets.xcassets */,
+				961ACCDD21B1B44B005E252E /* LaunchScreen.storyboard */,
+				961ACCE021B1B44B005E252E /* Info.plist */,
 			);
 			path = Moyoon;
 			sourceTree = "<group>";
 		};
-		96C9A89B219E2DAF00AB4A36 /* MoyoonTests */ = {
+		961ACCE821B1B44B005E252E /* MoyoonTests */ = {
 			isa = PBXGroup;
 			children = (
-				96C9A89C219E2DAF00AB4A36 /* MoyoonTests.swift */,
+				961ACCE921B1B44B005E252E /* MoyoonTests.swift */,
+				961ACCEB21B1B44B005E252E /* Info.plist */,
 			);
 			path = MoyoonTests;
 			sourceTree = "<group>";
 		};
-		96C9A8A6219E2DAF00AB4A36 /* MoyoonUITests */ = {
+		961ACCF321B1B44B005E252E /* MoyoonUITests */ = {
 			isa = PBXGroup;
 			children = (
-				96C9A8A7219E2DAF00AB4A36 /* MoyoonUITests.swift */,
+				961ACCF421B1B44B005E252E /* MoyoonUITests.swift */,
+				961ACCF621B1B44B005E252E /* Info.plist */,
 			);
 			path = MoyoonUITests;
 			sourceTree = "<group>";
@@ -128,13 +177,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		96C9A883219E2DAE00AB4A36 /* Moyoon */ = {
+		961ACCD021B1B44A005E252E /* Moyoon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96C9A8AC219E2DAF00AB4A36 /* Build configuration list for PBXNativeTarget "Moyoon" */;
+			buildConfigurationList = 961ACCF921B1B44B005E252E /* Build configuration list for PBXNativeTarget "Moyoon" */;
 			buildPhases = (
-				96C9A880219E2DAE00AB4A36 /* Sources */,
-				96C9A881219E2DAE00AB4A36 /* Frameworks */,
-				96C9A882219E2DAE00AB4A36 /* Resources */,
+				F0780AEB303A18B03698AB92 /* [CP] Check Pods Manifest.lock */,
+				961ACCCD21B1B44A005E252E /* Sources */,
+				961ACCCE21B1B44A005E252E /* Frameworks */,
+				961ACCCF21B1B44A005E252E /* Resources */,
+				8A3B8918B7238ECD85A8C20C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -142,69 +193,71 @@
 			);
 			name = Moyoon;
 			productName = Moyoon;
-			productReference = 96C9A884219E2DAE00AB4A36 /* Moyoon.app */;
+			productReference = 961ACCD121B1B44A005E252E /* Moyoon.app */;
 			productType = "com.apple.product-type.application";
 		};
-		96C9A897219E2DAF00AB4A36 /* MoyoonTests */ = {
+		961ACCE421B1B44B005E252E /* MoyoonTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96C9A8AF219E2DAF00AB4A36 /* Build configuration list for PBXNativeTarget "MoyoonTests" */;
+			buildConfigurationList = 961ACCFC21B1B44B005E252E /* Build configuration list for PBXNativeTarget "MoyoonTests" */;
 			buildPhases = (
-				96C9A894219E2DAF00AB4A36 /* Sources */,
-				96C9A895219E2DAF00AB4A36 /* Frameworks */,
-				96C9A896219E2DAF00AB4A36 /* Resources */,
+				8DBA8967861CBF4CBA110C0E /* [CP] Check Pods Manifest.lock */,
+				961ACCE121B1B44B005E252E /* Sources */,
+				961ACCE221B1B44B005E252E /* Frameworks */,
+				961ACCE321B1B44B005E252E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				96C9A89A219E2DAF00AB4A36 /* PBXTargetDependency */,
+				961ACCE721B1B44B005E252E /* PBXTargetDependency */,
 			);
 			name = MoyoonTests;
 			productName = MoyoonTests;
-			productReference = 96C9A898219E2DAF00AB4A36 /* MoyoonTests.xctest */;
+			productReference = 961ACCE521B1B44B005E252E /* MoyoonTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		96C9A8A2219E2DAF00AB4A36 /* MoyoonUITests */ = {
+		961ACCEF21B1B44B005E252E /* MoyoonUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 96C9A8B2219E2DAF00AB4A36 /* Build configuration list for PBXNativeTarget "MoyoonUITests" */;
+			buildConfigurationList = 961ACCFF21B1B44B005E252E /* Build configuration list for PBXNativeTarget "MoyoonUITests" */;
 			buildPhases = (
-				96C9A89F219E2DAF00AB4A36 /* Sources */,
-				96C9A8A0219E2DAF00AB4A36 /* Frameworks */,
-				96C9A8A1219E2DAF00AB4A36 /* Resources */,
+				1B3009E6B1A9FACD7448F835 /* [CP] Check Pods Manifest.lock */,
+				961ACCEC21B1B44B005E252E /* Sources */,
+				961ACCED21B1B44B005E252E /* Frameworks */,
+				961ACCEE21B1B44B005E252E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				96C9A8A5219E2DAF00AB4A36 /* PBXTargetDependency */,
+				961ACCF221B1B44B005E252E /* PBXTargetDependency */,
 			);
 			name = MoyoonUITests;
 			productName = MoyoonUITests;
-			productReference = 96C9A8A3219E2DAF00AB4A36 /* MoyoonUITests.xctest */;
+			productReference = 961ACCF021B1B44B005E252E /* MoyoonUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		96C9A87C219E2DAE00AB4A36 /* Project object */ = {
+		961ACCC921B1B44A005E252E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = "KFUPM-SWE417";
 				TargetAttributes = {
-					96C9A883219E2DAE00AB4A36 = {
+					961ACCD021B1B44A005E252E = {
 						CreatedOnToolsVersion = 9.4.1;
 					};
-					96C9A897219E2DAF00AB4A36 = {
+					961ACCE421B1B44B005E252E = {
 						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 96C9A883219E2DAE00AB4A36;
+						TestTargetID = 961ACCD021B1B44A005E252E;
 					};
-					96C9A8A2219E2DAF00AB4A36 = {
+					961ACCEF21B1B44B005E252E = {
 						CreatedOnToolsVersion = 9.4.1;
-						TestTargetID = 96C9A883219E2DAE00AB4A36;
+						TestTargetID = 961ACCD021B1B44A005E252E;
 					};
 				};
 			};
-			buildConfigurationList = 96C9A87F219E2DAE00AB4A36 /* Build configuration list for PBXProject "Moyoon" */;
+			buildConfigurationList = 961ACCCC21B1B44A005E252E /* Build configuration list for PBXProject "Moyoon" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -212,36 +265,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 96C9A87B219E2DAE00AB4A36;
-			productRefGroup = 96C9A885219E2DAE00AB4A36 /* Products */;
+			mainGroup = 961ACCC821B1B44A005E252E;
+			productRefGroup = 961ACCD221B1B44A005E252E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				96C9A883219E2DAE00AB4A36 /* Moyoon */,
-				96C9A897219E2DAF00AB4A36 /* MoyoonTests */,
-				96C9A8A2219E2DAF00AB4A36 /* MoyoonUITests */,
+				961ACCD021B1B44A005E252E /* Moyoon */,
+				961ACCE421B1B44B005E252E /* MoyoonTests */,
+				961ACCEF21B1B44B005E252E /* MoyoonUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		96C9A882219E2DAE00AB4A36 /* Resources */ = {
+		961ACCCF21B1B44A005E252E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96C9A892219E2DAE00AB4A36 /* LaunchScreen.storyboard in Resources */,
-				96C9A88F219E2DAE00AB4A36 /* Assets.xcassets in Resources */,
+				961ACCDF21B1B44B005E252E /* LaunchScreen.storyboard in Resources */,
+				961ACCDC21B1B44B005E252E /* Assets.xcassets in Resources */,
+				961ACCDA21B1B44A005E252E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96C9A896219E2DAF00AB4A36 /* Resources */ = {
+		961ACCE321B1B44B005E252E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96C9A8A1219E2DAF00AB4A36 /* Resources */ = {
+		961ACCEE21B1B44B005E252E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -250,63 +304,140 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1B3009E6B1A9FACD7448F835 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoyoonUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8A3B8918B7238ECD85A8C20C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8DBA8967861CBF4CBA110C0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MoyoonTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F0780AEB303A18B03698AB92 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Moyoon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		96C9A880219E2DAE00AB4A36 /* Sources */ = {
+		961ACCCD21B1B44A005E252E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96C9A88A219E2DAE00AB4A36 /* ViewController.swift in Sources */,
-				96C9A888219E2DAE00AB4A36 /* AppDelegate.swift in Sources */,
-				A106AD9721A1B5D300DD1EB8 /* SignInVC.swift in Sources */,
-				A15EBB3121A1F17C00B68700 /* ReadyVC.swift in Sources */,
-				A106AD9521A1B50E00DD1EB8 /* Main.storyboard in Sources */,
+				A16AFFD421B18D4000B5255A /* Homepage.swift in Sources */,
+				961ACCD721B1B44A005E252E /* ViewController.swift in Sources */,
+				961ACCD521B1B44A005E252E /* AppDelegate.swift in Sources */,
+				A16AFFD821B1901B00B5255A /* ChooseAnswer.swift in Sources */,
+				A16AFFD621B18F0400B5255A /* WriteAnswer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96C9A894219E2DAF00AB4A36 /* Sources */ = {
+		961ACCE121B1B44B005E252E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96C9A89D219E2DAF00AB4A36 /* MoyoonTests.swift in Sources */,
+				961ACCEA21B1B44B005E252E /* MoyoonTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		96C9A89F219E2DAF00AB4A36 /* Sources */ = {
+		961ACCEC21B1B44B005E252E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				96C9A8A8219E2DAF00AB4A36 /* MoyoonUITests.swift in Sources */,
+				961ACCF521B1B44B005E252E /* MoyoonUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		96C9A89A219E2DAF00AB4A36 /* PBXTargetDependency */ = {
+		961ACCE721B1B44B005E252E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 96C9A883219E2DAE00AB4A36 /* Moyoon */;
-			targetProxy = 96C9A899219E2DAF00AB4A36 /* PBXContainerItemProxy */;
+			target = 961ACCD021B1B44A005E252E /* Moyoon */;
+			targetProxy = 961ACCE621B1B44B005E252E /* PBXContainerItemProxy */;
 		};
-		96C9A8A5219E2DAF00AB4A36 /* PBXTargetDependency */ = {
+		961ACCF221B1B44B005E252E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 96C9A883219E2DAE00AB4A36 /* Moyoon */;
-			targetProxy = 96C9A8A4219E2DAF00AB4A36 /* PBXContainerItemProxy */;
+			target = 961ACCD021B1B44A005E252E /* Moyoon */;
+			targetProxy = 961ACCF121B1B44B005E252E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		96C9A88B219E2DAE00AB4A36 /* Main.storyboard */ = {
+		961ACCD821B1B44A005E252E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				96C9A88C219E2DAE00AB4A36 /* Base */,
+				961ACCD921B1B44A005E252E /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		96C9A890219E2DAE00AB4A36 /* LaunchScreen.storyboard */ = {
+		961ACCDD21B1B44B005E252E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				96C9A891219E2DAE00AB4A36 /* Base */,
+				961ACCDE21B1B44B005E252E /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -314,7 +445,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		96C9A8AA219E2DAF00AB4A36 /* Debug */ = {
+		961ACCF721B1B44B005E252E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -374,7 +505,7 @@
 			};
 			name = Debug;
 		};
-		96C9A8AB219E2DAF00AB4A36 /* Release */ = {
+		961ACCF821B1B44B005E252E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -428,8 +559,9 @@
 			};
 			name = Release;
 		};
-		96C9A8AD219E2DAF00AB4A36 /* Debug */ = {
+		961ACCFA21B1B44B005E252E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18AC8B36BE2B05C9A8B4853F /* Pods-Moyoon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -446,8 +578,9 @@
 			};
 			name = Debug;
 		};
-		96C9A8AE219E2DAF00AB4A36 /* Release */ = {
+		961ACCFB21B1B44B005E252E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 74D74D06AD8806F8F985ADCD /* Pods-Moyoon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -464,8 +597,9 @@
 			};
 			name = Release;
 		};
-		96C9A8B0219E2DAF00AB4A36 /* Debug */ = {
+		961ACCFD21B1B44B005E252E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D042DBDB4622ADDD5CE4B9B2 /* Pods-MoyoonTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -485,8 +619,9 @@
 			};
 			name = Debug;
 		};
-		96C9A8B1219E2DAF00AB4A36 /* Release */ = {
+		961ACCFE21B1B44B005E252E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 954236324DFDE13D67006BE1 /* Pods-MoyoonTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -506,8 +641,9 @@
 			};
 			name = Release;
 		};
-		96C9A8B3219E2DAF00AB4A36 /* Debug */ = {
+		961ACD0021B1B44B005E252E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B208CCE6444F60CA1B8F14DA /* Pods-MoyoonUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -526,8 +662,9 @@
 			};
 			name = Debug;
 		};
-		96C9A8B4219E2DAF00AB4A36 /* Release */ = {
+		961ACD0121B1B44B005E252E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0BDD3ABC52440A378E8F89B /* Pods-MoyoonUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -549,43 +686,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		96C9A87F219E2DAE00AB4A36 /* Build configuration list for PBXProject "Moyoon" */ = {
+		961ACCCC21B1B44A005E252E /* Build configuration list for PBXProject "Moyoon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96C9A8AA219E2DAF00AB4A36 /* Debug */,
-				96C9A8AB219E2DAF00AB4A36 /* Release */,
+				961ACCF721B1B44B005E252E /* Debug */,
+				961ACCF821B1B44B005E252E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96C9A8AC219E2DAF00AB4A36 /* Build configuration list for PBXNativeTarget "Moyoon" */ = {
+		961ACCF921B1B44B005E252E /* Build configuration list for PBXNativeTarget "Moyoon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96C9A8AD219E2DAF00AB4A36 /* Debug */,
-				96C9A8AE219E2DAF00AB4A36 /* Release */,
+				961ACCFA21B1B44B005E252E /* Debug */,
+				961ACCFB21B1B44B005E252E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96C9A8AF219E2DAF00AB4A36 /* Build configuration list for PBXNativeTarget "MoyoonTests" */ = {
+		961ACCFC21B1B44B005E252E /* Build configuration list for PBXNativeTarget "MoyoonTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96C9A8B0219E2DAF00AB4A36 /* Debug */,
-				96C9A8B1219E2DAF00AB4A36 /* Release */,
+				961ACCFD21B1B44B005E252E /* Debug */,
+				961ACCFE21B1B44B005E252E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		96C9A8B2219E2DAF00AB4A36 /* Build configuration list for PBXNativeTarget "MoyoonUITests" */ = {
+		961ACCFF21B1B44B005E252E /* Build configuration list for PBXNativeTarget "MoyoonUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				96C9A8B3219E2DAF00AB4A36 /* Debug */,
-				96C9A8B4219E2DAF00AB4A36 /* Release */,
+				961ACD0021B1B44B005E252E /* Debug */,
+				961ACD0121B1B44B005E252E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 96C9A87C219E2DAE00AB4A36 /* Project object */;
+	rootObject = 961ACCC921B1B44A005E252E /* Project object */;
 }
