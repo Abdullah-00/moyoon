@@ -19,7 +19,7 @@ firebase_admin.initialize_app(cred, {
     'projectId': "moyoon-abikmmr",
 })
 
-def createSessionByCategory(numOfPlayers, catagory_id, is_provided, questions):
+def createSessionByCategory(catagory_id, is_provided, questions):
     db = firestore.client()
     doc_ref = db.collection(u'Session').document()
     session_id = doc_ref

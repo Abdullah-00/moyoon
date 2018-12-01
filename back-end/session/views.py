@@ -53,17 +53,17 @@ class SubmitAnswerChoiceViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.SubmitAnswerChoiceSerializer
     queryset = models.SubmitAnswerChoice.objects.all()
 
-# Link: http://127.0.0.1:8000/session/?numOfPlayers=101&catagory_id=6&is_provided=False&questions=jhcusgcziu
+# Link: http://127.0.0.1:8000/session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 # returns session ID
 #
 def createSessionView(request):
-    numOfPlayers = request.GET.get('numOfPlayers')
+    #numOfPlayers = request.GET.get('numOfPlayers')
     catagory_id = request.GET.get('catagory_id')
     is_provided = request.GET.get('is_provided')
     questions = request.GET.get('questions')
     if(is_provided=="False"):
         array = Question.objects.filter(Category_parent=catagory_id)
-        x = createSessionByCategory(numOfPlayers, catagory_id, is_provided, array)
+        x = createSessionByCategory(catagory_id, is_provided, array)
     else:
         array = []
     
@@ -103,3 +103,8 @@ def SubmitAnswerView(request):
         createWrongAnswer(session_id, player_id, round_id, question_id, answer)
         return HttpResponse("wrong answer submitted")
 
+def SubmitAnswerChoiceView(request):
+    player_id = request.GET.get('player_id')
+    session_id = request.GET.get('session_id')
+    round_id = request.GET.get('round_id')
+    question_id = request.GET.get('question_id')

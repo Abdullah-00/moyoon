@@ -39,7 +39,7 @@ urlpatterns = [
     # route on enter session page, calls index method on session.views class
     path('SubmitAnswer/', views.SubmitAnswerView, name='index'),
     # route on enter session page, calls index method on session.views class
-    path('SubmitAnswerChoice/', views.index, name='index'),
+    path('SubmitAnswerChoice/', views.SubmitAnswerChoiceView, name='index'),
     # ex: /session/5/
     path('<int:question_id>/',  views.detail, name='detail'),
     # ex: /session/5/results/
