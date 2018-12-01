@@ -53,6 +53,9 @@ class SubmitAnswerChoiceViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.SubmitAnswerChoiceSerializer
     queryset = models.SubmitAnswerChoice.objects.all()
 
+# Link: http://127.0.0.1:8000/session/?numOfPlayers=101&catagory_id=6&is_provided=False&questions=jhcusgcziu
+# returns session ID
+#
 def createSessionView(request):
     numOfPlayers = request.GET.get('numOfPlayers')
     catagory_id = request.GET.get('catagory_id')
@@ -66,6 +69,9 @@ def createSessionView(request):
     
     return HttpResponse(x.id)
 
+# Link: http://127.0.0.1:8000/enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
+# returns player ID
+#
 def enterSessionView(request):
     nick_name = request.GET.get('nick_name')
     session_id = request.GET.get('session_id')
@@ -75,11 +81,25 @@ def enterSessionView(request):
     else:
         return HttpResponse("Cannot get you inside the session.")
 
+#TC1:
+#   Link: http://127.0.0.1:8000/SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
+#   update player score
+#TC2:
+#   Link: http://127.0.0.1:8000/SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=7
+#   Add answer to Wrong answer list
 def SubmitAnswerView(request):
     player_id = request.GET.get('player_id')
     session_id = request.GET.get('session_id')
     round_id = request.GET.get('round_id')
     question_id = request.GET.get('question_id')
     answer = request.GET.get('answer')
+    correct_answer = isCorrctAnswer(session_id, round_id, question_id)
+    if(answer == correct_answer):
+        # Add 5 points to the player
+        incrementPlayerScore(session_id, player_id, 5)
+        return HttpResponse("Done")
+    else:
+        # Add answer to wrong answer list
+        createWrongAnswer(session_id, player_id, round_id, question_id, answer)
+        return HttpResponse("wrong answer submitted")
 
-    
