@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from . import models
+from content.models import Question
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -57,5 +58,9 @@ def createSessionView(request):
     catagory_id = request.GET.get('catagory_id')
     is_provided = request.GET.get('is_provided')
     questions = request.GET.get('questions')
-    createSession(numOfPlayers, catagory_id, is_provided, questions)
-    return HttpResponse("Done")
+    if(is_provided=="False"):
+        array = Question.objects.filter(Category_parent=catagory_id)
+    else:
+        array = []
+    x = createSession(numOfPlayers, catagory_id, is_provided, array)
+    return HttpResponse(x.id)
