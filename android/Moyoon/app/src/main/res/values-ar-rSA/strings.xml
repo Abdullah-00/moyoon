@@ -5,5 +5,6 @@
     <string name="Session_Code">رقم الجلسة</string>
     <string name="Lie">كيّس</string>
     <string name="Submit_lie">ارسال</string>
+    <string name="nickname">ادخل اسمك</string>
 
 </resources>

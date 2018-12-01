@@ -9,9 +9,13 @@ import android.widget.*
 class Correct_Answer() : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.correct_answer)
+        setContentView(R.layout.kick_player)
 
-        val score = findViewById<TextView>(R.id.score)
-        score.setText("+50")
+//        val score = findViewById<TextView>(R.id.score)
+//        val answer_msg = findViewById<TextView>(R.id.correctTxt)
+//        answer_msg.setText("Correct")
+
+
+
     }
 }

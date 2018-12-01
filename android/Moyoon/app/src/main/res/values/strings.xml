@@ -4,4 +4,5 @@
     <string name="Session_Code">Session Code</string>
     <string name="Lie">Lie</string>
     <string name="Submit_lie">Submit</string>
+    <string name="nickname">Enter your name</string>
 </resources>
