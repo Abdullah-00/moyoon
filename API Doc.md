@@ -10,7 +10,7 @@ enterSessionView has 2 parameters
 It will return Player ID
 
 Example: 
-enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
+* enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
 
 
 SubmitAnswerView has 5 parameters 
@@ -22,7 +22,7 @@ SubmitAnswerView has 5 parameters
 5. answer // written by the user 
 
 Example:
-SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
+* SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
 
 
 
@@ -37,5 +37,5 @@ SubmitAnswerChoice has 5 parameters
 5. answer // Chosen by the user 
 
 Example:
-SubmitAnswerChoice/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
+* SubmitAnswerChoice/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
 
