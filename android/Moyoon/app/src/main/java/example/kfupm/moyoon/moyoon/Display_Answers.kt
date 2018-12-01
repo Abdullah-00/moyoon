@@ -29,8 +29,8 @@ class Display_Answers() : AppCompatActivity() {
 
         val submit_ans = findViewById<Button>(R.id.submit_ans)
         submit_ans.setOnClickListener {
-            val intentSub = Intent(this, Correct_Answer::class.java)
-            startActivity(intentSub)
+            val intent = Intent(this,Correct_Answer::class.java)
+            startActivity(intent)
         }
 
         //////// TIMER CODE \\\\\\\\\
