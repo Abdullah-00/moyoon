@@ -10,7 +10,7 @@
 
 It will return Player ID
 
-Example: <br/>
+### Example: <br/>
  enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
 
 
@@ -23,7 +23,7 @@ Example: <br/>
 4. question_id // taken from Firbase 
 5. answer // written by the user 
 
-Example:<br/>
+### Example:<br/>
 SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
 
 
@@ -39,6 +39,6 @@ SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id
 4. question_id // taken from Firbase 
 5. answer // Chosen by the user 
 
-Example:<br/>
+### Example:<br/>
 SubmitAnswerChoice/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
 
