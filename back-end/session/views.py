@@ -53,7 +53,7 @@ class SubmitAnswerChoiceViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.SubmitAnswerChoiceSerializer
     queryset = models.SubmitAnswerChoice.objects.all()
 
-# Link: http://127.0.0.1:8000/session/?numOfPlayers=101&catagory_id=6&is_provided=False&questions=jhcusgcziu
+# Link: http://127.0.0.1:8000/session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 # returns session ID
 #
 def createSessionView(request):
