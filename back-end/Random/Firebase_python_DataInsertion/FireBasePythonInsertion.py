@@ -19,31 +19,86 @@ firebase_admin.initialize_app(cred, {
     'projectId': "moyoon-abikmmr",
 })
 
-def createSession(numOfPlayers, catagory_id, is_provided, questions):
+def createSessionByCategory(numOfPlayers, catagory_id, is_provided, questions):
     db = firestore.client()
     doc_ref = db.collection(u'Session').document()
     session_id = doc_ref
     data2 = {
         u'addPlayers' : True
     }
-    doc_ref.set(data2)
+    session_id.set(data2)
 
     for i in range(3):
-        round_col = doc_ref.collection(u'Rounds')
+        round_col = session_id.collection(u'Rounds')
         round_id = round_col.document(str(i+1))
         data2 = {
             u'isDone' : False
         }
         round_id.set(data2)
-        for j in range(len(questions)):
-            question_id = round_id.collection(u'Questions').document(str(j+1))
+        for j in range((i*3), (i*3+3)):
+            question_id = round_col.document(str(i+1)).collection(u'Questions').document(str(j+1))
             data2 = {
                 u'name' : questions[j].name,
                 u'name_ar' : questions[j].name_ar,
                 u'Photo' : "URL",
-                u'Correct_Answer' : questions[j].Correct_answer
+                u'Correct_Answer' : questions[j].Correct_answer,
+                u'isDone' : False
             }
             question_id.set(data2)
-    return doc_ref
+    return session_id
+
+# def createSessionByCategory(numOfPlayers, catagory_id, is_provided, questions):
+#     db = firestore.client()
+#     doc_ref = db.collection(u'Session').document()
+#     session_id = doc_ref
+#     data2 = {
+#         u'addPlayers' : True
+#     }
+#     session_id.set(data2)
+
+#     for i in range(3):
+#         round_col = session_id.collection(u'Rounds')
+#         round_id = round_col.document(str(i+1))
+#         data2 = {
+#             u'isDone' : False
+#         }
+#         round_id.set(data2)
+#         for j in range(len(questions)):
+#             question_id = round_id.collection(u'Questions').document(str(j+1))
+#             data2 = {
+#                 u'name' : questions[j].name,
+#                 u'name_ar' : questions[j].name_ar,
+#                 u'Photo' : "URL",
+#                 u'Correct_Answer' : questions[j].Correct_answer,
+#                 u'isDone' : False
+#             }
+#             question_id.set(data2)
+#     return session_id
+
+def checkAddPlayer(session_id):
+    db = firestore.client()
+    doc_ref = db.collection(u'Session').document(session_id)
+    addplayer = doc_ref.get().to_dict()
+    for key, value in addplayer.items():
+        addplayer = value
+        break
+    print(addplayer)
+    return addplayer
+
+def addPlayers(session_id, nick_name):
+    db = firestore.client()
+    doc_ref = db.collection(u'Session').document(session_id).collection(u'Players').document()
+    player_id = doc_ref
+    data = {
+        u'nick-name' : nick_name,
+        u'Score' : 0
+    }
+    doc_ref.set(data)
+    return player_id
+
+
+
+
+
 
 

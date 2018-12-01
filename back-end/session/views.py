@@ -60,7 +60,26 @@ def createSessionView(request):
     questions = request.GET.get('questions')
     if(is_provided=="False"):
         array = Question.objects.filter(Category_parent=catagory_id)
+        x = createSessionByCategory(numOfPlayers, catagory_id, is_provided, array)
     else:
         array = []
-    x = createSession(numOfPlayers, catagory_id, is_provided, array)
+    
     return HttpResponse(x.id)
+
+def enterSessionView(request):
+    nick_name = request.GET.get('nick_name')
+    session_id = request.GET.get('session_id')
+    if(checkAddPlayer(session_id)):
+        x = addPlayers(session_id, nick_name)
+        return HttpResponse(x.id)
+    else:
+        return HttpResponse("Cannot get you inside the session.")
+
+def SubmitAnswerView(request):
+    player_id = request.GET.get('player_id')
+    session_id = request.GET.get('session_id')
+    round_id = request.GET.get('round_id')
+    question_id = request.GET.get('question_id')
+    answer = request.GET.get('answer')
+
+    

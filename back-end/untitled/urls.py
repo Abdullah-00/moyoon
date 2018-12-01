@@ -35,7 +35,7 @@ urlpatterns = [
     # route on session page, calls index method on session.views class
     path('session/', views.createSessionView, name='index'),
     # route on enter session page, calls index method on session.views class
-    path('enterSession/', views.index, name='index'),
+    path('enterSession/', views.enterSessionView, name='index'),
     # route on enter session page, calls index method on session.views class
     path('{sessionID}/SubmitAnswer/', views.index, name='index'),
     # route on enter session page, calls index method on session.views class
