@@ -8,6 +8,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
+    // Access a Cloud Firestore instance from your Activity
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,9 +20,9 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val ref = FirebaseDatabase.getInstance().getReference("");
 
     }
+
 
 }
 

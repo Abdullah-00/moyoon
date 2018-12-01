@@ -5,7 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
-import com.google.firebase.database.*
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.FirebaseFirestoreSettings
 import java.util.*
 
 
@@ -15,7 +17,7 @@ class Type_Lie : AppCompatActivity() {
     lateinit var lie : EditText
     lateinit var Submit_lie : Button
 
-
+    val db = FirebaseFirestore.getInstance()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.type_lie)
@@ -35,6 +37,7 @@ class Type_Lie : AppCompatActivity() {
             startActivity(intent)*/
         }
     }
+
     private fun saveLie(){
         val getlie = lie.text.toString()
 
