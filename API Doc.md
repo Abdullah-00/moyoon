@@ -4,8 +4,8 @@
 
 
 enterSessionView has 2 parameters 
-1-nick_name
-2- session_id // Taken from web page (screen) 
+1.nick_name
+2.session_id // Taken from web page (screen) 
 
 It will return Player ID
 
