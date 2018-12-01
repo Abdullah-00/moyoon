@@ -5,7 +5,7 @@
 2. is_provided // For the time being this should always be False
 3. questions // For the time being this should always be empty string
 
-### Return String: session_id
+### Returns String: session_id
 #### Example: <br/>
 session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 
@@ -15,7 +15,7 @@ session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 1. nick_name
 2. session_id // Taken from web page (screen) 
 
-### return string: player_id
+### Returns string: player_id
 
 #### Example: <br/>
  enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
