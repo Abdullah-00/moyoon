@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "118454694024-22gc9dvmllu5uovp6mnvg7rn3dpbqr4j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "example.kfupm.moyoon.moyoon",
+            "certificate_hash": "68ab71986381054dc5a6732780bfb4add41e63f5"
+          }
+        },
+        {
           "client_id": "118454694024-cr6g04kkro3af1ovm8cannt525uhv3mo.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,20 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "118454694024-cr6g04kkro3af1ovm8cannt525uhv3mo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "118454694024-r4qegkmd1l3fe1b7hv97pt7ijedg2aat.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "KFUPM-SWE417.Moyoon"
+              }
+            }
+          ]
         },
         "ads_service": {
           "status": 2
