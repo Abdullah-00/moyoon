@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
 
         val join = findViewById<Button>(R.id.join)
         join.setOnClickListener{
-            val intent = Intent(this,Type_Lie::class.java)
+            val intent = Intent(this,PlayerlistActivity::class.java)
             startActivity(intent)
         }
 

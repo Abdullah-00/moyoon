@@ -3,8 +3,10 @@ package example.kfupm.moyoon.moyoon
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
+import java.util.*
 
 
 class Type_Lie : AppCompatActivity() {
@@ -12,9 +14,12 @@ class Type_Lie : AppCompatActivity() {
     lateinit var question_desplay : TextView
     lateinit var lie : EditText
     lateinit var Submit_lie : Button
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.type_lie)
+
 
         question_desplay = findViewById<TextView>(R.id.question_desplay)
         lie = findViewById(R.id.Lie)
@@ -39,5 +44,30 @@ class Type_Lie : AppCompatActivity() {
         }
 
         //val ref = FirebaseDatabase.getInstance().getReference("")
+
+
+
+        val question_desplay = findViewById<TextView>(R.id.question_desplay)
+        question_desplay.setText("Best place in the world is ?")
+
+        val Submit_lie = findViewById<Button>(R.id.Submit_lie)
+
+        Submit_lie.setOnClickListener {
+            val intent = Intent(this, Display_Answers::class.java)
+            startActivity(intent)
+
+        }
+
+
+
+
+
     }
-}
+
+
+    }
+
+
+
+
+
