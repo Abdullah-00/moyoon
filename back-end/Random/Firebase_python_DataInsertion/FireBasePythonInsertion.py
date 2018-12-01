@@ -42,7 +42,8 @@ def createSessionByCategory(numOfPlayers, catagory_id, is_provided, questions):
                 u'name_ar' : questions[j].name_ar,
                 u'Photo' : "URL",
                 u'Correct_Answer' : questions[j].Correct_answer,
-                u'isDone' : False
+                u'isDoneSubmitAnswer' : False,
+                u'isDoneChooseAnswer' : False
             }
             question_id.set(data2)
     return session_id
@@ -96,9 +97,44 @@ def addPlayers(session_id, nick_name):
     doc_ref.set(data)
     return player_id
 
+def isCorrctAnswer(session_id, round_id, question_id):
+    db = firestore.client()
+    doc_ref = db.collection(u'Session').document(session_id).collection(u'Rounds').document(round_id).collection(u'Questions').document(question_id)
+    question_doc_id = doc_ref
+    question_info = doc_ref.get().to_dict()
+    answer = ""
+    for key, value in question_info.items():
+        if(key == "Correct_Answer"):
+            answer = value
+    return answer
 
+def incrementPlayerScore(session_id, player_id, points):
+    db = firestore.client()
+    doc_ref = db.collection(u'Session').document(session_id).collection(u'Players').document(player_id)
+    player_info = doc_ref.get().to_dict()
+    score = 0
+    nick_name = ""
+    for key, value in player_info.items():
+        if(key == "Score"):
+            score = int(value)+points
+        elif(key == "nick-name"):
+            nick_name = value
+    data = {
+        u'nick-name' : nick_name,
+        u'Score' : score
+    }
+    doc_ref.set(data)
 
+def createWrongAnswer(session_id, player_id, round_id, question_id, answer):
+    db = firestore.client()
+    doc_ref = db.collection(u'Session').document(session_id).collection(u'Rounds').document(round_id).collection(u'Questions').document(question_id).collection(u'Answer').document()
+    data = {
+        u'player_id' : player_id,
+        u'Answer' : answer
+    }
+    doc_ref.set(data)
+     
 
-
+    
 
 
