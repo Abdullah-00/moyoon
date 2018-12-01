@@ -18,7 +18,8 @@
             app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="10dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintVertical_bias="0.363"
-            android:background="#FFFFFF" android:hint="@string/Lie" android:textAlignment="center"/>
+            android:background="#FFFFFF" android:hint="@string/Lie" android:textAlignment="center"
+            android:layout_marginStart="2dp"/>
     <Button
             android:text="@string/Submit_lie"
             android:layout_width="216dp"
