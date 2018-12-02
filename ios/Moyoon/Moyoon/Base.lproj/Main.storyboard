@@ -87,6 +87,7 @@
                                         <rect key="frame" x="0.0" y="258" width="240" height="30"/>
                                         <state key="normal" title="Submit"/>
                                         <connections>
+                                            <action selector="submitAnswer:" destination="ffQ-Su-BzR" eventType="touchUpInside" id="3Hv-OR-L1p"/>
                                             <segue destination="BaC-Va-Onf" kind="show" id="l1i-Zy-vhf"/>
                                         </connections>
                                     </button>
@@ -100,6 +101,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kqu-Ew-MqJ"/>
                     </view>
+                    <connections>
+                        <outlet property="answerField" destination="KoF-2g-hne" id="sWI-wg-V7R"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkC-Zv-eCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,6 +189,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vDi-ao-qAf"/>
+        <segue reference="gv6-9i-4Ny"/>
     </inferredMetricsTieBreakers>
 </document>

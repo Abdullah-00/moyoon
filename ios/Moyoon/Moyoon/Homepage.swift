@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseFirestore
-
+import Alamofire
 
 class Homepage: UIViewController {
 
@@ -35,25 +35,38 @@ class Homepage: UIViewController {
         nickname = nicknameField.text!
         session = sessionField.text!
         loadSession(session: session)
+        connectAPI(nickname: nickname, gameSession: session)
         
     }
-    
-    func connectAPI(nickname: String, session: String)
+
+    func connectAPI(nickname: String, gameSession: String)
     {
-        let urlString = "YOUR_URL"
-        let url = URL(string: urlString)!
+      //  var urlComponents = URLComponents()
+      //  urlComponents.scheme = "http"
+      //  urlComponents.host = GlobalVariables.hostname
+     //   urlComponents.path = "/enterSession/"
+      //  let nick_name = URLQueryItem(name: "nick_name", value: "\(nickname)")
+       // let session_id = URLQueryItem(name: "session_id", value: "\(gameSession)")
+       // urlComponents.queryItems = [nick_name,session_id]
+      //  guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
+      //  var request = URLRequest(url: url)
+      //  request.httpMethod = "GET"
         
-        let task = URLSession.shared.dataTask(with: url) { (data, response, err) in
-            if data != nil {
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
-                    print(json)
-                } catch {
-                    print("Could not serialise")
-                }
+        var playerId = ""
+        Alamofire.request("http://localhost:8000/enterSession/?nick_name="+nickname+"&session_id="+gameSession).response { response in
+            print("Request: \(response.request)")
+            print("Response: \(response.response)")
+            print("Error: \(response.error)")
+            print("Timeline: \(response.timeline)")
+            if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
+                print("Data: \(playerId)")
+                GlobalVariables.playerId = playerId
+                print ("Global: \(GlobalVariables.playerId)")
             }
         }
-         task.resume() 
+
+        
+        
     }
     
     func loadSession(session: String){
