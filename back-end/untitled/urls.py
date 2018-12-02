@@ -19,6 +19,8 @@ from django.urls import path
 from session import views
 from django.conf.urls import include
 from rest_framework.routers import DefaultRouter
+from django.views.generic.base import TemplateView
+
 
 
 router = DefaultRouter()
@@ -48,6 +50,8 @@ urlpatterns = [
     path('<int:question_id>/vote/', views.vote, name='vote'),
     # url for the shared screen app
     url(r'^shared_screen/', include('shared_screen.urls')),
+    # url for moyoon main page
+    url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
 ]
 
 
