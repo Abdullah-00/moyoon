@@ -46,7 +46,8 @@ urlpatterns = [
     path('<int:question_id>/results/', views.results, name='results'),
     # ex: /session/5/vote/
     path('<int:question_id>/vote/', views.vote, name='vote'),
-
+    # url for the shared screen app
+    url(r'^shared_screen/', include('shared_screen.urls')),
 ]
 
 
