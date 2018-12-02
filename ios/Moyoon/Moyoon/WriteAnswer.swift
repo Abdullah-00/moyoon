@@ -24,7 +24,8 @@ class WriteAnswer: UIViewController {
     }
     
     @IBAction func submitAnswer(_ sender: Any) {
-        sendAnswerToServer(answerField.text)
+        var answer = answerField.text!
+        sendAnswerToServer(answer: answer)
     }
     
     func sendAnswerToServer(answer: String){
@@ -40,8 +41,18 @@ class WriteAnswer: UIViewController {
 
         urlComponents.queryItems = [player_id,session_id,round_id,question_id,answer]
         guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        let task = session.dataTask(with: request) { (responseData, response, responseError) in
+            DispatchQueue.main.async {
+                print (responseData)
+            }
+        }
+        
+        task.resume()
+        
+        
     }
 }
