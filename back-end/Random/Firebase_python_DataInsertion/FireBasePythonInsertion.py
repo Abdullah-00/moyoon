@@ -200,18 +200,10 @@ def gameController(session_id):
             question_info = question_ref.get().to_dict()
             question_info['isDoneSubmitAnswer'] = True
             question_ref.set(question_info)
-            #threading.Timer(1, trial(j, question_col)).start.()
-            # currTime = int(time.time()) + 10
-            # while(currTime >= int(time.time())):
-            #     print("")
             #time.sleep(10)
             question_info = question_ref.get().to_dict()
             question_info['isDoneChooseAnswer'] = True
             question_ref.set(question_info)
-            #threading.Timer(1, trial(j, question_col)).start.()
-            # currTime = int(time.time()) + 10
-            # while(currTime >= int(time.time())):
-            #     print("")
 
         round_info = round_ref.get().to_dict()
         round_info['isDone'] = True
