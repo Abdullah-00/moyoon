@@ -108,3 +108,4 @@ def SubmitAnswerChoiceView(request):
     session_id = request.GET.get('session_id')
     round_id = request.GET.get('round_id')
     question_id = request.GET.get('question_id')
+    answer = request.GET.get('answer')
