@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7122a917-339b-4104-abf6-9dff10cc2e64" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py" beforeDir="false" afterPath="$PROJECT_DIR$/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py" afterDir="false" />
-    </list>
+    <list default="true" id="7122a917-339b-4104-abf6-9dff10cc2e64" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,14 +68,14 @@
         <counts>
           <entry key="Django Console" value="12" />
           <entry key="dummy" value="1" />
-          <entry key="py" value="4001" />
-          <entry key="txt" value="167" />
+          <entry key="py" value="4022" />
+          <entry key="txt" value="192" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="168" />
-          <entry key="Python" value="4013" />
+          <entry key="PLAIN_TEXT" value="193" />
+          <entry key="Python" value="4034" />
         </counts>
       </usages-collector>
     </session>
@@ -129,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/session/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="118" column="55" selection-start-line="118" selection-start-column="55" selection-end-line="118" selection-end-column="55" />
+            <state relative-caret-position="546">
+              <caret line="120" column="55" lean-forward="true" selection-start-line="120" selection-start-column="55" selection-end-line="120" selection-end-column="55" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -180,8 +177,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="438">
-              <caret line="166" column="31" selection-start-line="166" selection-start-column="31" selection-end-line="166" selection-end-column="41" />
+            <state relative-caret-position="306">
+              <caret line="166" column="41" selection-start-line="166" selection-start-column="41" selection-end-line="166" selection-end-column="41" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
                 <marker date="1543771333169" expanded="true" signature="7177:7881" ph="..." />
@@ -2068,7 +2065,14 @@
       <option name="project" value="LOCAL" />
       <updated>1543769632206</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="بو سويلم استلم">
+      <created>1543771526950</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1543771526950</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2082,7 +2086,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.30472103" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -2098,7 +2101,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49928468" weight="0.25421688" />
       <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32771084" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007153" side_tool="true" weight="0.25421688" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49785408" weight="0.15903614" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49785408" visible="true" weight="0.15903614" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.6542169" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -2133,7 +2136,8 @@
     <MESSAGE value="Add API Documentation" />
     <MESSAGE value="Add decrementPlayerScore" />
     <MESSAGE value="Refactor .doc.collec" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor .doc.collec" />
+    <MESSAGE value="بو سويلم استلم" />
+    <option name="LAST_COMMIT_MESSAGE" value="بو سويلم استلم" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/users/__init__.py">
@@ -2306,8 +2310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/session/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="118" column="55" selection-start-line="118" selection-start-column="55" selection-end-line="118" selection-end-column="55" />
+        <state relative-caret-position="546">
+          <caret line="120" column="55" lean-forward="true" selection-start-line="120" selection-start-column="55" selection-end-line="120" selection-end-column="55" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -2316,8 +2320,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Random/Firebase_python_DataInsertion/FireBasePythonInsertion.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="438">
-          <caret line="166" column="31" selection-start-line="166" selection-start-column="31" selection-end-line="166" selection-end-column="41" />
+        <state relative-caret-position="306">
+          <caret line="166" column="41" selection-start-line="166" selection-start-column="41" selection-end-line="166" selection-end-column="41" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
             <marker date="1543771333169" expanded="true" signature="7177:7881" ph="..." />
