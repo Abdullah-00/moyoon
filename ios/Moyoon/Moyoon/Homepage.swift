@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseFirestore
-import Alamofire
+//import Alamofire
 
 class Homepage: UIViewController {
 
@@ -35,10 +35,10 @@ class Homepage: UIViewController {
         nickname = nicknameField.text!
         session = sessionField.text!
         loadSession(session: session)
-        connectAPI(nickname: nickname, gameSession: session)
+       /* connectAPI(nickname: nickname, gameSession: session)*/
         
     }
-
+/*
     func connectAPI(nickname: String, gameSession: String)
     {
       //  var urlComponents = URLComponents()
@@ -67,7 +67,7 @@ class Homepage: UIViewController {
 
         
         
-    }
+    }*/
     
     func loadSession(session: String){
         let db = Firestore.firestore()
