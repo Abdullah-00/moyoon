@@ -11,10 +11,13 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 
+
 class Homepage: UIViewController {
 
 
     @IBOutlet weak var sessionField: UITextField!
+    
+    @IBOutlet weak var nicknameField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +31,29 @@ class Homepage: UIViewController {
 
     @IBAction func JoinSession(_ sender: UIButton) {
         var session : String
+        var nickname : String
+        nickname = nicknameField.text!
         session = sessionField.text!
         loadSession(session: session)
         
+    }
+    
+    func connectAPI(nickname: String, session: String)
+    {
+        let urlString = "YOUR_URL"
+        let url = URL(string: urlString)!
+        
+        let task = URLSession.shared.dataTask(with: url) { (data, response, err) in
+            if data != nil {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.allowFragments)
+                    print(json)
+                } catch {
+                    print("Could not serialise")
+                }
+            }
+        }
+         task.resume() 
     }
     
     func loadSession(session: String){
