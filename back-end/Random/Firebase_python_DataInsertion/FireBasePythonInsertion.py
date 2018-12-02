@@ -1,5 +1,7 @@
 import firebase_admin
 import json
+import time
+import threading
 from firebase_admin import credentials
 from firebase_admin import firestore
 
@@ -166,19 +168,58 @@ def incrementAuthorScore(session_id, round_id, question_id, answer):
         .collection(u'Questions').document(question_id)\
         .collection(u'Answer')
     answer_doc = Answer_col.get()
-
-    # check = False
-    # for i in answer_doc:
-    #     answer_info = i.to_dict()
-    #     for key, value in answer_info.items():
-    #         if (check):
-    #             incrementPlayerScore(session_id, value, 10)
-    #             check = False
-    #         if(key == "Answer" and value == answer):
-    #             check = True
-
     for i in answer_doc:
         answer_info = i.to_dict()
         if(answer_info['Answer'] == answer):
             incrementPlayerScore(session_id, answer_info['player_id'], 10)
             
+def changeAddplayers(session_id):
+    db = firestore.client()
+    doc_ref = db.collection(u'Session').document(session_id)
+    data = {
+        u'addPlayers' : False
+    }
+    doc_ref.set(data)
+
+def gameController(session_id):
+    db = firestore.client()
+    round_col = db.collection(u'Session').document(session_id).collection(u'Rounds')
+    round_docs = round_col.get()
+    iCounter = 0
+    jCounter = 0
+    for i in round_docs:
+        iCounter += 1
+        round_ref = round_col.document(i.id)
+        
+        question_col = round_ref.collection(u'Questions')
+        question_doc = question_col.get()
+        for j in question_doc:
+            jCounter += 1
+            #time.sleep(10)
+            question_ref = question_col.document(j.id)
+            question_info = question_ref.get().to_dict()
+            question_info['isDoneSubmitAnswer'] = True
+            question_ref.set(question_info)
+            #threading.Timer(1, trial(j, question_col)).start.()
+            # currTime = int(time.time()) + 10
+            # while(currTime >= int(time.time())):
+            #     print("")
+            #time.sleep(10)
+            question_info = question_ref.get().to_dict()
+            question_info['isDoneChooseAnswer'] = True
+            question_ref.set(question_info)
+            #threading.Timer(1, trial(j, question_col)).start.()
+            # currTime = int(time.time()) + 10
+            # while(currTime >= int(time.time())):
+            #     print("")
+
+        round_info = round_ref.get().to_dict()
+        round_info['isDone'] = True
+        round_ref.set(round_info)
+    return (iCounter, jCounter)
+
+def trial(j, question_col):
+    question_ref = question_col.document(j.id)
+    question_info = question_ref.get().to_dict()
+    question_info['isDoneSubmitAnswer'] = True
+    question_ref.set(question_info)
