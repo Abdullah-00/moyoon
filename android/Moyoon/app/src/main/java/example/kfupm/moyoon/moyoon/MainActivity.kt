@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -16,16 +17,31 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         var sessionID : String //Session ID
         var pNickname : String //Player Nickname
+        var sessionCode : EditText = findViewById<EditText>(R.id.Sission_Code)
+        var nickname : EditText = findViewById<EditText>(R.id.nickname)
         val join = findViewById<Button>(R.id.join)
+
         join.setOnClickListener{
-            sessionID = findViewById<TextView>(R.id.Sission_Code).toString() //Session ID
-            pNickname  = findViewById<TextView>(R.id.nickname).toString()  //Player Nickname
-            val intent = Intent(this,PlayerlistActivity::class.java)
-            startActivity(intent)
+
+            sessionID = sessionCode.text.toString() //Session ID
+            pNickname  = nickname.text.toString()  //Player Nickname
+
+            var playerId = SendtoServer(sessionID, pNickname)
+            if (!playerId.isEmpty()) {
+                val intent = Intent(this, PlayerlistActivity::class.java)
+                startActivity(intent)
+            }else{
+                sessionCode.setText("")
+            }
         }
 
 
 
+    }
+
+    private fun SendtoServer(sessionID: String, pNickname: String): String {
+
+        return "0000"
     }
 
 
