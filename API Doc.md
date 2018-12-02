@@ -46,6 +46,7 @@ SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id
 4. question_id // taken from Firbase 
 5. answer // Chosen by the user 
 
+
 #### Example:<br/>
 SubmitAnswerChoice/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
 
