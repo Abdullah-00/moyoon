@@ -88,7 +88,8 @@ def checkAddPlayer(session_id):
 
 def addPlayers(session_id, nick_name):
     db = firestore.client()
-    doc_ref = db.collection(u'Session').document(session_id).collection(u'Players').document()
+    doc_ref = db.collection(u'Session').document(session_id)\
+        .collection(u'Players').document()
     player_id = doc_ref
     data = {
         u'nick-name' : nick_name,
@@ -112,7 +113,8 @@ def isCorrctAnswer(session_id, round_id, question_id):
 
 def incrementPlayerScore(session_id, player_id, points):
     db = firestore.client()
-    doc_ref = db.collection(u'Session').document(session_id).collection(u'Players').document(player_id)
+    doc_ref = db.collection(u'Session').document(session_id)\
+        .collection(u'Players').document(player_id)
     player_info = doc_ref.get().to_dict()
     score = 0
     nick_name = ""
@@ -129,7 +131,10 @@ def incrementPlayerScore(session_id, player_id, points):
 
 def createWrongAnswer(session_id, player_id, round_id, question_id, answer):
     db = firestore.client()
-    doc_ref = db.collection(u'Session').document(session_id).collection(u'Rounds').document(round_id).collection(u'Questions').document(question_id).collection(u'Answer').document()
+    doc_ref = db.collection(u'Session').document(session_id)\
+        .collection(u'Rounds').document(round_id)\
+        .collection(u'Questions').document(question_id)\
+        .collection(u'Answer').document()
     data = {
         u'player_id' : player_id,
         u'Answer' : answer
@@ -138,7 +143,8 @@ def createWrongAnswer(session_id, player_id, round_id, question_id, answer):
 
 def decrementPlayerScore(session_id, player_id, points):
     db = firestore.client()
-    doc_ref = db.collection(u'Session').document(session_id).collection(u'Players').document(player_id)
+    doc_ref = db.collection(u'Session').document(session_id)\
+        .collection(u'Players').document(player_id)
     player_info = doc_ref.get().to_dict()
     score = 0
     nick_name = ""
