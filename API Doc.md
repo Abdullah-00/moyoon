@@ -1,4 +1,10 @@
 # Web API
+## Get Categories API
+### Number of parameters : 0
+
+### Returns String or JSON (Sample: {'id': 6, 'name': 'Algebra', 'name_ar': 'الجبر'}{'id': 7, 'name': 'Calculus', 'name_ar': 'التفاضل و التكامل'})
+####Example: <br/>
+ChooseCategory/
 ## Create Session API
 ### Number of parameters : 3 
 1. catagory_id // chosen by the user 
