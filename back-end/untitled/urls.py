@@ -51,7 +51,7 @@ urlpatterns = [
     # url for the shared screen app
     url(r'^shared_screen/', include('shared_screen.urls')),
     # url for moyoon main page
-    url(r'^$', TemplateView.as_view(template_name='index.html'), name='home'),
+    url(r'^$', include('shared_screen.urls')),
 ]
 
 
