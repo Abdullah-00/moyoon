@@ -9,6 +9,14 @@
 #### Example: <br/>
 session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 
+## Start Game API
+### Number of parameters : 1
+1. session_id // Taken from web page (screen)
+
+### Returns useless String
+#### Example: <br/>
+beginGame/?session_id=8zdNKG1g8VrCuDCeRTds
+
 # Mobile API
 ## Enter Session API <br/> 
 ### Number of parameters : 2 <br/> 

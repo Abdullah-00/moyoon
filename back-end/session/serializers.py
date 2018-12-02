@@ -4,7 +4,6 @@ from .models import Session
 from .models import EnterSession
 from .models import SubmitAnswer
 from .models import SubmitAnswerChoice
-from Random.Firebase_python_DataInsertion.FireBasePythonInsertion import *
 
 
 class SessionSerializer(serializers.ModelSerializer):

@@ -1,7 +1,6 @@
 from django.db import models
 from content.models import Question as Ques
 from rest_framework import serializers
-from Random.Firebase_python_DataInsertion.FireBasePythonInsertion import *
 
 
 
