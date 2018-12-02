@@ -111,7 +111,7 @@ def SubmitAnswerChoiceView(request):
     answer = request.GET.get('answer')
     correct_answer = isCorrctAnswer(session_id, round_id, question_id)
     if (answer == correct_answer):
-        # Add 5 points to the player
+        # Add 10 points to the Player
         incrementPlayerScore(session_id, player_id, 10)
         return HttpResponse("Done Submit choice")
     else:

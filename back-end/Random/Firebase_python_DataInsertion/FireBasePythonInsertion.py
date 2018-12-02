@@ -99,7 +99,9 @@ def addPlayers(session_id, nick_name):
 
 def isCorrctAnswer(session_id, round_id, question_id):
     db = firestore.client()
-    doc_ref = db.collection(u'Session').document(session_id).collection(u'Rounds').document(round_id).collection(u'Questions').document(question_id)
+    doc_ref = db.collection(u'Session').document(session_id)\
+        .collection(u'Rounds').document(round_id)\
+        .collection(u'Questions').document(question_id)
     question_doc_id = doc_ref
     question_info = doc_ref.get().to_dict()
     answer = ""
@@ -151,8 +153,14 @@ def decrementPlayerScore(session_id, player_id, points):
     }
     doc_ref.set(data)
 
-     
+def incrementAuthorScore(session_id, round_id, question_id, answer):
+    db = firestore.client()
+    doc_ref = db.collection(u'Session').document(session_id)\
+        .collection(u'Rounds').document(round_id)\
+        .collection(u'Questions').document(question_id)\
+        .collection(u'Answer').where(u'Answer', u'==', answer).get()
 
-    
-
+    for doc in doc_ref:
+        incrementPlayerScore(session_id, doc.id, 10)
+        print(u'{} => {}'.format(doc.id, doc.to_dict()))
 
