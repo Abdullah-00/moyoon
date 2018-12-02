@@ -69,6 +69,21 @@ def createSessionView(request):
     
     return HttpResponse(x.id)
 
+# def chooseCategoryView(request):
+#
+#
+#     array = Category.objects.exclude(parent__isnull=True)
+#     # for i in range(len(array)):
+#     #     data = list(array)
+#     # for i in array:
+#     #    data = {
+#     #      array[0].name_ar,
+#     #      array[i].name
+#     #     }
+#     for i in range(len(array)):
+#         new_array = {array}
+#     return HttpResponse(new_array)
+
 # Link: http://127.0.0.1:8000/enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
 # returns player ID
 #
@@ -117,5 +132,5 @@ def SubmitAnswerChoiceView(request):
     else:
         # subtract 10 points
         decrementPlayerScore(session_id, player_id, 10)
-        incrementAuthorScore(session_id, round_id, question_id, answer)
+        # incrementAuthorScore(session_id, round_id, question_id, answer)
         return HttpResponse("Done Submit wrong choice")

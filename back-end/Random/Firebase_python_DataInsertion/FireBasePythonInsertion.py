@@ -166,6 +166,7 @@ def incrementAuthorScore(session_id, round_id, question_id, answer):
         .collection(u'Questions').document(question_id)\
         .collection(u'Answer')
     answer_doc = Answer_col.get()
+
     # check = False
     # for i in answer_doc:
     #     answer_info = i.to_dict()
@@ -175,6 +176,7 @@ def incrementAuthorScore(session_id, round_id, question_id, answer):
     #             check = False
     #         if(key == "Answer" and value == answer):
     #             check = True
+
     for i in answer_doc:
         answer_info = i.to_dict()
         if(answer_info['Answer'] == answer):
