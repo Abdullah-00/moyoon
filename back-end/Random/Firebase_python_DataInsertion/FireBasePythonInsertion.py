@@ -161,23 +161,22 @@ def decrementPlayerScore(session_id, player_id, points):
 
 def incrementAuthorScore(session_id, round_id, question_id, answer):
     db = firestore.client()
-    doc_ref = db.collection(u'Session').document(session_id)\
+    Answer_col = db.collection(u'Session').document(session_id)\
         .collection(u'Rounds').document(round_id)\
         .collection(u'Questions').document(question_id)\
-        .collection(u'Answer').document()
-    answer_info = doc_ref.get().to_dict()
-    score = 0
-    nick_name = ""
-    check = False
-    for key, value in answer_info.items():
-        if (check):
-            incrementPlayerScore(session_id, value, 10)
-            check = False
-        if(key == "Answer" & value == answer):
-            check = True
-
-    # for doc in doc_ref:
-    #
-    #     incrementPlayerScore(session_id, doc.id, 10)
-    #     print(u'{} => {}'.format(doc.id, doc.to_dict()))
-    #
+        .collection(u'Answer')
+    answer_doc = Answer_col.get()
+    # check = False
+    # for i in answer_doc:
+    #     answer_info = i.to_dict()
+    #     for key, value in answer_info.items():
+    #         if (check):
+    #             incrementPlayerScore(session_id, value, 10)
+    #             check = False
+    #         if(key == "Answer" and value == answer):
+    #             check = True
+    for i in answer_doc:
+        answer_info = i.to_dict()
+        if(answer_info['Answer'] == answer):
+            incrementPlayerScore(session_id, answer_info['player_id'], 10)
+            
