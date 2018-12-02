@@ -1,0 +1,11 @@
+<h1>Select Category</h1>
+{% if catagory_list %}
+<select>
+    {% for category in catagory_list %}
+        <option value={{ category.id }}> {{ category.name }}</option>
+    {% endfor %}
+<input type="submit" value="Create">
+
+{% else %}
+    <p>No Categories are available.</p>
+{% endif %}
