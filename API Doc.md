@@ -1,4 +1,11 @@
 # Web API
+## Get Categories API
+### Number of parameters : 0
+
+### Returns String or JSON (Unknown for now)
+#### Example: <br/>
+ChooseCategory/ <br/>
+returns: {'id': 6, 'name': 'Algebra', 'name_ar': 'الجبر'}{'id': 7, 'name': 'Calculus', 'name_ar': 'التفاضل و التكامل'}
 ## Create Session API
 ### Number of parameters : 3 
 1. catagory_id // chosen by the user 
@@ -8,6 +15,14 @@
 ### Returns String: session_id
 #### Example: <br/>
 http://localhost:8000/session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
+
+## Start Game API
+### Number of parameters : 1
+1. session_id // Taken from web page (screen)
+
+### Returns useless String
+#### Example: <br/>
+beginGame/?session_id=8zdNKG1g8VrCuDCeRTds
 
 # Mobile API
 ## Enter Session API <br/> 

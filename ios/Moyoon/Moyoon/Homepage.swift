@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseFirestore
-import Alamofire
+//import Alamofire
 
 class Homepage: UIViewController {
 
@@ -38,7 +38,7 @@ class Homepage: UIViewController {
         connectAPI(nickname: nickname, gameSession: session)
 
     }
-
+/*
     func connectAPI(nickname: String, gameSession: String)
     {
         let urlExtension = "/enterSession/"
