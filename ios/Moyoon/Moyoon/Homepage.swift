@@ -36,7 +36,7 @@ class Homepage: UIViewController {
         session = sessionField.text!
         //loadSession(session: session)
         connectAPI(nickname: nickname, gameSession: session)
-        
+
     }
 
     func connectAPI(nickname: String, gameSession: String)
@@ -58,8 +58,20 @@ class Homepage: UIViewController {
                 print("Data: \(playerId)")
                 GlobalVariables.playerId = playerId
                 print ("Global: \(GlobalVariables.playerId)")
+                if(response.response?.statusCode != 200){
+                    let alertController = UIAlertController(title: "Alert", message: "Session ID is not valid.", preferredStyle: .alert)
+                    let action1 = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+                        return;
+                    }
+                    alertController.addAction(action1)
+                    self.present(alertController, animated: true, completion: nil)
+                }else{
+                    self.performSegue(withIdentifier: "JoinSession", sender: self)
+                }
+                
             }
         }
+
     }
     
     func loadSession(session: String){

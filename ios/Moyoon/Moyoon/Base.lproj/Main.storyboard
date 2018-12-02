@@ -38,7 +38,6 @@
                                         <state key="normal" title="Join"/>
                                         <connections>
                                             <action selector="JoinSession:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Jr-BJ-WXm"/>
-                                            <segue destination="ffQ-Su-BzR" kind="show" id="PLv-Wp-Ngq"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -54,6 +53,7 @@
                     <connections>
                         <outlet property="nicknameField" destination="S5W-4f-dgx" id="Df7-M6-cVG"/>
                         <outlet property="sessionField" destination="QhO-ps-kUw" id="Q3y-jO-puP"/>
+                        <segue destination="ffQ-Su-BzR" kind="show" identifier="JoinSession" id="utO-mj-M90"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -93,9 +93,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy9-9y-GLa">
-                                <rect key="frame" x="166" y="37" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="15" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy9-9y-GLa">
+                                <rect key="frame" x="178" y="37" width="18" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -103,6 +102,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Xy9-9y-GLa" firstAttribute="centerX" secondItem="PAd-Yr-mhl" secondAttribute="centerX" id="5Pb-u3-zjB"/>
                             <constraint firstItem="OLn-v7-FA3" firstAttribute="centerY" secondItem="PAd-Yr-mhl" secondAttribute="centerY" constant="100" id="cwD-Jh-hdm"/>
                             <constraint firstItem="OLn-v7-FA3" firstAttribute="centerX" secondItem="PAd-Yr-mhl" secondAttribute="centerX" id="lwQ-pe-Tff"/>
                         </constraints>
@@ -110,7 +110,7 @@
                     </view>
                     <connections>
                         <outlet property="answerField" destination="KoF-2g-hne" id="sWI-wg-V7R"/>
-                        <outlet property="timerLabel" destination="Xy9-9y-GLa" id="ZPA-Ua-7bg"/>
+                        <outlet property="timerLabel" destination="Xy9-9y-GLa" id="FNu-h6-Hug"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkC-Zv-eCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
