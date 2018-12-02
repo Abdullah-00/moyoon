@@ -8,4 +8,4 @@ def index(request):
     context = {
         'catagory_list': catagory_list,
     }
-    return render(request, 'session/index.html', context)
+    return render(request, 'shared_screen/index.html', context)
