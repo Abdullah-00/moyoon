@@ -4,7 +4,7 @@
 
 ### Returns String or JSON (Unknown for now)
 #### Example: <br/>
-ChooseCategory/
+ChooseCategory/ <br/>
 returns: {'id': 6, 'name': 'Algebra', 'name_ar': 'الجبر'}{'id': 7, 'name': 'Calculus', 'name_ar': 'التفاضل و التكامل'}
 ## Create Session API
 ### Number of parameters : 3 
