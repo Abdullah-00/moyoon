@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 # Create your views here.
 
-import pyrebase from django.shortcuts import render
+#import pyrebase from django.shortcuts import render
 
 
 config = {
