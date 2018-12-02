@@ -7,7 +7,19 @@
 //
 
 import Foundation
-
+extension String{
+    func toDictionary() -> NSDictionary {
+        let blankDict : NSDictionary = [:]
+        if let data = self.data(using: .utf8) {
+            do {
+                return try JSONSerialization.jsonObject(with: data, options: []) as! NSDictionary
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return blankDict
+    }
+}
 struct GlobalVariables{
     static var hostname = "http://localhost:8000"
     static var playerId = "X60jLqHU0kljpBA90jga";
