@@ -16,14 +16,20 @@ class PlayerlistActivity : AppCompatActivity() {
     lateinit var players : ListView
     lateinit var playersJoind : TextView
     lateinit var ps : ArrayList<String>
+    var beginGame : Boolean = false
+    //lateinit var arrayAdapter : ArrayAdapter<String>
     override fun onStart() {
         super.onStart()
-        db.collection("Players").get()
+        var i = 0
+        db.collection("Session/CSC8hsgaLCwz6OcLmblN/Players").get()
             .addOnSuccessListener { documentReference ->
-                for (document in documentReference) {
-                  Log.d("PlayerlistActivity", document.id + " => " + document.data)
-                    ps.add(document.id)
-                 }
+                    for (document in documentReference) {
+                        //Log.d("PlayerlistActivity", document.id + " => " + document.data)
+                        ps.add(document.id + " Abdo" + i)
+                        i += 1
+                    }
+
+
             }
             .addOnFailureListener { exception ->
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)
@@ -31,18 +37,33 @@ class PlayerlistActivity : AppCompatActivity() {
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_playerlist)
         db = FirebaseFirestore.getInstance()
-        players = findViewById(R.id.players)
+        players = findViewById<TextView>(R.id.players) as ListView
         playersJoind = findViewById<TextView>(R.id.Players_Joind)
-        onStart()
-        players 
+        ps = ArrayList<String>()
 
+        val arrayAdapter : ArrayAdapter<String>
+       var i = 0
+        db.collection("Session/CSC8hsgaLCwz6OcLmblN/Players").get()
+            .addOnSuccessListener { documentReference ->
+                for (document in documentReference) {
+                    //Log.d("PlayerlistActivity", document.id + " => " + document.data)
+                    ps.add(document.id + " Abdo" + i)
+                    println(ps[i])
+                    i += 1
 
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w("PlayerlistActivity", "Error getting documents.", exception)
+            }
 
+        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, ps)
+        players.adapter = arrayAdapter
 
-
-
+      // onStart()
 
 
         //val myList = findViewById<TextView>(R.id.players) as ListView
