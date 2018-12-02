@@ -133,6 +133,24 @@ def createWrongAnswer(session_id, player_id, round_id, question_id, answer):
         u'Answer' : answer
     }
     doc_ref.set(data)
+
+def decrementPlayerScore(session_id, player_id, points):
+    db = firestore.client()
+    doc_ref = db.collection(u'Session').document(session_id).collection(u'Players').document(player_id)
+    player_info = doc_ref.get().to_dict()
+    score = 0
+    nick_name = ""
+    for key, value in player_info.items():
+        if(key == "Score"):
+            score = int(value)-points
+        elif(key == "nick-name"):
+            nick_name = value
+    data = {
+        u'nick-name' : nick_name,
+        u'Score' : score
+    }
+    doc_ref.set(data)
+
      
 
     

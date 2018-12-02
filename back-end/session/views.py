@@ -109,3 +109,12 @@ def SubmitAnswerChoiceView(request):
     round_id = request.GET.get('round_id')
     question_id = request.GET.get('question_id')
     answer = request.GET.get('answer')
+    correct_answer = isCorrctAnswer(session_id, round_id, question_id)
+    if (answer == correct_answer):
+        # Add 5 points to the player
+        incrementPlayerScore(session_id, player_id, 10)
+        return HttpResponse("Done Submit choice")
+    else:
+        # subtract 10 points
+        decrementPlayerScore(session_id, player_id, 10)
+        return HttpResponse("Done Submit wrong choice")
