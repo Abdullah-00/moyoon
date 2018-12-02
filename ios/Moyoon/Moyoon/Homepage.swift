@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseFirestore
-import Alamofire;
+import Alamofire
 
 class Homepage: UIViewController {
 
