@@ -52,4 +52,4 @@ urlpatterns = [
 
 admin.site.site_header = "Moyoon Administration"
 admin.site.site_title = "Moyoon Administration"
-admin.site.index_title = "Moyoon Administration"
+admin.site.index_title = "Welcome to Moyoon Portal"
