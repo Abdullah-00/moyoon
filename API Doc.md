@@ -7,7 +7,7 @@
 
 ### Returns String: session_id
 #### Example: <br/>
-session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
+http://localhost:8000/session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 
 # Mobile API
 ## Enter Session API <br/> 
@@ -18,7 +18,7 @@ session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 ### Returns string: player_id
 
 #### Example: <br/>
- enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
+http://localhost:8000/enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
 
 
 
@@ -32,7 +32,7 @@ session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 5. answer // written by the user 
 
 #### Example:<br/>
-SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
+http://localhost:8000/SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
 
 
 
@@ -47,5 +47,5 @@ SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id
 
 
 #### Example:<br/>
-SubmitAnswerChoice/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
+http://localhost:8000/SubmitAnswerChoice/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
 

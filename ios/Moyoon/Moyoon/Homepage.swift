@@ -34,7 +34,7 @@ class Homepage: UIViewController {
         var nickname : String
         nickname = nicknameField.text!
         session = sessionField.text!
-        loadSession(session: session)
+        //loadSession(session: session)
         connectAPI(nickname: nickname, gameSession: session)
         
     }
