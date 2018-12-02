@@ -8,11 +8,36 @@
 
 import Foundation
 import UIKit
+import Alamofire
 
 class WriteAnswer: UIViewController {
+    var submitted : Bool = false;
+    
+    var seconds = 15 //This variable will hold a starting value of seconds. It could be any amount above 0.
+    var timer = Timer()
+    var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
+    
+    
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(WriteAnswer.updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    @objc func updateTimer() {
+        seconds -= 1     //This will decrement(count down)the seconds.
+        timerLabel.text = "\(seconds)" //This will update the label.
+        if(seconds < 1){
+            timer.invalidate()
+            performSegue(withIdentifier: "TypeToSelect", sender: self)
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        runTimer()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -25,34 +50,44 @@ class WriteAnswer: UIViewController {
     
     @IBAction func submitAnswer(_ sender: Any) {
         var answer = answerField.text!
-        sendAnswerToServer(answer: answer)
+        sendAnswerToAPI(answer: answer)
     }
     
-    func sendAnswerToServer(answer: String){
-        var urlComponents = URLComponents()
-        urlComponents.scheme = "http"
-        urlComponents.host = GlobalVariables.hostname
-        urlComponents.path = "/SubmitAnswer/"
-        let player_id = URLQueryItem(name: "player_id", value: "\(GlobalVariables.playerId)")
-        let session_id = URLQueryItem(name: "session_id", value: "\(GlobalVariables.sessionId)")
-        let round_id = URLQueryItem(name: "round_id", value: "\(GlobalVariables.roundId)")
-        let question_id = URLQueryItem(name: "question_id", value: "\(GlobalVariables.questionId)")
-        let answer = URLQueryItem(name: "answer", value: "\(answer)")
 
-        urlComponents.queryItems = [player_id,session_id,round_id,question_id,answer]
-        guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-        var request = URLRequest(url: url)
-        request.httpMethod = "GET"
-        let config = URLSessionConfiguration.default
-        let session = URLSession(configuration: config)
-        let task = session.dataTask(with: request) { (responseData, response, responseError) in
-            DispatchQueue.main.async {
-                print (responseData)
+    
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        if identifier == "TypeToSelect"{
+            while(submitted == false){
+                //stall
             }
         }
+        return true;
+    }
+    
+    func sendAnswerToAPI(answer: String)
+    {
+        let urlExtension = "/SubmitAnswer/"
+        let parameters: Parameters = [
+            "player_id": GlobalVariables.playerId,
+            "session_id": GlobalVariables.sessionId,
+            "question_id": GlobalVariables.questionId,
+            "round_id": GlobalVariables.roundId,
+            "answer": answer
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
         
-        task.resume()
-        
-        
+        Alamofire.request(urlString!, parameters: parameters).response { response in
+            print("Request: \(response.request)")
+            print("Response: \(response.response)")
+            print("Error: \(response.error)")
+            print("Timeline: \(response.timeline)")
+            if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
+                print("Data: \(playerId)")
+                GlobalVariables.playerId = playerId
+                print ("Global: \(GlobalVariables.playerId)")
+            }
+        }
+        submitted = true;
     }
 }

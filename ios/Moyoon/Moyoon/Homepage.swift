@@ -41,19 +41,15 @@ class Homepage: UIViewController {
 
     func connectAPI(nickname: String, gameSession: String)
     {
-      //  var urlComponents = URLComponents()
-      //  urlComponents.scheme = "http"
-      //  urlComponents.host = GlobalVariables.hostname
-     //   urlComponents.path = "/enterSession/"
-      //  let nick_name = URLQueryItem(name: "nick_name", value: "\(nickname)")
-       // let session_id = URLQueryItem(name: "session_id", value: "\(gameSession)")
-       // urlComponents.queryItems = [nick_name,session_id]
-      //  guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-      //  var request = URLRequest(url: url)
-      //  request.httpMethod = "GET"
-        
-        var playerId = ""
-        Alamofire.request("http://localhost:8000/enterSession/?nick_name="+nickname+"&session_id="+gameSession).response { response in
+        let urlExtension = "/enterSession/"
+        let parameters: Parameters = [
+            "nick_name": nickname,
+            "session_id": gameSession
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
+    
+        Alamofire.request(urlString!, parameters: parameters).response { response in
             print("Request: \(response.request)")
             print("Response: \(response.response)")
             print("Error: \(response.error)")
@@ -64,9 +60,6 @@ class Homepage: UIViewController {
                 print ("Global: \(GlobalVariables.playerId)")
             }
         }
-
-        
-        
     }
     
     func loadSession(session: String){

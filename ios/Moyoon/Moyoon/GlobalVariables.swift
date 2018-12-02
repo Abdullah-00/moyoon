@@ -9,7 +9,7 @@
 import Foundation
 
 struct GlobalVariables{
-    static var hostname = "localhost"
+    static var hostname = "http://localhost:8000"
     static var playerId = "X60jLqHU0kljpBA90jga";
     static var sessionId = "CSC8hsgaLCwz6OcLmblN";
     static var roundId = "1";
