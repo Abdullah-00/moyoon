@@ -11,7 +11,7 @@ import Foundation
 struct GlobalVariables{
     static var hostname = "http://localhost:8000"
     static var playerId = "";
-    static var sessionId ="";
+    static var sessionId = "";
     static var roundId = "1";
     static var questionId = "1";
 }
