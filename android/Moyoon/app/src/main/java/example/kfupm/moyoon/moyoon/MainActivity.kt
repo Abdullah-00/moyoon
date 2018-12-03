@@ -31,23 +31,22 @@ class MainActivity : AppCompatActivity() {
         // Instantiate the cache
         val cache = DiskBasedCache(cacheDir, 1024 * 1024) // 1MB cap
 
-// Set up the network to use HttpURLConnection as the HTTP client.
+        // Set up the network to use HttpURLConnection as the HTTP client.
         val network = BasicNetwork(HurlStack())
 
-// Instantiate the RequestQueue with the cache and network. Start the queue.
+        // Instantiate the RequestQueue with the cache and network. Start the queue.
         val requestQueue = RequestQueue(cache, network).apply {
             start()
         }
 
-        val url = "http://localhost:8000/enterSession/?session_id="+Global.sessionID+"&nick_name=Ibraheem"
+        val url = "http://localhost:8000/enterSession/?session_id="+Global.sessionID +"&nick_name=Ibraheem"
        // val url = "http://www.google.com" //<<<<<<<<<<<<<<<<<< PUT SERVER URL HERE
 
         // Request a string response from the provided URL.
         val stringRequest = StringRequest(Request.Method.GET, url,
             Response.Listener<String> { response ->
                 // Do something with the response
-                response = "http://localhost:8000/enterSession/?session_id="+Global.sessionID+"&nick_name=Ibraheem"
-
+               Global.playerID = response
             },
             Response.ErrorListener { error ->
                 // Handle error
