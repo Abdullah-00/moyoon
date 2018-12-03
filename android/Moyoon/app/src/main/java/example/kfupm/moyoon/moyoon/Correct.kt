@@ -16,7 +16,7 @@ class Correct : AppCompatActivity(){
         correctTxt = findViewById(R.id.correctTxt)
         score = findViewById(R.id.score)
         next = findViewById(R.id.next)
-        val intent = Intent(this,MainActivity::class.java)
+        val intent = Intent(this,Type_Lie::class.java)
 
         next.setOnClickListener{
             startActivity(intent)

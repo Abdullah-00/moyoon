@@ -14,7 +14,6 @@ class PlayerlistActivity : AppCompatActivity() {
 
     lateinit var db : FirebaseFirestore
     lateinit var players : ListView
-    lateinit var playersJoind : TextView
     lateinit var ps : ArrayList<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,12 +21,10 @@ class PlayerlistActivity : AppCompatActivity() {
         setContentView(R.layout.activity_playerlist)
         db = FirebaseFirestore.getInstance()
         players = findViewById(R.id.players)
-      //  playersJoind = findViewById<TextView>(R.id.Players_Joind)
 
-        val textv = findViewById<TextView>(R.id.textViewPlayers)
+
         ps = ArrayList<String>()
         var arrayAdapter : ArrayAdapter<String>
-        var i = 0
 
         db.collection("Session").document(Global.sessionID)
             .collection("Players")
@@ -42,6 +39,17 @@ class PlayerlistActivity : AppCompatActivity() {
                 players.adapter = arrayAdapter
             }
             .addOnFailureListener { exception ->
+                Log.w("PlayerlistActivity", "Error getting documents.", exception)
+            }
+
+        //Finding NUMBER of Rounds
+        db.collection("Session").document(Global.sessionID)
+            .collection("Rounds").get()
+            .addOnSuccessListener { k ->
+                for (document in k) {
+                    Global.roundID.add(document.id)
+                }
+            }.addOnFailureListener { exception ->
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)
             }
 
