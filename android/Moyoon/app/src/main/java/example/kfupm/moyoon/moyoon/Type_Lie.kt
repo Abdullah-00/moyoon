@@ -12,7 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings
 import java.util.*
 
 
-abstract class Type_Lie : AppCompatActivity() {
+ class Type_Lie : AppCompatActivity() {
 
     lateinit var question_desplay : TextView
     lateinit var lie : EditText
@@ -24,58 +24,40 @@ abstract class Type_Lie : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.type_lie)
 
-        val TAG = "DocSnippets"
+
         db = FirebaseFirestore.getInstance()
+        question_desplay = findViewById(R.id.question_desplay)
 
-        question_desplay = findViewById<TextView>(R.id.question_desplay)
-        lie = findViewById(R.id.Lie)
-        Submit_lie = findViewById<Button>(R.id.Submit_lie)
+        db.collection("Session").document(Global.sessionID)
+            .collection("Rounds/1/Questions/1")
+            .get()
+            .addOnSuccessListener { documentReference ->
+                for (document in documentReference) {
 
-        //view question
-        question_desplay.setText("وش افضل مكان بالعالم؟")
+                    question_desplay.setText(document.data["name"].toString())
 
-        //submit answer
-        Submit_lie.setOnClickListener{
-            saveLie()
-           /* val intent = Intent(this,Display_Answers::class.java)
-            startActivity(intent)*/
-        }
-    }
-    private fun getQuestion() {
-        // [START get_all_users]
-        db.collection("Session/8zdNKG1g8VrCuDCeRTds/Rounds/1/Questions/1").get()
-            .addOnSuccessListener { result ->
-            for (document in result) {
-
-                Log.d("DocSnippets", document.id + " => " + document.data)
+                }
             }
-        }
             .addOnFailureListener { exception ->
-                Log.w("DocSnippets", "Error getting documents.", exception)
+                Log.w("PlayerlistActivity", "Error getting documents.", exception)
             }
-        // [END get_all_users]
-    }
-
-    private fun saveLie(){
-        val getlie = lie.text.toString()
-
-        if(getlie.isEmpty()){
-            lie.error = "Type a lie"
-            return
-        }
-
-        //val ref = FirebaseDatabase.getInstance().getReference("")
 
 
 
-        val question_desplay = findViewById<TextView>(R.id.question_desplay)
-        question_desplay.setText("Best place in the world is ?")
-
-        val Submit_lie = findViewById<Button>(R.id.Submit_lie)
-
-        Submit_lie.setOnClickListener {
-            val intent = Intent(this, Display_Answers::class.java)
+        Submit_lie.setOnClickListener{
+          //  saveLie()
+            val intent = Intent(this,Display_Answers::class.java)
             startActivity(intent)
+        }
+
+
+
+
+    }
+//
+
+
+
 
         }
 
@@ -83,10 +65,10 @@ abstract class Type_Lie : AppCompatActivity() {
 
 
 
-    }
 
 
-    }
+
+
 
 
 
