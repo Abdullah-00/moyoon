@@ -9,10 +9,13 @@ import android.os.Parcelable
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.*
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 import kotlin.concurrent.timerTask
 
 class Display_Answers() : AppCompatActivity() {
+    lateinit var questiondDesplay : TextView
+    lateinit var db : FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
