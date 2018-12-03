@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         /// API
-        /// vvvvvv CHECK THIS OUT vvvvvv
+        /// vvvvvv CHECK THIS OUT vvvvvv.....................................
         // Instantiate the cache
         val cache = DiskBasedCache(cacheDir, 1024 * 1024) // 1MB cap
 
