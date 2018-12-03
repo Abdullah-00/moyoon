@@ -12,20 +12,18 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings
 import java.util.*
 
 
-abstract class Type_Lie : AppCompatActivity() {
+class Type_Lie : AppCompatActivity() {
 
     lateinit var question_desplay : TextView
     lateinit var lie : EditText
     lateinit var Submit_lie : Button
     lateinit var db : FirebaseFirestore
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.type_lie)
 
-        val TAG = "DocSnippets"
-        db = FirebaseFirestore.getInstance()
+        //db = FirebaseFirestore.getInstance()
 
         question_desplay = findViewById<TextView>(R.id.question_desplay)
         lie = findViewById(R.id.Lie)
@@ -41,7 +39,7 @@ abstract class Type_Lie : AppCompatActivity() {
             startActivity(intent)*/
         }
     }
-    private fun getQuestion() {
+    /*private fun getQuestion() {
         // [START get_all_users]
         db.collection("Session/8zdNKG1g8VrCuDCeRTds/Rounds/1/Questions/1").get()
             .addOnSuccessListener { result ->
@@ -54,7 +52,7 @@ abstract class Type_Lie : AppCompatActivity() {
                 Log.w("DocSnippets", "Error getting documents.", exception)
             }
         // [END get_all_users]
-    }
+    }*/
 
     private fun saveLie(){
         val getlie = lie.text.toString()
@@ -68,23 +66,18 @@ abstract class Type_Lie : AppCompatActivity() {
 
 
 
-        val question_desplay = findViewById<TextView>(R.id.question_desplay)
+        question_desplay = findViewById<TextView>(R.id.question_desplay)
         question_desplay.setText("Best place in the world is ?")
 
-        val Submit_lie = findViewById<Button>(R.id.Submit_lie)
+        Submit_lie = findViewById<Button>(R.id.Submit_lie)
 
         Submit_lie.setOnClickListener {
             val intent = Intent(this, Display_Answers::class.java)
             startActivity(intent)
-
         }
 
 
-
-
-
     }
-
 
     }
 

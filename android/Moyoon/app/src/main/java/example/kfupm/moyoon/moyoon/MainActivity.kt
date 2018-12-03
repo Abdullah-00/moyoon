@@ -25,9 +25,9 @@ class MainActivity : AppCompatActivity() {
 
             sID = sessionCode.text.toString() //Session ID
             pNickname  = nickname.text.toString()  //Player Nickname
+            //   global.sessionID = sID
+            //  global.playerID = pNickname
 
-         //   global.sessionID = sID
-          //  global.playerID = pNickname
             var playerId = SendtoServer(sID, pNickname)
 
             if (!playerId.isEmpty()) {
