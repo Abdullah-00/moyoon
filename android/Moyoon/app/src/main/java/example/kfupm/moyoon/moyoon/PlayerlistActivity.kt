@@ -54,7 +54,7 @@ var element : String = "Tessssst"
 
         val start = findViewById<Button>(R.id.to_Qs)
         start.setOnClickListener {
-            val intent = Intent(this,Type_Lie::class.java)
+            val intent = Intent(this,Display_Answers::class.java)
             startActivity(intent)
         }
 
