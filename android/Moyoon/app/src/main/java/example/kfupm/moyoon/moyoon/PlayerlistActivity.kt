@@ -28,8 +28,6 @@ class PlayerlistActivity : AppCompatActivity() {
                         ps.add(document.id + " Abdo" + i)
                         i += 1
                     }
-
-
             }
             .addOnFailureListener { exception ->
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)

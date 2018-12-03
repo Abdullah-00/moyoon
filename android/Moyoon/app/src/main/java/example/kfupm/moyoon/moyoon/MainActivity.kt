@@ -11,7 +11,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
-    var global : Global()
+    //lateinit var global : Global
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,9 +26,10 @@ class MainActivity : AppCompatActivity() {
             sID = sessionCode.text.toString() //Session ID
             pNickname  = nickname.text.toString()  //Player Nickname
 
-            global.sessionID = sID
-            global.playerID = pNickname
+         //   global.sessionID = sID
+          //  global.playerID = pNickname
             var playerId = SendtoServer(sID, pNickname)
+
             if (!playerId.isEmpty()) {
                 val intent = Intent(this, PlayerlistActivity::class.java)
                 startActivity(intent)
@@ -36,8 +37,6 @@ class MainActivity : AppCompatActivity() {
                 sessionCode.setText("")
             }
         }
-
-
 
     }
 
