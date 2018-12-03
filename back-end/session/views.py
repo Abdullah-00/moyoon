@@ -70,23 +70,19 @@ def createSessionView(request):
     return HttpResponse(x.id)
 
 def chooseCategoryView(request):
-
-
-    array = Category.objects.exclude(parent__isnull=True)
-    # for i in range(len(array)):
-    #     data = list(array)
-    # for i in array:
-    #    data = {
-    #      array[0].name_ar,
-    #      array[i].name
-    #     }
-    for i in range(len(array)):
-        new_array = {array}
-    return HttpResponse(new_array)
+    array = Category.objects.filter(parent__isnull=False)
+    data2 = []
+    for i in array:
+        data = {
+            u'id' : i.id,
+            u'name' : i.name,
+            u'name_ar' : i.name_ar
+        }
+        data2.append(data)
+    return HttpResponse(data2)
 
 # Link: http://127.0.0.1:8000/enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
 # returns player ID
-
 def enterSessionView(request):
     nick_name = request.GET.get('nick_name')
     session_id = request.GET.get('session_id')
