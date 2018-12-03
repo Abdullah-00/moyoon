@@ -11,11 +11,11 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 
 class MainActivity : AppCompatActivity() {
-
+    var global : Global()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        var sessionID : String //Session ID
+        var sID : String //Session ID
         var pNickname : String //Player Nickname
         var sessionCode : EditText = findViewById<EditText>(R.id.Sission_Code)
         var nickname : EditText = findViewById<EditText>(R.id.nickname)
@@ -23,10 +23,12 @@ class MainActivity : AppCompatActivity() {
 
         join.setOnClickListener{
 
-            sessionID = sessionCode.text.toString() //Session ID
+            sID = sessionCode.text.toString() //Session ID
             pNickname  = nickname.text.toString()  //Player Nickname
 
-            var playerId = SendtoServer(sessionID, pNickname)
+            global.sessionID = sID
+            global.playerID = pNickname
+            var playerId = SendtoServer(sID, pNickname)
             if (!playerId.isEmpty()) {
                 val intent = Intent(this, PlayerlistActivity::class.java)
                 startActivity(intent)
@@ -46,4 +48,6 @@ class MainActivity : AppCompatActivity() {
 
 
 }
+
+
 
