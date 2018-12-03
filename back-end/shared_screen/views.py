@@ -49,7 +49,7 @@ def create(request):
         message = 'You submitted an empty form.'
 
     global session_id
-    session_id = requests.get('http://68.183.67.247:8000//session/?catagory_id=' + catID +'&is_provided=False&questions=').text
+    session_id = requests.get('http://68.183.67.247:8000/session/?catagory_id=' + catID +'&is_provided=False&questions=').text
 
     context = {
         'session_id': session_id,
