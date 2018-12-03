@@ -9,39 +9,34 @@ import android.widget.TextView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.logging.Logger.global
 
 class MainActivity : AppCompatActivity() {
+    lateinit var sID : String //Session ID
+    lateinit var pNickname : String //Player Nickname
+    lateinit var playerId : String
+    lateinit var nickname : EditText //Nickname Input
+    lateinit var sessionCode : EditText
+    lateinit var join : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
-
-        var sID : String //Session ID
-        var pNickname : String //Player Nickname
-
-
-        var sessionCode : EditText = findViewById<EditText>(R.id.Sission_Code)
-        var nickname : EditText = findViewById<EditText>(R.id.nickname)
-
-
-        val join = findViewById<Button>(R.id.join)
+        sessionCode = findViewById<EditText>(R.id.Sission_Code)
+        nickname = findViewById<EditText>(R.id.nickname)
+        join = findViewById(R.id.join)
+        val intent = Intent(this, PlayerlistActivity::class.java)
 
         join.setOnClickListener{
             sID = sessionCode.text.toString() //Session ID
             pNickname  = nickname.text.toString()  //Player Nickname
-            //   global.sessionID = sID
-            //  global.playerID = pNickname
 
-
-            //  Global.sessionID = sID
-            Global.nickname = pNickname
-
-            var playerId = SendtoServer(sID, pNickname)
+            playerId = SendtoServer() //sID, pNickname
 
             if (!playerId.isEmpty()) {
-                val intent = Intent(this, PlayerlistActivity::class.java)
+                //Global.sessionID = sID
+                Global.playerID = playerId
+                Global.nickname = pNickname
+
                 startActivity(intent)
             }else{
                 sessionCode.setHint("must enter code ")
@@ -49,9 +44,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+
     }
 
-    private fun SendtoServer(sessionID: String, pNickname: String): String {
+    private fun SendtoServer(): String {
 
         return "0000"
     }

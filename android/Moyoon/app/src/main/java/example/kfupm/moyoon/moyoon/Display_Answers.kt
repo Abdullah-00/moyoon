@@ -6,48 +6,50 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Parcel
 import android.os.Parcelable
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.*
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.concurrent.timerTask
 
-class Display_Answers() : AppCompatActivity() {
-    lateinit var questiondDesplay : TextView
+class Display_Answers : AppCompatActivity() {
+    lateinit var questionDesplay : TextView
     lateinit var db : FirebaseFirestore
-
+    lateinit var answerslist : ListView
+    lateinit var submit : Button
+    lateinit var playersAnswer : ArrayList<String>
+    lateinit var arrayAdapter : ArrayAdapter<String>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display__answers)
 
-        val question_desplay = findViewById<TextView>(R.id.quiston_at_selecton)
-        question_desplay.setText("وش افضل مكان بالعالم؟")
+        db = FirebaseFirestore.getInstance()
+        questionDesplay = findViewById(R.id.quiston_at_selecton)
+        answerslist = findViewById(R.id.answers_list)
+        submit = findViewById(R.id.submit_ans)
+        val intent = Intent(this,Correct::class.java)
+
+//        db.collection("Session").document(Global.sessionID)
+//            .collection("Rounds").document("1")
+//            .collection("Questions").document("1")
+//            .get()
+//            .addOnSuccessListener { documentReference ->
+//                questionDesplay.setText(documentReference.data!!["name"].toString())
+//            }
+//            .addOnFailureListener { exception ->
+//                Log.w("PlayerlistActivity", "Error getting documents.", exception)
+//            }
+        questionDesplay.setText(Global.question)
         val nebulae = arrayOf<String>("الرياض", "جنيف", "واشنطن", "قنونا")
 
-        val myList = findViewById<TextView>(R.id.answers_list) as ListView
+        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, nebulae)
+        answerslist.adapter = arrayAdapter
 
-        var adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1,nebulae)
-        myList.adapter=adapter
-
-        val submit_ans = findViewById<Button>(R.id.submit_ans)
-        submit_ans.setOnClickListener {
-            val intent = Intent(this,Correct_Answer::class.java)
+        submit.setOnClickListener{
             startActivity(intent)
         }
-
-        //////// TIMER CODE \\\\\\\\\
-       /* val intent = Intent(this,Correct_Answer::class.java)
-        val timer = Timer()
-        timer.schedule(timerTask {
-            startActivity(intent)
-        }, 30000)*/
-         /*Another way to make the next activity launch in 10 sec
-        Handler().postDelayed({
-           val intent = Intent(this,Correct_Answer::class.java)
-            startActivity(intent)
-        }, 10000)*/
-
-
     }
 }

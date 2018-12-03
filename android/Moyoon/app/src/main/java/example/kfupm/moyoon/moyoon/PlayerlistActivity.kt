@@ -26,31 +26,26 @@ class PlayerlistActivity : AppCompatActivity() {
 
         val textv = findViewById<TextView>(R.id.textViewPlayers)
         ps = ArrayList<String>()
-        val arrayAdapter : ArrayAdapter<String>
+        var arrayAdapter : ArrayAdapter<String>
         var i = 0
-        var element : String = "Tessssst"
 
-        db.collection("Session").document(Global.sessionID)
+        var d = db.collection("Session").document(Global.sessionID)
             .collection("Players")
             .get()
             .addOnSuccessListener { documentReference ->
                 for (document in documentReference) {
                     //Log.d("PlayerlistActivity", document.id + " => " + document.data)
                     ps.add(document.getString("nick-name").toString())
-                    println(ps[i])
-                    i += 1
-                    textv.setText(Global.sessionID)
-
+                    arrayAdapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, ps)
+                    players.adapter = arrayAdapter
                 }
             }
             .addOnFailureListener { exception ->
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)
             }
        // textv.setText(element+"hi ")
-
       ps.add(Global.nickname)
-        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, ps)
-        players.adapter = arrayAdapter
+
 
         val start = findViewById<Button>(R.id.to_Qs)
         start.setOnClickListener {

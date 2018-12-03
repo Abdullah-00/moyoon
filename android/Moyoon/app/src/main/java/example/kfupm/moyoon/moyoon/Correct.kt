@@ -2,15 +2,14 @@ package example.kfupm.moyoon.moyoon
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 
-class Correct_Answer : AppCompatActivity(){
+class Correct : AppCompatActivity(){
     lateinit var correctTxt : TextView
     lateinit var score : TextView
-    lateinit var next :Button
+    lateinit var next : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.correct_answer)
