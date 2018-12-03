@@ -70,16 +70,18 @@
         <h4 class="text-center text-uppercase text-secondary mb-0">Select Category</h4>
         {% if catagory_list %}
         <div class="text-center mt-4">
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Choose Category
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              {% for category in catagory_list %}
-              <a class="dropdown-item" href="#">{{ category.name }}</a><!-- value={{ category.id }} -->
-              {% endfor %}
-            </div>
-          </div>
+            <form action="create" method="GET">
+                    <div class="form-group">
+                        <select class="form-control" name="category">
+                            {% for category in catagory_list %}
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                <div class="form-group">
+                <button type="submit"  class="btn btn-secondary">Play</button>
+                </div>
+            </form>
           {% else %}
           <br>
           <h6 class="text-center text-secondary mb-0">No Categories are available!</h6>
