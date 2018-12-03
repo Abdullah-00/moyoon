@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseFirestore
-//import Alamofire
+import Alamofire
 
 class Homepage: UIViewController {
 
@@ -35,10 +35,11 @@ class Homepage: UIViewController {
         nickname = nicknameField.text!
         session = sessionField.text!
         //loadSession(session: session)
+        
         connectAPI(nickname: nickname, gameSession: session)
 
     }
-/*
+
     func connectAPI(nickname: String, gameSession: String)
     {
         let urlExtension = "/enterSession/"
@@ -55,9 +56,6 @@ class Homepage: UIViewController {
             print("Error: \(response.error)")
             print("Timeline: \(response.timeline)")
             if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
-                print("Data: \(playerId)")
-                GlobalVariables.playerId = playerId
-                print ("Global: \(GlobalVariables.playerId)")
                 if(response.response?.statusCode != 200){
                     let alertController = UIAlertController(title: "Alert", message: "Session ID is not valid.", preferredStyle: .alert)
                     let action1 = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
@@ -66,6 +64,8 @@ class Homepage: UIViewController {
                     alertController.addAction(action1)
                     self.present(alertController, animated: true, completion: nil)
                 }else{
+                    GlobalVariables.playerId = playerId
+                    GlobalVariables.sessionId = gameSession
                     self.performSegue(withIdentifier: "JoinSession", sender: self)
                 }
                 

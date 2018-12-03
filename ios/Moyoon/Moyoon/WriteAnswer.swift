@@ -13,7 +13,7 @@ import Alamofire
 class WriteAnswer: UIViewController {
     var submitted : Bool = false;
     
-    var seconds = 15 //This variable will hold a starting value of seconds. It could be any amount above 0.
+    var seconds = 10 //This variable will hold a starting value of seconds. It could be any amount above 0.
     var timer =  Timer()
     var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
     
@@ -48,9 +48,11 @@ class WriteAnswer: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBOutlet weak var submitButton: UIButton!
     @IBAction func submitAnswer(_ sender: Any) {
         var answer = answerField.text!
         sendAnswerToAPI(answer: answer)
+        submitButton.isEnabled = false;
     }
     
 

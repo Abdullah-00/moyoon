@@ -13,12 +13,17 @@ import FirebaseFirestore
 
 class Lobby: UIViewController {
     
+    let myarray = ["item1", "item2", "item3"]
+
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
+    @IBOutlet weak var Players: UITableView!
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

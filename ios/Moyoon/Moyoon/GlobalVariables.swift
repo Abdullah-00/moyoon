@@ -28,6 +28,6 @@ struct GlobalVariables{
     static var sessionId = "1";
     static var roundId = "1";
     static var questionId = "1";
-    
+    static var reply = "...";
     
 }
