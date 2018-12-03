@@ -11,14 +11,22 @@ import UIKit
 
 class ChooseAnswer: UIViewController {
     
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    // MARK: UITableViewDataSource
+    
+
+    @IBAction func selectAnswer(_ sender: Any) {
+        var currentId = Int(GlobalVariables.questionId)
+        var nextId = currentId!+1
+        GlobalVariables.questionId = String(nextId)
+        performSegue(withIdentifier: "SelectToType", sender: self)
     }
     
 }
+

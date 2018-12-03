@@ -20,12 +20,14 @@ extension String{
         return blankDict
     }
 }
+
+
 struct GlobalVariables{
-    static var hostname = "localhost"
-    static var playerId = "X60jLqHU0kljpBA90jga";
-    static var sessionId = "CSC8hsgaLCwz6OcLmblN";
+    static var hostname = "http://localhost:8000"
+    static var playerId = "1";
+    static var sessionId = "1";
     static var roundId = "1";
     static var questionId = "1";
-    
+    static var reply = "...";
     
 }

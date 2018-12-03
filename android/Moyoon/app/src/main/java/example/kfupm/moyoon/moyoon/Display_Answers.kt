@@ -6,45 +6,59 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Parcel
 import android.os.Parcelable
+import android.util.Log
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.*
+import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.concurrent.timerTask
 
-class Display_Answers() : AppCompatActivity() {
+class Display_Answers : AppCompatActivity() {
+    lateinit var questionDesplay : TextView
+    lateinit var db : FirebaseFirestore
+    lateinit var answerslist : ListView
+    lateinit var submit : Button
+    lateinit var playersAnswer : ArrayList<String>
+    lateinit var roundText : TextView //Round Number
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display__answers)
 
-        val question_desplay = findViewById<TextView>(R.id.quiston_at_selecton)
-        question_desplay.setText("وش افضل مكان بالعالم؟")
-        val nebulae = arrayOf<String>("الرياض", "جنيف", "واشنطن", "قنونا")
+        db = FirebaseFirestore.getInstance()
 
-        val myList = findViewById<TextView>(R.id.answers_list) as ListView
+        roundText = findViewById(R.id.roundText)
+        questionDesplay = findViewById(R.id.quiston_at_selecton)
+        answerslist = findViewById(R.id.answers_list)
+        submit = findViewById(R.id.submit_ans)
+        playersAnswer = ArrayList()
+        val intent = Intent(this,Correct::class.java)
 
-        var adapter= ArrayAdapter(this,android.R.layout.simple_list_item_1,nebulae)
-        myList.adapter=adapter
 
-        val submit_ans = findViewById<Button>(R.id.submit_ans)
-        submit_ans.setOnClickListener {
-            val intent = Intent(this,Correct_Answer::class.java)
+        roundText.text = "Round " + Global.roundID[Global.roundNum]
+        questionDesplay.text = Global.question
+        var arrayAdapter : ArrayAdapter<String>
+
+        db.collection("Session").document(Global.sessionID)
+            .collection("Rounds").document(Global.roundID[Global.roundNum])
+            .collection("Questions").document(Global.questionNum.toString())
+            .collection("Answer").get()
+            .addOnSuccessListener { k ->
+                for (document in k) {
+                    playersAnswer.add(document.getString("Answer").toString())
+                }
+                playersAnswer.add(Global.qAnswer)
+                arrayAdapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, playersAnswer)
+                answerslist.adapter = arrayAdapter
+            }
+            .addOnFailureListener { exception ->
+                Log.w("PlayerlistActivity", "Error getting documents.", exception)
+            }
+
+        submit.setOnClickListener{
             startActivity(intent)
         }
-
-        //////// TIMER CODE \\\\\\\\\
-       /* val intent = Intent(this,Correct_Answer::class.java)
-        val timer = Timer()
-        timer.schedule(timerTask {
-            startActivity(intent)
-        }, 30000)*/
-         /*Another way to make the next activity launch in 10 sec
-        Handler().postDelayed({
-           val intent = Intent(this,Correct_Answer::class.java)
-            startActivity(intent)
-        }, 10000)*/
-
-
     }
 }

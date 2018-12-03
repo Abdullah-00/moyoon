@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseFirestore
-//import Alamofire
+import Alamofire
 
 class Homepage: UIViewController {
 
@@ -34,40 +34,45 @@ class Homepage: UIViewController {
         var nickname : String
         nickname = nicknameField.text!
         session = sessionField.text!
-        loadSession(session: session)
-       /* connectAPI(nickname: nickname, gameSession: session)*/
+        //loadSession(session: session)
         
+        connectAPI(nickname: nickname, gameSession: session)
+
     }
-/*
+
     func connectAPI(nickname: String, gameSession: String)
     {
-      //  var urlComponents = URLComponents()
-      //  urlComponents.scheme = "http"
-      //  urlComponents.host = GlobalVariables.hostname
-     //   urlComponents.path = "/enterSession/"
-      //  let nick_name = URLQueryItem(name: "nick_name", value: "\(nickname)")
-       // let session_id = URLQueryItem(name: "session_id", value: "\(gameSession)")
-       // urlComponents.queryItems = [nick_name,session_id]
-      //  guard let url = urlComponents.url else { fatalError("Could not create URL from components") }
-      //  var request = URLRequest(url: url)
-      //  request.httpMethod = "GET"
-        
-        var playerId = ""
-        Alamofire.request("http://localhost:8000/enterSession/?nick_name="+nickname+"&session_id="+gameSession).response { response in
+        let urlExtension = "/enterSession/"
+        let parameters: Parameters = [
+            "nick_name": nickname,
+            "session_id": gameSession
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
+    
+        Alamofire.request(urlString!, parameters: parameters).response { response in
             print("Request: \(response.request)")
             print("Response: \(response.response)")
             print("Error: \(response.error)")
             print("Timeline: \(response.timeline)")
             if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
-                print("Data: \(playerId)")
-                GlobalVariables.playerId = playerId
-                print ("Global: \(GlobalVariables.playerId)")
+                if(response.response?.statusCode != 200){
+                    let alertController = UIAlertController(title: "Alert", message: "Session ID is not valid.", preferredStyle: .alert)
+                    let action1 = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+                        return;
+                    }
+                    alertController.addAction(action1)
+                    self.present(alertController, animated: true, completion: nil)
+                }else{
+                    GlobalVariables.playerId = playerId
+                    GlobalVariables.sessionId = gameSession
+                    self.performSegue(withIdentifier: "JoinSession", sender: self)
+                }
+                
             }
         }
 
-        
-        
-    }*/
+    }
     
     func loadSession(session: String){
         let db = Firestore.firestore()

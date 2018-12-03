@@ -6,81 +6,129 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Moyoon/WriteAnswer.swift"
-            timestampString = "565471999.070506"
+            filePath = "Moyoon/Question.swift"
+            timestampString = "565493391.651825"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "sendAnswerToServer(answer:)"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "getQuestion()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Moyoon/WriteAnswer.swift"
-            timestampString = "565471999.070556"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "sendAnswerToServer(answer:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Moyoon/WriteAnswer.swift"
-            timestampString = "565471999.070593"
+            filePath = "Moyoon/Homepage.swift"
+            timestampString = "565491738.440412"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
             endingLineNumber = "48"
-            landmarkName = "sendAnswerToServer(answer:)"
+            landmarkName = "connectAPI(nickname:gameSession:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Moyoon/Homepage.swift"
+            timestampString = "565491738.4404531"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "connectAPI(nickname:gameSession:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Moyoon.WriteAnswer.sendAnswerToServer(answer: Swift.String) -&gt; ()"
+                  symbolName = "Moyoon.Homepage.connectAPI(nickname: Swift.String, gameSession: Swift.String) -&gt; ()"
                   moduleName = "Moyoon"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bandar/Desktop/dev/moyoon/ios/Moyoon/Moyoon/WriteAnswer.swift"
-                  timestampString = "565471999.192603"
+                  urlString = "file:///Users/bandar/Desktop/dev/moyoon/ios/Moyoon/Moyoon/Homepage.swift"
+                  timestampString = "565484503.099202"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "3759">
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "1198">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Moyoon.WriteAnswer.sendAnswerToServer(answer: Swift.String) -&gt; ()"
+                  symbolName = "closure #1 (Alamofire.DefaultDataResponse) -&gt; () in Moyoon.Homepage.connectAPI(nickname: Swift.String, gameSession: Swift.String) -&gt; ()"
                   moduleName = "Moyoon"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/bandar/Desktop/dev/moyoon/ios/Moyoon/Moyoon/WriteAnswer.swift"
-                  timestampString = "565471999.193912"
+                  urlString = "file:///Users/bandar/Desktop/dev/moyoon/ios/Moyoon/Moyoon/Homepage.swift"
+                  timestampString = "565484503.100899"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "33">
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "26">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Moyoon/Homepage.swift"
+            timestampString = "565491738.440488"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "connectAPI(nickname:gameSession:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Moyoon/AppDelegate.swift"
+            timestampString = "565493962.487204"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "11"
+            endingLineNumber = "11"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Moyoon/Question.swift"
+            timestampString = "565493391.651957"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getQuestion()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

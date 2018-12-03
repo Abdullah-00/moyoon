@@ -13,10 +13,10 @@ import FirebaseFirestore
 
 class Question: UIViewController {
     
-    override func viewDidLoad() {
-        getQuestion()
-        
+    override func viewDidLoad() {        
         super.viewDidLoad()
+        getQuestion()
+
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBOutlet weak var question: UILabel!
@@ -30,9 +30,8 @@ class Question: UIViewController {
     
     func getQuestion(){
         let db = Firestore.firestore()
-        
-        
-        let docRef = db.collection("Session").document(GlobalVariables.sessionId).collection("Rounds").document("1").collection("Questions").document("1")
+
+        let docRef = db.collection("Session").document(GlobalVariables.sessionId).collection("Rounds").document(GlobalVariables.roundId).collection("Questions").document(GlobalVariables.questionId)
         
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {

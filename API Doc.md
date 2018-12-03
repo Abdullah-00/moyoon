@@ -14,7 +14,7 @@ returns: {'id': 6, 'name': 'Algebra', 'name_ar': 'الجبر'}{'id': 7, 'name': 
 
 ### Returns String: session_id
 #### Example: <br/>
-session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
+http://localhost:8000/session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 
 ## Start Game API
 ### Number of parameters : 1
@@ -33,7 +33,7 @@ beginGame/?session_id=8zdNKG1g8VrCuDCeRTds
 ### Returns string: player_id
 
 #### Example: <br/>
- enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
+http://localhost:8000/enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
 
 
 
@@ -47,7 +47,7 @@ beginGame/?session_id=8zdNKG1g8VrCuDCeRTds
 5. answer // written by the user 
 
 #### Example:<br/>
-SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
+http://localhost:8000/SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
 
 
 
@@ -62,5 +62,5 @@ SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id
 
 
 #### Example:<br/>
-SubmitAnswerChoice/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
+http://localhost:8000/SubmitAnswerChoice/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
 
