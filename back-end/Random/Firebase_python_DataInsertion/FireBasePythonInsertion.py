@@ -4,6 +4,7 @@ import time
 import threading
 from firebase_admin import credentials
 from firebase_admin import firestore
+import random
 
 cred = credentials.Certificate({
     "type": "service_account",
@@ -21,9 +22,18 @@ firebase_admin.initialize_app(cred, {
     'projectId': "moyoon-abikmmr",
 })
 
+def randomString():
+    strg = ""
+    x = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    for i in range(6):
+        y = random.choice(x) #int(random.randrange(10))
+        strg = strg + y
+    return strg
+
 def createSessionByCategory(catagory_id, is_provided, questions):
     db = firestore.client()
-    doc_ref = db.collection(u'Session').document()
+    x = randomString()
+    doc_ref = db.collection(u'Session').document(x)
     session_id = doc_ref
     data2 = {
         u'addPlayers' : True
@@ -195,23 +205,18 @@ def gameController(session_id):
         question_doc = question_col.get()
         for j in question_doc:
             jCounter += 1
-            #time.sleep(10)
+            #time.sleep(1)
             question_ref = question_col.document(j.id)
             question_info = question_ref.get().to_dict()
             question_info['isDoneSubmitAnswer'] = True
             question_ref.set(question_info)
-            #time.sleep(10)
+            #time.sleep(1)
             question_info = question_ref.get().to_dict()
             question_info['isDoneChooseAnswer'] = True
             question_ref.set(question_info)
-
+            #time.sleep(1)
         round_info = round_ref.get().to_dict()
         round_info['isDone'] = True
         round_ref.set(round_info)
     return (iCounter, jCounter)
 
-def trial(j, question_col):
-    question_ref = question_col.document(j.id)
-    question_info = question_ref.get().to_dict()
-    question_info['isDoneSubmitAnswer'] = True
-    question_ref.set(question_info)

@@ -12,6 +12,7 @@ from Random.Firebase_python_DataInsertion.FireBasePythonInsertion import *
 import json
 
 
+
 from content.models import Category # using categories from content
 # Create your views here.
 
