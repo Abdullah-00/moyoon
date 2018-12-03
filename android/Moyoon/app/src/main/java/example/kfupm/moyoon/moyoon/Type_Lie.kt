@@ -15,7 +15,7 @@ class Type_Lie : AppCompatActivity() {
     lateinit var submit_lie : Button
     lateinit var db : FirebaseFirestore
     lateinit var playerAns : String //PLayer Answer
-    lateinit var st : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.type_lie)
@@ -33,10 +33,9 @@ class Type_Lie : AppCompatActivity() {
             .get()
             .addOnSuccessListener { documentReference ->
                 questionDesplay.setText(documentReference.data!!["name"].toString())
-                st = questionDesplay.text as String
-                print("HHHHHHHHHHHHHHHHHH : " + st)
+                var st : String = questionDesplay.text as String
                 Global.question = st
-                print("Question ABBSSSSS> " + Global.question)
+                Global.qAnswer = documentReference.data!!["Correct_Answer"].toString()
             }
             .addOnFailureListener { exception ->
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)

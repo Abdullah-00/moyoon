@@ -10,6 +10,7 @@ class Global{
         var playerID: String = ""
         var nickname: String = ""
         var question : String = ""
+        var qAnswer : String = ""
 
     }
 }

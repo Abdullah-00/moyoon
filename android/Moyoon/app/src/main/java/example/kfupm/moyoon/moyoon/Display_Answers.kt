@@ -21,7 +21,7 @@ class Display_Answers : AppCompatActivity() {
     lateinit var answerslist : ListView
     lateinit var submit : Button
     lateinit var playersAnswer : ArrayList<String>
-    lateinit var arrayAdapter : ArrayAdapter<String>
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display__answers)
@@ -30,23 +30,28 @@ class Display_Answers : AppCompatActivity() {
         questionDesplay = findViewById(R.id.quiston_at_selecton)
         answerslist = findViewById(R.id.answers_list)
         submit = findViewById(R.id.submit_ans)
+        playersAnswer = ArrayList()
         val intent = Intent(this,Correct::class.java)
 
-//        db.collection("Session").document(Global.sessionID)
-//            .collection("Rounds").document("1")
-//            .collection("Questions").document("1")
-//            .get()
-//            .addOnSuccessListener { documentReference ->
-//                questionDesplay.setText(documentReference.data!!["name"].toString())
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.w("PlayerlistActivity", "Error getting documents.", exception)
-//            }
-        questionDesplay.setText(Global.question)
-        val nebulae = arrayOf<String>("الرياض", "جنيف", "واشنطن", "قنونا")
 
-        arrayAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, nebulae)
-        answerslist.adapter = arrayAdapter
+        questionDesplay.text = Global.question
+        var arrayAdapter : ArrayAdapter<String>
+
+        db.collection("Session").document(Global.sessionID)
+            .collection("Rounds").document("1")
+            .collection("Questions").document("1")
+            .collection("Answer").get()
+            .addOnSuccessListener { k ->
+                for (document in k) {
+                    playersAnswer.add(document.getString("Answer").toString())
+                }
+                playersAnswer.add(Global.qAnswer)
+                arrayAdapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, playersAnswer)
+                answerslist.adapter = arrayAdapter
+            }
+            .addOnFailureListener { exception ->
+                Log.w("PlayerlistActivity", "Error getting documents.", exception)
+            }
 
         submit.setOnClickListener{
             startActivity(intent)
