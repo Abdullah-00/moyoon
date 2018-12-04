@@ -231,7 +231,13 @@ def gameController(session_id):
     qCounter = 0
     for i in round_id:
         qCounter += questionController(session_id, i)
+        round_doc = round_col.document(i)
+        round_info = round_doc.get().to_dict()
+        round_info['isDone'] = True
+        round_doc.set(round_info)
         counter += 1
+    time.sleep(300)
+    round_col = db.collection(u'Session').document(session_id).delete()
     return (counter, qCounter)
 
 def questionController(session_id, round_id):
@@ -243,11 +249,12 @@ def questionController(session_id, round_id):
 
     counter = 0
     for i in question_id:
+        time.sleep(1)
         flagChanger(session_id, round_id, i, True)
         time.sleep(1)
         flagChanger(session_id, round_id, i, False)
-        time.sleep(1)
         counter += 1
+    
     return counter
 
 #
