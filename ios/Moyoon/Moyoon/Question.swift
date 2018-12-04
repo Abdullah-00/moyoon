@@ -21,6 +21,14 @@ class Question: UIViewController {
     }
     @IBOutlet weak var question: UILabel!
     
+    override func viewWillAppear(_ animated: Bool) {
+        questionNumberLabel.text = "Question: \(GlobalVariables.questionId)"
+        roundNumberLabel.text = "Round: \(GlobalVariables.roundId)"
+    }
+    
+    @IBOutlet weak var questionNumberLabel: UILabel!
+    @IBOutlet weak var roundNumberLabel: UILabel!
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
