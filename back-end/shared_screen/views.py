@@ -37,8 +37,8 @@ def index(request):
 sessions = db.collection(u'Session')
 sessions_docs = sessions.get()
 
-for doc in sessions_docs:
-    print(u'{} => {}'.format(doc.id, doc.to_dict()))
+# for doc in sessions_docs:
+#     print(u'{} => {}'.format(doc.id, doc.to_dict()))
 
 def create(request):
     catID = 6

@@ -22,10 +22,32 @@ class ChooseAnswer: UIViewController {
     var cellMarginSize = 10.0
     
 
+    var seconds = 10 //This variable will hold a starting value of seconds. It could be any amount above 0.
+    var timer =  Timer()
+    var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
+    
+    
+    func runTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(WriteAnswer.updateTimer)), userInfo: nil, repeats: true)
+    }
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    @objc func updateTimer() {
+        seconds -= 1     //This will decrement(count down)the seconds.
+        timerLabel.text = "\(seconds)" //This will update the label.
+        if(seconds < 1){
+            timer.invalidate()
+            performSegue(withIdentifier: "SelectToType", sender: self)
+        }
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        runTimer()
+
         
         // Set Delegates
         self.collectionView.delegate = self
@@ -51,6 +73,7 @@ class ChooseAnswer: UIViewController {
         //dataArray = []
         let db = Firestore.firestore()
         let path = "Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)/Answer"
+        print (path)
         db.collection(path).getDocuments() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -60,6 +83,7 @@ class ChooseAnswer: UIViewController {
                     self.collectionView?.performBatchUpdates({
                         let indexPath = IndexPath(row: self.dataArray.count, section: 0)
                         self.dataArray.append(ans) //add your object to data source first
+                        print (ans)
                         self.collectionView?.insertItems(at: [indexPath])
                     }, completion: nil)
                 }
@@ -80,21 +104,27 @@ class ChooseAnswer: UIViewController {
     }
     
     // MARK: UITableViewDataSource
-
+    @IBOutlet weak var submitButton: UIButton!
+    
     @IBAction func selectAnswer(_ sender: Any) {
-        if((Int(GlobalVariables.roundId))==3){
+        submitButton.isEnabled = false;
+}
+
+    func incrementQuestionsAndRounds() {
+        if ((Int(GlobalVariables.roundId))==3){
             performSegue(withIdentifier: "Finished", sender: self)
             return;
         }
         GlobalVariables.questionId = String(Int(GlobalVariables.questionId)!+1)
-        if(Int(GlobalVariables.questionId)! == 3){
+        if(Int(GlobalVariables.questionId)! == 4){
             GlobalVariables.questionId = String(1)
             GlobalVariables.roundId = String(Int(GlobalVariables.roundId)!+1)
         }
+        
         performSegue(withIdentifier: "SelectToType", sender: self)
     }
-}
 
+}
 
 
 extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {

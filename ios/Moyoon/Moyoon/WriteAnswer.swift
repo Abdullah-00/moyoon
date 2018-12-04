@@ -28,6 +28,7 @@ class WriteAnswer: UIViewController {
         seconds -= 1     //This will decrement(count down)the seconds.
         timerLabel.text = "\(seconds)" //This will update the label.
         if(seconds < 1){
+            sendAnswerToAPI(answer: (answerField.text)!)
             timer.invalidate()
             performSegue(withIdentifier: "TypeToSelect", sender: self)
         }
@@ -51,7 +52,7 @@ class WriteAnswer: UIViewController {
     @IBOutlet weak var submitButton: UIButton!
     @IBAction func submitAnswer(_ sender: Any) {
         var answer = answerField.text!
-        sendAnswerToAPI(answer: answer)
+      //  sendAnswerToAPI(answer: answer)
         submitButton.isEnabled = false;
     }
     
@@ -84,10 +85,8 @@ class WriteAnswer: UIViewController {
             print("Response: \(response.response)")
             print("Error: \(response.error)")
             print("Timeline: \(response.timeline)")
-            if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
-                print("Data: \(playerId)")
-                GlobalVariables.playerId = playerId
-                print ("Global: \(GlobalVariables.playerId)")
+            if let data = response.data, let result = String(data: data, encoding: .utf8) {
+                print("Data: \(result)")
             }
         }
         submitted = true;

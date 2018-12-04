@@ -17,9 +17,11 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
 from session import views
+from shared_screen import views as vss
 from django.conf.urls import include
 from rest_framework.routers import DefaultRouter
 from django.views.generic.base import TemplateView
+from django.views.generic import RedirectView
 
 
 
@@ -55,7 +57,7 @@ urlpatterns = [
     # url for the shared screen app
     url(r'^shared_screen/', include('shared_screen.urls')),
     # url for moyoon main page
-    url(r'^$', include('shared_screen.urls')),
+    url(r'^$', RedirectView.as_view(url='/shared_screen'))
 ]
 
 

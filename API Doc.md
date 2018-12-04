@@ -4,7 +4,7 @@
 
 ### Returns String or JSON (Unknown for now)
 #### Example: <br/>
-ChooseCategory/ <br/>
+http://68.183.67.247:8000/ChooseCategory/ <br/>
 returns: {'id': 6, 'name': 'Algebra', 'name_ar': 'الجبر'}{'id': 7, 'name': 'Calculus', 'name_ar': 'التفاضل و التكامل'}
 ## Create Session API
 ### Number of parameters : 3 
@@ -14,7 +14,7 @@ returns: {'id': 6, 'name': 'Algebra', 'name_ar': 'الجبر'}{'id': 7, 'name': 
 
 ### Returns String: session_id
 #### Example: <br/>
-http://localhost:8000/session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
+http://68.183.67.247:8000/session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 
 ## Start Game API
 ### Number of parameters : 1
@@ -22,7 +22,7 @@ http://localhost:8000/session/?catagory_id=6&is_provided=False&questions=jhcusgc
 
 ### Returns useless String
 #### Example: <br/>
-beginGame/?session_id=8zdNKG1g8VrCuDCeRTds
+http://68.183.67.247:8000/beginGame/?session_id=8zdNKG1g8VrCuDCeRTds
 
 # Mobile API
 ## Enter Session API <br/> 
@@ -33,7 +33,7 @@ beginGame/?session_id=8zdNKG1g8VrCuDCeRTds
 ### Returns string: player_id
 
 #### Example: <br/>
-http://localhost:8000/enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
+http://68.183.67.247:8000/enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo3sw
 
 
 
@@ -47,7 +47,7 @@ http://localhost:8000/enterSession/?session_id=CSC8hsgaLCwz6OcLmblN&nick_name=mo
 5. answer // written by the user 
 
 #### Example:<br/>
-http://localhost:8000/SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
+http://68.183.67.247:8000/SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
 
 
 
@@ -62,5 +62,5 @@ http://localhost:8000/SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&q
 
 
 #### Example:<br/>
-http://localhost:8000/SubmitAnswerChoice/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
+http://68.183.67.247:8000/SubmitAnswerChoice/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
 

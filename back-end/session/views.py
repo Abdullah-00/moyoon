@@ -10,6 +10,7 @@ from rest_framework import status
 from . import serializers
 from Random.Firebase_python_DataInsertion.FireBasePythonInsertion import *
 import json
+from threading import Thread
 
 
 
@@ -132,9 +133,15 @@ def SubmitAnswerChoiceView(request):
         # incrementAuthorScore(session_id, round_id, question_id, answer)
         return HttpResponse("Done Submit wrong choice")
 
-def controllerView(request):
-    session_id = request.GET.get('session_id')
+def SecondControllerView(session_id):
+    
     changeAddplayers(session_id)
     x = gameController(session_id)
     str = "Game Ended ",x[0]," ",x[1]
-    return HttpResponse(str)
+    
+
+def controllerView(request):
+    session_id = request.GET.get('session_id')
+    t = Thread(target=SecondControllerView, args=(session_id, ))
+    t.start()
+    return HttpResponse("Game Ended")
