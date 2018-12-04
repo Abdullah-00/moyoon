@@ -8,6 +8,8 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.ListView
 import android.widget.TextView
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 
 class PlayerlistActivity : AppCompatActivity() {
@@ -19,6 +21,7 @@ class PlayerlistActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_playerlist)
+
         db = FirebaseFirestore.getInstance()
         players = findViewById(R.id.players)
 
@@ -26,6 +29,7 @@ class PlayerlistActivity : AppCompatActivity() {
         ps = ArrayList<String>()
         var arrayAdapter : ArrayAdapter<String>
 
+//       fet Players names in ps array
         db.collection("Session").document(Global.sessionID)
             .collection("Players")
             .get()
@@ -34,7 +38,6 @@ class PlayerlistActivity : AppCompatActivity() {
                     //Log.d("PlayerlistActivity", document.id + " => " + document.data)
                     ps.add(document.getString("nick-name").toString())
                 }
-                ps.add(Global.nickname)
                 arrayAdapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, ps)
                 players.adapter = arrayAdapter
             }
@@ -42,12 +45,16 @@ class PlayerlistActivity : AppCompatActivity() {
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)
             }
 
+
+        var i:Int=0 // for test
         //Finding NUMBER of Rounds
         db.collection("Session").document(Global.sessionID)
             .collection("Rounds").get()
             .addOnSuccessListener { k ->
                 for (document in k) {
                     Global.roundID.add(document.id)
+                    Log.d("TTTT",Global.roundID[i])
+                    i++
                 }
             }.addOnFailureListener { exception ->
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)
