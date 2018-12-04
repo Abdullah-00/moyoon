@@ -31,15 +31,14 @@ class ItemCell: UICollectionViewCell {
             print("Response: \(response.response)")
             print("Error: \(response.error)")
             print("Timeline: \(response.timeline)")
-            if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
-                print("Data: \(playerId)")
-                GlobalVariables.playerId = playerId
-                print ("Global: \(GlobalVariables.playerId)")
+            if let data = response.data, let result = String(data: data, encoding: .utf8) {
+                print("result: \(result)")
             }
         }
     }
     
     @IBAction func submit(_ sender: Any) {
+        print("Button Clicked!!!")
         sendAnswerToAPI(answer: textLabel.text!)
     }
     
