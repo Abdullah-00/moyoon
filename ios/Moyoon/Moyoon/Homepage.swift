@@ -42,6 +42,7 @@ class Homepage: UIViewController {
 
     func connectAPI(nickname: String, gameSession: String)
     {
+        print("Sending API Request")
         let urlExtension = "/enterSession/"
         let parameters: Parameters = [
             "nick_name": nickname,
