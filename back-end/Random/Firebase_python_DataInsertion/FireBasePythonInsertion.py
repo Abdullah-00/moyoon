@@ -191,32 +191,83 @@ def changeAddplayers(session_id):
     }
     doc_ref.set(data)
 
+# def gameController(session_id):
+#     db = firestore.client()
+#     round_col = db.collection(u'Session').document(session_id).collection(u'Rounds')
+#     round_docs = round_col.get()
+#     iCounter = 0
+#     jCounter = 0
+#     for i in round_docs:
+#         iCounter += 1
+#         round_ref = round_col.document(i.id)
+        
+#         question_col = round_ref.collection(u'Questions')
+#         question_doc = question_col.get()
+#         for j in question_doc:
+#             jCounter += 1
+#             #time.sleep(1)
+#             question_ref = question_col.document(j.id)
+#             question_info = question_ref.get().to_dict()
+#             question_info['isDoneSubmitAnswer'] = True
+#             question_ref.set(question_info)
+#             #time.sleep(1)
+#             question_info = question_ref.get().to_dict()
+#             question_info['isDoneChooseAnswer'] = True
+#             question_ref.set(question_info)
+#             #time.sleep(1)
+#         round_info = round_ref.get().to_dict()
+#         round_info['isDone'] = True
+#         round_ref.set(round_info)
+#     return (iCounter, jCounter)
+
 def gameController(session_id):
     db = firestore.client()
     round_col = db.collection(u'Session').document(session_id).collection(u'Rounds')
     round_docs = round_col.get()
-    iCounter = 0
-    jCounter = 0
+    round_id = []
     for i in round_docs:
-        iCounter += 1
-        round_ref = round_col.document(i.id)
-        
-        question_col = round_ref.collection(u'Questions')
-        question_doc = question_col.get()
-        for j in question_doc:
-            jCounter += 1
-            #time.sleep(1)
-            question_ref = question_col.document(j.id)
-            question_info = question_ref.get().to_dict()
-            question_info['isDoneSubmitAnswer'] = True
-            question_ref.set(question_info)
-            #time.sleep(1)
-            question_info = question_ref.get().to_dict()
-            question_info['isDoneChooseAnswer'] = True
-            question_ref.set(question_info)
-            #time.sleep(1)
-        round_info = round_ref.get().to_dict()
+        round_id.append(i.id)
+    counter = 0
+    qCounter = 0
+    for i in round_id:
+        qCounter += questionController(session_id, i)
+        round_doc = round_col.document(i)
+        round_info = round_doc.get().to_dict()
         round_info['isDone'] = True
-        round_ref.set(round_info)
-    return (iCounter, jCounter)
+        round_doc.set(round_info)
+        counter += 1
+    time.sleep(300)
+    round_col = db.collection(u'Session').document(session_id).delete()
+    return (counter, qCounter)
+
+def questionController(session_id, round_id):
+    db = firestore.client()
+    question_doc = db.collection(u'Session').document(session_id).collection(u'Rounds').document(round_id).collection(u'Questions').get()
+    question_id = []
+    for i in question_doc:
+        question_id.append(i.id)
+
+    counter = 0
+    for i in question_id:
+        time.sleep(1)
+        flagChanger(session_id, round_id, i, True)
+        time.sleep(1)
+        flagChanger(session_id, round_id, i, False)
+        counter += 1
+    
+    return counter
+
+#
+# If flag == True then change isDoneSubmitAnswer
+# If flag == False then change isDoneChooseAnswer
+#
+def flagChanger(session_id, round_id, question_id, flag):
+    db = firestore.client()
+    question_doc = db.collection(u'Session').document(session_id).collection(u'Rounds').document(round_id).collection(u'Questions').document(question_id)
+    question_info = question_doc.get().to_dict()
+    if(flag):
+        question_info['isDoneSubmitAnswer'] = True
+    else:
+        question_info['isDoneChooseAnswer'] = True
+    question_doc.set(question_info)
 
