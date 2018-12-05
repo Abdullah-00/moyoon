@@ -104,7 +104,7 @@ class Display_Answers : AppCompatActivity() {
     }
 
 
-
+/// get answers 
     private fun getAnswers(){
         var answerTemp :String
         db.collection("Session").document(Global.sessionID)
