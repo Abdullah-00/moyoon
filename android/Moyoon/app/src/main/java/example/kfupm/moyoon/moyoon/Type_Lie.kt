@@ -3,6 +3,7 @@ package example.kfupm.moyoon.moyoon
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.CountDownTimer
 import android.util.Log
 import android.widget.*
 import com.android.volley.Request
@@ -10,6 +11,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.firebase.firestore.FirebaseFirestore
+import java.lang.Thread.sleep
+import kotlin.concurrent.timer
 
 
 class Type_Lie : AppCompatActivity() {
@@ -20,6 +23,7 @@ class Type_Lie : AppCompatActivity() {
     private lateinit var roundText : TextView //Round Number
     private lateinit var db : FirebaseFirestore
     private lateinit var playerLie : String //PLayer Lie
+    private lateinit var timerTxt : TextView //PLayer Lie
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,7 +35,10 @@ class Type_Lie : AppCompatActivity() {
         questionDesplay = findViewById(R.id.question_desplay)
         lie = findViewById(R.id.Lie)
         submit_lie = findViewById(R.id.Submit_lie)
+        timerTxt =findViewById(R.id.timerTxt)
         val intent = Intent(this,Display_Answers::class.java)
+        val timer = MyCounter(10000, 1000)
+        timer.start()
 
 
         Global.questionNum +=1
@@ -63,6 +70,7 @@ class Type_Lie : AppCompatActivity() {
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)
             }
 
+
         submit_lie.setOnClickListener{
             playerLie = lie.text.toString()
             SendtoServer()
@@ -73,9 +81,20 @@ class Type_Lie : AppCompatActivity() {
 
         }
 }
-    //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
-    //       "&round_id="+Global.roundNum+"&question_id="+Global.questionNum+"&player_id="+Global.playerID+"&answer="+playerLie
+    inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
+        override fun onTick(millisUntilFinished: Long) {
 
+            timerTxt.text = (millisUntilFinished / 1000).toString() + ""
+            println("Timer  : " + millisUntilFinished / 1000)
+        }
+
+        override fun onFinish() {
+            println("Timer Completed.")
+            timerTxt.text = "Timer Completed."
+        }
+        //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
+        //       "&round_id="+Global.roundNum+"&question_id="+Global.questionNum+"&player_id="+Global.playerID+"&answer="+playerLie
+    }
     private fun SendtoServer() {
         val queue = Volley.newRequestQueue(this)
         val url = "http://68.183.67.247:8000/SubmitAnswer/?session_id=${Global.sessionID.trim()}&round_id=${Global.roundID[Global.roundNum].trim()}&question_id=${Global.questionNum.toString().trim()}&player_id=${Global.playerID.trim()}&answer=${playerLie.trim()}"
