@@ -189,3 +189,7 @@ iOSInjectionProject/
 
 # CocoaPods
 Pods
+
+#added by bandar
+
+*.pyc
