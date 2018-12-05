@@ -1,7 +1,6 @@
 package example.kfupm.moyoon.moyoon
 
 import android.content.Intent
-import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -18,16 +17,16 @@ import kotlin.collections.ArrayList
 import kotlin.concurrent.timerTask
 import android.widget.AdapterView
 import android.widget.AdapterView.OnItemClickListener
-
+import kotlinx.android.synthetic.main.activity_display__answers.*
 
 
 class Display_Answers : AppCompatActivity() {
-    lateinit var questionDesplay : TextView
-    lateinit var db : FirebaseFirestore
-    lateinit var answerslist : ListView
-    lateinit var submit : Button
-    lateinit var playersAnswer : ArrayList<String>
-    lateinit var roundText : TextView //Round Number
+    private lateinit var questionDesplay : TextView
+    private lateinit var db : FirebaseFirestore
+    private lateinit var answerslist : ListView
+    private lateinit var submit : Button
+    private lateinit var playersAnswer : ArrayList<String>
+    private lateinit var roundText : TextView //Round Number
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,6 +46,8 @@ class Display_Answers : AppCompatActivity() {
         questionDesplay.text = Global.question
         var arrayAdapter = list_view_answerss(this,R.layout.list_view_answers,playersAnswer)
 
+
+        //GetAnswers
         db.collection("Session").document(Global.sessionID)
             .collection("Rounds").document(Global.roundID[Global.roundNum])
             .collection("Questions").document(Global.questionNum.toString())
@@ -61,6 +62,13 @@ class Display_Answers : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)
             }
+
+
+//        answerslist.setOnItemClickListener { parent, view, position, id ->
+//            Log.d("nnnnnnnn",id.toString())
+//            submit.text = position.toString()
+//        }
+
 
         submit.setOnClickListener{
             startActivity(intent)
