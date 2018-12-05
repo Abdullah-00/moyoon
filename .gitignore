@@ -1,4 +1,6 @@
 ../.DS_Store
+.idea/workspace.xml
+.idea/back-end/workspace.xml
 back-end/.DS_Store/
 back-end/.idea/*
 .idea/*
