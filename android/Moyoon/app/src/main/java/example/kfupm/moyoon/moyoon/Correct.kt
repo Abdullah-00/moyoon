@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Button
+import android.widget.ListView
 import android.widget.TextView
 
 class Correct : AppCompatActivity(){
@@ -18,7 +19,11 @@ class Correct : AppCompatActivity(){
         next = findViewById(R.id.next)
         val intent = Intent(this,Type_Lie::class.java)
 
+
+
         next.setOnClickListener{
+
+
             startActivity(intent)
         }
     }
