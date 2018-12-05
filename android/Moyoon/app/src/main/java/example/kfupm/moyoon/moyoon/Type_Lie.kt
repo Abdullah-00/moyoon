@@ -11,8 +11,7 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.firebase.firestore.FirebaseFirestore
-import java.lang.Thread.sleep
-import kotlin.concurrent.timer
+
 
 
 class Type_Lie : AppCompatActivity() {
@@ -25,6 +24,7 @@ class Type_Lie : AppCompatActivity() {
     private lateinit var playerLie : String //PLayer Lie
     private lateinit var timerTxt : TextView //PLayer Lie
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.type_lie)
@@ -36,7 +36,7 @@ class Type_Lie : AppCompatActivity() {
         lie = findViewById(R.id.Lie)
         submit_lie = findViewById(R.id.Submit_lie)
         timerTxt =findViewById(R.id.timerTxt)
-        val intent = Intent(this,Display_Answers::class.java)
+        intent = Intent(this,Display_Answers::class.java)
         val timer = MyCounter(10000, 1000)
         timer.start()
 
@@ -75,7 +75,7 @@ class Type_Lie : AppCompatActivity() {
             playerLie = lie.text.toString()
             SendtoServer()
 
-            startActivity(intent)
+            //startActivity(intent)
 
 
 
@@ -90,6 +90,8 @@ class Type_Lie : AppCompatActivity() {
         override fun onFinish() {
             println("Timer Completed.")
             timerTxt.text = "Timer Completed."
+            startActivity(intent)
+
         }
         //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
         //       "&round_id="+Global.roundNum+"&question_id="+Global.questionNum+"&player_id="+Global.playerID+"&answer="+playerLie

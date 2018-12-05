@@ -12,7 +12,8 @@ class Global{
         var playerID: String = ""
         var nickname: String = ""
         var question : String = ""
-        var qAnswer : String = ""
+        var qAnswer : String = "" // Correct Answer
+        var pAnswer : String = "" //Player Chosen Answer
 
 
     }
