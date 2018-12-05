@@ -39,7 +39,12 @@ class ItemCell: UICollectionViewCell {
     
     @IBAction func submit(_ sender: Any) {
         print("Button Clicked!!!")
-        sendAnswerToAPI(answer: textLabel.text!)
+        if(!GlobalVariables.sent){
+            self.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
+            sendAnswerToAPI(answer: textLabel.text!)
+            GlobalVariables.sent = true
+        }
+
     }
     
     override func awakeFromNib() {
