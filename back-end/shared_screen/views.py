@@ -37,8 +37,8 @@ def index(request):
 sessions = db.collection(u'Session')
 sessions_docs = sessions.get()
 
-for doc in sessions_docs:
-    print(u'{} => {}'.format(doc.id, doc.to_dict()))
+# for doc in sessions_docs:
+#     print(u'{} => {}'.format(doc.id, doc.to_dict()))
 
 def create(request):
     catID = 6
@@ -58,6 +58,8 @@ def create(request):
 
 def start(request):
     s = requests.get('http://68.183.67.247:8000/beginGame/?session_id=' + session_id)
-
-    return render(request, 'shared_screen/leaderboard.html')
+    context = {
+        'session_id': session_id,
+    }
+    return render(request, 'shared_screen/leaderboard.html', context)
 
