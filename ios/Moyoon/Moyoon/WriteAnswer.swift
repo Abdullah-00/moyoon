@@ -51,7 +51,7 @@ class WriteAnswer: UIViewController {
     
     @IBOutlet weak var submitButton: UIButton!
     @IBAction func submitAnswer(_ sender: Any) {
-        var answer = answerField.text!
+     //   var answer = answerField.text!
       //  sendAnswerToAPI(answer: answer)
         submitButton.isEnabled = false;
     }

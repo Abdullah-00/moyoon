@@ -15,51 +15,39 @@ import FirebaseUI
 
 
 class Lobby: UIViewController {
+
     
-    let myarray = ["item1", "item2", "item3"]
+    
+    var playersArray : [String] = []
 
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        let path = "/Session/\(GlobalVariables.sessionId)/Players"
+        let query: Query = Firestore.firestore().collection(path)
+        query.addSnapshotListener { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                self.playersArray = []
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    self.playersArray.append(document.data()["nick-name"] as! String)
+                }
+                self.Players.reloadData()
+            }
+        }
         
-        
+        Players.dataSource = self
+        Players.delegate = self
+
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        let db = Firestore.firestore()
-        let query = db.collection("/Session/052074/Players").document("1lov5jxfeCSZE4Uzk0i1")
-            .addSnapshotListener { documentSnapshot, error in
-                guard let document = documentSnapshot else {
-                    print("Error fetching document: \(error!)")
-                    return
-                }
-                guard let data = document.data() else {
-                    print("Document data was empty.")
-                    return
-                }
-                print("Current data: \(data)")
-        }
+    
+    
 
-        
-
-        
-        let dataSource = self.Players.bind(toFirestoreQuery: query as! Query, populateCell: { (tableView: UITableView, indexPath: IndexPath, snapshot: DocumentSnapshot) -> UITableViewCell in
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: "cellIdentifier", for: indexPath)
-            
-            let value = snapshot.data() as! NSDictionary
-            
-            let someProp = value["Score"] as? String ?? ""
-            
-            cell.textLabel?.text = someProp
-            
-            return cell
-        })
-    }
 
     @IBOutlet weak var Players: UITableView!
     
@@ -67,5 +55,42 @@ class Lobby: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+}
+
+extension Lobby:UITableViewDelegate,UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.playersArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath);
+        cell.textLabel?.text = playersArray[indexPath.row]
+        return cell;
+        
+    }
+    
+    /*
+    func bindUI(){
+        
+        let path = "/Session/\(GlobalVariables.sessionId)/Players"
+        let query: Query = Firestore.firestore().collection(path)
+        var dataSource: FUIFirestoreTableViewDataSource!
+        
+        dataSource = self.Players.bind(toFirestoreQuery: query , populateCell: { (tableView, indexPath, snapshot) -> UITableViewCell in
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath)
+            
+            let value = snapshot.data()!
+            
+            let someProp = value["nick_name"] as? String ?? "no found"
+            
+            cell.textLabel?.text = someProp
+            
+            return cell
+        })
+    }
+ */
+
 }
 

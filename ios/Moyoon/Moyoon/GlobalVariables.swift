@@ -23,11 +23,12 @@ extension String{
 
 
 struct GlobalVariables{
-    static var hostname = "http://localhost:8000"
+    static var hostname = "http://68.183.67.247:8000"
     static var playerId = "1";
     static var sessionId = "1";
     static var roundId = "1";
     static var questionId = "1";
     static var reply = "...";
+    static var sent = false;
     
 }

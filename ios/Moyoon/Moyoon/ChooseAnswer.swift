@@ -38,7 +38,7 @@ class ChooseAnswer: UIViewController {
         timerLabel.text = "\(seconds)" //This will update the label.
         if(seconds < 1){
             timer.invalidate()
-            performSegue(withIdentifier: "SelectToType", sender: self)
+            incrementQuestionsAndRounds()
         }
     }
     
@@ -70,25 +70,46 @@ class ChooseAnswer: UIViewController {
     }
     
     func getAnswers(){
-        //dataArray = []
+
+        // false answers
         let db = Firestore.firestore()
         let path = "Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)/Answer"
         print (path)
-        db.collection(path).getDocuments() { (querySnapshot, err) in
+        db.collection(path).addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
                     let ans = document.data()["Answer"] as! String
+                    if(!self.dataArray.contains(ans)){
                     self.collectionView?.performBatchUpdates({
                         let indexPath = IndexPath(row: self.dataArray.count, section: 0)
                         self.dataArray.append(ans) //add your object to data source first
-                        print (ans)
                         self.collectionView?.insertItems(at: [indexPath])
+                        self.collectionView.reloadData()
                     }, completion: nil)
+                    }
                 }
             }
         }
+        
+        // true answer
+        
+        let docRef = db.collection("Session").document(GlobalVariables.sessionId).collection("Rounds").document(GlobalVariables.roundId).collection("Questions").document(GlobalVariables.questionId)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                print("Document Data -> \(document.data())")
+                let q = document.data()!["Correct_Answer"] as! String
+                self.collectionView?.performBatchUpdates({
+                    let indexPath = IndexPath(row: self.dataArray.count, section: 0)
+                    self.dataArray.append(q) //add your object to data source first
+                    self.collectionView?.insertItems(at: [indexPath])
+                    self.collectionView.reloadData()
+                }, completion: nil)
+            } else {
+                print("Could not find correct ANSWER !!!!!!!")
+            }
+    }
     }
 
     
@@ -120,7 +141,6 @@ class ChooseAnswer: UIViewController {
             GlobalVariables.questionId = String(1)
             GlobalVariables.roundId = String(Int(GlobalVariables.roundId)!+1)
         }
-        
         performSegue(withIdentifier: "SelectToType", sender: self)
     }
 
@@ -131,6 +151,11 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
     
     func collectionView(_: UICollectionView, prefetchItemsAt: [IndexPath]){
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+     //   print("section: \(indexPath.row)")
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
