@@ -47,8 +47,10 @@ def createSessionByCategory(catagory_id, is_provided, questions):
             u'isDone' : False
         }
         round_id.set(data2)
+        k=0
         for j in range((i*3), (i*3+3)):
-            question_id = round_col.document(str(i+1)).collection(u'Questions').document(str(j+1))
+            k+=1
+            question_id = round_col.document(str(i+1)).collection(u'Questions').document(str(k))
             data2 = {
                 u'name' : questions[j].name,
                 u'name_ar' : questions[j].name_ar,
