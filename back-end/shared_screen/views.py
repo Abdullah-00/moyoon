@@ -58,6 +58,8 @@ def create(request):
 
 def start(request):
     s = requests.get('http://68.183.67.247:8000/beginGame/?session_id=' + session_id)
-
-    return render(request, 'shared_screen/leaderboard.html')
+    context = {
+        'session_id': session_id,
+    }
+    return render(request, 'shared_screen/leaderboard.html', context)
 
