@@ -40,6 +40,23 @@ class Lobby: UIViewController {
             }
         }
         
+        let SessionPath = "/Session/\(GlobalVariables.sessionId)"
+        Firestore.firestore().document(SessionPath)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                print("Current data: \(data)")
+                if(data["addPlayers"] as! Bool == false){
+                    self.performSegue(withIdentifier: "StartGame", sender: self)
+                }
+        }
+
         Players.dataSource = self
         Players.delegate = self
 
@@ -67,8 +84,9 @@ extension Lobby:UITableViewDelegate,UITableViewDataSource{
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath);
         cell.textLabel?.text = playersArray[indexPath.row]
         return cell;
-        
     }
+    
+    
     
     /*
     func bindUI(){

@@ -9,11 +9,12 @@
 import Foundation
 import UIKit
 import Alamofire
+import FirebaseFirestore
 
 class WriteAnswer: UIViewController {
     var submitted : Bool = false;
     
-    var seconds = 10 //This variable will hold a starting value of seconds. It could be any amount above 0.
+    var seconds = 11 //This variable will hold a starting value of seconds. It could be any amount above 0.
     var timer =  Timer()
     var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
     
@@ -38,7 +39,29 @@ class WriteAnswer: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let questionPath = "/Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)"
+        Firestore.firestore().document(questionPath)
+            .addSnapshotListener { documentSnapshot, error in
+                guard let document = documentSnapshot else {
+                    print("Error fetching document: \(error!)")
+                    return
+                }
+                guard let data = document.data() else {
+                    print("Document data was empty.")
+                    return
+                }
+                print("Current data: \(data)")
+                if(data["isDoneSubmitAnswer"] as! Bool == true){
+                    self.timer.invalidate()
+                    self.sendAnswerToAPI(answer: self.answerField.text!)
+                    self.performSegue(withIdentifier: "TypeToSelect", sender: self)
+                }
+        }
+
         runTimer()
+
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     

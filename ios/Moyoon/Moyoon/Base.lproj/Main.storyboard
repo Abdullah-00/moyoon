@@ -71,9 +71,6 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OgB-n3-Wsb">
                                 <rect key="frame" x="148" y="636.5" width="78" height="30"/>
                                 <state key="normal" title="Start Game"/>
-                                <connections>
-                                    <segue destination="ffQ-Su-BzR" kind="show" id="BfB-cY-4z4"/>
-                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="7" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4LD-tx-6DK">
                                 <rect key="frame" x="49" y="103.5" width="276" height="480.5"/>
@@ -159,6 +156,7 @@
                     </view>
                     <connections>
                         <outlet property="Players" destination="4LD-tx-6DK" id="aX0-sK-CDs"/>
+                        <segue destination="ffQ-Su-BzR" kind="show" identifier="StartGame" id="bkU-Mi-Orh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qw5-sq-PT1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -392,8 +390,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="WMT-HZ-ufL"/>
         <segue reference="gv6-9i-4Ny"/>
-        <segue reference="JCF-eo-a4G"/>
+        <segue reference="bkU-Mi-Orh"/>
     </inferredMetricsTieBreakers>
 </document>
