@@ -3,9 +3,7 @@ package example.kfupm.moyoon.moyoon
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.util.Log
-import android.view.View
 import android.widget.*
 import com.google.firebase.firestore.*
 
@@ -24,15 +22,8 @@ class PlayerlistActivity : AppCompatActivity() {
         players = findViewById<ListView>(R.id.players)
         val start = findViewById<Button>(R.id.to_Qs)
 
-
-
-
-
         getPlayers()
-
         getNumOfRounds()
-
-
 
         start.setOnClickListener {
             val intent = Intent(this,Type_Lie::class.java)
@@ -42,21 +33,7 @@ class PlayerlistActivity : AppCompatActivity() {
     }
 
 
-    override fun onStart() {
-        super.onStart()
 
-//            .get()
-//            .addOnSuccessListener { documentReference ->
-//                for (document in documentReference) {
-//                    //Log.d("PlayerlistActivity", document.id + " => " + document.data)
-//                    ps.add(document.getString("nick-name").toString())
-//                }
-//
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.w("PlayerlistActivity", "Error getting documents.", exception)
-//            }
-    }
     private fun getPlayers() {
 
         //       fet Players names in ps array

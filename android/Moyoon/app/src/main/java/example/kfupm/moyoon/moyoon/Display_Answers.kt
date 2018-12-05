@@ -3,21 +3,14 @@ package example.kfupm.moyoon.moyoon
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Parcel
-import android.os.Parcelable
 import android.util.Log
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.*
 import com.google.firebase.firestore.FirebaseFirestore
-import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.concurrent.timerTask
 import android.widget.AdapterView
-import android.widget.AdapterView.OnItemClickListener
-import kotlinx.android.synthetic.main.activity_display__answers.*
 
 
 class Display_Answers : AppCompatActivity() {
