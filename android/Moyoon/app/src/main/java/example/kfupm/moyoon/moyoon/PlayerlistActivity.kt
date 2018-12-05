@@ -4,10 +4,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.ListView
-import android.widget.TextView
+import android.view.View
+import android.widget.*
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
@@ -25,6 +23,7 @@ class PlayerlistActivity : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
         players = findViewById<ListView>(R.id.players)
+        val start = findViewById<Button>(R.id.to_Qs)
 
 
         ps = ArrayList<String>()
@@ -33,13 +32,17 @@ class PlayerlistActivity : AppCompatActivity() {
         getPlayers()
         getNumOfRounds()
 
-        val start = findViewById<Button>(R.id.to_Qs)
+
         start.setOnClickListener {
             val intent = Intent(this,Type_Lie::class.java)
             startActivity(intent)
         }
 
     }
+
+
+
+    /////////////////////////////////////////////////////////
 
     private fun getPlayers() {
         //       fet Players names in ps array
@@ -57,7 +60,11 @@ class PlayerlistActivity : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)
             }
+
+
     }
+
+
 
     private fun getNumOfRounds() {
         var i =0 // for test

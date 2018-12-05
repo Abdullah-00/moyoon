@@ -9,8 +9,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.BaseAdapter
 import android.widget.Button
+import android.widget.TextView
 
-   class list_view_answerss (var  cont: Context, var resorce:Int,
+class list_view_answerss (var  cont: Context, var resorce:Int,
                                            var item: ArrayList<String>):ArrayAdapter<String>(cont,resorce,item) {
 
 
@@ -19,7 +20,7 @@ import android.widget.Button
 
          val view: View = layoutInflater.inflate(resorce, null)
 
-         val btn: Button = view.findViewById(R.id.option)
+         val btn: TextView = view.findViewById(R.id.ans)
 
          val answer: String = item[position]
          btn.text = answer
