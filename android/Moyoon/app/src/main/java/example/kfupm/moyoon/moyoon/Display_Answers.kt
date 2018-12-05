@@ -71,8 +71,6 @@ class Display_Answers : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
-
     }
 
     /////////////////////////////////////////////////////////////////////
