@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Moyoon/ItemCell/ItemCell.swift"
-            timestampString = "565735360.681875"
+            timestampString = "565739832.69119"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "29"
-            endingLineNumber = "29"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "sendAnswerToAPI(answer:)"
             landmarkType = "7">
             <Locations>

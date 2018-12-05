@@ -15,6 +15,7 @@ class ItemCell: UICollectionViewCell {
     
     func sendAnswerToAPI(answer: String)
     {
+        print("Answer Selection Sent : \(answer)")
         let urlExtension = "/SubmitAnswerChoice/"
         let parameters: Parameters = [
             "player_id": GlobalVariables.playerId,
