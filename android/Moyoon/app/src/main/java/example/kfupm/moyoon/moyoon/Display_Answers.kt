@@ -16,7 +16,12 @@ import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.concurrent.timerTask
 import android.widget.AdapterView
+import android.os.CountDownTimer
 import android.widget.AdapterView.OnItemClickListener
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_display__answers.*
 
 
@@ -28,6 +33,8 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var playersAnswer : ArrayList<String>
     private lateinit var roundText : TextView //Round Number
     private lateinit var arrayAdapter:ArrayAdapter<String>
+    private lateinit var timerTxtAns : TextView //PLayer Lie
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +49,10 @@ class Display_Answers : AppCompatActivity() {
         val intent = Intent(this,Correct::class.java)
         roundText.text = "Round " + Global.roundID[Global.roundNum]
         questionDesplay.text = Global.question
+        timerTxtAns =findViewById<TextView>(R.id.timerAns)
 
+        val timer2 = MyCounter(10000, 1000)
+        timer2.start()
 
 
         //GetAnswers
@@ -71,11 +81,29 @@ class Display_Answers : AppCompatActivity() {
                 startActivity(intent)
             }
         }
-
-
     }
 
     /////////////////////////////////////////////////////////////////////
+    inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
+        override fun onTick(millisUntilFinished: Long) {
+            timerTxtAns.text = (millisUntilFinished / 1000).toString() + ""
+            println("Timer  : " + millisUntilFinished / 1000)
+        }
+
+        override fun onFinish() {
+            println("Timer Completed.")
+            timerTxtAns.text = "Timer Completed."
+
+            SendtoServer()
+
+            startActivity(intent)
+
+        }
+        //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
+        //       "&round_id="+Global.roundNum+"&question_id="+Global.questionNum+"&player_id="+Global.playerID+"&answer="+playerLie
+    }
+
+
 
     private fun getAnswers(){
         var answerTemp :String
@@ -96,6 +124,29 @@ class Display_Answers : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)
             }
+
+
+    }
+
+    private fun SendtoServer() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "http://68.183.67.247:8000/SubmitAnswerChoice/?session_id=${Global.sessionID.trim()}" +
+                "&round_id=${Global.roundID[Global.roundNum].trim()}&question_id=" +
+                "${Global.questionNum.toString().trim()}&player_id=${Global.playerID.trim()}&answer=${Global.pAnswer.trim()}"
+
+        // Request a string response from the provided URL.
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                // Display the first 500 characters of the response string.
+               // Global.playerID = response
+                Log.d("T","tttttttttt")
+            },
+            Response.ErrorListener { Log.d("t", "That didn't work!") })
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest)
 
 
     }
