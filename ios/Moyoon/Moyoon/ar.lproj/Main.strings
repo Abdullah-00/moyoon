@@ -1,42 +1,42 @@
 
 /* Class = "UILabel"; text = "Finished"; ObjectID = "Ay6-qy-PBH"; */
-"Ay6-qy-PBH.text" = "Finished";
+"Ay6-qy-PBH.text" = "انتهت اللعبة !";
 
 /* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "DMw-yD-ect"; */
-"DMw-yD-ect.normalTitle" = "Submit";
+"DMw-yD-ect.normalTitle" = "إرسال";
 
 /* Class = "UILabel"; text = "Question"; ObjectID = "DUG-uc-PDO"; */
 "DUG-uc-PDO.text" = "Question";
 
 /* Class = "UILabel"; text = "Question:"; ObjectID = "J4b-v9-bew"; */
-"J4b-v9-bew.text" = "Question:";
+"J4b-v9-bew.text" = "السؤال:";
 
 /* Class = "UITextField"; text = "Answer"; ObjectID = "KoF-2g-hne"; */
-"KoF-2g-hne.text" = "Answer";
+"KoF-2g-hne.text" = "الجواب";
 
 /* Class = "UILabel"; text = "10"; ObjectID = "MJO-P2-95w"; */
 "MJO-P2-95w.text" = "10";
 
 /* Class = "UIButton"; normalTitle = "Start Game"; ObjectID = "OgB-n3-Wsb"; */
-"OgB-n3-Wsb.normalTitle" = "Start Game";
+"OgB-n3-Wsb.normalTitle" = "بدء اللعبة";
 
 /* Class = "UILabel"; text = "Round:"; ObjectID = "OnP-hF-RiR"; */
-"OnP-hF-RiR.text" = "Round:";
+"OnP-hF-RiR.text" = "الجولة:";
 
 /* Class = "UITextField"; text = "Session ID"; ObjectID = "QhO-ps-kUw"; */
-"QhO-ps-kUw.text" = "Session ID";
+"QhO-ps-kUw.text" = "رقم اللعبة";
 
 /* Class = "UITextField"; text = "Nickname"; ObjectID = "S5W-4f-dgx"; */
-"S5W-4f-dgx.text" = "Nickname";
+"S5W-4f-dgx.text" = "الإسم";
 
 /* Class = "UILabel"; text = "10"; ObjectID = "Xy9-9y-GLa"; */
 "Xy9-9y-GLa.text" = "10";
 
 /* Class = "UILabel"; text = "Players in Lobby"; ObjectID = "lnF-Xh-YRs"; */
-"lnF-Xh-YRs.text" = "Players in Lobby";
+"lnF-Xh-YRs.text" = "اللاعبون";
 
 /* Class = "UIButton"; normalTitle = "Join"; ObjectID = "sJi-za-WtT"; */
-"sJi-za-WtT.normalTitle" = "Join";
+"sJi-za-WtT.normalTitle" = "دخول";
 
 /* Class = "UIButton"; normalTitle = "Submit"; ObjectID = "v6E-Y4-z5d"; */
-"v6E-Y4-z5d.normalTitle" = "Submit";
+"v6E-Y4-z5d.normalTitle" = "إرسال";
