@@ -13,9 +13,9 @@ import com.android.volley.toolbox.*
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var nickname: EditText //Nickname Input
-    lateinit var sessionCode: EditText
-    lateinit var join: Button
+    private lateinit var nickname: EditText //Nickname Input
+    private lateinit var sessionCode: EditText
+    private lateinit var join: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,8 +38,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-
-    fun SendtoServer() {
+    private fun SendtoServer() {
 
         val queue = Volley.newRequestQueue(this)
         val url = "http://68.183.67.247:8000/enterSession/?session_id="+Global.sessionID+"&nick_name="+Global.nickname
