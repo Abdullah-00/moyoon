@@ -15,6 +15,6 @@ class Global{
         var qAnswer : String = "" // Correct Answer
         var pAnswer : String = "" //Player Chosen Answer
 
-
+// to commit
     }
 }

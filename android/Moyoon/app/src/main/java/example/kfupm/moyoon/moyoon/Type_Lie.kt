@@ -44,7 +44,8 @@ class Type_Lie : AppCompatActivity() {
         Global.questionNum +=1
 
         /// Check if the Round is done or not
-        if (Global.questionNum == 4 || Global.questionNum == 7 || Global.questionNum == 10){
+        if (Global.questionNum == 4 ){
+            Global.questionNum = 1
             Global.roundNum +=1
         }
         // Check if the Game is done or not
