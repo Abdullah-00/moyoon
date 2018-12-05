@@ -72,7 +72,7 @@ class Display_Answers : AppCompatActivity() {
 //            submit.text = position.toString()
 //        }
 
-        if(playerAnswer == Global.qAnswer) {
+        if(Global.pAnswer == Global.qAnswer) {
             val intent = Intent(this,Correct::class.java)
             submit.setOnClickListener {
                 startActivity(intent)
