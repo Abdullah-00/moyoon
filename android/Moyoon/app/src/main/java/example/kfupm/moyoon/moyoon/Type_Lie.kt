@@ -5,17 +5,22 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.*
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.google.firebase.firestore.FirebaseFirestore
 
 
 class Type_Lie : AppCompatActivity() {
 
-    lateinit var questionDesplay : TextView
-    lateinit var lie : EditText
-    lateinit var submit_lie : Button
-    lateinit var roundText : TextView //Round Number
-    lateinit var db : FirebaseFirestore
-    lateinit var playerAns : String //PLayer Answer
+    private lateinit var questionDesplay : TextView
+    private lateinit var lie : EditText
+    private lateinit var submit_lie : Button
+    private lateinit var roundText : TextView //Round Number
+    private lateinit var db : FirebaseFirestore
+    private lateinit var playerLie : String //PLayer Lie
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.type_lie)
@@ -30,19 +35,18 @@ class Type_Lie : AppCompatActivity() {
 
 
         Global.questionNum +=1
-        var roundNum = Global.roundNum
-        var questionNum= Global.questionNum
 
-        if (questionNum >= 4){
+        /// Check if the Round is done or not
+        if (Global.questionNum == 4 || Global.questionNum == 7 || Global.questionNum == 10){
             Global.roundNum +=1
-            roundNum = Global.roundNum
-
         }
-        if(roundNum >= 4){
+        // Check if the Game is done or not
+        if(Global.roundNum >= 3){
             Global.questionNum = 1
             Global.roundNum = 1
-            roundNum = Global.roundNum
         }
+
+
         roundText.text = "Round " + Global.roundID[Global.roundNum]
         //// Display Question
         db.collection("Session").document(Global.sessionID)
@@ -59,19 +63,55 @@ class Type_Lie : AppCompatActivity() {
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)
             }
 
-
         submit_lie.setOnClickListener{
-            playerAns = lie.text.toString()
-           startActivity(intent)
+            playerLie = lie.text.toString()
+            SendtoServer()
+
+            startActivity(intent)
+
+
+
         }
+}
+    //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
+    //       "&round_id="+Global.roundNum+"&question_id="+Global.questionNum+"&player_id="+Global.playerID+"&answer="+playerLie
 
+    private fun SendtoServer() {
+        val queue = Volley.newRequestQueue(this)
+        val url = "http://68.183.67.247:8000/SubmitAnswer/?session_id=${Global.sessionID.trim()}&round_id=${Global.roundID[Global.roundNum].trim()}&question_id=${Global.questionNum.toString().trim()}&player_id=${Global.playerID.trim()}&answer=${playerLie.trim()}"
 
+        Log.d("ttttttt", "not in >>>>>" + Global.questionNum.toString())
 
+        // Request a string response from the provided URL.
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                Log.d("ttttttt", response)
+            },
+            Response.ErrorListener { Log.d("t", "That didn't work!") })
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest)
 
     }
-//
-
-
 
 
 }
+
+
+////////////////////////////DO NOT TOUCH THIS
+/*  private fun getNumOfQuestions() {
+      var i =0 // for test
+      db.collection("Session").document(Global.sessionID)
+          .collection("Rounds").document("1").collection("Questions").get()
+          .addOnSuccessListener { k ->
+              for (document in k) {
+                  Global.questionID.add(document.id)
+                  Log.d("Question>>>>",Global.questionID[i])
+                  i++
+
+              }
+          }.addOnFailureListener { exception ->
+              Log.w("PlayerlistActivity", "Error getting documents.", exception)
+          }
+  }*/

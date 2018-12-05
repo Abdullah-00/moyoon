@@ -7,9 +7,9 @@ import android.widget.Button
 import android.widget.TextView
 
 class Correct : AppCompatActivity(){
-    lateinit var correctTxt : TextView
-    lateinit var score : TextView
-    lateinit var next : Button
+    private lateinit var correctTxt : TextView
+    private lateinit var score : TextView
+    private lateinit var next : Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.correct_answer)
