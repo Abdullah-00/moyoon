@@ -30,6 +30,8 @@
         </activity>
         <activity android:name=".Correct">
         </activity>
+        <activity android:name=".Wrong">
+        </activity>
     </application>
 
 </manifest>

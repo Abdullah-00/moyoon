@@ -27,7 +27,7 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var submit : Button
     private lateinit var playersAnswer : ArrayList<String>
     private lateinit var roundText : TextView //Round Number
-
+    private lateinit var playerAnswer : String //player chosen answer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display__answers)
@@ -39,7 +39,7 @@ class Display_Answers : AppCompatActivity() {
         answerslist = findViewById(R.id.answers_list)
         submit = findViewById(R.id.submit_ans)
         playersAnswer = ArrayList()
-        val intent = Intent(this,Correct::class.java)
+
 
 
         roundText.text = "Round " + Global.roundID[Global.roundNum]
@@ -48,13 +48,16 @@ class Display_Answers : AppCompatActivity() {
 
 
         //GetAnswers
+        var answerTemp :String
         db.collection("Session").document(Global.sessionID)
             .collection("Rounds").document(Global.roundID[Global.roundNum])
             .collection("Questions").document(Global.questionNum.toString())
             .collection("Answer").get()
             .addOnSuccessListener { k ->
                 for (document in k) {
-                    playersAnswer.add(document.getString("Answer").toString())
+                    answerTemp = document.getString("Answer").toString()
+                    if(answerTemp != Global.qAnswer) // Check if the answer is the same as correct answer or not
+                        playersAnswer.add(answerTemp)
                 }
                 playersAnswer.add(Global.qAnswer)
                 answerslist.adapter = arrayAdapter
@@ -69,9 +72,17 @@ class Display_Answers : AppCompatActivity() {
 //            submit.text = position.toString()
 //        }
 
-
-        submit.setOnClickListener{
-            startActivity(intent)
+        if(playerAnswer == Global.qAnswer) {
+            val intent = Intent(this,Correct::class.java)
+            submit.setOnClickListener {
+                startActivity(intent)
+            }
+        }
+        else {
+            val intent = Intent(this,Wrong::class.java)
+            submit.setOnClickListener {
+                startActivity(intent)
+            }
         }
     }
 }
