@@ -83,7 +83,6 @@ class Type_Lie : AppCompatActivity() {
 }
     inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
         override fun onTick(millisUntilFinished: Long) {
-
             timerTxt.text = (millisUntilFinished / 1000).toString() + ""
             println("Timer  : " + millisUntilFinished / 1000)
         }
