@@ -249,9 +249,9 @@ def questionController(session_id, round_id):
 
     counter = 0
     for i in question_id:
-        time.sleep(1)
+        time.sleep(10)
         flagChanger(session_id, round_id, i, True)
-        time.sleep(1)
+        time.sleep(10)
         flagChanger(session_id, round_id, i, False)
         counter += 1
     
