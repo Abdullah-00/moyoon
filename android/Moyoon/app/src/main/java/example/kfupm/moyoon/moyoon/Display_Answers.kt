@@ -1,12 +1,14 @@
 package example.kfupm.moyoon.moyoon
 
 import android.content.Intent
+import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Parcel
 import android.os.Parcelable
 import android.util.Log
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ListView
 import android.widget.*
@@ -14,6 +16,10 @@ import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
 import kotlin.collections.ArrayList
 import kotlin.concurrent.timerTask
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemClickListener
+
+
 
 class Display_Answers : AppCompatActivity() {
     lateinit var questionDesplay : TextView
@@ -39,7 +45,7 @@ class Display_Answers : AppCompatActivity() {
 
         roundText.text = "Round " + Global.roundID[Global.roundNum]
         questionDesplay.text = Global.question
-        var arrayAdapter : ArrayAdapter<String>
+        var arrayAdapter = list_view_answerss(this,R.layout.list_view_answers,playersAnswer)
 
         db.collection("Session").document(Global.sessionID)
             .collection("Rounds").document(Global.roundID[Global.roundNum])
@@ -50,7 +56,6 @@ class Display_Answers : AppCompatActivity() {
                     playersAnswer.add(document.getString("Answer").toString())
                 }
                 playersAnswer.add(Global.qAnswer)
-                arrayAdapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, playersAnswer)
                 answerslist.adapter = arrayAdapter
             }
             .addOnFailureListener { exception ->

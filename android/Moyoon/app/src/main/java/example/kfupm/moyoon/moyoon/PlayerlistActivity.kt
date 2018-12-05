@@ -23,7 +23,7 @@ class PlayerlistActivity : AppCompatActivity() {
         setContentView(R.layout.activity_playerlist)
 
         db = FirebaseFirestore.getInstance()
-        players = findViewById(R.id.players)
+        players = findViewById<ListView>(R.id.players)
 
 
         ps = ArrayList<String>()
@@ -38,7 +38,7 @@ class PlayerlistActivity : AppCompatActivity() {
                     //Log.d("PlayerlistActivity", document.id + " => " + document.data)
                     ps.add(document.getString("nick-name").toString())
                 }
-                arrayAdapter = ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, ps)
+                arrayAdapter = list_names(this,R.layout.activity_list_names,ps)
                 players.adapter = arrayAdapter
             }
             .addOnFailureListener { exception ->
