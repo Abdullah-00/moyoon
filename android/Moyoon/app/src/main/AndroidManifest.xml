@@ -3,6 +3,7 @@
           package="example.kfupm.moyoon.moyoon">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -31,6 +32,8 @@
         <activity android:name=".Correct">
         </activity>
         <activity android:name=".Wrong">
+        </activity>
+        <activity android:name=".EndOfGame">
         </activity>
     </application>
 
