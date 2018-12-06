@@ -31,7 +31,7 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var timerTxtAns : TextView //PLayer Lie
     private lateinit var intentTypeLie : Intent
     private lateinit var intentEndOfGame : Intent
-    private var chooseAnswer: Boolean? = false
+    //private var chooseAnswer: Boolean? = false
     //private lateinit var intentCorrect : Intent
     //private lateinit var intentWrong : Intent
 
@@ -52,7 +52,10 @@ class Display_Answers : AppCompatActivity() {
         //intentCorrect = Intent(this,Correct::class.java)
         //intentWrong = Intent(this,Wrong::class.java)
 
-
+        if (Global.questionNum >= 3 && Global.questionNum >=3){
+            Global.questionNum = 1
+            Global.roundNum +=1
+        }
 
         roundText.text = "Round " + Global.roundID[Global.roundNum]
         questionDesplay.text = Global.question
@@ -61,8 +64,8 @@ class Display_Answers : AppCompatActivity() {
         val timer2 = MyCounter(10000, 1000)
         timer2.start()
         //isDoneChooseAnswer()
-        if (chooseAnswer == true)
-            timer2.cancel()
+        //if (chooseAnswer == true)
+        //   timer2.cancel()
 
         //GetAnswers
         getAnswers()
@@ -85,15 +88,15 @@ class Display_Answers : AppCompatActivity() {
                     Log.w("33333", "listen:error", e)
                     return@EventListener
                 }
-                chooseAnswer = document!!.getBoolean("isDoneChooseAnswer")
-                if (chooseAnswer == true) {
-                    SendtoServer()
-                    // Check if the Game is done or not
-                    if(Global.roundNum >= 3)
-                        startActivity(intentEndOfGame)
-                    else
-                        startActivity(intentTypeLie)
-                }
+                //chooseAnswer = document!!.getBoolean("isDoneChooseAnswer")
+//                if (chooseAnswer == true) {
+//                    SendtoServer()
+//                    // Check if the Game is done or not
+//                    if(Global.roundNum >= 3)
+//                        startActivity(intentEndOfGame)
+//                    else
+//                        startActivity(intentTypeLie)
+//                }
             }
             )
     }
@@ -109,7 +112,7 @@ class Display_Answers : AppCompatActivity() {
             println("Timer Completed.")
             timerTxtAns.text = "Timer Completed."
             SendtoServer()
-            if(Global.roundNum >= 3)
+            if (Global.questionNum >= 3 && Global.questionNum >=3)
                 startActivity(intentEndOfGame)
             else
                 startActivity(intentTypeLie)

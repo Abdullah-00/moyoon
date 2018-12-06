@@ -36,7 +36,6 @@ class Type_Lie : AppCompatActivity() {
         roundText = findViewById(R.id.roundText)
         questionDesplay = findViewById(R.id.question_desplay)
         lie = findViewById(R.id.Lie)
-        submit_lie = findViewById(R.id.Submit_lie)
         timerTxt =findViewById(R.id.timerTxt)
         intent = Intent(this,Display_Answers::class.java)
         val timer = MyCounter(10000, 1000)
@@ -52,7 +51,7 @@ class Type_Lie : AppCompatActivity() {
         }
 
 
-        roundText.text = "Round " + Global.roundID[Global.roundNum] +", " +Global.questionNum
+        roundText.text = "Round " + Global.roundID[Global.roundNum]
         //// Display Question
         db.collection("Session").document(Global.sessionID)
             .collection("Rounds").document(Global.roundID[Global.roundNum])
