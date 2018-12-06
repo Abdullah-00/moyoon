@@ -11,7 +11,6 @@ class PlayerlistActivity : AppCompatActivity() {
 
     private lateinit var db : FirebaseFirestore
     private lateinit var players : ListView
-
     private lateinit var arrayAdapter : ArrayAdapter<String>
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,7 +34,6 @@ class PlayerlistActivity : AppCompatActivity() {
 
 
     private fun getPlayers() {
-
         //       fet Players names in ps array
         db.collection("Session").document(Global.sessionID)
             .collection("Players")
