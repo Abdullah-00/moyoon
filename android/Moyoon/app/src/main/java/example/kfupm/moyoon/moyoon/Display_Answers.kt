@@ -60,9 +60,9 @@ class Display_Answers : AppCompatActivity() {
 
         val timer2 = MyCounter(10000, 1000)
         timer2.start()
-        isDoneChooseAnswer()
-        if (chooseAnswer == true)
-            timer2.cancel()
+//        isDoneChooseAnswer()
+//        if (chooseAnswer == true)
+//            timer2.cancel()
 
         //GetAnswers
         getAnswers()
