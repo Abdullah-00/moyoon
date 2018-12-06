@@ -26,6 +26,7 @@ class Type_Lie : AppCompatActivity() {
     private lateinit var playerLie : String //PLayer Lie
     private lateinit var timerTxt : TextView //PLayer Lie
     private var submitAnswer: Boolean? = false
+    private lateinit var intentDisplayAnswers : Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +38,7 @@ class Type_Lie : AppCompatActivity() {
         questionDesplay = findViewById(R.id.question_desplay)
         lie = findViewById(R.id.Lie)
         timerTxt =findViewById(R.id.timerTxt)
-        intent = Intent(this,Display_Answers::class.java)
+        intentDisplayAnswers = Intent(this,Display_Answers::class.java)
         val timer = MyCounter(10000, 1000)
 
 
@@ -92,7 +93,7 @@ class Type_Lie : AppCompatActivity() {
                 if (submitAnswer == true){
                     playerLie = lie.text.toString()
                     SendtoServer()
-                    startActivity(intent)
+                    startActivity(intentDisplayAnswers)
                 }
 
             }
@@ -110,7 +111,7 @@ class Type_Lie : AppCompatActivity() {
             timerTxt.text = "Timer Completed."
             playerLie = lie.text.toString()
             SendtoServer()
-            startActivity(intent)
+            startActivity(intentDisplayAnswers)
         }
         //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
         //       "&round_id="+Global.roundNum+"&question_id="+Global.questionNum+"&player_id="+Global.playerID+"&answer="+playerLie

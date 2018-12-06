@@ -52,10 +52,6 @@ class Display_Answers : AppCompatActivity() {
         //intentCorrect = Intent(this,Correct::class.java)
         //intentWrong = Intent(this,Wrong::class.java)
 
-        if (Global.questionNum >= 3 && Global.questionNum >=3){
-            Global.questionNum = 1
-            Global.roundNum +=1
-        }
 
         roundText.text = "Round " + Global.roundID[Global.roundNum]
         questionDesplay.text = Global.question
