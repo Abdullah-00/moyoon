@@ -16,6 +16,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.QuerySnapshot
 
@@ -28,8 +29,11 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var roundText : TextView //Round Number
     private lateinit var arrayAdapter:ArrayAdapter<String>
     private lateinit var timerTxtAns : TextView //PLayer Lie
-    private lateinit var intentCorrect : Intent
-    private lateinit var intentWrong : Intent
+    private lateinit var intentTypeLie : Intent
+    private var chooseAnswer: Boolean? = false
+    //private lateinit var intentCorrect : Intent
+    //private lateinit var intentWrong : Intent
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,8 +46,12 @@ class Display_Answers : AppCompatActivity() {
         answerslist = findViewById(R.id.answers_list)
         submit = findViewById(R.id.submit_ans)
         playersAnswer = ArrayList()
-        intentCorrect = Intent(this,Correct::class.java)
-        intentWrong = Intent(this,Wrong::class.java)
+        intentTypeLie = Intent(this,Type_Lie::class.java)
+
+        //intentCorrect = Intent(this,Correct::class.java)
+        //intentWrong = Intent(this,Wrong::class.java)
+
+
 
         roundText.text = "Round " + Global.roundID[Global.roundNum]
         questionDesplay.text = Global.question
@@ -51,6 +59,9 @@ class Display_Answers : AppCompatActivity() {
 
         val timer2 = MyCounter(10000, 1000)
         timer2.start()
+        isDoneChooseAnswer()
+        if (chooseAnswer == true)
+            timer2.cancel()
 
         //GetAnswers
         getAnswers()
@@ -67,6 +78,24 @@ class Display_Answers : AppCompatActivity() {
 
     }
 
+    private fun isDoneChooseAnswer() {
+        db.collection("Session").document(Global.sessionID)
+            .collection("Rounds").document(Global.roundID[Global.roundNum])
+            .collection("Questions").document(Global.questionNum.toString())
+            .addSnapshotListener(EventListener<DocumentSnapshot> { document, e ->
+                if (e != null) {
+                    Log.w("33333", "listen:error", e)
+                    return@EventListener
+                }
+                chooseAnswer = document!!.getBoolean("isDoneChooseAnswer")
+                if (chooseAnswer == true) {
+                    SendtoServer()
+                    startActivity(intentTypeLie)
+                }
+            }
+            )
+    }
+
     /////////////////////////////////////////////////////////////////////
     inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
         override fun onTick(millisUntilFinished: Long) {
@@ -78,12 +107,12 @@ class Display_Answers : AppCompatActivity() {
             println("Timer Completed.")
             timerTxtAns.text = "Timer Completed."
             SendtoServer()
-            if(Global.pAnswer == Global.qAnswer) {
-                    startActivity(intentCorrect)
-            }
-            else {
-                    startActivity(intentWrong)
-            }
+//            if(Global.pAnswer == Global.qAnswer) {
+                    startActivity(intentTypeLie)
+//            }
+//            else {
+//                    startActivity(intentTypeLie)
+//            }
 
         }
         //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
