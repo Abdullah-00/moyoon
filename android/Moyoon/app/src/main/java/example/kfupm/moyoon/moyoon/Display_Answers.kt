@@ -30,6 +30,7 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var arrayAdapter:ArrayAdapter<String>
     private lateinit var timerTxtAns : TextView //PLayer Lie
     private lateinit var intentTypeLie : Intent
+    private lateinit var intentEndOfGame : Intent
     private var chooseAnswer: Boolean? = false
     //private lateinit var intentCorrect : Intent
     //private lateinit var intentWrong : Intent
@@ -73,9 +74,6 @@ class Display_Answers : AppCompatActivity() {
             Log.d("nnnnnnnn", position.toString())
         }
 
-
-
-
     }
 
     private fun isDoneChooseAnswer() {
@@ -90,7 +88,11 @@ class Display_Answers : AppCompatActivity() {
                 chooseAnswer = document!!.getBoolean("isDoneChooseAnswer")
                 if (chooseAnswer == true) {
                     SendtoServer()
-                    startActivity(intentTypeLie)
+                    // Check if the Game is done or not
+                    if(Global.roundNum >= 3)
+                        startActivity(intentEndOfGame)
+                    else
+                        startActivity(intentTypeLie)
                 }
             }
             )
@@ -107,18 +109,20 @@ class Display_Answers : AppCompatActivity() {
             println("Timer Completed.")
             timerTxtAns.text = "Timer Completed."
             SendtoServer()
+            if(Global.roundNum >= 3)
+                startActivity(intentEndOfGame)
+            else
+                startActivity(intentTypeLie)
+
 //            if(Global.pAnswer == Global.qAnswer) {
-                    startActivity(intentTypeLie)
+//                    startActivity(intentCorrect)
 //            }
 //            else {
-//                    startActivity(intentTypeLie)
+//                    startActivity(intentWrong)
 //            }
 
         }
-        //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
-        //       "&round_id="+Global.roundNum+"&question_id="+Global.questionNum+"&player_id="+Global.playerID+"&answer="+playerLie
     }
-
 
 /// get answers
     private fun getAnswers(){
@@ -144,28 +148,6 @@ class Display_Answers : AppCompatActivity() {
             // instead of simply using the entire query snapshot
             // see the actual changes to query results between query snapshots (added, removed, and modified)
         })
-
-
-//
-//        db.collection("Session").document(Global.sessionID)
-//            .collection("Rounds").document(Global.roundID[Global.roundNum])
-//            .collection("Questions").document(Global.questionNum.toString())
-//            .collection("Answer").get()
-//            .addOnSuccessListener { k ->
-//                for (document in k) {
-//                    answerTemp = document.getString("Answer").toString()
-//                    if(answerTemp != Global.qAnswer) // Check if the answer is the same as correct answer or not
-//                        playersAnswer.add(answerTemp)
-//                }
-//                playersAnswer.add(Global.qAnswer)
-//                arrayAdapter = list_view_answerss(this,R.layout.list_view_answers,playersAnswer)
-//                answerslist.adapter = arrayAdapter
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.w("PlayerlistActivity", "Error getting documents.", exception)
-//            }
-
-
     }
 
     private fun SendtoServer() {
@@ -187,7 +169,5 @@ class Display_Answers : AppCompatActivity() {
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
-
-
     }
 }

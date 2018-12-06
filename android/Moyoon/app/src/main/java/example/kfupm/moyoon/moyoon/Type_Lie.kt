@@ -50,11 +50,7 @@ class Type_Lie : AppCompatActivity() {
             Global.questionNum = 1
             Global.roundNum +=1
         }
-        // Check if the Game is done or not
-        if(Global.roundNum >= 3){
-            Global.questionNum = 1
-            Global.roundNum = 1
-        }
+
 
         roundText.text = "Round " + Global.roundID[Global.roundNum] +", " +Global.questionNum
         //// Display Question
