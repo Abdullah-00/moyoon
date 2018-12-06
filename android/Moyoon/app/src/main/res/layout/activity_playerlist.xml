@@ -23,12 +23,6 @@
             android:layout_marginEnd="16dp"
             android:verticalScrollbarPosition="defaultPosition"
             app:layout_constraintHorizontal_bias="0.444" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/textViewPlayers"/>
-    <Button
-            android:text="Start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginBottom="16dp" android:id="@+id/to_Qs" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/players"/>
+            app:layout_constraintTop_toBottomOf="@+id/textViewPlayers" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"/>
 </android.support.constraint.ConstraintLayout>

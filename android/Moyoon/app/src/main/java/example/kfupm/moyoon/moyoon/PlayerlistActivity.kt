@@ -23,7 +23,6 @@ class PlayerlistActivity : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
         players = findViewById<ListView>(R.id.players)
-        val start = findViewById<Button>(R.id.to_Qs)
          intetToTypeLie = Intent(this, Type_Lie::class.java)
 
 

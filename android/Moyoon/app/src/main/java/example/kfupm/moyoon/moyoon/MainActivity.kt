@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, PlayerlistActivity::class.java)
 
         join.setOnClickListener {
-            //Global.sessionID = sessionCode.text.toString() //Session ID
+            Global.sessionID = sessionCode.text.toString() //Session ID
             Global.nickname = nickname.text.toString().trim()  //Player Nickname
             SendtoServer()
            // Global.playerID=playerId
