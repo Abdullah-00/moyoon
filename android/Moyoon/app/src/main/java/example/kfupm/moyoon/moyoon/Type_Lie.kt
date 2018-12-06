@@ -38,7 +38,7 @@ class Type_Lie : AppCompatActivity() {
         timerTxt =findViewById(R.id.timerTxt)
         intent = Intent(this,Display_Answers::class.java)
         val timer = MyCounter(10000, 1000)
-        timer.start()
+
 
 
         Global.questionNum +=1
@@ -55,7 +55,7 @@ class Type_Lie : AppCompatActivity() {
         }
 
 
-        roundText.text = "Round " + Global.roundID[Global.roundNum]
+        roundText.text = "Round " + Global.roundID[Global.roundNum] +", " +Global.questionNum
         //// Display Question
         db.collection("Session").document(Global.sessionID)
             .collection("Rounds").document(Global.roundID[Global.roundNum])
@@ -71,6 +71,7 @@ class Type_Lie : AppCompatActivity() {
                 Log.w("PlayerlistActivity", "Error getting documents.", exception)
             }
 
+        timer.start()
 
         submit_lie.setOnClickListener{
             playerLie = lie.text.toString()
