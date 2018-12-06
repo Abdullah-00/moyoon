@@ -104,7 +104,7 @@ class Display_Answers : AppCompatActivity() {
     }
 
 
-/// get answers 
+/// get answers
     private fun getAnswers(){
         var answerTemp :String
         db.collection("Session").document(Global.sessionID)
@@ -135,7 +135,7 @@ class Display_Answers : AppCompatActivity() {
                 "&round_id=${Global.roundID[Global.roundNum].trim()}&question_id=" +
                 "${Global.questionNum.toString().trim()}&player_id=${Global.playerID.trim()}&answer=${Global.pAnswer.trim()}"
 
-        // Request a string response from the provided URL.
+        // Request a string response from the provided URL......
         val stringRequest = StringRequest(
             Request.Method.GET, url,
             Response.Listener<String> { response ->

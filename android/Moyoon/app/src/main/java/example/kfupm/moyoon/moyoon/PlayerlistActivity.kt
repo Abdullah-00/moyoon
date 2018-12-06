@@ -13,8 +13,9 @@ class PlayerlistActivity : AppCompatActivity() {
 
     private lateinit var db : FirebaseFirestore
     private lateinit var players : ListView
-
+    private var startPlay: Boolean? = true
     private lateinit var arrayAdapter : ArrayAdapter<String>
+    private lateinit var intetToTypeLie :Intent
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,8 +24,7 @@ class PlayerlistActivity : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
         players = findViewById<ListView>(R.id.players)
         val start = findViewById<Button>(R.id.to_Qs)
-
-
+         intetToTypeLie = Intent(this, Type_Lie::class.java)
 
 
 
@@ -32,53 +32,58 @@ class PlayerlistActivity : AppCompatActivity() {
 
         getNumOfRounds()
 
+        StartPlayFlag()
 
 
-        start.setOnClickListener {
-            val intent = Intent(this,Type_Lie::class.java)
-            startActivity(intent)
-        }
+
 
     }
 
+    private fun StartPlayFlag() {
 
-    override fun onStart() {
-        super.onStart()
-
-//            .get()
-//            .addOnSuccessListener { documentReference ->
-//                for (document in documentReference) {
-//                    //Log.d("PlayerlistActivity", document.id + " => " + document.data)
-//                    ps.add(document.getString("nick-name").toString())
-//                }
-//
-//            }
-//            .addOnFailureListener { exception ->
-//                Log.w("PlayerlistActivity", "Error getting documents.", exception)
-//            }
-    }
-    private fun getPlayers() {
-
-        //       fet Players names in ps array
         db.collection("Session").document(Global.sessionID)
-            .collection("Players")
-            .addSnapshotListener(EventListener<QuerySnapshot> { documentReference, e ->
+            .addSnapshotListener(EventListener<DocumentSnapshot> { document , e ->
                 if (e != null) {
                     Log.w("33333", "listen:error", e)
                     return@EventListener
                 }
-                var ps  = ArrayList<String>()
-                for (document in documentReference!!) {
-                    ps.add(document.getString("nick-name").toString())
-                }
-                arrayAdapter = list_names(this,R.layout.activity_list_names,ps)
-                players.adapter = arrayAdapter
 
-                // instead of simply using the entire query snapshot
-                // see the actual changes to query results between query snapshots (added, removed, and modified)
-            })
+                startPlay=  document!!.getBoolean("addPlayers")
 
-    }
+                if (startPlay == false){
+                    startActivity(intetToTypeLie)}
+                    }
+
+
+                )
+            }
+
+
+
+
+
+
+
+        private fun getPlayers() {
+
+                db.collection("Session").document(Global.sessionID)
+            .collection("Players")
+         .addSnapshotListener(EventListener<QuerySnapshot> { documentReference, e ->
+            if (e != null) {
+                Log.w("33333", "listen:error", e)
+                return@EventListener
+            }
+            var ps  = ArrayList<String>()
+            for (document in documentReference!!) {
+                ps.add(document.getString("nick-name").toString())
+            }
+            arrayAdapter = list_names(this,R.layout.activity_list_names,ps)
+            players.adapter = arrayAdapter
+
+        })
+
+
+}
 
 
 
