@@ -52,7 +52,7 @@ class Type_Lie : AppCompatActivity() {
         }
 
 
-        roundText.text = "Round " + Global.roundID[Global.roundNum] +", " +Global.questionNum
+        roundText.text = "Round " + Global.roundID[Global.roundNum] +"\nQuestion " +Global.questionNum
         //// Display Question
         db.collection("Session").document(Global.sessionID)
             .collection("Rounds").document(Global.roundID[Global.roundNum])

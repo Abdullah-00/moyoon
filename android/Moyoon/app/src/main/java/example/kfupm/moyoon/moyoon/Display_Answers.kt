@@ -54,19 +54,15 @@ class Display_Answers : AppCompatActivity() {
 
 
 
-
-
-
-        roundText.text = "Round " + Global.roundID[Global.roundNum] +", " +Global.questionNum
-
+        roundText.text = "Round " + Global.roundID[Global.roundNum] +"\n Question " +Global.questionNum
         questionDesplay.text = Global.question
         timerTxtAns =findViewById<TextView>(R.id.timerAns)
 
         val timer2 = MyCounter(10000, 1000)
         timer2.start()
         //isDoneChooseAnswer()
-        //if (chooseAnswer == true)
-        //   timer2.cancel()
+//        if (chooseAnswer == true)
+//            timer2.cancel()
 
         //GetAnswers
         getAnswers()
@@ -89,7 +85,7 @@ class Display_Answers : AppCompatActivity() {
                     Log.w("33333", "listen:error", e)
                     return@EventListener
                 }
-                //chooseAnswer = document!!.getBoolean("isDoneChooseAnswer")
+//                chooseAnswer = document!!.getBoolean("isDoneChooseAnswer")
 //                if (chooseAnswer == true) {
 //                    SendtoServer()
 //                    // Check if the Game is done or not
@@ -113,7 +109,7 @@ class Display_Answers : AppCompatActivity() {
             println("Timer Completed.")
             timerTxtAns.text = "Timer Completed."
             SendtoServer()
-            if (Global.questionNum >= 3 && Global.questionNum >=3)
+            if(Global.roundNum >= 3)
                 startActivity(intentEndOfGame)
             else
                 startActivity(intentTypeLie)
