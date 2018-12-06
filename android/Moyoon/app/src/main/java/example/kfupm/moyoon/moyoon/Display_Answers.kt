@@ -88,8 +88,10 @@ class Display_Answers : AppCompatActivity() {
                     return@EventListener
                 }
                 chooseAnswer = document!!.getBoolean("isDoneChooseAnswer")
-                if (chooseAnswer == true)
+                if (chooseAnswer == true) {
+                    SendtoServer()
                     startActivity(intentTypeLie)
+                }
             }
             )
     }
@@ -105,12 +107,12 @@ class Display_Answers : AppCompatActivity() {
             println("Timer Completed.")
             timerTxtAns.text = "Timer Completed."
             SendtoServer()
-            if(Global.pAnswer == Global.qAnswer) {
+//            if(Global.pAnswer == Global.qAnswer) {
                     startActivity(intentTypeLie)
-            }
-            else {
-                    startActivity(intentTypeLie)
-            }
+//            }
+//            else {
+//                    startActivity(intentTypeLie)
+//            }
 
         }
         //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
