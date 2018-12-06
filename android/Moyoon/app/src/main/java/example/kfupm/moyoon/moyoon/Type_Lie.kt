@@ -52,7 +52,7 @@ class Type_Lie : AppCompatActivity() {
         }
 
 
-        roundText.text = "Round " + Global.roundID[Global.roundNum] +",Questio 1 " +Global.questionNum
+        roundText.text = "Round " + Global.roundID[Global.roundNum] +", " +Global.questionNum
         //// Display Question
         db.collection("Session").document(Global.sessionID)
             .collection("Rounds").document(Global.roundID[Global.roundNum])
@@ -69,9 +69,9 @@ class Type_Lie : AppCompatActivity() {
             }
 
         timer.start()
-//        isDoneSubmitAnswer()
-//        if (submitAnswer == true)
-//            timer.cancel()
+        //isDoneSubmitAnswer()
+        if (submitAnswer == true)
+            timer.cancel()
 
 //        submit_lie.setOnClickListener{
 //

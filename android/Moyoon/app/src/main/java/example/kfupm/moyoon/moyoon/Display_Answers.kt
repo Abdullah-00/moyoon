@@ -60,9 +60,9 @@ class Display_Answers : AppCompatActivity() {
 
         val timer2 = MyCounter(10000, 1000)
         timer2.start()
-//        isDoneChooseAnswer()
-//        if (chooseAnswer == true)
-//            timer2.cancel()
+        //isDoneChooseAnswer()
+        if (chooseAnswer == true)
+            timer2.cancel()
 
         //GetAnswers
         getAnswers()
@@ -136,6 +136,7 @@ class Display_Answers : AppCompatActivity() {
                 Log.w("33333", "listen:error", e)
                 return@EventListener
             }
+            playersAnswer.clear()
             for (document in documentReference!!) {
             answerTemp = document.getString("Answer").toString()
             if(answerTemp != Global.qAnswer) // Check if the answer is the same as correct answer or not
