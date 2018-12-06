@@ -10,6 +10,8 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 
 
@@ -23,7 +25,7 @@ class Type_Lie : AppCompatActivity() {
     private lateinit var db : FirebaseFirestore
     private lateinit var playerLie : String //PLayer Lie
     private lateinit var timerTxt : TextView //PLayer Lie
-
+    private var submitAnswer: Boolean? = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +56,6 @@ class Type_Lie : AppCompatActivity() {
             Global.roundNum = 1
         }
 
-
         roundText.text = "Round " + Global.roundID[Global.roundNum] +", " +Global.questionNum
         //// Display Question
         db.collection("Session").document(Global.sessionID)
@@ -72,17 +73,37 @@ class Type_Lie : AppCompatActivity() {
             }
 
         timer.start()
+        isDoneSubmitAnswer()
+        if (submitAnswer == true)
+            timer.cancel()
 
-        submit_lie.setOnClickListener{
-            playerLie = lie.text.toString()
-            SendtoServer()
-
-            //startActivity(intent)
-
-
-
-        }
+//        submit_lie.setOnClickListener{
+//
+//            //startActivity(intent)
+//
+//        }
 }
+
+    private fun isDoneSubmitAnswer() {
+        db.collection("Session").document(Global.sessionID)
+            .collection("Rounds").document(Global.roundID[Global.roundNum])
+            .collection("Questions").document(Global.questionNum.toString())
+            .addSnapshotListener(EventListener<DocumentSnapshot> { document, e ->
+                if (e != null) {
+                    Log.w("33333", "listen:error", e)
+                    return@EventListener
+                }
+                submitAnswer = document!!.getBoolean("isDoneSubmitAnswer")
+                if (submitAnswer == true){
+                    playerLie = lie.text.toString()
+                    SendtoServer()
+                    startActivity(intent)
+                }
+
+            }
+            )
+    }
+
     inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
         override fun onTick(millisUntilFinished: Long) {
             timerTxt.text = (millisUntilFinished / 1000).toString() + ""
@@ -92,8 +113,9 @@ class Type_Lie : AppCompatActivity() {
         override fun onFinish() {
             println("Timer Completed.")
             timerTxt.text = "Timer Completed."
+            playerLie = lie.text.toString()
+            SendtoServer()
             startActivity(intent)
-
         }
         //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
         //       "&round_id="+Global.roundNum+"&question_id="+Global.questionNum+"&player_id="+Global.playerID+"&answer="+playerLie

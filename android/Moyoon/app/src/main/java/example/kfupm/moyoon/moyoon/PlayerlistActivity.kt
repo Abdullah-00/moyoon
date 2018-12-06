@@ -48,15 +48,12 @@ class PlayerlistActivity : AppCompatActivity() {
                     return@EventListener
                 }
 
-                startPlay=  document!!.getBoolean("addPlayers")
-
-                if (startPlay == false){
-                    startActivity(intetToTypeLie)}
-                    }
-
-
-                )
+                startPlay =  document!!.getBoolean("addPlayers")
+                if (startPlay == false)
+                    startActivity(intetToTypeLie)
             }
+            )
+    }
 
 
 
