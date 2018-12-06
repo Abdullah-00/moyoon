@@ -29,8 +29,8 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var roundText : TextView //Round Number
     private lateinit var arrayAdapter:ArrayAdapter<String>
     private lateinit var timerTxtAns : TextView //PLayer Lie
-    private lateinit var intentTypeLie : Intent
-    private lateinit var intentEndOfGame : Intent
+    private val intentTypeLie : Intent = Intent(this,Type_Lie::class.java)
+    private val intentEndOfGame : Intent = Intent(this,EndOfGame::class.java)
     //private var chooseAnswer: Boolean? = false
     //private lateinit var intentCorrect : Intent
     //private lateinit var intentWrong : Intent
@@ -47,7 +47,7 @@ class Display_Answers : AppCompatActivity() {
         answerslist = findViewById(R.id.answers_list)
         submit = findViewById(R.id.submit_ans)
         playersAnswer = ArrayList()
-        intentTypeLie = Intent(this,Type_Lie::class.java)
+
 
         //intentCorrect = Intent(this,Correct::class.java)
         //intentWrong = Intent(this,Wrong::class.java)
@@ -113,7 +113,7 @@ class Display_Answers : AppCompatActivity() {
             println("Timer Completed.")
             timerTxtAns.text = "Timer Completed."
             SendtoServer()
-            if (Global.questionNum >= 3 && Global.questionNum >=3)
+            if (Global.roundNum >= 3 && Global.questionNum >=3)
                 startActivity(intentEndOfGame)
             else
                 startActivity(intentTypeLie)
