@@ -54,7 +54,7 @@ class Display_Answers : AppCompatActivity() {
 
 
 
-        roundText.text = "Round " + Global.roundID[Global.roundNum]
+        roundText.text = "Round " + Global.roundID[Global.roundNum] +", " +Global.questionNum
         questionDesplay.text = Global.question
         timerTxtAns =findViewById<TextView>(R.id.timerAns)
 
