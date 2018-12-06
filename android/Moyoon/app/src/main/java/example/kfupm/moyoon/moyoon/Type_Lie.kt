@@ -69,7 +69,7 @@ class Type_Lie : AppCompatActivity() {
             }
 
         timer.start()
-        isDoneSubmitAnswer()
+        //isDoneSubmitAnswer()
         if (submitAnswer == true)
             timer.cancel()
 
