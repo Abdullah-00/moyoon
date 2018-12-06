@@ -53,7 +53,12 @@ class Display_Answers : AppCompatActivity() {
         //intentWrong = Intent(this,Wrong::class.java)
 
 
-        roundText.text = "Round " + Global.roundID[Global.roundNum]
+
+
+
+
+        roundText.text = "Round " + Global.roundID[Global.roundNum] +", " +Global.questionNum
+
         questionDesplay.text = Global.question
         timerTxtAns =findViewById<TextView>(R.id.timerAns)
 
