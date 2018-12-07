@@ -130,7 +130,7 @@ def SubmitAnswerChoiceView(request):
     else:
         # subtract 10 points
         decrementPlayerScore(session_id, player_id, 10)
-        # incrementAuthorScore(session_id, round_id, question_id, answer)
+        incrementAuthorScore(session_id, round_id, question_id, answer)
         return HttpResponse("Done Submit wrong choice")
 
 def SecondControllerView(session_id):
