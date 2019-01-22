@@ -106,6 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+parent_dir = os.path.abspath(os.path.dirname(__file__) + '/..')
+MEDIA_ROOT = os.path.join(parent_dir, 'media/')
+MEDIA_URL = '/media/'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/

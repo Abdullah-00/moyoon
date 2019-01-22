@@ -12,7 +12,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'name_ar')
+    list_display = ('id', 'name', 'name_ar','question_image')
 
 # @admin.register(QuestionImage)
 # class QuestionImageAdmin(admin.ModelAdmin):

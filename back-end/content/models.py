@@ -29,7 +29,7 @@ class Category(models.Model):
 # define an image to the question
 
 def get_image_path(instance, filename):
-    return os.path.join('photos', str(instance.id), filename)
+    return os.path.join('media', str(instance.id), filename)
 
 class Question(models.Model):
     name = models.CharField(max_length=35, null=True)

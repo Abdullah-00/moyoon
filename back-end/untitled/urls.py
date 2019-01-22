@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.template.context_processors import static
 from django.urls import path
 from session import views
 from shared_screen import views as vss
@@ -22,8 +23,9 @@ from django.conf.urls import include
 from rest_framework.routers import DefaultRouter
 from django.views.generic.base import TemplateView
 from django.views.generic import RedirectView
+from django.conf.urls.static import static
 
-
+from untitled import settings
 
 router = DefaultRouter()
 router.register('session', views.SessionViewSet)
@@ -35,6 +37,7 @@ router.register('SubmitAnswerChoice', views.SubmitAnswerChoiceViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+     path('media/', admin.site.urls),
     path(r'api/', include(router.urls)),
     # route on session page, calls index method on session.views class
     path('session/', views.createSessionView, name='index'),
@@ -59,7 +62,9 @@ urlpatterns = [
     # url for moyoon main page
     url(r'^$', RedirectView.as_view(url='/shared_screen'))
 ]
-
+# urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL,
+                      document_root=settings.MEDIA_ROOT)
 
 admin.site.site_header = "Moyoon Administration"
 admin.site.site_title = "Moyoon Administration"
