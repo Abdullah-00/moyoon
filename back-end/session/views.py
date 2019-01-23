@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from . import models
 from content.models import Question
 from rest_framework import viewsets
+from content.models import QuestionTmp
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -58,17 +59,45 @@ class SubmitAnswerChoiceViewSet(viewsets.ModelViewSet):
 # Link: http://127.0.0.1:8000/session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 # returns session ID
 #
+
+
 def createSessionView(request):
     #numOfPlayers = request.GET.get('numOfPlayers')
-    catagory_id = request.GET.get('catagory_id')
     is_provided = request.GET.get('is_provided')
-    questions = request.GET.get('questions')
+    # questions = request.GET.get('questions')
     if(is_provided=="False"):
+        catagory_id = request.GET.get('catagory_id')
         array = Question.objects.filter(Category_parent=catagory_id)
         x = createSessionByCategory(catagory_id, is_provided, array)
+    elif(request.method == 'POST'):
+
+
+        data = json.loads(request.body)
+        name = data.get('name', None)
+        name_ar = data.get('name_ar', None)
+
+        new_question = QuestionTmp.objects.create(name=name, name_ar=name_ar, Correct_answer=1, difficulty=4,age_rating=2)
+
+        new_question.save()
+
+
+        # data = request.body.decode('utf-8')
+        # received_json_data = json.loads(data)
+        # return JsonResponse(received_json_data)
+        return HttpResponse('done')
+
+
     else:
-        array = []
-    
+        # catagory_id = request.GET.get('catagory_id')
+
+        data = request.body.decode('utf-8')
+        json_data = request.GET.get('json_data')
+        data = json.loads(data)
+
+        # foo_instance = QuestionTmp.objects.create()
+        # foo_instance.save()
+
+        return JsonResponse(data)
     return HttpResponse(x.id)
 
 def chooseCategoryView(request):
