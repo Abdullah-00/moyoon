@@ -72,14 +72,20 @@ def createSessionView(request):
     elif(request.method == 'POST'):
 
 
+
         data = json.loads(request.body)
-        name = data.get('name', None)
-        name_ar = data.get('name_ar', None)
+        print(data.get('Questions', None))
+        temp = data.get('Questions', None)
 
-        new_question = QuestionTmp.objects.create(name=name, name_ar=name_ar, Correct_answer=1, difficulty=4,age_rating=2)
+        for i in temp:
+            name = i['name']
+            name_ar = i['name_ar']
+            Correct_answer = i['Correct_answer']
+            difficulty = i['difficulty']
+            age_rating = i['age_rating']
 
-        new_question.save()
-
+            new_question = QuestionTmp.objects.create(name=name, name_ar=name_ar, Correct_answer=Correct_answer, difficulty=difficulty,age_rating=age_rating)
+            new_question.save()
 
         # data = request.body.decode('utf-8')
         # received_json_data = json.loads(data)
