@@ -82,7 +82,7 @@ def createSessionView(request):
             creator_id = randomString()
 
         temp = data.get('Questions', None)
-
+        round_limit = data.get('round_limit', None)
 # loop through provided questions
         for i in temp:
             name = i['name']
@@ -94,7 +94,7 @@ def createSessionView(request):
             new_question = QuestionTmp.objects.create(creator_id=creator_id,name=name, name_ar=name_ar, Correct_answer=Correct_answer, difficulty=difficulty,age_rating=age_rating)
             new_question.save()
         query_set = QuestionTmp.objects.filter(creator_id=creator_id)
-        x = createSessionWithUserInput(query_set, 3)
+        x = createSessionWithUserInput(query_set, int(round_limit))
 
         # delete questions if creater asked to
         is_sharable = data.get('is_sharable', None)
