@@ -94,7 +94,7 @@ def createSessionView(request):
             new_question = QuestionTmp.objects.create(creator_id=creator_id,name=name, name_ar=name_ar, Correct_answer=Correct_answer, difficulty=difficulty,age_rating=age_rating)
             new_question.save()
         query_set = QuestionTmp.objects.filter(creator_id=creator_id)
-        x = createSessionByCategory(query_set)
+        x = createSessionWithUserInput(query_set, 3)
 
         # delete questions if creater asked to
         is_sharable = data.get('is_sharable', None)
