@@ -30,7 +30,7 @@ def randomString():
         strg = strg + y
     return strg
 
-def createSessionByCategory(catagory_id, is_provided, questions):
+def createSessionByCategory(questions):
     db = firestore.client()
     x = randomString()
     doc_ref = db.collection(u'Session').document(x)

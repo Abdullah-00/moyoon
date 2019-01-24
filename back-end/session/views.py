@@ -62,48 +62,45 @@ class SubmitAnswerChoiceViewSet(viewsets.ModelViewSet):
 
 
 def createSessionView(request):
-    #numOfPlayers = request.GET.get('numOfPlayers')
+
+# Questions coming from Question Table
     is_provided = request.GET.get('is_provided')
-    # questions = request.GET.get('questions')
     if(is_provided=="False"):
         catagory_id = request.GET.get('catagory_id')
-        array = Question.objects.filter(Category_parent=catagory_id)
-        x = createSessionByCategory(catagory_id, is_provided, array)
+        query_set = Question.objects.filter(Category_parent=catagory_id)
+        x = createSessionByCategory(query_set)
+
+        # Questions coming from User
     elif(request.method == 'POST'):
 
-
-
         data = json.loads(request.body)
-        print(data.get('Questions', None))
+        is_signed_in = data.get('is_signed_in', None)
+
+        if(is_signed_in == "True"):
+            creator_id = data.get('creator_id', None)
+        else:
+            creator_id = randomString()
+
         temp = data.get('Questions', None)
 
+# loop through provided questions
         for i in temp:
             name = i['name']
             name_ar = i['name_ar']
             Correct_answer = i['Correct_answer']
             difficulty = i['difficulty']
             age_rating = i['age_rating']
-
-            new_question = QuestionTmp.objects.create(name=name, name_ar=name_ar, Correct_answer=Correct_answer, difficulty=difficulty,age_rating=age_rating)
+            #  add questions to QuestionTmp
+            new_question = QuestionTmp.objects.create(creator_id=creator_id,name=name, name_ar=name_ar, Correct_answer=Correct_answer, difficulty=difficulty,age_rating=age_rating)
             new_question.save()
+        query_set = QuestionTmp.objects.filter(creator_id=creator_id)
+        x = createSessionByCategory(query_set)
 
-        # data = request.body.decode('utf-8')
-        # received_json_data = json.loads(data)
-        # return JsonResponse(received_json_data)
-        return HttpResponse('done')
+        # delete questions if creater asked to
+        is_sharable = data.get('is_sharable', None)
+        if(is_sharable == "False"):
+            query_set.delete()
 
-
-    else:
-        # catagory_id = request.GET.get('catagory_id')
-
-        data = request.body.decode('utf-8')
-        json_data = request.GET.get('json_data')
-        data = json.loads(data)
-
-        # foo_instance = QuestionTmp.objects.create()
-        # foo_instance.save()
-
-        return JsonResponse(data)
     return HttpResponse(x.id)
 
 def chooseCategoryView(request):
