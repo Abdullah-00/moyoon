@@ -71,7 +71,8 @@ class QuestionTmp(models.Model):
     name = models.CharField(max_length=35, null=True)
     name_ar = models.CharField(max_length=35, null=True, blank=True)
     age_rating = models.CharField(max_length=3)
-    Correct_answer = models.CharField(max_length=150)
+    Correct_answer = models.CharField(max_length=150, null=True, blank=True)
+    creator_id = models.CharField(max_length=150)
 
     difficulty = models.IntegerField(validators=[MaxValueValidator(5, 'Maximum Limit is 5')])
 
