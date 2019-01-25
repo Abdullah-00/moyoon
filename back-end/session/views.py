@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from . import models
 from content.models import Question
 from rest_framework import viewsets
+from content.models import QuestionTmp
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -58,17 +59,48 @@ class SubmitAnswerChoiceViewSet(viewsets.ModelViewSet):
 # Link: http://127.0.0.1:8000/session/?catagory_id=6&is_provided=False&questions=jhcusgcziu
 # returns session ID
 #
+
+
 def createSessionView(request):
-    #numOfPlayers = request.GET.get('numOfPlayers')
-    catagory_id = request.GET.get('catagory_id')
+
+# Questions coming from Question Table
     is_provided = request.GET.get('is_provided')
-    questions = request.GET.get('questions')
     if(is_provided=="False"):
-        array = Question.objects.filter(Category_parent=catagory_id)
-        x = createSessionByCategory(catagory_id, is_provided, array)
-    else:
-        array = []
-    
+        catagory_id = request.GET.get('catagory_id')
+        query_set = Question.objects.filter(Category_parent=catagory_id)
+        x = createSessionByCategory(query_set)
+
+        # Questions coming from User
+    elif(request.method == 'POST'):
+
+        data = json.loads(request.body)
+        is_signed_in = data.get('is_signed_in', None)
+
+        if(is_signed_in == "True"):
+            creator_id = data.get('creator_id', None)
+        else:
+            creator_id = randomString()
+
+        temp = data.get('Questions', None)
+        round_limit = data.get('round_limit', None)
+# loop through provided questions
+        for i in temp:
+            name = i['name']
+            name_ar = i['name_ar']
+            Correct_answer = i['Correct_answer']
+            difficulty = i['difficulty']
+            age_rating = i['age_rating']
+            #  add questions to QuestionTmp
+            new_question = QuestionTmp.objects.create(creator_id=creator_id,name=name, name_ar=name_ar, Correct_answer=Correct_answer, difficulty=difficulty,age_rating=age_rating)
+            new_question.save()
+        query_set = QuestionTmp.objects.filter(creator_id=creator_id)
+        x = createSessionWithUserInput(query_set, int(round_limit))
+
+        # delete questions if creater asked to
+        is_sharable = data.get('is_sharable', None)
+        if(is_sharable == "False"):
+            query_set.delete()
+
     return HttpResponse(x.id)
 
 def chooseCategoryView(request):

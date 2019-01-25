@@ -30,7 +30,7 @@ def randomString():
         strg = strg + y
     return strg
 
-def createSessionByCategory(catagory_id, is_provided, questions):
+def createSessionByCategory(questions):
     db = firestore.client()
     x = randomString()
     doc_ref = db.collection(u'Session').document(x)
@@ -61,6 +61,51 @@ def createSessionByCategory(catagory_id, is_provided, questions):
             }
             question_id.set(data2)
     return session_id
+
+def createSessionWithUserInput(questions, round_limit):
+    db = firestore.client()
+    x = randomString()
+    doc_ref = db.collection(u'Session').document(x)
+    session_id = doc_ref
+    data2 = {
+        u'addPlayers' : True
+    }
+    session_id.set(data2)
+
+    round_col = session_id.collection(u'Rounds')
+
+    for i in range(round_limit):
+        round_id = round_col.document(str(i + 1))
+        data2 = {
+            u'isDone': False
+        }
+        round_id.set(data2)
+
+    count = 0
+    k =0
+    j = 0
+    for i in questions:
+        k +=1
+        # round_col = session_id.collection(u'Rounds')
+        # round_id = round_col.document(str(count+1))
+        question_id = round_col.document(str(count + 1)).collection(u'Questions').document(str(k))
+        data2 = {
+            u'name': questions[j].name,
+            u'name_ar': questions[j].name_ar,
+            u'Photo': "URL",
+            u'Correct_Answer': questions[j].Correct_answer,
+            u'isDoneSubmitAnswer': False,
+            u'isDoneChooseAnswer': False
+        }
+        question_id.set(data2)
+        j +=1
+        if(count >= round_limit-1):
+            count = 0
+        else:
+            count +=1
+
+    return session_id
+
 
 # def createSessionByCategory(numOfPlayers, catagory_id, is_provided, questions):
 #     db = firestore.client()

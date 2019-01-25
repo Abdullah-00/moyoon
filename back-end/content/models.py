@@ -55,7 +55,33 @@ class Question(models.Model):
     def __str__(self):
             return self.name
 
+## add creator ID after implementing sign up
 
+class CategoryTmp(models.Model):
+    name = models.CharField(max_length=35)
+    name_ar = models.CharField(max_length=35)
+    age_rating = models.CharField(max_length=3)
+    difficulty = models.IntegerField(validators=[MaxValueValidator(5,'Maximum Limit is 5')])
+
+    ## to represent the Category by the name
+    def __str__(self):
+            return self.name
+
+class QuestionTmp(models.Model):
+    name = models.CharField(max_length=35, null=True)
+    name_ar = models.CharField(max_length=35, null=True, blank=True)
+    age_rating = models.CharField(max_length=3)
+    Correct_answer = models.CharField(max_length=150, null=True, blank=True)
+    creator_id = models.CharField(max_length=150)
+
+    difficulty = models.IntegerField(validators=[MaxValueValidator(5, 'Maximum Limit is 5')])
+
+    question_image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
+    # To Belong to a Category
+
+    Category_parent = models.ForeignKey('content.CategoryTmp', on_delete=models.CASCADE, blank=True, null=True)
+    def __str__(self):
+            return self.name
 
 # class QuestionImage(models.Model):
 #     question_image = models.ImageField(upload_to=get_image_path, blank=True, null=True)

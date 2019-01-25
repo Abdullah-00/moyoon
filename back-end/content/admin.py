@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category
+from .models import Category, CategoryTmp, QuestionTmp
 from .models import Question
 #from .models import QuestionImage
 
@@ -13,6 +13,15 @@ class CategoryAdmin(admin.ModelAdmin):
 @admin.register(Question)
 class QuestionAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'name_ar','question_image')
+
+
+@admin.register(CategoryTmp)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'name_ar')
+
+@admin.register(QuestionTmp)
+class QuestionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name', 'name_ar', 'creator_id')
 
 # @admin.register(QuestionImage)
 # class QuestionImageAdmin(admin.ModelAdmin):
