@@ -14,7 +14,7 @@ import Alamofire
 
 class Homepage: UIViewController {
 
-
+    
     @IBOutlet weak var sessionField: UITextField!
     
     @IBOutlet weak var nicknameField: UITextField!

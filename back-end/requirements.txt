@@ -1,0 +1,5 @@
+requests==2.21.0
+Pillow==5.4.1
+Django==2.1.5
+firebase_admin==2.15.1
+djangorestframework==3.9.1
