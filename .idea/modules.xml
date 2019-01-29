@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android/Moyoon/app/src/main/main.iml" filepath="$PROJECT_DIR$/android/Moyoon/app/src/main/main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/moyoon.iml" filepath="$PROJECT_DIR$/.idea/moyoon.iml" />
     </modules>
   </component>
 </project>
