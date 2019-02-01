@@ -15,6 +15,7 @@ import Alamofire
 class Homepage: UIViewController {
 
     
+
     @IBOutlet weak var sessionField: UITextField!
     
     @IBOutlet weak var nicknameField: UITextField!
@@ -36,12 +37,26 @@ class Homepage: UIViewController {
         session = sessionField.text!
         //loadSession(session: session)
         
-        connectAPI(nickname: nickname, gameSession: session)
+        requestJoinAPI(nickname: nickname, gameSession: session)
 
     }
+    
 
-    func connectAPI(nickname: String, gameSession: String)
+    fileprivate func displayError(msg : String) {
+        let alertController = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+            return;
+        }
+        alertController.addAction(action1)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func requestJoinAPI(nickname: String, gameSession: String)
     {
+        if(nickname.count == 0 || gameSession.count == 0){
+            displayError(msg: "Please provide a session id and a nickname");
+        }
+        
         print("Sending API Request")
         let urlExtension = "/enterSession/"
         let parameters: Parameters = [
@@ -52,28 +67,23 @@ class Homepage: UIViewController {
         let urlString = urlRequest.url?.absoluteString
     
         Alamofire.request(urlString!, parameters: parameters).response { response in
-            print("Request: \(response.request)")
-            print("Response: \(response.response)")
-            print("Error: \(response.error)")
+            print("Request: \(String(describing: response.request))")
+            print("Response: \(String(describing: response.response))")
+            print("Error: \(String(describing: response.error))")
             print("Timeline: \(response.timeline)")
             if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
                 if(response.response?.statusCode != 200){
-                    let alertController = UIAlertController(title: "Alert", message: "Session ID is not valid.", preferredStyle: .alert)
-                    let action1 = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
-                        return;
-                    }
-                    alertController.addAction(action1)
-                    self.present(alertController, animated: true, completion: nil)
+                    self.displayError(msg: "Session ID is not valid.")
                 }else{
                     GlobalVariables.playerId = playerId
                     GlobalVariables.sessionId = gameSession
-                    self.performSegue(withIdentifier: "JoinSession", sender: self)
+                   // self.performSegue(withIdentifier: "JoinSession", sender: self)
                 }
-                
             }
         }
-
     }
+    
+    
     
     func loadSession(session: String){
         let db = Firestore.firestore()
