@@ -5,18 +5,7 @@ This file contains all the conventions that the team should follow during develo
 ### Folders naming:
 all folders names should be lower cased and without any spaces, replace spaces with dashes "-", example:	'questions-screens'
 
-## Colors & Fonts
-### Colors:
-<ul>
- <li>Primary-background color = <code>#FFFFFF</code></li>
- <li>Primary-font color = <code>#FFFFFF</code></li>
- <li>Secondry-background color = <code>#57B99D</code></li>
- <li>Secondry-font color = <code>#1C242E</code></li>
- <li>Button color = <code>#1C242E</code></li>
- <li>Menu color = <code>#1C242E</code></li>
-</ul>
-
-### Fonts:
+## Fonts
 <ul>
  <li>Headers font type = <code>font-family: 'Montserrat', sans-serif;</code> <a href="https://fonts.google.com/specimen/Montserrat">(Font link)</a></li>
  <li>Regular text font type = <code>font-family: 'Lato', sans-serif;</code> <a href="https://fonts.google.com/specimen/Lato">(Font link)</a></li>

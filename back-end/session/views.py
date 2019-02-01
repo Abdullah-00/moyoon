@@ -120,11 +120,16 @@ def chooseCategoryView(request):
 def enterSessionView(request):
     nick_name = request.GET.get('nick_name')
     session_id = request.GET.get('session_id')
-    if(checkAddPlayer(session_id)):
-        x = addPlayers(session_id, nick_name)
-        return HttpResponse(x.id)
+    if(session_id != None):
+        if(checkAddPlayer(session_id)):
+            x = addPlayers(session_id, nick_name)
+            return HttpResponse(x.id)
+        else:
+            return HttpResponse("Cannot get you inside the session.")
     else:
-        return HttpResponse("Cannot get you inside the session.")
+        print("Here")
+        x = searchForSession(nick_name)
+        return HttpResponse(x[0].id+","+x[1].id)
 
 #TC1:
 #   Link: http://127.0.0.1:8000/SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6

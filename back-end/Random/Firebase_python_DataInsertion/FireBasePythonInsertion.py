@@ -36,7 +36,9 @@ def createSessionByCategory(questions):
     doc_ref = db.collection(u'Session').document(x)
     session_id = doc_ref
     data2 = {
-        u'addPlayers' : True
+        u'addPlayers' : True,
+        u'isPrivate': True,
+        u'isFull': False
     }
     session_id.set(data2)
 
@@ -156,6 +158,7 @@ def addPlayers(session_id, nick_name):
     }
     doc_ref.set(data)
     return player_id
+
 
 def isCorrctAnswer(session_id, round_id, question_id):
     db = firestore.client()
@@ -318,3 +321,19 @@ def flagChanger(session_id, round_id, question_id, flag):
         question_info['isDoneChooseAnswer'] = True
     question_doc.set(question_info)
 
+
+def searchForSession(nick_name):
+    db = firestore.client()
+    doc_ref = db.collection(u'Session')
+    session_list = doc_ref.get()
+    print("Here2")
+
+    for i in session_list:
+        print("Here4")
+        doc = i.to_dict()
+        print("Here5")
+        if (doc["isPrivate"] == True and doc["isFull"] == False):
+            print("Here3")
+            x = addPlayers(i.id, nick_name)
+            session_id = i
+            return (x,session_id)
