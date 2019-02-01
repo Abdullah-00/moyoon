@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5695AB6A220467290029E86F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695AB69220467290029E86F /* Login.swift */; };
 		7477E4FDEF7C262F90BA03C0 /* Pods_Moyoon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF0D320B3C4528422236BC9 /* Pods_Moyoon.framework */; };
 		961ACCD521B1B44A005E252E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961ACCD421B1B44A005E252E /* AppDelegate.swift */; };
 		961ACCD721B1B44A005E252E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961ACCD621B1B44A005E252E /* ViewController.swift */; };
@@ -49,6 +50,7 @@
 		10FE856DF1E37CF3A5B8B4F0 /* Pods-Moyoon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moyoon.release.xcconfig"; path = "Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon.release.xcconfig"; sourceTree = "<group>"; };
 		3EF0D320B3C4528422236BC9 /* Pods_Moyoon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Moyoon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BAD104A8452C57960A2295E /* Pods_MoyoonUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyoonUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5695AB69220467290029E86F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		56B7E7B3D97CFEEBC1F0B578 /* Pods-MoyoonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyoonUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6EAC5B5F3FA7355A36D32F06 /* Pods-MoyoonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyoonUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests.release.xcconfig"; sourceTree = "<group>"; };
 		961ACCD121B1B44A005E252E /* Moyoon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moyoon.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +164,7 @@
 				961ACCDD21B1B44B005E252E /* LaunchScreen.storyboard */,
 				961ACCE021B1B44B005E252E /* Info.plist */,
 				9669A17221B440D0000513D4 /* GlobalVariables.swift */,
+				5695AB69220467290029E86F /* Login.swift */,
 			);
 			path = Moyoon;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				961ACCCE21B1B44A005E252E /* Frameworks */,
 				961ACCCF21B1B44A005E252E /* Resources */,
 				BD808D58CE4CEA157AF44AAD /* [CP] Embed Pods Frameworks */,
+				FEEE682835C1B09EB182FA13 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -399,6 +403,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -413,6 +419,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -428,6 +436,28 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		FEEE682835C1B09EB182FA13 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Moyoon/Pods-Moyoon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -436,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A16AFFD421B18D4000B5255A /* Homepage.swift in Sources */,
+				5695AB6A220467290029E86F /* Login.swift in Sources */,
 				961ACCD721B1B44A005E252E /* ViewController.swift in Sources */,
 				9643548A21B5C9FD00619CCB /* ItemCell.swift in Sources */,
 				961ACCD521B1B44A005E252E /* AppDelegate.swift in Sources */,

@@ -9,7 +9,10 @@ target 'Moyoon' do
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Alamofire', '~> 4.7'
-  pod 'FirebaseUI/Firestore', '~> 5.0'
+  pod 'FirebaseUI/Firestore', '~> 5.0' 
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
+
 
 
   target 'MoyoonTests' do
