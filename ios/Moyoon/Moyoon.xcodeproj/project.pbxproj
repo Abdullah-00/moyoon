@@ -24,6 +24,7 @@
 		A16AFFD421B18D4000B5255A /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD321B18D4000B5255A /* Homepage.swift */; };
 		A16AFFD621B18F0400B5255A /* WriteAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD521B18F0400B5255A /* WriteAnswer.swift */; };
 		A16AFFD821B1901B00B5255A /* ChooseAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD721B1901B00B5255A /* ChooseAnswer.swift */; };
+		A1B3A5B6220776C300205447 /* MoyoonLogoP.png in Resources */ = {isa = PBXBuildFile; fileRef = A1B3A5B5220776C300205447 /* MoyoonLogoP.png */; };
 		A1E91F8E21B1AB8E008AB3B3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E91F8D21B1AB8E008AB3B3 /* Question.swift */; };
 		D1E5EFAFDA48E4A4F058F3F9 /* Pods_MoyoonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAD104A8452C57960A2295E /* Pods_MoyoonUITests.framework */; };
 		EB423B7210ED8D53BB0CC768 /* Pods_MoyoonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F6E09395408E6E653757E7 /* Pods_MoyoonTests.framework */; };
@@ -77,6 +78,7 @@
 		A16AFFD321B18D4000B5255A /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		A16AFFD521B18F0400B5255A /* WriteAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteAnswer.swift; sourceTree = "<group>"; };
 		A16AFFD721B1901B00B5255A /* ChooseAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAnswer.swift; sourceTree = "<group>"; };
+		A1B3A5B5220776C300205447 /* MoyoonLogoP.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MoyoonLogoP.png; path = ../../../../../../Dropbox/MoyoonLogoP.png; sourceTree = "<group>"; };
 		A1E91F8D21B1AB8E008AB3B3 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		B9F6E09395408E6E653757E7 /* Pods_MoyoonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyoonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE33C0C141F76C19726B0CA5 /* Pods-MoyoonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyoonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 		961ACCD321B1B44A005E252E /* Moyoon */ = {
 			isa = PBXGroup;
 			children = (
+				A1B3A5B2220774FA00205447 /* Supporting Files */,
 				9643548821B5C91E00619CCB /* ItemCell */,
 				A1569C9E21B4A1430023D595 /* Lobby.swift */,
 				961ACCD421B1B44A005E252E /* AppDelegate.swift */,
@@ -204,6 +207,14 @@
 				4BAD104A8452C57960A2295E /* Pods_MoyoonUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A1B3A5B2220774FA00205447 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A1B3A5B5220776C300205447 /* MoyoonLogoP.png */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +328,7 @@
 			files = (
 				961ACCDF21B1B44B005E252E /* LaunchScreen.storyboard in Resources */,
 				96C4921F21B1A5E6008DB0B9 /* GoogleService-Info.plist in Resources */,
+				A1B3A5B6220776C300205447 /* MoyoonLogoP.png in Resources */,
 				9643548C21B5CA0400619CCB /* ItemCell.xib in Resources */,
 				961ACCDC21B1B44B005E252E /* Assets.xcassets in Resources */,
 				961ACCDA21B1B44A005E252E /* Main.storyboard in Resources */,
