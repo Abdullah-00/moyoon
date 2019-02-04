@@ -38,8 +38,13 @@ class Login: UIViewController, GIDSignInUIDelegate {
                 // ...
                 return
             }
+            
+
+
             // User is signed in
             // ...
+            
+            self.performSegue(withIdentifier: "LogInDone", sender: self)
         }
     }
     
