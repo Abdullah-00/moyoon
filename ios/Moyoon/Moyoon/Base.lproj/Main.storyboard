@@ -48,12 +48,20 @@
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Session ID" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QhO-ps-kUw">
                                         <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="Qfk-DF-RK9"/>
+                                            <constraint firstAttribute="width" constant="89" id="iMy-Cb-081"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Nickname" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S5W-4f-dgx" userLabel="Nickname Field">
                                         <rect key="frame" x="0.0" y="60" width="89" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="89" id="1by-7l-ue4"/>
+                                            <constraint firstAttribute="height" constant="30" id="usw-AN-Rai"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -67,19 +75,37 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycT-2H-5Gq">
-                                <rect key="frame" x="168" y="512" width="38" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoyoonLogoP.png" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-m8-Msq">
+                                <rect key="frame" x="67" y="108" width="240" height="128"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycT-2H-5Gq">
+                                <rect key="frame" x="143" y="484" width="89" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
                                     <segue destination="jsp-w2-uii" kind="show" id="xJ5-St-dCV"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ycT-2H-5Gq" secondAttribute="trailing" constant="143" id="10U-VN-1XI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MiX-D8-zCt" secondAttribute="trailing" constant="143" id="9cY-hg-117"/>
+                            <constraint firstItem="MiX-D8-zCt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143" id="FCe-9l-acA"/>
+                            <constraint firstItem="MiX-D8-zCt" firstAttribute="top" secondItem="1KZ-m8-Msq" secondAttribute="bottom" constant="95" id="Gjw-42-FwM"/>
                             <constraint firstItem="MiX-D8-zCt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GoL-S8-Wfg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1KZ-m8-Msq" secondAttribute="trailing" constant="68" id="MAN-5W-euO"/>
+                            <constraint firstItem="1KZ-m8-Msq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="64" id="PbZ-zQ-FzV"/>
+                            <constraint firstItem="ycT-2H-5Gq" firstAttribute="top" secondItem="MiX-D8-zCt" secondAttribute="bottom" constant="3" id="QtT-h1-Jpy"/>
+                            <constraint firstItem="MiX-D8-zCt" firstAttribute="top" secondItem="1KZ-m8-Msq" secondAttribute="bottom" constant="95" id="Rrk-wi-ZPN"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1KZ-m8-Msq" secondAttribute="trailing" constant="52" id="XFi-Xl-ZCN"/>
+                            <constraint firstItem="1KZ-m8-Msq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="Xaq-FX-W4v"/>
                             <constraint firstItem="MiX-D8-zCt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bOp-sn-STm"/>
+                            <constraint firstItem="1KZ-m8-Msq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="e8v-bE-eEs"/>
+                            <constraint firstItem="ycT-2H-5Gq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143" id="hVU-B8-S80"/>
+                            <constraint firstItem="1KZ-m8-Msq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="iig-6V-M8D"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1KZ-m8-Msq" secondAttribute="trailing" constant="52" id="qaW-78-PCy"/>
+                            <constraint firstItem="1KZ-m8-Msq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="yTS-2T-74K"/>
+                            <constraint firstItem="MiX-D8-zCt" firstAttribute="top" secondItem="1KZ-m8-Msq" secondAttribute="bottom" constant="95" id="yqU-kx-PMq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -176,7 +202,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="4LD-tx-6DK" firstAttribute="top" secondItem="lnF-Xh-YRs" secondAttribute="bottom" constant="37.5" id="3aV-Xg-9iT"/>
                             <constraint firstItem="OgB-n3-Wsb" firstAttribute="top" secondItem="4LD-tx-6DK" secondAttribute="bottom" constant="52.5" id="ESG-Lg-fFT"/>
@@ -205,7 +231,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-v7-FA3">
-                                <rect key="frame" x="67.000000000000014" y="143" width="249.99999999999997" height="380.33333333333326"/>
+                                <rect key="frame" x="67" y="143" width="249.99999999999997" height="380.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy9-9y-GLa">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="20.333333333333332"/>
@@ -239,7 +265,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="OLn-v7-FA3" firstAttribute="centerY" secondItem="PAd-Yr-mhl" secondAttribute="centerY" constant="100" id="cwD-Jh-hdm"/>
                             <constraint firstItem="OLn-v7-FA3" firstAttribute="centerX" secondItem="PAd-Yr-mhl" secondAttribute="centerX" id="lwQ-pe-Tff"/>
@@ -320,7 +346,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="MJO-P2-95w" firstAttribute="centerX" secondItem="D4f-Ek-xx1" secondAttribute="centerX" id="0DD-k1-sVe"/>
                             <constraint firstItem="js7-9Y-FBJ" firstAttribute="centerX" secondItem="V3S-tr-IxZ" secondAttribute="centerX" id="69m-oq-Myy"/>
@@ -365,7 +391,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Gei-n3-RIz"/>
                     </view>
                 </viewController>
@@ -378,7 +404,7 @@
             <objects>
                 <viewController id="1NC-Gj-3k8" customClass="Question" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="AQN-gz-pLK">
-                        <rect key="frame" x="0.0" y="0.0" width="250" height="150"/>
+                        <rect key="frame" x="0.0" y="0.0" width="241" height="150"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DUG-uc-PDO">
@@ -400,7 +426,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="DUG-uc-PDO" firstAttribute="top" secondItem="OnP-hF-RiR" secondAttribute="bottom" constant="35.5" id="3Pe-L2-ThQ"/>
                             <constraint firstItem="DUG-uc-PDO" firstAttribute="top" secondItem="J4b-v9-bew" secondAttribute="bottom" constant="35.5" id="9hg-vB-0nH"/>
@@ -422,8 +448,11 @@
             <point key="canvasLocation" x="1492" y="571"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="MoyoonLogoP.png" width="500" height="200"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gv6-9i-4Ny"/>
+        <segue reference="vDi-ao-qAf"/>
         <segue reference="bkU-Mi-Orh"/>
     </inferredMetricsTieBreakers>
 </document>
