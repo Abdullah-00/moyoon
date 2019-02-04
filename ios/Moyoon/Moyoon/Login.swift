@@ -24,7 +24,7 @@ class Login: UIViewController, GIDSignInUIDelegate {
         
         
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signOut()
         print("fff2")
         
         print("fff6")
