@@ -13,7 +13,7 @@
         <!--Login-->
         <scene sceneID="DOz-qa-1hN">
             <objects>
-                <viewController id="jsp-w2-uii" customClass="Login" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="login" id="jsp-w2-uii" customClass="Login" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="d0M-wc-RZU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,9 +22,12 @@
                                 <rect key="frame" x="67" y="342" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="goToHomePage:" destination="jsp-w2-uii" eventType="valueChanged" id="OWV-VN-vWt"/>
+                                </connections>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.98039215690000003" green="0.97647058819999999" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="oab-oW-sbw"/>
                     </view>
                 </viewController>
@@ -35,7 +38,7 @@
         <!--Homepage-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="Homepage" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homepage" id="BYZ-38-t0r" customClass="Homepage" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,7 +75,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoyoonLogoP.png" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-m8-Msq">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoyoonLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-m8-Msq">
                                 <rect key="frame" x="67" y="108" width="240" height="128"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycT-2H-5Gq">
@@ -119,7 +122,7 @@
         <!--Lobby-->
         <scene sceneID="fms-EU-dP6">
             <objects>
-                <viewController id="yeN-yN-1do" customClass="Lobby" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="lobby" id="yeN-yN-1do" customClass="Lobby" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iEe-Cd-s4D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -228,7 +231,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-v7-FA3">
-                                <rect key="frame" x="67" y="143" width="249.99999999999997" height="380.33333333333326"/>
+                                <rect key="frame" x="67.000000000000014" y="143" width="249.99999999999997" height="380.33333333333326"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy9-9y-GLa">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="20.333333333333332"/>
@@ -446,7 +449,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="MoyoonLogoP.png" width="500" height="200"/>
+        <image name="MoyoonLogo.png" width="500" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vDi-ao-qAf"/>
