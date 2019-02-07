@@ -79,7 +79,7 @@ class Homepage: UIViewController {
                 }else{
                     GlobalVariables.playerId = playerId
                     GlobalVariables.sessionId = gameSession
-                   // self.performSegue(withIdentifier: "JoinSession", sender: self)
+                    self.performSegue(withIdentifier: "JoinSession", sender: self)
                 }
             }
         }

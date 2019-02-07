@@ -29,6 +29,5 @@ struct GlobalVariables{
     static var roundId = "1";
     static var questionId = "1";
     static var reply = "...";
-    static var sent = false;
     
 }

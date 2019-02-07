@@ -325,7 +325,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6oY-vD-yRQ">
+                            <collectionView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceHorizontal="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6oY-vD-yRQ">
                                 <rect key="frame" x="41" y="283" width="293" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -461,6 +461,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vDi-ao-qAf"/>
-        <segue reference="bkU-Mi-Orh"/>
+        <segue reference="JCF-eo-a4G"/>
     </inferredMetricsTieBreakers>
 </document>
