@@ -20,13 +20,13 @@
 		9643548C21B5CA0400619CCB /* ItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9643548B21B5CA0400619CCB /* ItemCell.xib */; };
 		9669A17321B440D0000513D4 /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9669A17221B440D0000513D4 /* GlobalVariables.swift */; };
 		96C4921F21B1A5E6008DB0B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 96C4921E21B1A5E6008DB0B9 /* GoogleService-Info.plist */; };
-		A11A0F4C220DA48700EF8CF5 /* Rectangle-Login2.png in Resources */ = {isa = PBXBuildFile; fileRef = A11A0F4B220DA48700EF8CF5 /* Rectangle-Login2.png */; };
-		A11A0F4E220DA5AE00EF8CF5 /* Rectangle-Join.png in Resources */ = {isa = PBXBuildFile; fileRef = A11A0F4D220DA5AE00EF8CF5 /* Rectangle-Join.png */; };
 		A11A0F50220DAC4300EF8CF5 /* Rectangle-submit.png in Resources */ = {isa = PBXBuildFile; fileRef = A11A0F4F220DAC4300EF8CF5 /* Rectangle-submit.png */; };
 		A1569C9F21B4A1430023D595 /* Lobby.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1569C9E21B4A1430023D595 /* Lobby.swift */; };
 		A16AFFD421B18D4000B5255A /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD321B18D4000B5255A /* Homepage.swift */; };
 		A16AFFD621B18F0400B5255A /* WriteAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD521B18F0400B5255A /* WriteAnswer.swift */; };
 		A16AFFD821B1901B00B5255A /* ChooseAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD721B1901B00B5255A /* ChooseAnswer.swift */; };
+		A1C61EC7220DBEA2007A69B8 /* Rectangle-Join.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C61EC6220DBEA2007A69B8 /* Rectangle-Join.png */; };
+		A1C61EC9220DBF43007A69B8 /* Rectangle-Login2.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C61EC8220DBF43007A69B8 /* Rectangle-Login2.png */; };
 		A1D66F0622088FD3004045E0 /* MoyoonLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D66F0522088FD2004045E0 /* MoyoonLogo.png */; };
 		A1E91F8E21B1AB8E008AB3B3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E91F8D21B1AB8E008AB3B3 /* Question.swift */; };
 		D1E5EFAFDA48E4A4F058F3F9 /* Pods_MoyoonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAD104A8452C57960A2295E /* Pods_MoyoonUITests.framework */; };
@@ -77,13 +77,13 @@
 		9644D2BD21B6C15B00362499 /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		9669A17221B440D0000513D4 /* GlobalVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		96C4921E21B1A5E6008DB0B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
-		A11A0F4B220DA48700EF8CF5 /* Rectangle-Login2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle-Login2.png"; sourceTree = "<group>"; };
-		A11A0F4D220DA5AE00EF8CF5 /* Rectangle-Join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle-Join.png"; sourceTree = "<group>"; };
 		A11A0F4F220DAC4300EF8CF5 /* Rectangle-submit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle-submit.png"; sourceTree = "<group>"; };
 		A1569C9E21B4A1430023D595 /* Lobby.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lobby.swift; sourceTree = "<group>"; };
 		A16AFFD321B18D4000B5255A /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		A16AFFD521B18F0400B5255A /* WriteAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteAnswer.swift; sourceTree = "<group>"; };
 		A16AFFD721B1901B00B5255A /* ChooseAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAnswer.swift; sourceTree = "<group>"; };
+		A1C61EC6220DBEA2007A69B8 /* Rectangle-Join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle-Join.png"; sourceTree = "<group>"; };
+		A1C61EC8220DBF43007A69B8 /* Rectangle-Login2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle-Login2.png"; sourceTree = "<group>"; };
 		A1D66F0522088FD2004045E0 /* MoyoonLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoyoonLogo.png; sourceTree = "<group>"; };
 		A1E91F8D21B1AB8E008AB3B3 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		B9F6E09395408E6E653757E7 /* Pods_MoyoonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyoonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,9 +218,9 @@
 		A1B3A5B2220774FA00205447 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A1C61EC8220DBF43007A69B8 /* Rectangle-Login2.png */,
+				A1C61EC6220DBEA2007A69B8 /* Rectangle-Join.png */,
 				A11A0F4F220DAC4300EF8CF5 /* Rectangle-submit.png */,
-				A11A0F4D220DA5AE00EF8CF5 /* Rectangle-Join.png */,
-				A11A0F4B220DA48700EF8CF5 /* Rectangle-Login2.png */,
 				A1D66F0522088FD2004045E0 /* MoyoonLogo.png */,
 			);
 			path = "Supporting Files";
@@ -335,15 +335,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A11A0F4C220DA48700EF8CF5 /* Rectangle-Login2.png in Resources */,
 				961ACCDF21B1B44B005E252E /* LaunchScreen.storyboard in Resources */,
 				A1D66F0622088FD3004045E0 /* MoyoonLogo.png in Resources */,
+				A1C61EC7220DBEA2007A69B8 /* Rectangle-Join.png in Resources */,
+				A1C61EC9220DBF43007A69B8 /* Rectangle-Login2.png in Resources */,
 				A11A0F50220DAC4300EF8CF5 /* Rectangle-submit.png in Resources */,
 				96C4921F21B1A5E6008DB0B9 /* GoogleService-Info.plist in Resources */,
 				9643548C21B5CA0400619CCB /* ItemCell.xib in Resources */,
 				961ACCDC21B1B44B005E252E /* Assets.xcassets in Resources */,
 				961ACCDA21B1B44A005E252E /* Main.storyboard in Resources */,
-				A11A0F4E220DA5AE00EF8CF5 /* Rectangle-Join.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

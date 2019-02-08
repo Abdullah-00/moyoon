@@ -43,8 +43,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="MiX-D8-zCt">
-                                <rect key="frame" x="143" y="361" width="89" height="90"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="MiX-D8-zCt" userLabel="Stack1">
+                                <rect key="frame" x="143" y="388.33333333333337" width="89" height="90"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Session ID" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QhO-ps-kUw">
                                         <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
@@ -73,10 +73,10 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoyoonLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-m8-Msq">
-                                <rect key="frame" x="67" y="108" width="240" height="173"/>
+                                <rect key="frame" x="67" y="108.33333333333334" width="240" height="200.00000000000003"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="FaV-2t-lgH">
-                                <rect key="frame" x="97" y="491" width="180" height="116"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FaV-2t-lgH" userLabel="Stack2">
+                                <rect key="frame" x="97" y="518.33333333333337" width="180" height="110"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-za-WtT">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
@@ -84,13 +84,15 @@
                                             <constraint firstAttribute="width" constant="180" id="EFL-tp-rTP"/>
                                             <constraint firstAttribute="height" constant="50" id="SIR-i8-PyI"/>
                                         </constraints>
-                                        <state key="normal" image="Rectangle-Join.png"/>
+                                        <state key="normal" image="Rectangle-Join.png">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="JoinSession:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Jr-BJ-WXm"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycT-2H-5Gq">
-                                        <rect key="frame" x="0.0" y="66" width="180" height="50"/>
+                                        <rect key="frame" x="0.0" y="60" width="180" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="4F8-wv-Lah"/>
                                             <constraint firstAttribute="width" constant="180" id="65K-z0-2pI"/>
@@ -102,10 +104,8 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="J2Z-Xg-PCw"/>
-                                    <constraint firstAttribute="height" constant="116" id="Lhu-mQ-4E9"/>
-                                    <constraint firstItem="ycT-2H-5Gq" firstAttribute="top" secondItem="sJi-za-WtT" secondAttribute="bottom" constant="16" id="LtZ-oN-Yaw"/>
-                                    <constraint firstItem="ycT-2H-5Gq" firstAttribute="top" secondItem="sJi-za-WtT" secondAttribute="bottom" constant="16" id="r7b-Sm-0La"/>
+                                    <constraint firstAttribute="height" constant="110" id="1zr-A9-GqK"/>
+                                    <constraint firstAttribute="width" constant="180" id="sto-Ps-oUD"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -491,8 +491,8 @@
     </scenes>
     <resources>
         <image name="MoyoonLogo.png" width="500" height="200"/>
-        <image name="Rectangle-Join.png" width="400" height="100"/>
-        <image name="Rectangle-Login2.png" width="400" height="100"/>
+        <image name="Rectangle-Join.png" width="180" height="50"/>
+        <image name="Rectangle-Login2.png" width="180" height="50"/>
         <image name="Rectangle-submit.png" width="180" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
