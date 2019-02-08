@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 import FirebaseFirestore
+import FirebaseUI
 
 class WriteAnswer: UIViewController {
     var submitted : Bool = false;
