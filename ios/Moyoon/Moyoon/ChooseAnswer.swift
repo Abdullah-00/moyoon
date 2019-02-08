@@ -49,10 +49,20 @@ class ChooseAnswer: UIViewController {
         }
     }
     
+    @IBOutlet var AnswersBorder: UICollectionView!
+    
+    @IBOutlet var QuestionBorder: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Answeres border enhancements
+        AnswersBorder.layer.cornerRadius = 10
+        AnswersBorder.layer.masksToBounds = true
+        
+        // Question boreer enhancements
+        QuestionBorder.layer.cornerRadius = 10
+        QuestionBorder.layer.masksToBounds = true
         
         let questionPath = "/Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)"
         Firestore.firestore().document(questionPath)
