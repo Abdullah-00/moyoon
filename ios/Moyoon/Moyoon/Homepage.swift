@@ -11,7 +11,7 @@ import UIKit
 import Firebase
 import FirebaseFirestore
 import Alamofire
-
+import FirebaseUI
 class Homepage: UIViewController {
 
     
@@ -43,7 +43,13 @@ class Homepage: UIViewController {
 
     }
     
+    @IBAction func loginClicked(_ sender: Any) {
+        let authUI = FUIAuth.defaultAuthUI()
+        let authViewController = authUI!.authViewController()
+        self.present(authViewController, animated: true, completion: nil)
 
+    }
+    
     fileprivate func displayError(msg : String) {
         let alertController = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
         let action1 = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in

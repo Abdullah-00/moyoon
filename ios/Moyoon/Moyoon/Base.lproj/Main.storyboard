@@ -90,7 +90,7 @@
                                 <rect key="frame" x="143" y="484" width="89" height="30"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="jsp-w2-uii" kind="show" id="xJ5-St-dCV"/>
+                                    <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="h8K-gC-LQh"/>
                                 </connections>
                             </button>
                         </subviews>
