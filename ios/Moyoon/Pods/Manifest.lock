@@ -24,9 +24,15 @@ PODS:
     - FirebaseAnalytics (= 5.2.0)
   - Firebase/CoreOnly (5.9.0):
     - FirebaseCore (= 5.1.4)
+  - Firebase/Database (5.9.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (= 5.0.3)
   - Firebase/Firestore (5.9.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (= 0.13.4)
+  - Firebase/Storage (5.9.0):
+    - Firebase/CoreOnly
+    - FirebaseStorage (= 3.0.2)
   - FirebaseAnalytics (5.2.0):
     - FirebaseCore (~> 5.1)
     - FirebaseInstanceID (~> 3.2)
@@ -44,6 +50,9 @@ PODS:
   - FirebaseAuthInterop (1.0.0)
   - FirebaseCore (5.1.4):
     - GoogleUtilities/Logger (~> 5.2)
+  - FirebaseDatabase (5.0.3):
+    - FirebaseCore (~> 5.0)
+    - leveldb-library (~> 1.18)
   - FirebaseFirestore (0.13.4):
     - FirebaseAuthInterop (~> 1.0)
     - FirebaseCore (~> 5.0)
@@ -65,17 +74,43 @@ PODS:
     - FirebaseCore (~> 5.1)
     - GoogleUtilities/Environment (~> 5.3)
     - GoogleUtilities/UserDefaults (~> 5.3)
+  - FirebaseStorage (3.0.2):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 5.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseUI (6.1.0):
+    - FirebaseUI/Anonymous (= 6.1.0)
+    - FirebaseUI/Auth (= 6.1.0)
+    - FirebaseUI/Database (= 6.1.0)
+    - FirebaseUI/Email (= 6.1.0)
+    - FirebaseUI/Facebook (= 6.1.0)
+    - FirebaseUI/Firestore (= 6.1.0)
+    - FirebaseUI/Google (= 6.1.0)
+    - FirebaseUI/Phone (= 6.1.0)
+    - FirebaseUI/Storage (= 6.1.0)
+    - FirebaseUI/Twitter (= 6.1.0)
+  - FirebaseUI/Anonymous (6.1.0):
+    - FirebaseUI/Auth
   - FirebaseUI/Auth (6.1.0):
     - Firebase/Auth (~> 5.0)
     - GoogleUtilities/UserDefaults
+  - FirebaseUI/Database (6.1.0):
+    - Firebase/Database (~> 5.0)
+  - FirebaseUI/Email (6.1.0):
+    - FirebaseUI/Auth
   - FirebaseUI/Facebook (6.1.0):
     - FBSDKLoginKit (~> 4.35)
     - FirebaseUI/Auth
+  - FirebaseUI/Firestore (6.1.0):
+    - Firebase/Firestore
   - FirebaseUI/Google (6.1.0):
     - FirebaseUI/Auth
     - GoogleSignIn (~> 4.0)
   - FirebaseUI/Phone (6.1.0):
     - FirebaseUI/Auth
+  - FirebaseUI/Storage (6.1.0):
+    - Firebase/Storage (~> 5.0)
+    - SDWebImage (~> 4.0)
   - FirebaseUI/Twitter (6.1.0):
     - FirebaseUI/Auth
     - TwitterKit (~> 3.0)
@@ -152,6 +187,9 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Protobuf (3.6.1)
+  - SDWebImage (4.4.5):
+    - SDWebImage/Core (= 4.4.5)
+  - SDWebImage/Core (4.4.5)
   - TwitterCore (3.2.0)
   - TwitterKit (3.4.2):
     - TwitterCore (>= 3.2.0)
@@ -161,6 +199,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Firestore
+  - FirebaseUI
   - FirebaseUI/Auth
   - FirebaseUI/Facebook
   - FirebaseUI/Google
@@ -180,8 +219,10 @@ SPEC REPOS:
     - FirebaseAuth
     - FirebaseAuthInterop
     - FirebaseCore
+    - FirebaseDatabase
     - FirebaseFirestore
     - FirebaseInstanceID
+    - FirebaseStorage
     - FirebaseUI
     - GoogleAppMeasurement
     - GoogleSignIn
@@ -196,6 +237,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - SDWebImage
     - TwitterCore
     - TwitterKit
 
@@ -210,8 +252,10 @@ SPEC CHECKSUMS:
   FirebaseAuth: 504b198ceb3472dca5c65bb95544ea44cfc9439e
   FirebaseAuthInterop: 0ffa57668be100582bb7643d4fcb7615496c41fc
   FirebaseCore: 2a84b6b325792a4319ef71ee18819dcba08d2fd7
+  FirebaseDatabase: e2bcbc106adc4b11a2da3ec2eb63c0c4a44f2f54
   FirebaseFirestore: eaf0b6244e9463e2429fe216666b641e4dec606b
   FirebaseInstanceID: 78ba376fcd5b94c001f9999b2cbd3d1f1e56e78d
+  FirebaseStorage: fd82e5e5c474897e19972b34b22ac0f589dce04e
   FirebaseUI: 9107a94d6637ca22eedd307a7e3d38c1a450f93a
   GoogleAppMeasurement: 2b3a023a61239c8d002e6e4fcf4abce8eddce0e0
   GoogleSignIn: 7ff245e1a7b26d379099d3243a562f5747e23d39
@@ -226,9 +270,10 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  SDWebImage: ecc03494e973b93b80213649d32175f8d2d17d4d
   TwitterCore: 8cbc9ad34d91c63a0035ea05bfbfc0d7ca72a28c
   TwitterKit: 5e4f41d70b9abdb41df5467f52d7aa2c0fd26ebb
 
-PODFILE CHECKSUM: 8399094a65d43ebaf98e8b724c00c83b1faae7a6
+PODFILE CHECKSUM: ede2f6725e80108caa307857b5369f6c82ffafd3
 
 COCOAPODS: 1.5.3
