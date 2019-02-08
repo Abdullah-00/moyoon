@@ -44,7 +44,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="MiX-D8-zCt">
-                                <rect key="frame" x="143" y="331" width="89" height="150"/>
+                                <rect key="frame" x="143" y="361" width="89" height="90"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Session ID" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QhO-ps-kUw">
                                         <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
@@ -66,46 +66,65 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-za-WtT">
-                                        <rect key="frame" x="0.0" y="120" width="89" height="30"/>
-                                        <state key="normal" title="Join"/>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="89" id="yti-No-ZKx"/>
+                                    <constraint firstAttribute="height" constant="90" id="zNR-33-3o0"/>
+                                </constraints>
+                            </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoyoonLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-m8-Msq">
+                                <rect key="frame" x="67" y="108" width="240" height="173"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="FaV-2t-lgH">
+                                <rect key="frame" x="97" y="491" width="180" height="116"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-za-WtT">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="EFL-tp-rTP"/>
+                                            <constraint firstAttribute="height" constant="50" id="SIR-i8-PyI"/>
+                                        </constraints>
+                                        <state key="normal" image="Rectangle-Join.png"/>
                                         <connections>
                                             <action selector="JoinSession:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Jr-BJ-WXm"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycT-2H-5Gq">
+                                        <rect key="frame" x="0.0" y="66" width="180" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="4F8-wv-Lah"/>
+                                            <constraint firstAttribute="width" constant="180" id="65K-z0-2pI"/>
+                                        </constraints>
+                                        <state key="normal" image="Rectangle-Login2.png"/>
+                                        <connections>
+                                            <segue destination="jsp-w2-uii" kind="show" id="xJ5-St-dCV"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="180" id="J2Z-Xg-PCw"/>
+                                    <constraint firstAttribute="height" constant="116" id="Lhu-mQ-4E9"/>
+                                    <constraint firstItem="ycT-2H-5Gq" firstAttribute="top" secondItem="sJi-za-WtT" secondAttribute="bottom" constant="16" id="LtZ-oN-Yaw"/>
+                                    <constraint firstItem="ycT-2H-5Gq" firstAttribute="top" secondItem="sJi-za-WtT" secondAttribute="bottom" constant="16" id="r7b-Sm-0La"/>
+                                </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoyoonLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-m8-Msq">
-                                <rect key="frame" x="67" y="108" width="240" height="128"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycT-2H-5Gq">
-                                <rect key="frame" x="143" y="484" width="89" height="30"/>
-                                <state key="normal" title="Login"/>
-                                <connections>
-                                    <segue destination="jsp-w2-uii" kind="show" id="xJ5-St-dCV"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ycT-2H-5Gq" secondAttribute="trailing" constant="143" id="10U-VN-1XI"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="FaV-2t-lgH" secondAttribute="trailing" constant="98" id="5Sg-wP-JYt"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="MiX-D8-zCt" secondAttribute="trailing" constant="143" id="9cY-hg-117"/>
                             <constraint firstItem="MiX-D8-zCt" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143" id="FCe-9l-acA"/>
-                            <constraint firstItem="MiX-D8-zCt" firstAttribute="top" secondItem="1KZ-m8-Msq" secondAttribute="bottom" constant="95" id="Gjw-42-FwM"/>
+                            <constraint firstItem="MiX-D8-zCt" firstAttribute="top" secondItem="1KZ-m8-Msq" secondAttribute="bottom" constant="80" id="Gjw-42-FwM"/>
                             <constraint firstItem="MiX-D8-zCt" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="GoL-S8-Wfg"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1KZ-m8-Msq" secondAttribute="trailing" constant="68" id="MAN-5W-euO"/>
-                            <constraint firstItem="1KZ-m8-Msq" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="64" id="PbZ-zQ-FzV"/>
-                            <constraint firstItem="ycT-2H-5Gq" firstAttribute="top" secondItem="MiX-D8-zCt" secondAttribute="bottom" constant="3" id="QtT-h1-Jpy"/>
-                            <constraint firstItem="MiX-D8-zCt" firstAttribute="top" secondItem="1KZ-m8-Msq" secondAttribute="bottom" constant="95" id="Rrk-wi-ZPN"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1KZ-m8-Msq" secondAttribute="trailing" constant="52" id="XFi-Xl-ZCN"/>
-                            <constraint firstItem="1KZ-m8-Msq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="Xaq-FX-W4v"/>
                             <constraint firstItem="MiX-D8-zCt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bOp-sn-STm"/>
                             <constraint firstItem="1KZ-m8-Msq" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="51" id="e8v-bE-eEs"/>
-                            <constraint firstItem="ycT-2H-5Gq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="143" id="hVU-B8-S80"/>
                             <constraint firstItem="1KZ-m8-Msq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="iig-6V-M8D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1KZ-m8-Msq" secondAttribute="trailing" constant="52" id="qaW-78-PCy"/>
+                            <constraint firstItem="FaV-2t-lgH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="97" id="qxU-af-6XQ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FaV-2t-lgH" secondAttribute="bottom" constant="171" id="r47-V4-g5l"/>
+                            <constraint firstItem="FaV-2t-lgH" firstAttribute="top" secondItem="MiX-D8-zCt" secondAttribute="bottom" constant="40" id="sUQ-ew-foa"/>
                             <constraint firstItem="1KZ-m8-Msq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="yTS-2T-74K"/>
-                            <constraint firstItem="MiX-D8-zCt" firstAttribute="top" secondItem="1KZ-m8-Msq" secondAttribute="bottom" constant="95" id="yqU-kx-PMq"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -117,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+            <point key="canvasLocation" x="136.80000000000001" y="133.00492610837438"/>
         </scene>
         <!--Lobby-->
         <scene sceneID="fms-EU-dP6">
@@ -225,13 +244,13 @@
         <!--Write Answer-->
         <scene sceneID="L7C-ow-fgR">
             <objects>
-                <viewController id="ffQ-Su-BzR" customClass="WriteAnswer" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="writeAnswer" id="ffQ-Su-BzR" customClass="WriteAnswer" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PAd-Yr-mhl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-v7-FA3">
-                                <rect key="frame" x="67.000000000000014" y="143" width="249.99999999999997" height="380.33333333333326"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="OLn-v7-FA3">
+                                <rect key="frame" x="50" y="69.000000000000014" width="250" height="220.33333333333337"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xy9-9y-GLa">
                                         <rect key="frame" x="0.0" y="0.0" width="250" height="20.333333333333332"/>
@@ -240,7 +259,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iuf-rI-qsw">
-                                        <rect key="frame" x="0.0" y="70.333333333333314" width="250" height="150"/>
+                                        <rect key="frame" x="0.0" y="70.333333333333343" width="250" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="hYB-KQ-MOW"/>
                                             <constraint firstAttribute="width" constant="250" id="qAu-JX-aXb"/>
@@ -249,26 +268,48 @@
                                             <segue destination="1NC-Gj-3k8" kind="embed" id="gv6-9i-4Ny"/>
                                         </connections>
                                     </containerView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eRL-OF-QXu">
+                                <rect key="frame" x="75" y="319.33333333333331" width="200" height="150"/>
+                                <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Answer" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KoF-2g-hne">
-                                        <rect key="frame" x="0.0" y="270.33333333333337" width="250" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="Lfb-Xd-B1d"/>
+                                            <constraint firstAttribute="width" constant="100" id="WIL-TQ-tbb"/>
+                                        </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMw-yD-ect">
-                                        <rect key="frame" x="0.0" y="350.33333333333337" width="250" height="30"/>
-                                        <state key="normal" title="Submit"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMw-yD-ect">
+                                        <rect key="frame" x="0.0" y="40" width="200" height="110"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="SuX-cI-ecd"/>
+                                            <constraint firstAttribute="width" constant="180" id="VyD-lj-z2M"/>
+                                        </constraints>
+                                        <state key="normal" image="Rectangle-submit.png"/>
                                         <connections>
                                             <action selector="submitAnswer:" destination="ffQ-Su-BzR" eventType="touchUpInside" id="3Hv-OR-L1p"/>
                                         </connections>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="1JJ-cA-xRf"/>
+                                    <constraint firstItem="DMw-yD-ect" firstAttribute="top" secondItem="KoF-2g-hne" secondAttribute="bottom" constant="20" id="FdW-Jn-T44"/>
+                                    <constraint firstAttribute="height" constant="150" id="adr-Vf-KlU"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.98039215686274506" green="0.97647058823529409" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="OLn-v7-FA3" firstAttribute="centerY" secondItem="PAd-Yr-mhl" secondAttribute="centerY" constant="100" id="cwD-Jh-hdm"/>
+                            <constraint firstItem="eRL-OF-QXu" firstAttribute="top" secondItem="OLn-v7-FA3" secondAttribute="bottom" constant="30" id="2QS-Jr-CIR"/>
+                            <constraint firstItem="eRL-OF-QXu" firstAttribute="centerX" secondItem="PAd-Yr-mhl" secondAttribute="centerX" id="DxC-C6-hhi"/>
+                            <constraint firstItem="Kqu-Ew-MqJ" firstAttribute="trailing" secondItem="OLn-v7-FA3" secondAttribute="trailing" constant="50" id="GkA-VD-Yya"/>
+                            <constraint firstItem="OLn-v7-FA3" firstAttribute="leading" secondItem="Kqu-Ew-MqJ" secondAttribute="leading" constant="50" id="e7v-sP-GOW"/>
                             <constraint firstItem="OLn-v7-FA3" firstAttribute="centerX" secondItem="PAd-Yr-mhl" secondAttribute="centerX" id="lwQ-pe-Tff"/>
+                            <constraint firstItem="OLn-v7-FA3" firstAttribute="top" secondItem="Kqu-Ew-MqJ" secondAttribute="top" constant="25" id="uwO-3J-aVU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kqu-Ew-MqJ"/>
                     </view>
@@ -281,12 +322,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkC-Zv-eCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1014" y="-39"/>
+            <point key="canvasLocation" x="1013.6" y="-39.162561576354683"/>
         </scene>
         <!--Choose Answer-->
         <scene sceneID="S6r-tW-iZV">
             <objects>
-                <viewController id="BaC-Va-Onf" customClass="ChooseAnswer" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="chooseAnswer" id="BaC-Va-Onf" customClass="ChooseAnswer" customModule="Moyoon" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="V3S-tr-IxZ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -300,13 +341,13 @@
                                     <segue destination="1NC-Gj-3k8" kind="embed" id="vDi-ao-qAf"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6E-Y4-z5d">
-                                <rect key="frame" x="163" y="617" width="49" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6E-Y4-z5d">
+                                <rect key="frame" x="97.666666666666686" y="633" width="180" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="36" id="YZe-1X-ZIh"/>
-                                    <constraint firstAttribute="width" constant="49" id="xBU-ZP-hvB"/>
+                                    <constraint firstAttribute="height" constant="50" id="YZe-1X-ZIh"/>
+                                    <constraint firstAttribute="width" constant="180" id="xBU-ZP-hvB"/>
                                 </constraints>
-                                <state key="normal" title="Submit"/>
+                                <state key="normal" image="Rectangle-submit.png"/>
                                 <connections>
                                     <action selector="selectAnswer:" destination="BaC-Va-Onf" eventType="touchUpInside" id="mBv-SZ-jCX"/>
                                 </connections>
@@ -317,8 +358,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6oY-vD-yRQ">
-                                <rect key="frame" x="41" y="283" width="293" height="300"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="6oY-vD-yRQ">
+                                <rect key="frame" x="41" y="308" width="293" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="m14-s1-Yzk"/>
@@ -352,13 +393,13 @@
                             <constraint firstItem="js7-9Y-FBJ" firstAttribute="centerX" secondItem="V3S-tr-IxZ" secondAttribute="centerX" id="69m-oq-Myy"/>
                             <constraint firstItem="6oY-vD-yRQ" firstAttribute="top" secondItem="js7-9Y-FBJ" secondAttribute="bottom" constant="33" id="9LH-H0-dIe"/>
                             <constraint firstItem="v6E-Y4-z5d" firstAttribute="centerX" secondItem="V3S-tr-IxZ" secondAttribute="centerX" id="9s9-Ro-YCi"/>
-                            <constraint firstItem="D4f-Ek-xx1" firstAttribute="trailing" secondItem="v6E-Y4-z5d" secondAttribute="trailing" constant="163" id="HQv-e9-qdj"/>
                             <constraint firstItem="6oY-vD-yRQ" firstAttribute="centerX" secondItem="D4f-Ek-xx1" secondAttribute="centerX" id="Hwh-2D-jGa"/>
                             <constraint firstItem="js7-9Y-FBJ" firstAttribute="leading" secondItem="D4f-Ek-xx1" secondAttribute="leading" constant="67" id="MeP-DG-Tku"/>
                             <constraint firstItem="6oY-vD-yRQ" firstAttribute="centerX" secondItem="V3S-tr-IxZ" secondAttribute="centerX" id="TAz-BB-J7U"/>
                             <constraint firstItem="js7-9Y-FBJ" firstAttribute="top" secondItem="D4f-Ek-xx1" secondAttribute="top" constant="81" id="Tid-3G-vqR"/>
                             <constraint firstItem="6oY-vD-yRQ" firstAttribute="leading" secondItem="D4f-Ek-xx1" secondAttribute="leading" constant="41" id="VAQ-vD-h7k"/>
-                            <constraint firstItem="D4f-Ek-xx1" firstAttribute="bottom" secondItem="v6E-Y4-z5d" secondAttribute="bottom" constant="27" id="pDa-te-KBE"/>
+                            <constraint firstItem="v6E-Y4-z5d" firstAttribute="centerX" secondItem="V3S-tr-IxZ" secondAttribute="centerX" id="ZCN-QX-fTc"/>
+                            <constraint firstItem="v6E-Y4-z5d" firstAttribute="top" secondItem="6oY-vD-yRQ" secondAttribute="bottom" constant="25" id="qgn-YW-dM9"/>
                             <constraint firstItem="js7-9Y-FBJ" firstAttribute="top" secondItem="MJO-P2-95w" secondAttribute="bottom" constant="35" id="u09-x7-fzt"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D4f-Ek-xx1"/>
@@ -450,9 +491,12 @@
     </scenes>
     <resources>
         <image name="MoyoonLogo.png" width="500" height="200"/>
+        <image name="Rectangle-Join.png" width="400" height="100"/>
+        <image name="Rectangle-Login2.png" width="400" height="100"/>
+        <image name="Rectangle-submit.png" width="180" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vDi-ao-qAf"/>
-        <segue reference="bkU-Mi-Orh"/>
+        <segue reference="JCF-eo-a4G"/>
     </inferredMetricsTieBreakers>
 </document>
