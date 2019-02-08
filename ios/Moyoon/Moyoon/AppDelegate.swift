@@ -7,42 +7,25 @@
 //
 
 import UIKit
-import Firebase
-import Firebase
-import GoogleSignIn
+import FirebaseUI
 
+import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
-        // ...
-        if let error = error {
-            // ...
-            return
-        }
-
-        guard let authentication = user.authentication else { return }
-        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                       accessToken: authentication.accessToken)
-
-        // ...
-    }
-    
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        // Perform any operations when the user disconnects from app here.
-        // ...
-    }
 
 
     var window: UIWindow?
 
-    @available(iOS 9.0, *)
-    func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any])
-        -> Bool {
-            return GIDSignIn.sharedInstance().handle(url,
-                                                     sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-                                                     annotation: [:])
+    func application(_ app: UIApplication, open url: URL,
+                     options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            return true
+        }
+        // other URL handling goes here.
+        return false
     }
     
     func application(_ application: UIApplication,
@@ -54,9 +37,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
             let settings = db.settings
             settings.areTimestampsInSnapshotsEnabled = true
             db.settings = settings
-            // Initialize sign-in
-            GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
-            GIDSignIn.sharedInstance().delegate = self
+            let authUI = FUIAuth.defaultAuthUI()
+            // You need to adopt a FUIAuthDelegate protocol to receive callback
+            authUI?.delegate = self
+            
+            let providers: [FUIAuthProvider] = [
+                FUIGoogleAuth(),
+                FUIFacebookAuth(),
+                FUITwitterAuth(),
+                FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
+                ]
+            authUI!.providers = providers
+            
             return true
     }
     

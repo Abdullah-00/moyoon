@@ -3,16 +3,21 @@
 
 target 'Moyoon' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  platform :ios, '9.0'
   use_frameworks!
 
   # Pods for Moyoon
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
   pod 'Alamofire', '~> 4.7'
-  pod 'FirebaseUI/Firestore', '~> 5.0' 
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+ pod 'FirebaseUI/Auth'
 
+ pod 'FirebaseUI/Google'
+ pod 'FirebaseUI/Facebook'
+ pod 'FirebaseUI/Twitter'
+ pod 'FirebaseUI/Phone'
 
 
   target 'MoyoonTests' do

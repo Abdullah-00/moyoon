@@ -26,9 +26,16 @@ class ChooseAnswer: UIViewController {
     var timer =  Timer()
     var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
     
+    var sent = false;
     
     func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(WriteAnswer.updateTimer)), userInfo: nil, repeats: true)
+        if(!isTimerRunning){
+            DispatchQueue.main.async {
+                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(WriteAnswer.updateTimer)), userInfo: nil, repeats: true)
+            }
+            isTimerRunning = true;
+        }
+        
     }
     
     @IBOutlet weak var timerLabel: UILabel!
@@ -65,8 +72,8 @@ class ChooseAnswer: UIViewController {
                 }
         }
         
-        runTimer()
-        
+        //runTimer()
+
         
         
         // Set Delegates
@@ -134,7 +141,6 @@ class ChooseAnswer: UIViewController {
 
     
     override func viewWillAppear(_ animated: Bool) {
-
         getAnswers()
     }
     
@@ -152,7 +158,6 @@ class ChooseAnswer: UIViewController {
 }
 
     func incrementQuestionsAndRounds() {
-        GlobalVariables.sent = false;
         if ( (Int(GlobalVariables.roundId)==3) && (Int(GlobalVariables.questionId)==3) ){
             performSegue(withIdentifier: "Finished", sender: self)
             return;
@@ -169,19 +174,25 @@ class ChooseAnswer: UIViewController {
 
 
 
-extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
+extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegate {
     
     func collectionView(_: UICollectionView, prefetchItemsAt: [IndexPath]){
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-     //   print("section: \(indexPath.row)")
-
+        if(!sent){
+            sent=true;
+            collectionView.allowsSelection = false;
+            if let cell = collectionView.cellForItem(at: indexPath) as? ItemCell {
+                cell.backgroundColor = UIColor.orange
+                cell.sendAnswerToAPI(answer: cell.textLabel.text!)
+                print("Selected Cell "+cell.textLabel.text!)
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
         collectionView.reloadData()
         return self.dataArray.count
     }
@@ -189,9 +200,13 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCell
         cell.setData(text: self.dataArray[indexPath.row])
-        
         return cell
     }
+    
+    
+
+    
+    
 }
 
 extension ChooseAnswer: UICollectionViewDelegateFlowLayout {
@@ -209,6 +224,8 @@ extension ChooseAnswer: UICollectionViewDelegateFlowLayout {
         
         return width
     }
+    
+
 }
 
 

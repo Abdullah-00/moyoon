@@ -28,9 +28,23 @@
 				<string>com.googleusercontent.apps.118454694024-r4qegkmd1l3fe1b7hv97pt7ijedg2aat</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string></string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb341762823333904</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>FacebookAppID</key>
+	<string>341762823333904</string>
+	<key>FacebookDisplayName</key>
+	<string>Moyoon</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

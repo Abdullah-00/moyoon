@@ -24,7 +24,7 @@ class Login: UIViewController, GIDSignInUIDelegate {
         
         
         GIDSignIn.sharedInstance().uiDelegate = self
-        GIDSignIn.sharedInstance().signIn()
+        GIDSignIn.sharedInstance().signOut()
         print("fff2")
         
         print("fff6")
@@ -52,8 +52,13 @@ class Login: UIViewController, GIDSignInUIDelegate {
                 // ...
                 return
             }
+            
+
+
             // User is signed in
             // ...
+            
+            self.performSegue(withIdentifier: "LogInDone", sender: self)
         }
         print("fff4")
         let userId = user.userID                  // For client-side use only!
