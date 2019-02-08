@@ -41,7 +41,7 @@ class Homepage: UIViewController {
         
         requestJoinAPI(nickname: nickname, gameSession: session)
 
-        /*let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+       /* let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let balanceViewController = storyBoard.instantiateViewController(withIdentifier: "chooseAnswer") as! ChooseAnswer
         self.present(balanceViewController, animated: true, completion: nil)*/
     }

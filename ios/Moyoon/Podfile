@@ -12,6 +12,7 @@ target 'Moyoon' do
   pod 'Alamofire', '~> 4.7'
   pod 'Firebase/Auth'
   pod 'GoogleSignIn'
+pod 'FirebaseUI'
  pod 'FirebaseUI/Auth'
 
  pod 'FirebaseUI/Google'
