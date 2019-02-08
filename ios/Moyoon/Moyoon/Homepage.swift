@@ -33,17 +33,17 @@ class Homepage: UIViewController {
 }
 
     @IBAction func JoinSession(_ sender: UIButton) {
-        /*var session : String
+        var session : String
         var nickname : String
         nickname = nicknameField.text!
         session = sessionField.text!
         //loadSession(session: session)
         
         requestJoinAPI(nickname: nickname, gameSession: session)
-*/
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+
+       /* let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let balanceViewController = storyBoard.instantiateViewController(withIdentifier: "chooseAnswer") as! ChooseAnswer
-        self.present(balanceViewController, animated: true, completion: nil)
+        self.present(balanceViewController, animated: true, completion: nil)*/
     }
     
     @IBAction func loginClicked(_ sender: Any) {
