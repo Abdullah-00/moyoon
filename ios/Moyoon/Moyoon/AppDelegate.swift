@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
 
 
     var window: UIWindow?
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+        print(user?.displayName);
+        
+    }
 
     func application(_ app: UIApplication, open url: URL,
                      options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
