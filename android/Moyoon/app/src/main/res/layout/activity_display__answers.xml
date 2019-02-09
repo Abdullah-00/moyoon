@@ -18,7 +18,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp" android:textSize="24sp"
             android:textColor="@android:color/black" android:layout_marginTop="100dp"
-            app:layout_constraintTop_toBottomOf="@+id/timerAns" android:background="@android:color/background_light"/>
+            app:layout_constraintTop_toBottomOf="@+id/timerTxt" android:background="@android:color/background_light"/>
     <ListView
             android:layout_width="380dp"
             android:layout_height="275dp"
@@ -31,7 +31,7 @@
             android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/quiston_at_selecton"
             android:background="@color/cardview_light_background"/>
     <TextView
-            android:text="Round"
+            android:text="Round:"
             android:layout_width="190dp"
             android:layout_height="33dp"
             android:id="@+id/roundText"
@@ -41,7 +41,7 @@
             app:layout_constraintBottom_toTopOf="@+id/quiston_at_selecton"
             android:background="@android:color/background_light"/>
     <TextView
-            android:text="Round"
+            android:text="Question:"
             android:layout_width="190dp"
             android:layout_height="33dp"
             android:id="@+id/questionRoundText2"
@@ -54,7 +54,7 @@
             android:text="Timer"
             android:layout_width="124dp"
             android:layout_height="20dp"
-            android:id="@+id/timerAns"
+            android:id="@+id/timerTxt"
             android:textSize="18sp"
             android:textAlignment="center"
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
@@ -69,5 +69,5 @@
             app:layout_constraintTop_toBottomOf="@+id/answers_list" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:scaleType="fitXY"/>
+            android:layout_marginStart="8dp"/>
 </android.support.constraint.ConstraintLayout>
