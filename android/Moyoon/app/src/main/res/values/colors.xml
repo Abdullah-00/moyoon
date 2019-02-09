@@ -7,7 +7,7 @@
     <color name="button_focused">#3C627E</color>
     <color name="button_default">#2493C8</color>
     <color name="button_selected">#3C627E</color>
-    <color name="button_checked">#FFFF</color>
+    <color name="button_checked">#000000</color>
 
 
 </resources>

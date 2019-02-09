@@ -5,7 +5,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".Sign_up">
+        tools:context=".Sign_up"
+        android:background="#E8E6E1">
     <Button
             android:text="Guest"
             android:layout_width="142dp"
