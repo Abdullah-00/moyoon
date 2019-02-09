@@ -15,7 +15,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"
             android:textAlignment="center" android:textSize="30sp" android:id="@+id/textViewPlayers"
-            android:background="@android:color/background_light"/>
+            android:background="@drawable/round_corner"/>
     <ListView
             android:layout_width="333dp"
             android:layout_height="385dp" app:layout_constraintEnd_toEndOf="parent"

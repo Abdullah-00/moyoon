@@ -18,7 +18,8 @@
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp" android:textSize="24sp"
             android:textColor="@android:color/black" android:layout_marginTop="100dp"
-            app:layout_constraintTop_toBottomOf="@+id/timerTxt" android:background="@android:color/background_light"/>
+            app:layout_constraintTop_toBottomOf="@+id/timerTxt"
+            android:background="@drawable/round_corner_buttom"/>
     <ListView
             android:layout_width="380dp"
             android:layout_height="275dp"
@@ -29,7 +30,7 @@
             android:id="@+id/answers_list"
             android:textAlignment="center" android:textDirection="rtl"
             android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/quiston_at_selecton"
-            android:background="@color/cardview_light_background"/>
+            android:background="@drawable/round_corner"/>
     <TextView
             android:text="Round:"
             android:layout_width="190dp"
@@ -39,7 +40,7 @@
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/quiston_at_selecton"
-            android:background="@android:color/background_light"/>
+            android:background="@drawable/round_corner_tr"/>
     <TextView
             android:text="Question:"
             android:layout_width="190dp"
@@ -49,7 +50,7 @@
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
             app:layout_constraintBottom_toTopOf="@+id/quiston_at_selecton"
             android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
-            android:background="@android:color/background_light"/>
+            android:background="@drawable/round_corner_tl"/>
     <TextView
             android:text="Timer"
             android:layout_width="124dp"
