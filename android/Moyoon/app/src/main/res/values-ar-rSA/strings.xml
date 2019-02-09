@@ -6,5 +6,7 @@
     <string name="Lie">كيّس</string>
     <string name="Submit_lie">ارسال</string>
     <string name="nickname">ادخل اسمك</string>
+    <string name="facebook_app_id">341762823333904</string>
+    <string name="fb_login_protocol_scheme">fb341762823333904</string>
 
 </resources>

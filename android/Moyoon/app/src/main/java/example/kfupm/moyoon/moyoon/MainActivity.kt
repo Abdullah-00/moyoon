@@ -16,6 +16,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var nickname: EditText //Nickname Input
     private lateinit var sessionCode: EditText
     private lateinit var join: Button
+    private lateinit var joinRandom: Button
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +27,8 @@ class MainActivity : AppCompatActivity() {
         sessionCode = findViewById<EditText>(R.id.Sission_Code)
         nickname = findViewById<EditText>(R.id.nickname)
         join = findViewById(R.id.join)
+        joinRandom = findViewById(R.id.joinR)
+
         val intent = Intent(this, PlayerlistActivity::class.java)
 
         join.setOnClickListener {

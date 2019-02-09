@@ -31,6 +31,7 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var timerTxtAns : TextView //PLayer Lie
     private val intentTypeLie : Intent = Intent(this,Type_Lie::class.java)
     private val intentEndOfGame : Intent = Intent(this,EndOfGame::class.java)
+
     //private var chooseAnswer: Boolean? = false
     //private lateinit var intentCorrect : Intent
     //private lateinit var intentWrong : Intent
