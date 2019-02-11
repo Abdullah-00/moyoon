@@ -20,7 +20,7 @@ class Type_Lie : AppCompatActivity() {
 
     private lateinit var questionDesplay : TextView
     private lateinit var lie : EditText
-    private lateinit var submit_lie : Button
+    private lateinit var submit_lie : ImageButton
     private lateinit var roundText : TextView //Round Number
     private lateinit var db : FirebaseFirestore
     private lateinit var playerLie : String //PLayer Lie

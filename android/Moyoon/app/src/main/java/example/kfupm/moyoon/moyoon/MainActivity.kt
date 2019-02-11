@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.*
@@ -15,7 +16,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var nickname: EditText //Nickname Input
     private lateinit var sessionCode: EditText
-    private lateinit var join: Button
+    private lateinit var join: ImageButton
+    private lateinit var login: ImageButton
     private lateinit var joinRandom: Button
 
 
@@ -27,9 +29,12 @@ class MainActivity : AppCompatActivity() {
         sessionCode = findViewById<EditText>(R.id.Sission_Code)
         nickname = findViewById<EditText>(R.id.nickname)
         join = findViewById(R.id.join)
+        login = findViewById(R.id.login)
         joinRandom = findViewById(R.id.joinR)
 
         val intent = Intent(this, PlayerlistActivity::class.java)
+        val intent2 = Intent(this, Sign_up::class.java)
+
 
         join.setOnClickListener {
             Global.sessionID = sessionCode.text.toString() //Session ID
@@ -39,6 +44,11 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
 
             }
+        login.setOnClickListener {
+
+            startActivity(intent2)
+
+        }
 
     }
 
