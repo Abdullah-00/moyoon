@@ -57,7 +57,7 @@ class Display_Answers : AppCompatActivity() {
 
         roundText.text = "Round " + Global.roundID[Global.roundNum] +"\n Question " +Global.questionNum
         questionDesplay.text = Global.question
-        timerTxtAns =findViewById<TextView>(R.id.timerAns)
+        timerTxtAns =findViewById<TextView>(R.id.timerTxt)
 
         val timer2 = MyCounter(10000, 1000)
         timer2.start()

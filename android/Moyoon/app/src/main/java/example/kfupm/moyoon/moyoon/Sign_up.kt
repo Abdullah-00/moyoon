@@ -4,18 +4,19 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
 
 class Sign_up : AppCompatActivity() {
 
-     lateinit var button: Button
-     lateinit var google: Button
-    lateinit var FB: Button
+     lateinit var guest: ImageButton
+     lateinit var google: ImageButton
+    lateinit var FB: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sign_up)
 
-        button = findViewById(R.id.button)
+     guest = findViewById(R.id.button)
         google = findViewById(R.id.google)
         FB = findViewById(R.id.FB)
 
@@ -24,7 +25,7 @@ class Sign_up : AppCompatActivity() {
         val FBsignin = Intent(this, Sign_in_Facebook::class.java)
 
 
-        button.setOnClickListener {
+        guest.setOnClickListener {
             startActivity(mainActiv)
         }
             google.setOnClickListener {
