@@ -42,7 +42,6 @@ class MainActivity : AppCompatActivity() {
             SendtoServer()
            // Global.playerID=playerId
             startActivity(intent)
-
             }
         login.setOnClickListener {
 
