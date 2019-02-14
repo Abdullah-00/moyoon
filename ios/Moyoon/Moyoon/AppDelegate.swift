@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseUI
-
 import Firebase
 
 @UIApplicationMain
@@ -18,7 +17,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
 
     var window: UIWindow?
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        print(user?.displayName);
+      //  print(GlobalVariables.userName)
+
+      //  GlobalVariables.userName = (user?.displayName)!;
+        
+      //  print(GlobalVariables.userName)
+       // Homepage().changeName(s: GlobalVariables.userName)
         
     }
 

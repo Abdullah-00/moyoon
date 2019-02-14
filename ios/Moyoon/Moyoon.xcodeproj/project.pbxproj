@@ -25,6 +25,7 @@
 		A16AFFD421B18D4000B5255A /* Homepage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD321B18D4000B5255A /* Homepage.swift */; };
 		A16AFFD621B18F0400B5255A /* WriteAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD521B18F0400B5255A /* WriteAnswer.swift */; };
 		A16AFFD821B1901B00B5255A /* ChooseAnswer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A16AFFD721B1901B00B5255A /* ChooseAnswer.swift */; };
+		A19AFA862210FA1500DE301C /* Rectangle-JoinRandom.png in Resources */ = {isa = PBXBuildFile; fileRef = A19AFA852210FA1500DE301C /* Rectangle-JoinRandom.png */; };
 		A1C61EC7220DBEA2007A69B8 /* Rectangle-Join.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C61EC6220DBEA2007A69B8 /* Rectangle-Join.png */; };
 		A1C61EC9220DBF43007A69B8 /* Rectangle-Login2.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C61EC8220DBF43007A69B8 /* Rectangle-Login2.png */; };
 		A1D66F0622088FD3004045E0 /* MoyoonLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D66F0522088FD2004045E0 /* MoyoonLogo.png */; };
@@ -83,6 +84,7 @@
 		A16AFFD321B18D4000B5255A /* Homepage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Homepage.swift; sourceTree = "<group>"; };
 		A16AFFD521B18F0400B5255A /* WriteAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteAnswer.swift; sourceTree = "<group>"; };
 		A16AFFD721B1901B00B5255A /* ChooseAnswer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAnswer.swift; sourceTree = "<group>"; };
+		A19AFA852210FA1500DE301C /* Rectangle-JoinRandom.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle-JoinRandom.png"; sourceTree = "<group>"; };
 		A1C61EC6220DBEA2007A69B8 /* Rectangle-Join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle-Join.png"; sourceTree = "<group>"; };
 		A1C61EC8220DBF43007A69B8 /* Rectangle-Login2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle-Login2.png"; sourceTree = "<group>"; };
 		A1D66F0522088FD2004045E0 /* MoyoonLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoyoonLogo.png; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		A1B3A5B2220774FA00205447 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A19AFA852210FA1500DE301C /* Rectangle-JoinRandom.png */,
 				A1C61EC8220DBF43007A69B8 /* Rectangle-Login2.png */,
 				A1C61EC6220DBEA2007A69B8 /* Rectangle-Join.png */,
 				A11A0F4F220DAC4300EF8CF5 /* Rectangle-submit.png */,
@@ -346,6 +349,7 @@
 				A1D66F0622088FD3004045E0 /* MoyoonLogo.png in Resources */,
 				A1C61EC7220DBEA2007A69B8 /* Rectangle-Join.png in Resources */,
 				A1C61EC9220DBF43007A69B8 /* Rectangle-Login2.png in Resources */,
+				A19AFA862210FA1500DE301C /* Rectangle-JoinRandom.png in Resources */,
 				A11A0F50220DAC4300EF8CF5 /* Rectangle-submit.png in Resources */,
 				96C4921F21B1A5E6008DB0B9 /* GoogleService-Info.plist in Resources */,
 				9643548C21B5CA0400619CCB /* ItemCell.xib in Resources */,

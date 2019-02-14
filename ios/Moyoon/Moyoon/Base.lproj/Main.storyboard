@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="MiX-D8-zCt" userLabel="Stack1">
-                                <rect key="frame" x="143" y="388.33333333333337" width="89" height="90"/>
+                                <rect key="frame" x="143" y="361" width="89" height="90"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Session ID" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QhO-ps-kUw">
                                         <rect key="frame" x="0.0" y="0.0" width="89" height="30"/>
@@ -48,16 +48,16 @@
                                 </constraints>
                             </stackView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MoyoonLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-m8-Msq">
-                                <rect key="frame" x="67" y="108.33333333333334" width="240" height="200.00000000000003"/>
+                                <rect key="frame" x="67" y="108" width="240" height="173"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FaV-2t-lgH" userLabel="Stack2">
-                                <rect key="frame" x="97" y="518.33333333333337" width="180" height="110"/>
+                                <rect key="frame" x="97" y="491" width="180" height="170"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-za-WtT">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-za-WtT" userLabel="Join">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="180" id="EFL-tp-rTP"/>
-                                            <constraint firstAttribute="height" constant="50" id="SIR-i8-PyI"/>
+                                            <constraint firstAttribute="height" constant="50" id="wwX-tc-bbD"/>
                                         </constraints>
                                         <state key="normal" image="Rectangle-Join.png">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -66,11 +66,19 @@
                                             <action selector="JoinSession:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Jr-BJ-WXm"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycT-2H-5Gq">
+                                    <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VE6-FV-Ruz" userLabel="Join Random">
                                         <rect key="frame" x="0.0" y="60" width="180" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="4F8-wv-Lah"/>
+                                            <constraint firstAttribute="height" constant="50" id="KJb-ea-SHp"/>
+                                            <constraint firstAttribute="width" constant="180" id="NCp-hb-eIQ"/>
+                                        </constraints>
+                                        <state key="normal" image="Rectangle-JoinRandom.png"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycT-2H-5Gq" userLabel="Login">
+                                        <rect key="frame" x="0.0" y="120" width="180" height="50"/>
+                                        <constraints>
                                             <constraint firstAttribute="width" constant="180" id="65K-z0-2pI"/>
+                                            <constraint firstAttribute="height" constant="50" id="Xfp-IP-Ztk"/>
                                         </constraints>
                                         <state key="normal" image="Rectangle-Login2.png"/>
                                         <connections>
@@ -79,7 +87,8 @@
                                     </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="110" id="1zr-A9-GqK"/>
+                                    <constraint firstItem="VE6-FV-Ruz" firstAttribute="top" secondItem="sJi-za-WtT" secondAttribute="bottom" constant="10" id="bbU-yC-kTH"/>
+                                    <constraint firstItem="ycT-2H-5Gq" firstAttribute="top" secondItem="VE6-FV-Ruz" secondAttribute="bottom" constant="10" id="crh-c5-GXx"/>
                                     <constraint firstAttribute="width" constant="180" id="sto-Ps-oUD"/>
                                 </constraints>
                             </stackView>
@@ -97,7 +106,6 @@
                             <constraint firstItem="1KZ-m8-Msq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="iig-6V-M8D"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1KZ-m8-Msq" secondAttribute="trailing" constant="52" id="qaW-78-PCy"/>
                             <constraint firstItem="FaV-2t-lgH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="97" id="qxU-af-6XQ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="FaV-2t-lgH" secondAttribute="bottom" constant="171" id="r47-V4-g5l"/>
                             <constraint firstItem="FaV-2t-lgH" firstAttribute="top" secondItem="MiX-D8-zCt" secondAttribute="bottom" constant="40" id="sUQ-ew-foa"/>
                             <constraint firstItem="1KZ-m8-Msq" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="yTS-2T-74K"/>
                         </constraints>
@@ -470,6 +478,7 @@
     <resources>
         <image name="MoyoonLogo.png" width="500" height="200"/>
         <image name="Rectangle-Join.png" width="180" height="50"/>
+        <image name="Rectangle-JoinRandom.png" width="180" height="50"/>
         <image name="Rectangle-Login2.png" width="180" height="50"/>
         <image name="Rectangle-submit.png" width="180" height="50"/>
     </resources>
