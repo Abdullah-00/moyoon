@@ -333,6 +333,22 @@ def searchForSession(nick_name,questions):
             x = addPlayers(i.id, nick_name)
             session_id = i
             return (x,session_id)
+<<<<<<< HEAD
     session_id = createSessionByCategory(questions)
     player_id = addPlayers(session_id,nick_name)
     return (player_id,session_id)
+||||||| merged common ancestors
+=======
+
+def leaveController(player_id,session_id):
+    db = firestore.client()
+    player_doc = db.collection(u'Session').document(session_id).collection(u'Players')
+    players_list = player_doc.get()
+
+    for i in players_list:
+
+        if (i.id == player_id):
+            player = db.collection(u'Session').document(session_id).collection(u'Players').document(i.id).delete()
+        else:
+            return ('Player id Does not exist')
+>>>>>>> 085ba79b3ff9b2f61380d26277557440c7d18576

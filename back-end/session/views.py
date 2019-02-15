@@ -184,3 +184,11 @@ def controllerView(request):
     t = Thread(target=SecondControllerView, args=(session_id, ))
     t.start()
     return HttpResponse("Game Ended")
+
+#Link: http://127.0.0.1:8000/leaveSession/?session_id=CSC8hsgaLCwz6OcLmblN&player_id=9fCmtNjkb0OavZX8mdYO&answer=7
+def leaveSession(request):
+    player_id = request.GET.get('player_id')
+    session_id = request.GET.get('session_id')
+    leaveController(player_id, session_id)
+
+    return HttpResponse('Done')
