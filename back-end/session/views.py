@@ -68,7 +68,7 @@ def createSessionView(request):
     if(is_provided=="False"):
         catagory_id = request.GET.get('catagory_id')
         query_set = Question.objects.filter(Category_parent=catagory_id)
-        x = createSessionByCategory(query_set)
+        x = createSessionByCategory(query_set,True)
 
         # Questions coming from User
     elif(request.method == 'POST'):

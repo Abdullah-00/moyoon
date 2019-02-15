@@ -30,16 +30,23 @@ def randomString():
         strg = strg + y
     return strg
 
-def createSessionByCategory(questions):
+def createSessionByCategory(questions, isPrivate):
     db = firestore.client()
     x = randomString()
     doc_ref = db.collection(u'Session').document(x)
     session_id = doc_ref
-    data2 = {
-        u'addPlayers' : True,
-        u'isPrivate': True,
-        u'isFull': False
-    }
+    if(isPrivate):
+        data2 = {
+            u'addPlayers' : True,
+            u'isPrivate': True,
+            u'isFull': False
+        }
+    else:
+        data2 = {
+            u'addPlayers': True,
+            u'isPrivate': False,
+            u'isFull': False
+        }
     session_id.set(data2)
 
     for i in range(3):
@@ -329,16 +336,15 @@ def searchForSession(nick_name,questions):
 
     for i in session_list:
         doc = i.to_dict()
-        if (doc["isPrivate"] == True and doc["isFull"] == False):
+        if (doc["isPrivate"] == False and doc["isFull"] == False):
             x = addPlayers(i.id, nick_name)
             session_id = i
             return (x,session_id)
-<<<<<<< HEAD
-    session_id = createSessionByCategory(questions)
-    player_id = addPlayers(session_id,nick_name)
+
+    session_id = createSessionByCategory(questions, False)
+    player_id = addPlayers(session_id.id,nick_name)
     return (player_id,session_id)
-||||||| merged common ancestors
-=======
+
 
 def leaveController(player_id,session_id):
     db = firestore.client()
@@ -351,4 +357,3 @@ def leaveController(player_id,session_id):
             player = db.collection(u'Session').document(session_id).collection(u'Players').document(i.id).delete()
         else:
             return ('Player id Does not exist')
->>>>>>> 085ba79b3ff9b2f61380d26277557440c7d18576
