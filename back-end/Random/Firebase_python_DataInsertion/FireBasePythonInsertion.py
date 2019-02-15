@@ -337,3 +337,15 @@ def searchForSession(nick_name):
             x = addPlayers(i.id, nick_name)
             session_id = i
             return (x,session_id)
+
+def leaveController(player_id,session_id):
+    db = firestore.client()
+    player_doc = db.collection(u'Session').document(session_id).collection(u'Players')
+    players_list = player_doc.get()
+
+    for i in players_list:
+
+        if (i.id == player_id):
+            player = db.collection(u'Session').document(session_id).collection(u'Players').document(i.id).delete()
+        else:
+            return ('Player id Does not exist')
