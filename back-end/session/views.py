@@ -127,8 +127,10 @@ def enterSessionView(request):
         else:
             return HttpResponse("Cannot get you inside the session.")
     else:
-        print("Here")
-        x = searchForSession(nick_name)
+        category = request.GET.get('category')
+        query_set = Category.objects.get(name=category)
+        questions = Question.objects.filter(Category_parent=query_set)
+        x = searchForSession(nick_name,questions)
         return HttpResponse(x[0].id+","+x[1].id)
 
 #TC1:

@@ -322,18 +322,17 @@ def flagChanger(session_id, round_id, question_id, flag):
     question_doc.set(question_info)
 
 
-def searchForSession(nick_name):
+def searchForSession(nick_name,questions):
     db = firestore.client()
     doc_ref = db.collection(u'Session')
     session_list = doc_ref.get()
-    print("Here2")
 
     for i in session_list:
-        print("Here4")
         doc = i.to_dict()
-        print("Here5")
         if (doc["isPrivate"] == True and doc["isFull"] == False):
-            print("Here3")
             x = addPlayers(i.id, nick_name)
             session_id = i
             return (x,session_id)
+    session_id = createSessionByCategory(questions)
+    player_id = addPlayers(session_id,nick_name)
+    return (player_id,session_id)
