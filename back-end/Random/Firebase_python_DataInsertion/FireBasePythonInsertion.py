@@ -163,7 +163,8 @@ def addPlayers(session_id, nick_name):
     player_id = doc_ref
     data = {
         u'nick-name' : nick_name,
-        u'Score' : 0
+        u'Score' : 0,
+        u'isSuspended': False
     }
     doc_ref.set(data)
     return player_id
@@ -296,10 +297,31 @@ def gameController(session_id):
         round_info = round_doc.get().to_dict()
         round_info['isDone'] = True
         round_doc.set(round_info)
+        checkPlayerScore(session_id)
         counter += 1
     time.sleep(300)
     round_col = db.collection(u'Session').document(session_id).delete()
     return (counter, qCounter)
+
+def checkPlayerScore(session_id):
+    db = firestore.client()
+    players_col = db.collection(u'Session').document(session_id).collection(u'Players')
+    players_list = players_col.get()
+
+    for i in players_list:
+        player_info = i.to_dict()
+        if(player_info['Score'] > 0):
+            player_info['isSuspended'] = False
+        elif(player_info['Score'] < -20):
+            player_info['isSuspended'] = True
+        data = {
+            u'nick-name': player_info['nick-name'],
+            u'Score': player_info['Score'],
+            u'isSuspended' : player_info['isSuspended']
+        }
+        dict_ref = players_col.document(i.id)
+        dict_ref.set(data)
+
 
 def questionController(session_id, round_id):
     db = firestore.client()

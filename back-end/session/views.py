@@ -195,3 +195,5 @@ def leaveSession(request):
     leaveController(player_id, session_id)
 
     return HttpResponse('Done')
+
+
