@@ -41,25 +41,26 @@ class Homepage: UIViewController {
 }
 
     @IBAction func JoinSession(_ sender: UIButton) {
-        /*var session : String
-        var nickname : String
-        nickname = nicknameField.text!
-        session = sessionField.text!
-        //loadSession(session: session)
- 
-        requestJoinAPI(nickname: nickname, gameSession: session)
-*/
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let balanceViewController = storyBoard.instantiateViewController(withIdentifier: "chooseAnswer") as! ChooseAnswer
-        self.present(balanceViewController, animated: true, completion: nil)
+         var session : String
+         var nickname : String
+         nickname = nicknameField.text!
+         session = sessionField.text!
+         //loadSession(session: session)
+         
+         requestJoinAPI(nickname: nickname, gameSession: session)
+        
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let balanceViewController = storyBoard.instantiateViewController(withIdentifier: "chooseAnswer") as! ChooseAnswer
+//        self.present(balanceViewController, animated: true, completion: nil)
+        
     }
     
     @IBAction func loginClicked(_ sender: Any) {
         let authUI = FUIAuth.defaultAuthUI()
         let authViewController = authUI!.authViewController()
         self.present(authViewController, animated: true, completion: nil)
-
     }
+    
     
     fileprivate func displayError(msg : String) {
         let alertController = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
@@ -68,6 +69,37 @@ class Homepage: UIViewController {
         }
         alertController.addAction(action1)
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func requestJoinRandomAPI(nickname: String){
+        if(nickname.count == 0){
+            displayError(msg: "Please provide a nickname");
+            return;
+        }
+        print("Sending Join Random Request")
+        let urlExtension = "/enterSession/"
+        let parameters: Parameters = [
+            "nick_name": nickname,
+            "category" : "algebra"
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
+        
+        Alamofire.request(urlString!, parameters: parameters).response { response in
+            print("Request: \(String(describing: response.request))")
+            print("Response: \(String(describing: response.response))")
+            print("Error: \(String(describing: response.error))")
+            print("Timeline: \(response.timeline)")
+            if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
+                if(response.response?.statusCode != 200){
+                    self.displayError(msg: "Cannot join a random session.")
+                }else{
+                    GlobalVariables.playerId = playerId
+                    GlobalVariables.sessionId = ""
+                    self.performSegue(withIdentifier: "JoinSession", sender: self)
+                }
+            }
+        }
     }
     
     func requestJoinAPI(nickname: String, gameSession: String)
@@ -103,6 +135,10 @@ class Homepage: UIViewController {
     }
     
     
+    @IBAction func JoinRandomSessionClicked(_ sender: Any) {
+        var nickname = nicknameField.text!
+        requestJoinRandomAPI(nickname: nickname)
+    }
     
     func loadSession(session: String){
         let db = Firestore.firestore()

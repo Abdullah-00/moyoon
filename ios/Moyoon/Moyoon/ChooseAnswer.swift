@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseFirestore
+import Alamofire
 
 class ChooseAnswer: UIViewController {
     
@@ -27,6 +28,32 @@ class ChooseAnswer: UIViewController {
     var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
     
     var sent = false;
+    
+    @IBAction func leaveSessionClicked(_ sender: Any) {
+        if(isTimerRunning){
+            self.timer.invalidate();
+        }
+        leaveSession();
+    }
+    
+    func leaveSession(){
+        print("Sending leave Request")
+        let urlExtension = "/leaveSession/"
+        let parameters: Parameters = [
+            "session_id": GlobalVariables.sessionId,
+            "player_id": GlobalVariables.playerId
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
+        
+        Alamofire.request(urlString!, parameters: parameters).response { response in
+            print("Request: \(String(describing: response.request))")
+            print("Response: \(String(describing: response.response))")
+            print("Error: \(String(describing: response.error))")
+            print("Timeline: \(response.timeline)")
+        }
+        self.performSegue(withIdentifier: "reset", sender: self)
+    }
     
     func runTimer() {
         if(!isTimerRunning){
