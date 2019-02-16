@@ -21,23 +21,53 @@ class WriteAnswer: UIViewController {
     
     
     func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(WriteAnswer.updateTimer)), userInfo: nil, repeats: true)
+        if(!isTimerRunning){
+                    timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(WriteAnswer.updateTimer)), userInfo: nil, repeats: true)
+        }
+        isTimerRunning = true;
     }
     
     @IBOutlet weak var timerLabel: UILabel!
     
     @objc func updateTimer() {
-        seconds -= 1     //This will decrement(count down)the seconds.
-        timerLabel.text = "\(seconds)" //This will update the label.
-        if(seconds < 1){
-            sendAnswerToAPI(answer: (answerField.text)!)
-            timer.invalidate()
-            performSegue(withIdentifier: "TypeToSelect", sender: self)
+        if(isTimerRunning){
+            seconds -= 1     //This will decrement(count down)the seconds.
+            timerLabel.text = "\(seconds)" //This will update the label.
+            if(seconds < 1){
+                sendAnswerToAPI(answer: (answerField.text)!)
+                timer.invalidate()
+                performSegue(withIdentifier: "TypeToSelect", sender: self)
+        }
         }
     }
     
     @IBOutlet var QuestionBorder: UIView!
     
+    @IBAction func leaveSessionClicked(_ sender: Any) {
+        if(isTimerRunning){
+            self.timer.invalidate();
+        }
+        leaveSession();
+    }
+    
+    func leaveSession(){
+        print("Sending leave Request")
+        let urlExtension = "/leaveSession/"
+        let parameters: Parameters = [
+            "session_id": GlobalVariables.sessionId,
+            "player_id": GlobalVariables.playerId
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
+        
+        Alamofire.request(urlString!, parameters: parameters).response { response in
+            print("Request: \(String(describing: response.request))")
+            print("Response: \(String(describing: response.response))")
+            print("Error: \(String(describing: response.error))")
+            print("Timeline: \(response.timeline)")
+        }
+        self.performSegue(withIdentifier: "reset", sender: self)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
