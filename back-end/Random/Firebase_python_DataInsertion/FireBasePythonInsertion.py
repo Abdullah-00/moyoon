@@ -150,6 +150,8 @@ def checkAddPlayer(session_id):
     db = firestore.client()
     doc_ref = db.collection(u'Session').document(session_id)
     addplayer = doc_ref.get().to_dict()
+    if(addplayer == None):
+        return False
     for key, value in addplayer.items():
         addplayer = value
         break
@@ -310,9 +312,9 @@ def checkPlayerScore(session_id):
 
     for i in players_list:
         player_info = i.to_dict()
-        if(player_info['Score'] > 0):
+        if(player_info['Score'] >= -20):
             player_info['isSuspended'] = False
-        elif(player_info['Score'] < -20):
+        elif(player_info['Score'] <= -50):
             player_info['isSuspended'] = True
         data = {
             u'nick-name': player_info['nick-name'],
