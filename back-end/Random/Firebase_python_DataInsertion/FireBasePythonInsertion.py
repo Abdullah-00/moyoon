@@ -77,7 +77,9 @@ def createSessionWithUserInput(questions, round_limit):
     doc_ref = db.collection(u'Session').document(x)
     session_id = doc_ref
     data2 = {
-        u'addPlayers' : True
+        u'addPlayers' : True,
+        u'isPrivate': True,
+        u'isFull': False
     }
     session_id.set(data2)
 
@@ -244,7 +246,9 @@ def changeAddplayers(session_id):
     db = firestore.client()
     doc_ref = db.collection(u'Session').document(session_id)
     data = {
-        u'addPlayers' : False
+        u'addPlayers' : False,
+        u'isPrivate': True,
+        u'isFull': False
     }
     doc_ref.set(data)
 
@@ -344,6 +348,19 @@ def searchForSession(nick_name,questions):
     session_id = createSessionByCategory(questions, False)
     player_id = addPlayers(session_id.id,nick_name)
     return (player_id,session_id)
+
+def checkNumberOfPlayers(session_id):
+    db = firestore.client()
+    players_list = db.collection(u'Session').document(session_id).collection(u'Players').get()
+    count = 0
+    for i in players_list:
+        count +=1
+        if(count == 4):
+            return True
+    return False
+
+
+
 
 
 def leaveController(player_id,session_id):

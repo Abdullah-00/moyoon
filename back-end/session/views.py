@@ -131,6 +131,9 @@ def enterSessionView(request):
         query_set = Category.objects.get(name=category)
         questions = Question.objects.filter(Category_parent=query_set)
         x = searchForSession(nick_name,questions)
+        if (checkNumberOfPlayers(x[1].id)):
+            t = Thread(target=SecondControllerView, args=(x[1].id,))
+            t.start()
         return HttpResponse(x[0].id+","+x[1].id)
 
 #TC1:
