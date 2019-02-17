@@ -24,13 +24,13 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var questionDesplay : TextView
     private lateinit var db : FirebaseFirestore
     private lateinit var answerslist : ListView
-    private lateinit var submit : Button
+    private lateinit var submit : ImageButton
     private lateinit var playersAnswer : ArrayList<String>
     private lateinit var roundText : TextView //Round Number
     private lateinit var arrayAdapter:ArrayAdapter<String>
     private lateinit var timerTxtAns : TextView //PLayer Lie
-    private val intentTypeLie : Intent = Intent(this,Type_Lie::class.java)
-    private val intentEndOfGame : Intent = Intent(this,EndOfGame::class.java)
+    private lateinit var intentTypeLie : Intent
+    private lateinit var intentEndOfGame : Intent
 
     //private var chooseAnswer: Boolean? = false
     //private lateinit var intentCorrect : Intent
@@ -48,8 +48,8 @@ class Display_Answers : AppCompatActivity() {
         answerslist = findViewById(R.id.answers_list)
         submit = findViewById(R.id.submit_ans)
         playersAnswer = ArrayList()
-
-
+        intentTypeLie = Intent(this,Type_Lie::class.java)
+        intentEndOfGame = Intent(this,EndOfGame::class.java)
         //intentCorrect = Intent(this,Correct::class.java)
         //intentWrong = Intent(this,Wrong::class.java)
 
@@ -69,7 +69,8 @@ class Display_Answers : AppCompatActivity() {
         getAnswers()
 
         answerslist.setOnItemClickListener { parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
-           submit.text= "You choose: "+playersAnswer[position]
+        //
+            //   submit.text= "You choose: "+playersAnswer[position]
             Global.pAnswer = playersAnswer[position]
             Log.d("nnnnnnnn", playersAnswer[position])
             Log.d("nnnnnnnn", position.toString())
@@ -111,7 +112,9 @@ class Display_Answers : AppCompatActivity() {
             timerTxtAns.text = "Timer Completed."
             SendtoServer()
 
-            if (Global.roundNum >= 3 && Global.questionNum >=3)
+            Log.d("T","C1"+Global.roundNum+"tttttttttt"+Global.questionNum)
+
+            if (Global.roundNum == 2 && Global.questionNum == 3)
                 startActivity(intentEndOfGame)
             else
                 startActivity(intentTypeLie)

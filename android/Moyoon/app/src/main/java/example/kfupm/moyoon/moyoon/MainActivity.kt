@@ -10,6 +10,7 @@ import android.widget.ImageButton
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -49,6 +50,13 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        joinR.setOnClickListener {
+            Global.nickname = nickname.text.toString().trim()  //Player Nickname
+            SendtoServerR()
+            startActivity(intent)
+
+        }
+
     }
 
     private fun SendtoServer() {
@@ -60,7 +68,29 @@ class MainActivity : AppCompatActivity() {
             Response.Listener<String> { response ->
                 // Display the first 500 characters of the response string.
                 Global.playerID = response
-                Log.d("T","tttttttttt")
+                Log.d("gggggg",response)
+            },
+            Response.ErrorListener { Log.d("t", "That didn't work!") })
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest)
+
+
+    }
+
+    private fun SendtoServerR() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "http://127.0.0.1:8000/enterSession/?category=Algebra"+"&nick_name="+Global.nickname
+        Log.d("eeeeee","ohuuygu")
+
+        // Request a string response from the provided URL.
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                // Display the first 500 characters of the response string.
+                Global.playerID = response.substringBefore(",").trim()
+                Global.nickname = response.substringAfter(",",",").trim()
+                Log.d("eeeeee",Global.nickname)
             },
             Response.ErrorListener { Log.d("t", "That didn't work!") })
 

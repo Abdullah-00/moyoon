@@ -51,6 +51,7 @@ class Type_Lie : AppCompatActivity() {
             Global.roundNum +=1
         }
 
+        Log.d("T","C2"+Global.roundNum+"tttttttttt"+Global.questionNum)
 
         roundText.text = "Round: " + Global.roundID[Global.roundNum]
         //// Display Question
@@ -104,6 +105,7 @@ class Type_Lie : AppCompatActivity() {
         override fun onTick(millisUntilFinished: Long) {
             timerTxt.text = (millisUntilFinished / 1000).toString() + ""
             println("Timer  : " + millisUntilFinished / 1000)
+
         }
 
         override fun onFinish() {
