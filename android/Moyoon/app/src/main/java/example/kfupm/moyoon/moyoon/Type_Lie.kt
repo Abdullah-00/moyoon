@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.*
 import com.android.volley.Request
 import com.android.volley.Response
@@ -27,6 +30,8 @@ class Type_Lie : AppCompatActivity() {
     private lateinit var timerTxt : TextView //PLayer Lie
     private var submitAnswer: Boolean? = false
     private lateinit var intentDisplayAnswers : Intent
+     lateinit var Home : Intent
+    lateinit  var timer: MyCounter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,7 +44,7 @@ class Type_Lie : AppCompatActivity() {
         lie = findViewById(R.id.Lie)
         timerTxt = findViewById(R.id.timerTxt)
         intentDisplayAnswers = Intent(this,Display_Answers::class.java)
-        val timer = MyCounter(10000, 1000)
+         timer = MyCounter(10000, 1000)
 
 
 
@@ -81,25 +86,28 @@ class Type_Lie : AppCompatActivity() {
 //        }
 }
 
-    private fun isDoneSubmitAnswer() {
-        db.collection("Session").document(Global.sessionID)
-            .collection("Rounds").document(Global.roundID[Global.roundNum])
-            .collection("Questions").document(Global.questionNum.toString())
-            .addSnapshotListener(EventListener<DocumentSnapshot> { document, e ->
-                if (e != null) {
-                    Log.w("33333", "listen:error", e)
-                    return@EventListener
-                }
-                submitAnswer = document!!.getBoolean("isDoneSubmitAnswer")
-                if (submitAnswer == true){
-                    playerLie = lie.text.toString()
-                    SendtoServer()
-                    startActivity(intentDisplayAnswers)
-                }
-
-            }
-            )
-    }
+//    private fun isDoneSubmitAnswer() {
+//        db.collection("Session").document(Global.sessionID)
+//            .collection("Rounds").document(Global.roundID[Global.roundNum])
+//            .collection("Questions").document(Global.questionNum.toString())
+//            .addSnapshotListener(EventListener<DocumentSnapshot> { document, e ->
+//                if (e != null) {
+//                    Log.w("33333", "listen:error", e)
+//                    return@EventListener
+//                }
+//                submitAnswer = document!!.getBoolean("isDoneSubmitAnswer")
+//                if (submitAnswer == true){
+//                    playerLie = lie.text.toString()
+//                    if (Global.LeaveSession) {
+//                        SendtoServer()
+//                        startActivity(intentDisplayAnswers)
+//
+//                    }
+//                }
+//
+//            }
+//            )
+//    }
 
     inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
         override fun onTick(millisUntilFinished: Long) {
@@ -112,8 +120,10 @@ class Type_Lie : AppCompatActivity() {
             println("Timer Completed.")
             timerTxt.text = "Timer Completed."
             playerLie = lie.text.toString()
-            SendtoServer()
-            startActivity(intentDisplayAnswers)
+            if (Global.LeaveSession) {
+                SendtoServer()
+                startActivity(intentDisplayAnswers)
+            }else timer.cancel()
         }
         //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
         //       "&round_id="+Global.roundNum+"&question_id="+Global.questionNum+"&player_id="+Global.playerID+"&answer="+playerLie
@@ -134,6 +144,50 @@ class Type_Lie : AppCompatActivity() {
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
+
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu1, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.leave -> {
+                Global.LeaveSession =false
+                SendtoServerLeave()
+                Home = Intent(this,MainActivity::class.java)
+                startActivity(Home)
+
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun SendtoServerLeave() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "http://127.0.0.1:8000/leaveSession/?session_id="+Global.sessionID+"&player_id="+Global.playerID
+        Log.d("eeeeee","ohuuygu")
+
+        // Request a string response from the provided URL.
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                // Display the first 500 characters of the response string.
+              //  Global.nickname = response.substringAfter(",",",").trim()
+             //   Global.playerID = response.substringBefore(",").trim()
+                Log.d("eeeeee",Global.nickname)
+            },
+            Response.ErrorListener { Log.d("t", "That didn't work!") })
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest)
+
 
     }
 

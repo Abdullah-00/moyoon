@@ -14,6 +14,7 @@ class Global{
         var question : String = ""
         var qAnswer : String = "" // Correct Answer
         var pAnswer : String = "" //Player Chosen Answer
+        var LeaveSession:Boolean= true
 
 // to commit
     }

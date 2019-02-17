@@ -12,6 +12,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.collections.ArrayList
 import android.widget.AdapterView
 import android.os.CountDownTimer
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -31,6 +34,10 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var timerTxtAns : TextView //PLayer Lie
     private lateinit var intentTypeLie : Intent
     private lateinit var intentEndOfGame : Intent
+    lateinit var Home : Intent
+    lateinit  var timer2: MyCounter
+
+
 
     //private var chooseAnswer: Boolean? = false
     //private lateinit var intentCorrect : Intent
@@ -59,7 +66,7 @@ class Display_Answers : AppCompatActivity() {
         questionDesplay.text = Global.question
         timerTxtAns =findViewById<TextView>(R.id.timerTxt)
 
-        val timer2 = MyCounter(10000, 1000)
+       timer2 = MyCounter(10000, 1000)
         timer2.start()
         //isDoneChooseAnswer()
 //        if (chooseAnswer == true)
@@ -113,11 +120,12 @@ class Display_Answers : AppCompatActivity() {
             SendtoServer()
 
             Log.d("T","C1"+Global.roundNum+"tttttttttt"+Global.questionNum)
-
-            if (Global.roundNum == 2 && Global.questionNum == 3)
-                startActivity(intentEndOfGame)
-            else
-                startActivity(intentTypeLie)
+            if(Global.LeaveSession) {
+                if (Global.roundNum == 2 && Global.questionNum == 3)
+                    startActivity(intentEndOfGame)
+                else
+                    startActivity(intentTypeLie)
+            }else timer2.cancel()
 
 //            if(Global.pAnswer == Global.qAnswer) {
 //                    startActivity(intentCorrect)
@@ -175,5 +183,49 @@ class Display_Answers : AppCompatActivity() {
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu1, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.leave -> {
+                Global.LeaveSession =false
+                SendtoServerLeave()
+                Home = Intent(this,MainActivity::class.java)
+                startActivity(Home)
+
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun SendtoServerLeave() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "http://127.0.0.1:8000/leaveSession/?session_id="+Global.sessionID+"&player_id="+Global.playerID
+        Log.d("eeeeee","ohuuygu")
+
+        // Request a string response from the provided URL.
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                // Display the first 500 characters of the response string.
+                //  Global.nickname = response.substringAfter(",",",").trim()
+                //   Global.playerID = response.substringBefore(",").trim()
+                Log.d("eeeeee",Global.nickname)
+            },
+            Response.ErrorListener { Log.d("t", "That didn't work!") })
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest)
+
+
     }
 }
