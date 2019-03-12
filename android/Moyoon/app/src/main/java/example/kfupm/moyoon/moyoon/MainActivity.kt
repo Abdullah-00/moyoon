@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         joinR.setOnClickListener {
             Global.nickname = nickname.text.toString().trim()  //Player Nickname
             SendtoServerR()
-            startActivity(intent)
+          //  startActivity(intent)
 
         }
 
@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
     private fun SendtoServerR() {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "http://127.0.0.1:8000/enterSession/?category=Algebra"+"&nick_name="+Global.nickname
+        val url = "http://68.183.67.247:8000/enterSession/?category=Algebra"+"&nick_name="+Global.nickname
         Log.d("eeeeee","ohuuygu")
 
         // Request a string response from the provided URL.
@@ -91,8 +91,10 @@ class MainActivity : AppCompatActivity() {
             Response.Listener<String> { response ->
                 // Display the first 500 characters of the response string.
                 Global.playerID = response.substringBefore(",").trim()
-                Global.nickname = response.substringAfter(",",",").trim()
-                Log.d("eeeeee",Global.nickname)
+                Global.sessionID = response.substringAfter(",",",").trim()
+                Log.d("eeeeee",Global.playerID )
+                Log.d("eeeeee",Global.sessionID )
+
             },
             Response.ErrorListener { Log.d("t", "That didn't work!") })
 

@@ -4,7 +4,7 @@ package example.kfupm.moyoon.moyoon
 class Global{
     companion object {
 
-        var sessionID: String = "652761"
+        var sessionID: String = ""
         var roundID: ArrayList<String> = ArrayList()
         var roundNum : Int = 0
         var questionID: ArrayList<String> = ArrayList()

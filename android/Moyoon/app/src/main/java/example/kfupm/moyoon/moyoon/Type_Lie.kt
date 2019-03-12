@@ -8,6 +8,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.*
 import com.android.volley.Request
 import com.android.volley.Response
@@ -16,7 +17,7 @@ import com.android.volley.toolbox.Volley
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
-
+import kotlinx.android.synthetic.main.activity_sign_in__facebook.*
 
 
 class Type_Lie : AppCompatActivity() {
@@ -32,6 +33,8 @@ class Type_Lie : AppCompatActivity() {
     private lateinit var intentDisplayAnswers : Intent
      lateinit var Home : Intent
     lateinit  var timer: MyCounter
+    private var suspended: Boolean? = true
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,7 +49,7 @@ class Type_Lie : AppCompatActivity() {
         intentDisplayAnswers = Intent(this,Display_Answers::class.java)
          timer = MyCounter(10000, 1000)
 
-
+        SusbendFlag()
 
         Global.questionNum +=1
 
@@ -172,7 +175,7 @@ class Type_Lie : AppCompatActivity() {
     private fun SendtoServerLeave() {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "http://127.0.0.1:8000/leaveSession/?session_id="+Global.sessionID+"&player_id="+Global.playerID
+        val url = "http://68.183.67.247:8000/leaveSession/?session_id="+Global.sessionID+"&player_id="+Global.playerID
         Log.d("eeeeee","ohuuygu")
 
         // Request a string response from the provided URL.
@@ -189,6 +192,26 @@ class Type_Lie : AppCompatActivity() {
         queue.add(stringRequest)
 
 
+    }
+
+    private fun SusbendFlag() {
+
+        db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID)
+            .addSnapshotListener(EventListener<DocumentSnapshot> { document , e ->
+                if (e != null) {
+                    Log.w("33333", "listen:error", e)
+                    return@EventListener
+                }
+
+                suspended =  document!!.getBoolean("isSuspended")
+                if (suspended == true) {
+                    lie.visibility = View.INVISIBLE
+                    Toast.makeText(baseContext, "You Are Suspended", Toast.LENGTH_SHORT).show()
+                }
+                Log.w("33333", suspended.toString(), e)
+
+            }
+            )
     }
 
 
