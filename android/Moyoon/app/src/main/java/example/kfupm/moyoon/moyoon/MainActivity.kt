@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -104,6 +105,23 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
+
+        when(item?.itemId){
+            R.id.menuProfile ->{
+                var profileIntent = Intent(this, Profile::class.java)
+                startActivity(profileIntent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
+    }
 
 
 }

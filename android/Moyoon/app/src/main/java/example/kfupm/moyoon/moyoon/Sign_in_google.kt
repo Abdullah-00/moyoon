@@ -123,8 +123,12 @@ class Sign_in_google : AppCompatActivity() {
     }
 
     private fun updateUI(user: FirebaseUser?) {
- texv= findViewById<TextView>(R.id.UserName)
+        texv= findViewById<TextView>(R.id.UserName)
         texv.text = "Welcom " + user?.displayName
+
+        Global.username = user?.displayName.toString()
+        Global.emailAddress = user?.email.toString()
+        Global.phone = user?.phoneNumber.toString()
 
         sign_in_button.visibility - View.INVISIBLE
         Sign_out.visibility = View.VISIBLE

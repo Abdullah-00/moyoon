@@ -16,6 +16,11 @@ class Global{
         var pAnswer : String = "" //Player Chosen Answer
         var LeaveSession:Boolean= true
 
+        // Profile info
+        var username :String = ""
+        var emailAddress : String = ""
+        var phone : String = ""
+
 // to commit
     }
 }
