@@ -117,6 +117,10 @@ class Sign_in_Facebook : AppCompatActivity() {
         texvF= findViewById<TextView>(R.id.UserName)
         texvF.text = "Welcom " + user?.displayName
 
+        Global.username = user?.displayName.toString()
+        Global.emailAddress = user?.email.toString()
+        Global.phone = user?.phoneNumber.toString()
+
         Sign_out.visibility = View.VISIBLE
         goPlayF.visibility = View.VISIBLE
     }
