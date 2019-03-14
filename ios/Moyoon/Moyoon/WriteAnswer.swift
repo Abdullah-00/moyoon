@@ -115,6 +115,7 @@ class WriteAnswer: UIViewController {
         submitButton.isEnabled = false;
     }
     
+    
 
     
     override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
