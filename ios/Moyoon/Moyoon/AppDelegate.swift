@@ -16,16 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
 
 
     var window: UIWindow?
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-      //  print(GlobalVariables.userName)
 
-      //  GlobalVariables.userName = (user?.displayName)!;
+
+    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         
-      //  print(GlobalVariables.userName)
-       // Homepage().changeName(s: GlobalVariables.userName)
+        let username = user?.displayName;
+        GlobalVariables.userName = username!;
+        print(user)
         
     }
-
+    
     func application(_ app: UIApplication, open url: URL,
                      options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?

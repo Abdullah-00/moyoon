@@ -29,7 +29,7 @@ struct GlobalVariables{
     static var roundId = "1";
     static var questionId = "1";
     static var reply = "...";
-    public static var userName = "null";
+    public static var userName = "";
     public static var score = 0;
     
 }
