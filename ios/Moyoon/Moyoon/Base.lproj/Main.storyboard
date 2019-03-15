@@ -390,6 +390,13 @@
                                     <action selector="leaveSessionClicked:" destination="BaC-Va-Onf" eventType="touchUpInside" id="4Cv-ty-wtg"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6P-2M-uZz">
+                                <rect key="frame" x="41" y="69" width="95" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.90980392160000001" green="0.90196078430000004" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -412,6 +419,7 @@
                         <outlet property="AnswersBorder" destination="6oY-vD-yRQ" id="5ST-yz-hak"/>
                         <outlet property="QuestionBorder" destination="js7-9Y-FBJ" id="wy5-ka-CUR"/>
                         <outlet property="collectionView" destination="6oY-vD-yRQ" id="1sE-Cm-cuN"/>
+                        <outlet property="status" destination="n6P-2M-uZz" id="ijJ-Ti-cur"/>
                         <outlet property="submitButton" destination="v6E-Y4-z5d" id="UAf-2P-C1q"/>
                         <outlet property="timerLabel" destination="MJO-P2-95w" id="ZN9-Zt-yVQ"/>
                         <segue destination="ffQ-Su-BzR" kind="show" identifier="SelectToType" id="JCF-eo-a4G"/>
@@ -506,6 +514,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="vDi-ao-qAf"/>
         <segue reference="JCF-eo-a4G"/>
-        <segue reference="Jfi-GI-PCf"/>
+        <segue reference="vdq-jd-STn"/>
     </inferredMetricsTieBreakers>
 </document>

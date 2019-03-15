@@ -76,6 +76,7 @@ class WriteAnswer: UIViewController {
         QuestionBorder.layer.cornerRadius = 10
         QuestionBorder.layer.masksToBounds = true
         
+        
         let questionPath = "/Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)"
         Firestore.firestore().document(questionPath)
             .addSnapshotListener { documentSnapshot, error in

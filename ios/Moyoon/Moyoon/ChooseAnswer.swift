@@ -14,7 +14,11 @@ import Alamofire
 
 class ChooseAnswer: UIViewController {
     
-
+    
+    @IBOutlet var status: UILabel!
+    
+    
+    let db = Firestore.firestore()
     @IBOutlet weak var collectionView: UICollectionView!
     
     var dataArray : [String] = []
@@ -83,6 +87,36 @@ class ChooseAnswer: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var q = false;
+        let isSuspended = db.collection("Session").document(GlobalVariables.sessionId).collection("Players").document(GlobalVariables.playerId)
+        
+        isSuspended.getDocument { (document, error) in
+            if let document = document, document.exists {
+                
+                if document.data()!["isSuspended"] != nil {
+                    q = document.data()!["isSuspended"] as! Bool
+                }
+                //self.question.text = q
+                
+                print("Suspended: \(q)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        q = true
+        if (q == true)
+        {
+            collectionView.allowsSelection = false
+            status.text = "Status: Suspended"
+            status.textColor = UIColor.red
+        }
+        else
+        {
+            collectionView.allowsSelection = true
+            status.text = "Status: Active"
+            status.textColor = UIColor.black
+        }
+        
         // Answeres border enhancements
         AnswersBorder.layer.cornerRadius = 10
         AnswersBorder.layer.masksToBounds = true
@@ -92,7 +126,7 @@ class ChooseAnswer: UIViewController {
         QuestionBorder.layer.masksToBounds = true
         
         let questionPath = "/Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)"
-        Firestore.firestore().document(questionPath)
+        db.document(questionPath)
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")
@@ -136,7 +170,7 @@ class ChooseAnswer: UIViewController {
     func getAnswers(){
 
         // false answers
-        let db = Firestore.firestore()
+        
         let path = "Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)/Answer"
         print (path)
         db.collection(path).addSnapshotListener() { (querySnapshot, err) in
@@ -189,6 +223,7 @@ class ChooseAnswer: UIViewController {
     
     // MARK: UITableViewDataSource
     @IBOutlet weak var submitButton: UIButton!
+    
     
     @IBAction func selectAnswer(_ sender: Any) {
         submitButton.isEnabled = false;
