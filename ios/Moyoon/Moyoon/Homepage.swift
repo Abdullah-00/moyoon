@@ -22,11 +22,24 @@ class Homepage: UIViewController {
     
     @IBOutlet weak public var userName: UILabel!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        do{
+            let user = Auth.auth().currentUser;
+            if(user?.displayName != nil)
+            {
+                nicknameField.text = user!.displayName!;
+            }
+        }
+       
        // changeName(s: "Hello")
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    func changeNickname()
+    {
+        nicknameField.text = "TEST";
     }
     /*func changeName(s: String?){
         userName.text = s;

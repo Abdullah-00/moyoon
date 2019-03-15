@@ -66,6 +66,12 @@ class WriteAnswer: UIViewController {
             print("Error: \(String(describing: response.error))")
             print("Timeline: \(response.timeline)")
         }
+        // After leave and join another variables won't reset itself
+        GlobalVariables.roundId = "1";
+        GlobalVariables.questionId = "1";
+        GlobalVariables.submitCounter = 0;
+        // End reseting variables
+        
         self.performSegue(withIdentifier: "reset", sender: self)
     }
     
@@ -114,6 +120,7 @@ class WriteAnswer: UIViewController {
      //   var answer = answerField.text!
       //  sendAnswerToAPI(answer: answer)
         submitButton.isEnabled = false;
+        GlobalVariables.submitCounter += 1;
     }
     
     

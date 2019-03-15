@@ -56,6 +56,12 @@ class ChooseAnswer: UIViewController {
             print("Error: \(String(describing: response.error))")
             print("Timeline: \(response.timeline)")
         }
+        // After leave and join another variables won't reset itself
+        GlobalVariables.roundId = "1";
+        GlobalVariables.questionId = "1";
+        GlobalVariables.submitCounter = 0;
+        // End reseting variables
+        
         self.performSegue(withIdentifier: "reset", sender: self)
     }
     
@@ -103,7 +109,6 @@ class ChooseAnswer: UIViewController {
                 print("Document does not exist")
             }
         }
-        q = true
         if (q == true)
         {
             collectionView.allowsSelection = false
@@ -226,6 +231,7 @@ class ChooseAnswer: UIViewController {
     
     
     @IBAction func selectAnswer(_ sender: Any) {
+        GlobalVariables.submitCounter += 1;
         submitButton.isEnabled = false;
 }
 
@@ -234,11 +240,21 @@ class ChooseAnswer: UIViewController {
             performSegue(withIdentifier: "Finished", sender: self)
             return;
         }
+        if(GlobalVariables.submitCounter == 0 && Int(GlobalVariables.questionId) == 3)
+        {
+            if(isTimerRunning){
+                self.timer.invalidate();
+            }
+            leaveSession();
+            return;
+        }
         GlobalVariables.questionId = String(Int(GlobalVariables.questionId)!+1)
         if(Int(GlobalVariables.questionId)! == 4){
+            GlobalVariables.submitCounter = 0;
             GlobalVariables.questionId = String(1)
             GlobalVariables.roundId = String(Int(GlobalVariables.roundId)!+1)
         }
+        
         performSegue(withIdentifier: "SelectToType", sender: self)
     }
 }

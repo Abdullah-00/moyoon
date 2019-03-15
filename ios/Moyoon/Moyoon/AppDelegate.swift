@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
         
         let username = user?.displayName;
         GlobalVariables.userName = username!;
+        print("Test: ")
         print(user)
         
     }
