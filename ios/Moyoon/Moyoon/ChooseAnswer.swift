@@ -51,10 +51,7 @@ class ChooseAnswer: UIViewController {
         let urlString = urlRequest.url?.absoluteString
         
         Alamofire.request(urlString!, parameters: parameters).response { response in
-            print("Request: \(String(describing: response.request))")
-            print("Response: \(String(describing: response.response))")
-            print("Error: \(String(describing: response.error))")
-            print("Timeline: \(response.timeline)")
+
         }
         // After leave and join another variables won't reset itself
         GlobalVariables.roundId = "1";

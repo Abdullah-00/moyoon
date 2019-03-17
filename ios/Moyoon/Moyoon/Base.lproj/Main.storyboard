@@ -448,7 +448,7 @@
                         <outlet property="submitButton" destination="DMw-yD-ect" id="mVH-FP-wAI"/>
                         <outlet property="timerLabel" destination="Xy9-9y-GLa" id="FNu-h6-Hug"/>
                         <segue destination="BaC-Va-Onf" kind="show" identifier="TypeToSelect" id="WMT-HZ-ufL"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="reset" id="Jfi-GI-PCf"/>
+                        <segue destination="wB2-MX-LAF" kind="show" identifier="reset" id="Wmh-nm-MPN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bkC-Zv-eCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -674,6 +674,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="vDi-ao-qAf"/>
         <segue reference="JCF-eo-a4G"/>
-        <segue reference="lon-2g-0ha"/>
+        <segue reference="vdq-jd-STn"/>
     </inferredMetricsTieBreakers>
 </document>

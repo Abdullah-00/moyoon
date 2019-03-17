@@ -99,10 +99,7 @@ class Homepage: UIViewController {
         let urlString = urlRequest.url?.absoluteString
         
         Alamofire.request(urlString!, parameters: parameters).response { response in
-            print("Request: \(String(describing: response.request))")
-            print("Response: \(String(describing: response.response))")
-            print("Error: \(String(describing: response.error))")
-            print("Timeline: \(response.timeline)")
+
             if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
                 if(response.response?.statusCode != 200){
                     self.displayError(msg: "Cannot join a random session.")
@@ -131,10 +128,6 @@ class Homepage: UIViewController {
         let urlString = urlRequest.url?.absoluteString
     
         Alamofire.request(urlString!, parameters: parameters).response { response in
-            print("Request: \(String(describing: response.request))")
-            print("Response: \(String(describing: response.response))")
-            print("Error: \(String(describing: response.error))")
-            print("Timeline: \(response.timeline)")
             if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
                 if(response.response?.statusCode != 200){
                     self.displayError(msg: "Session ID is not valid.")

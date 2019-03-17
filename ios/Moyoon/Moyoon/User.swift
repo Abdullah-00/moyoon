@@ -11,47 +11,72 @@ import Firebase
 
 class User {
     
-    static let user = User()
+    private static var user : User!
+
+    var displayName : String!
+    var email : String!
+    var uid : String!
     
-    var displayName : String?
-    var email : String?
-    var uid : String?
+    var totalScore : Int!
+    var lastScore : Int!
+    var numberOfGamesPlayed : Int!
+    var numberOfWins : Int!
     
-    var totalScore : Int?
-    var lastScore : Int?
-    var numberOfGamesPlayed : Int?
-    var numberOfWins : Int?
+    let db = Firestore.firestore();
+    let firebaseUser = Auth.auth().currentUser;
+
      
     //Initializer access level change now
     private init(){
-        let firebaseUser = Auth.auth().currentUser;
-        displayName = firebaseUser?.displayName;
-        email = firebaseUser?.email;
-        uid = firebaseUser?.uid;
-        syncData();
-    }
-
-    
-    func syncData(){
-        let docPath = "/Players/\(uid)"
-        let docRef = Firestore.firestore().document(docPath)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                self.displayName = document.data()!["displayName"] as! String
-                self.email = document.data()!["email"] as! String
-                self.totalScore = document.data()!["totalScore"] as! Int
-                self.lastScore = document.data()!["lastScore"] as! Int
-                self.numberOfGamesPlayed = document.data()!["gamesPlayed"] as! Int
-                self.numberOfWins = document.data()!["wins"] as! Int
-            } else { // user document not found
-                self.createUser();
-            }
+        self.uid = firebaseUser?.uid;
+        syncData { (array) in
+            self.displayName = (array[0] as! String)
+            self.email = (array[1] as! String)
+            self.totalScore = (array[2] as! Int)
+            self.lastScore = (array[3] as! Int)
+            self.numberOfGamesPlayed = (array[4] as! Int)
+            self.numberOfWins = (array[5] as! Int)
+            print(array)
         }
     }
     
-    func createUser(){
-        let db = Firestore.firestore();
+    class func getUser() -> User { // change class to final to prevent override
+        guard let myUser = user else {
+            user = User()
+            return user!
+        }
+        return myUser
+    }
+    
+    
 
+    
+    func syncData(_ completion: @escaping (Array<Any>) -> ()) {
+        let docPath = "/Players/\(self.uid!)/"
+        let docRef = db.document(docPath)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                var array = Array<Any>();
+                array.append(document.data()!["displayName"] as! String)
+                array.append(document.data()!["email"] as! String)
+                array.append(document.data()!["totalScore"] as! Int)
+                array.append(document.data()!["lastScore"] as! Int)
+                array.append(document.data()!["gamesPlayed"] as! Int)
+                array.append(document.data()!["wins"] as! Int)
+                completion(array)
+            } else { // user document not found
+                print("User Not Found !!")
+                self.displayName = self.firebaseUser!.displayName;
+                self.email = self.firebaseUser!.email;
+                self.uid = self.firebaseUser!.uid;
+                self.createUser();
+            }
+            
+        }
+        
+    }
+    
+    func createUser(){
         let docData: [String: Any] = [
             "displayName": self.displayName!,
             "email": self.email!,
@@ -70,10 +95,12 @@ class User {
     }
     
     func updateUser(newScore : Int, isWin : Bool){
-        let docPath = "/Players/\(uid)"
-        let docRef = Firestore.firestore().document(docPath)
+        let docPath = "/Players/\(self.uid!)/"
+        let docRef = db.document(docPath)
+        print("Updating...")
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
+                print("Found Doc!!!!")
                 self.totalScore = document.data()!["totalScore"] as! Int + newScore;
                 self.numberOfGamesPlayed = self.numberOfGamesPlayed ?? 0+1;
                 if(isWin){
@@ -84,6 +111,7 @@ class User {
                 document.setValue(self.lastScore, forKey: "lastScore")
                 document.setValue(self.numberOfGamesPlayed, forKey: "gamesPlayed")
             } else { // user document not found
+                print(error)
             }
         }
 }

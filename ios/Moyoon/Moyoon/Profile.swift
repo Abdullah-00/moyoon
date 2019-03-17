@@ -12,14 +12,21 @@ import Firebase
 
 class Profile : UIViewController{
     
+    
     override func viewDidLoad() {
-        let user = User.user;
-        displayName.text = user.displayName;
-        displayEmail.text = user.email;
-        displayLastScore.text = "\(user.lastScore)" ;
-        displayTotalScore.text = "\(user.totalScore)" ;
-        displayGamesPlayed.text = "\(user.numberOfGamesPlayed)" ;
-        displayNumberOfWins.text = "\(user.numberOfWins)" ;
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        let user = User.getUser();
+        user.syncData { (array) in
+            self.displayName.text = user.displayName;
+            self.displayEmail.text = user.email;
+            self.displayLastScore.text = "\(user.lastScore!)" ;
+            self.displayTotalScore.text = "\(user.totalScore!)" ;
+            self.displayGamesPlayed.text = "\(user.numberOfGamesPlayed!)" ;
+            self.displayNumberOfWins.text = "\(user.numberOfWins!)" ;
+        }
     }
     
     @IBOutlet weak var displayName: UILabel!

@@ -19,10 +19,11 @@ class Score : UIViewController{
         let docRef = db.document(docPath)
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
+                let user = User.getUser();
                 let score = document.data()!["Score"] as! Int
                 GlobalVariables.currentScore = score;
                 self.scoreLabel.text = "\(GlobalVariables.currentScore)";
-                User.user.updateUser(newScore: score, isWin: true) // true always
+                user.updateUser(newScore: score, isWin: true) // true always
             } else {
                 print("Score not found")
             }

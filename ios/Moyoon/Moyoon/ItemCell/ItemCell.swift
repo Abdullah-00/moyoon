@@ -28,12 +28,9 @@ class ItemCell: UICollectionViewCell {
         let urlString = urlRequest.url?.absoluteString
         
         Alamofire.request(urlString!, parameters: parameters).response { response in
-            print("Request: \(response.request)")
-            print("Response: \(response.response)")
-            print("Error: \(response.error)")
-            print("Timeline: \(response.timeline)")
+
             if let data = response.data, let result = String(data: data, encoding: .utf8) {
-                print("result: \(result)")
+
             }
         }
     }
