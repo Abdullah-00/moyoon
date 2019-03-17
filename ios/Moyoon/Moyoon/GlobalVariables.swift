@@ -28,8 +28,7 @@ struct GlobalVariables{
     static var sessionId = "1";
     static var roundId = "1";
     static var questionId = "1";
-    static var reply = "...";
-    public static var userName = "";
+    static var currentScore = 0;
     public static var submitCounter = 0;
     
 }

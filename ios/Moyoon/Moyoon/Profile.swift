@@ -13,10 +13,19 @@ import Firebase
 class Profile : UIViewController{
     
     override func viewDidLoad() {
-        let user = Auth.auth().currentUser;
-        welcomeMsg.text = "Welcome "+user!.displayName!;
+        let user = User.user;
+        displayName.text = user.displayName;
+        displayEmail.text = user.email;
+        displayLastScore.text = "\(user.lastScore)" ;
+        displayTotalScore.text = "\(user.totalScore)" ;
+        displayGamesPlayed.text = "\(user.numberOfGamesPlayed)" ;
+        displayNumberOfWins.text = "\(user.numberOfWins)" ;
     }
     
-    @IBOutlet weak var welcomeMsg: UILabel!
-    
+    @IBOutlet weak var displayName: UILabel!
+    @IBOutlet weak var displayEmail: UILabel!
+    @IBOutlet weak var displayLastScore: UILabel!
+    @IBOutlet weak var displayTotalScore: UILabel!
+    @IBOutlet weak var displayGamesPlayed: UILabel!
+    @IBOutlet weak var displayNumberOfWins: UILabel!
 }

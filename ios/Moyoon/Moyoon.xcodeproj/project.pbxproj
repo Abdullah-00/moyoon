@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5695AB6A220467290029E86F /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5695AB69220467290029E86F /* Login.swift */; };
+		56D5A4EC223EACCF00AA085F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D5A4EB223EACCF00AA085F /* User.swift */; };
+		56D5A4EE223EBAE700AA085F /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D5A4ED223EBAE700AA085F /* Score.swift */; };
 		56D5AE69223BCA3F0072397C /* TabVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D5AE68223BCA3F0072397C /* TabVC.swift */; };
 		56D5AE6B223BD1160072397C /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56D5AE6A223BD1160072397C /* Profile.swift */; };
 		7477E4FDEF7C262F90BA03C0 /* Pods_Moyoon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EF0D320B3C4528422236BC9 /* Pods_Moyoon.framework */; };
@@ -60,6 +62,8 @@
 		56545E94220CFCD000F3A281 /* Moyoon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Moyoon.entitlements; sourceTree = "<group>"; };
 		5695AB69220467290029E86F /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		56B7E7B3D97CFEEBC1F0B578 /* Pods-MoyoonUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyoonUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		56D5A4EB223EACCF00AA085F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		56D5A4ED223EBAE700AA085F /* Score.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		56D5AE68223BCA3F0072397C /* TabVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabVC.swift; sourceTree = "<group>"; };
 		56D5AE6A223BD1160072397C /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		6EAC5B5F3FA7355A36D32F06 /* Pods-MoyoonUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyoonUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoyoonUITests/Pods-MoyoonUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 				5695AB69220467290029E86F /* Login.swift */,
 				56D5AE68223BCA3F0072397C /* TabVC.swift */,
 				56D5AE6A223BD1160072397C /* Profile.swift */,
+				56D5A4EB223EACCF00AA085F /* User.swift */,
+				56D5A4ED223EBAE700AA085F /* Score.swift */,
 			);
 			path = Moyoon;
 			sourceTree = "<group>";
@@ -534,6 +540,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56D5A4EE223EBAE700AA085F /* Score.swift in Sources */,
+				56D5A4EC223EACCF00AA085F /* User.swift in Sources */,
 				A16AFFD421B18D4000B5255A /* Homepage.swift in Sources */,
 				56D5AE6B223BD1160072397C /* Profile.swift in Sources */,
 				5695AB6A220467290029E86F /* Login.swift in Sources */,

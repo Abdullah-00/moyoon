@@ -75,8 +75,11 @@ class WriteAnswer: UIViewController {
         self.performSegue(withIdentifier: "reset", sender: self)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         // Question boreer enhancements
         QuestionBorder.layer.cornerRadius = 10

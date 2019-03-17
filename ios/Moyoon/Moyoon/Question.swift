@@ -16,10 +16,8 @@ class Question: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         getQuestion()
-        //print("Round: " + GlobalVariables.roundId)
-       
-       
-        // Do any additional setup after loading the view, typically from a nib.
+        updateScore();
+
     }
     @IBOutlet weak var question: UILabel!
     
@@ -51,6 +49,21 @@ class Question: UIViewController {
                 print("Document data: \(q)")
             } else {
                 print("Document does not exist")
+            }
+        }
+    }
+    
+    func updateScore(){
+        //
+        let docPath = "/Session/\(GlobalVariables.sessionId)/Players/\(GlobalVariables.playerId)/"
+        let docRef = db.document(docPath)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let score = document.data()!["Score"] as! Int
+                GlobalVariables.currentScore = score;
+                print("Current Score: \(score)")
+            } else {
+                print("Score not found")
             }
         }
     }

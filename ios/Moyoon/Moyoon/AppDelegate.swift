@@ -17,15 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
 
     var window: UIWindow?
 
-
-    func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
-        
-        let username = user?.displayName;
-        GlobalVariables.userName = username!;
-        print("Test: ")
-        print(user)
-        
-    }
     
     func application(_ app: UIApplication, open url: URL,
                      options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
