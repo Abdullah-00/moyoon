@@ -98,7 +98,7 @@ def pre_save_ques(sender, instance, *args, **kwargs):
         # Create new question in Question model
         new_question = Question.objects.create(creator_id=None, name=instance.name, name_ar=instance.name_ar,
                                                    Correct_answer=instance.Correct_answer, difficulty=instance.difficulty,
-                                                   age_rating=instance.age_rating)
+                                                   age_rating=instance.age_rating, Category_parent=instance.Category_parent)
         # Delete current
         instance.delete()
     elif(disapproved == True):
