@@ -84,6 +84,7 @@ class QuestionTmp(models.Model):
 
     Category_parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True, null=True)
     is_approved = models.BooleanField(default=False)
+    disapproved = models.BooleanField(default=False)
     def __str__(self):
             return self.name_ar
 
@@ -92,7 +93,7 @@ def pre_save_ques(sender, instance, *args, **kwargs):
     print('###########################')
     print(instance)
     is_approved = instance.is_approved
-
+    disapproved = instance.disapproved
     if(is_approved ==True):
         # Create new question in Question model
         new_question = Question.objects.create(creator_id=None, name=instance.name, name_ar=instance.name_ar,
@@ -100,8 +101,9 @@ def pre_save_ques(sender, instance, *args, **kwargs):
                                                    age_rating=instance.age_rating)
         # Delete current
         instance.delete()
-    else:
-        pass
+    elif(disapproved == True):
+        instance.delete()
+
 
 
 # class QuestionImage(models.Model):

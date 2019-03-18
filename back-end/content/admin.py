@@ -21,8 +21,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(QuestionTmp)
 class QuestionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'name', 'name_ar', 'creator_id','Category_parent','is_approved')
-    list_editable = ('is_approved',)
+    list_display = ('id', 'name', 'name_ar', 'creator_id','Category_parent','is_approved','disapproved')
+    list_editable = ('is_approved','disapproved','Category_parent')
     list_filter = ('is_approved',)
     list_max_show_all = 25
 
