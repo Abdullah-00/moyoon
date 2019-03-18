@@ -3,8 +3,11 @@ from datetime import datetime
 from django.db import models
 from django.core.validators import MaxValueValidator
 import os
-from PIL import Image
+from django.dispatch import receiver
 
+
+from PIL import Image
+from django.db.models.signals import pre_save
 
 
 class Category(models.Model):
@@ -79,9 +82,27 @@ class QuestionTmp(models.Model):
     question_image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
     # To Belong to a Category
 
-    Category_parent = models.ForeignKey('content.CategoryTmp', on_delete=models.CASCADE, blank=True, null=True)
+    Category_parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True, null=True)
+    is_approved = models.BooleanField(default=False)
     def __str__(self):
-            return self.name
+            return self.name_ar
+
+@receiver(pre_save, sender = QuestionTmp )
+def pre_save_ques(sender, instance, *args, **kwargs):
+    print('###########################')
+    print(instance)
+    is_approved = instance.is_approved
+
+    if(is_approved ==True):
+        # Create new question in Question model
+        new_question = Question.objects.create(creator_id=None, name=instance.name, name_ar=instance.name_ar,
+                                                   Correct_answer=instance.Correct_answer, difficulty=instance.difficulty,
+                                                   age_rating=instance.age_rating)
+        # Delete current
+        instance.delete()
+    else:
+        pass
+
 
 # class QuestionImage(models.Model):
 #     question_image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
