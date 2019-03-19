@@ -1,12 +1,13 @@
 package example.kfupm.moyoon.moyoon
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 
-class Profile : AppCompatActivity() {
+
+class Profile1 : AppCompatActivity() {
 
     lateinit var username : TextView
     lateinit var phoneNum : TextView
