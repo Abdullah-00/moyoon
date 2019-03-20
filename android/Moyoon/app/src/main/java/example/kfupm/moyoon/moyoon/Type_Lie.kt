@@ -27,7 +27,6 @@ class Type_Lie : AppCompatActivity() {
     private lateinit var submit_lie : ImageButton
     private lateinit var roundText : TextView //Round Number
     private lateinit var db : FirebaseFirestore
-    private lateinit var playerLie : String //PLayer Lie
     private lateinit var timerTxt : TextView //PLayer Lie
     private var submitAnswer: Boolean? = false
     private lateinit var intentDisplayAnswers : Intent
@@ -57,6 +56,7 @@ class Type_Lie : AppCompatActivity() {
         if (Global.questionNum == 4 ){
             Global.questionNum = 1
             Global.roundNum +=1
+            Global.KickCounter = 0
         }
 
         Log.d("T","C2"+Global.roundNum+"tttttttttt"+Global.questionNum)
@@ -82,11 +82,6 @@ class Type_Lie : AppCompatActivity() {
         if (submitAnswer == true)
             timer.cancel()
 
-//        submit_lie.setOnClickListener{
-//
-//            //startActivity(intent)
-//
-//        }
 }
 
 //    private fun isDoneSubmitAnswer() {
@@ -122,8 +117,9 @@ class Type_Lie : AppCompatActivity() {
         override fun onFinish() {
             println("Timer Completed.")
             timerTxt.text = "Timer Completed."
-            playerLie = lie.text.toString()
+            Global.playerLie = lie.text.toString()
             if (Global.LeaveSession) {
+                if(Global.playerLie.isNotEmpty())
                 SendtoServer()
                 startActivity(intentDisplayAnswers)
             }else timer.cancel()
@@ -133,7 +129,7 @@ class Type_Lie : AppCompatActivity() {
     }
     private fun SendtoServer() {
         val queue = Volley.newRequestQueue(this)
-        val url = "http://68.183.67.247:8000/SubmitAnswer/?session_id=${Global.sessionID.trim()}&round_id=${Global.roundID[Global.roundNum].trim()}&question_id=${Global.questionNum.toString().trim()}&player_id=${Global.playerID.trim()}&answer=${playerLie.trim()}"
+        val url = "http://68.183.67.247:8000/SubmitAnswer/?session_id=${Global.sessionID.trim()}&round_id=${Global.roundID[Global.roundNum].trim()}&question_id=${Global.questionNum.toString().trim()}&player_id=${Global.playerID.trim()}&answer=${Global.playerLie.trim()}"
 
         Log.d("ttttttt", "not in >>>>>" + Global.questionNum.toString())
 
@@ -181,9 +177,7 @@ class Type_Lie : AppCompatActivity() {
         // Request a string response from the provided URL.
         val stringRequest = StringRequest(Request.Method.GET, url,
             Response.Listener<String> { response ->
-                // Display the first 500 characters of the response string.
-              //  Global.nickname = response.substringAfter(",",",").trim()
-             //   Global.playerID = response.substringBefore(",").trim()
+
                 Log.d("eeeeee",Global.nickname)
             },
             Response.ErrorListener { Log.d("t", "That didn't work!") })
@@ -216,21 +210,3 @@ class Type_Lie : AppCompatActivity() {
 
 
 }
-
-
-////////////////////////////DO NOT TOUCH THIS
-/*  private fun getNumOfQuestions() {
-      var i =0 // for test
-      db.collection("Session").document(Global.sessionID)
-          .collection("Rounds").document("1").collection("Questions").get()
-          .addOnSuccessListener { k ->
-              for (document in k) {
-                  Global.questionID.add(document.id)
-                  Log.d("Question>>>>",Global.questionID[i])
-                  i++
-
-              }
-          }.addOnFailureListener { exception ->
-              Log.w("PlayerlistActivity", "Error getting documents.", exception)
-          }
-  }*/

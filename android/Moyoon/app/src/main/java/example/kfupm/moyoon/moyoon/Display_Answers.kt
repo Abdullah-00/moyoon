@@ -22,6 +22,7 @@ import com.android.volley.toolbox.Volley
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.protobuf.Empty
 
 class Display_Answers : AppCompatActivity() {
     private lateinit var questionDesplay : TextView
@@ -36,6 +37,9 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var intentEndOfGame : Intent
     lateinit var Home : Intent
     lateinit  var timer2: MyCounter
+
+
+
 
 
 
@@ -57,8 +61,7 @@ class Display_Answers : AppCompatActivity() {
         playersAnswer = ArrayList()
         intentTypeLie = Intent(this,Type_Lie::class.java)
         intentEndOfGame = Intent(this,EndOfGame::class.java)
-        //intentCorrect = Intent(this,Correct::class.java)
-        //intentWrong = Intent(this,Wrong::class.java)
+        Home = Intent(this,MainActivity::class.java)
 
 
 
@@ -115,25 +118,30 @@ class Display_Answers : AppCompatActivity() {
         }
 
         override fun onFinish() {
-            println("Timer Completed.")
+            if(Global.pAnswer.isEmpty() && Global.playerLie.isEmpty()){
+                Global.KickCounter++
+            }
             timerTxtAns.text = "Timer Completed."
-            SendtoServer()
+     SendtoServer()
 
-            Log.d("T","C1"+Global.roundNum+"tttttttttt"+Global.questionNum)
             if(Global.LeaveSession) {
-                if (Global.roundNum == 2 && Global.questionNum == 3)
+
+                if(Global.KickCounter == 3){
+                    Global.LeaveSession = false
+                    SendtoServerLeave()
+                    Toast.makeText(baseContext, "You are Kicked out", Toast.LENGTH_SHORT).show()
+                    startActivity(Home)
+
+                }
+
+                else if (Global.roundNum == 2 && Global.questionNum == 3)
                     startActivity(intentEndOfGame)
                 else
                     startActivity(intentTypeLie)
             }else timer2.cancel()
 
-//            if(Global.pAnswer == Global.qAnswer) {
-//                    startActivity(intentCorrect)
-//            }
-//            else {
-//                    startActivity(intentWrong)
-//            }
-
+            Global.pAnswer= ""
+            Global.playerLie = ""
         }
     }
 
@@ -197,7 +205,6 @@ class Display_Answers : AppCompatActivity() {
             R.id.leave -> {
                 Global.LeaveSession =false
                 SendtoServerLeave()
-                Home = Intent(this,MainActivity::class.java)
                 startActivity(Home)
 
                 true
