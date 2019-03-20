@@ -30,5 +30,5 @@ struct GlobalVariables{
     static var questionId = "1";
     static var currentScore = 0;
     public static var submitCounter = 0;
-    
+    public static var isSunspended = false;
 }
