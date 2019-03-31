@@ -252,8 +252,29 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
             collectionView.allowsSelection = false;
             if let cell = collectionView.cellForItem(at: indexPath) as? ItemCell {
                 cell.backgroundColor = UIColor.orange
-                cell.sendAnswerToAPI(answer: cell.textLabel.text!)
-                print("Selected Cell "+cell.textLabel.text!)
+                sendAnswerToAPI(answer: cell.textLabel.text!)
+            }
+        }
+    }
+    
+    
+    func sendAnswerToAPI(answer: String)
+    {
+        print("Answer Selection Sent : \(answer)")
+        let urlExtension = "/SubmitAnswerChoice/"
+        let parameters: Parameters = [
+            "player_id": GlobalVariables.playerId,
+            "session_id": GlobalVariables.sessionId,
+            "question_id": GlobalVariables.questionId,
+            "round_id": GlobalVariables.roundId,
+            "answer": answer
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
+        
+        Alamofire.request(urlString!, parameters: parameters).response { response in
+            
+            if let data = response.data, let result = String(data: data, encoding: .utf8) {
             }
         }
     }

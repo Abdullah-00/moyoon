@@ -93,19 +93,19 @@ class Homepage: UIViewController {
         let urlExtension = "/enterSession/"
         let parameters: Parameters = [
             "nick_name": nickname,
-            "category" : "algebra"
+            "category" : "Algebra"
         ]
         let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
         let urlString = urlRequest.url?.absoluteString
         
         Alamofire.request(urlString!, parameters: parameters).response { response in
 
-            if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
+            if let data = response.data, let serverResponse = String(data: data, encoding: .utf8)?.components(separatedBy: ",") {
                 if(response.response?.statusCode != 200){
                     self.displayError(msg: "Cannot join a random session.")
                 }else{
-                    GlobalVariables.playerId = playerId
-                    GlobalVariables.sessionId = ""
+                    GlobalVariables.playerId = serverResponse[0]
+                    GlobalVariables.sessionId = serverResponse[1]
                     self.performSegue(withIdentifier: "JoinSession", sender: self)
                 }
             }
