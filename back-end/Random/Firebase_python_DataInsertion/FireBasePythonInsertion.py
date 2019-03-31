@@ -342,7 +342,7 @@ def questionController(session_id, round_id):
         flagChanger(session_id, round_id, i, False, False)
         time.sleep(10)
         flagChanger(session_id, round_id, i, False, True)
-        counter += 1
+        counter += 1 
     
     return counter
 
