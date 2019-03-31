@@ -63,6 +63,7 @@ class Sign_in_google : AppCompatActivity() {
 
         Sign_out.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
+            Global.LoginUiFlag = false
             startActivity(out)
         }
 
@@ -93,6 +94,7 @@ class Sign_in_google : AppCompatActivity() {
 
                 firebaseAuthWithGoogle(account!!)
                 Log.w("TAG", "Try2")
+                Global.LoginUiFlag = true
 
             } catch (e: ApiException) {
                 // Google Sign In failed, update UI appropriately
@@ -127,7 +129,7 @@ class Sign_in_google : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         texv= findViewById<TextView>(R.id.UserName)
-        texv.text = "Welcome " + user?.displayName
+        texv.text = "Welcom \n " + user?.displayName
 
         Global.name = user?.displayName.toString()
         Global.emailAddress = user?.email.toString()

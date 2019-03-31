@@ -4,6 +4,8 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
+import android.os.Parcel
+import android.os.Parcelable
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
@@ -20,19 +22,21 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_sign_in__facebook.*
 
 
-class Type_Lie : AppCompatActivity() {
+class Type_Lie() : AppCompatActivity() {
 
     private lateinit var questionDesplay : TextView
     private lateinit var lie : EditText
     private lateinit var submit_lie : ImageButton
     private lateinit var roundText : TextView //Round Number
+    private lateinit var queistionText : TextView //Round Number
     private lateinit var db : FirebaseFirestore
     private lateinit var timerTxt : TextView //PLayer Lie
     private var submitAnswer: Boolean? = false
     private lateinit var intentDisplayAnswers : Intent
      lateinit var Home : Intent
     lateinit  var timer: MyCounter
-    private var suspended: Boolean? = true
+    private var suspended: Double = 0.0
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +46,8 @@ class Type_Lie : AppCompatActivity() {
         db = FirebaseFirestore.getInstance()
 
         roundText = findViewById(R.id.roundText)
+        queistionText = findViewById(R.id.questionRoundText7)
+
         questionDesplay = findViewById(R.id.question_desplay)
         lie = findViewById(R.id.Lie)
         timerTxt = findViewById(R.id.timerTxt)
@@ -62,6 +68,8 @@ class Type_Lie : AppCompatActivity() {
         Log.d("T","C2"+Global.roundNum+"tttttttttt"+Global.questionNum)
 
         roundText.text = "Round: " + Global.roundID[Global.roundNum]
+        queistionText.text = "Question: " + Global.questionNum
+
         //// Display Question
         db.collection("Session").document(Global.sessionID)
             .collection("Rounds").document(Global.roundID[Global.roundNum])
@@ -84,27 +92,6 @@ class Type_Lie : AppCompatActivity() {
 
 }
 
-//    private fun isDoneSubmitAnswer() {
-//        db.collection("Session").document(Global.sessionID)
-//            .collection("Rounds").document(Global.roundID[Global.roundNum])
-//            .collection("Questions").document(Global.questionNum.toString())
-//            .addSnapshotListener(EventListener<DocumentSnapshot> { document, e ->
-//                if (e != null) {
-//                    Log.w("33333", "listen:error", e)
-//                    return@EventListener
-//                }
-//                submitAnswer = document!!.getBoolean("isDoneSubmitAnswer")
-//                if (submitAnswer == true){
-//                    playerLie = lie.text.toString()
-//                    if (Global.LeaveSession) {
-//                        SendtoServer()
-//                        startActivity(intentDisplayAnswers)
-//
-//                    }
-//                }
-//
-//            }
-//            )
 //    }
 
     inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
@@ -196,17 +183,26 @@ class Type_Lie : AppCompatActivity() {
                     Log.w("33333", "listen:error", e)
                     return@EventListener
                 }
+                suspended = document!!.getDouble("Score")!!
+                suspended.toInt()
+                if (suspended > -50 ) {
+                    lie.visibility = View.VISIBLE
 
-                suspended =  document!!.getBoolean("isSuspended")
-                if (suspended == true) {
+                }else{
                     lie.visibility = View.INVISIBLE
                     Toast.makeText(baseContext, "You Are Suspended", Toast.LENGTH_SHORT).show()
                 }
-                Log.w("33333", suspended.toString(), e)
+
+
+                Log.w("33333aa", suspended.toString(), e)
 
             }
             )
     }
+
+
+
+
 
 
 }

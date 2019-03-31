@@ -31,6 +31,7 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var submit : ImageButton
     private lateinit var playersAnswer : ArrayList<String>
     private lateinit var roundText : TextView //Round Number
+    private lateinit var queistionText : TextView //Round Number
     private lateinit var arrayAdapter:ArrayAdapter<String>
     private lateinit var timerTxtAns : TextView //PLayer Lie
     private lateinit var intentTypeLie : Intent
@@ -55,9 +56,10 @@ class Display_Answers : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
         roundText = findViewById(R.id.roundText)
+        queistionText = findViewById(R.id.questionRoundText2)
         questionDesplay = findViewById(R.id.quiston_at_selecton)
         answerslist = findViewById(R.id.answers_list)
-        submit = findViewById(R.id.submit_ans)
+     //   submit = findViewById(R.id.submit_ans)
         playersAnswer = ArrayList()
         intentTypeLie = Intent(this,Type_Lie::class.java)
         intentEndOfGame = Intent(this,EndOfGame::class.java)
@@ -65,7 +67,9 @@ class Display_Answers : AppCompatActivity() {
 
 
 
-        roundText.text = "Round " + Global.roundID[Global.roundNum] +"\n Question " +Global.questionNum
+        roundText.text = "Round " + Global.roundID[Global.roundNum]
+        queistionText.text = "Question: " + Global.questionNum
+
         questionDesplay.text = Global.question
         timerTxtAns =findViewById<TextView>(R.id.timerTxt)
 
@@ -83,6 +87,8 @@ class Display_Answers : AppCompatActivity() {
             //   submit.text= "You choose: "+playersAnswer[position]
             Global.pAnswer = playersAnswer[position]
             Log.d("nnnnnnnn", playersAnswer[position])
+            Toast.makeText(baseContext, "You Select: "+ Global.pAnswer, Toast.LENGTH_SHORT).show()
+
             Log.d("nnnnnnnn", position.toString())
         }
 
@@ -132,9 +138,7 @@ class Display_Answers : AppCompatActivity() {
                     Toast.makeText(baseContext, "You are Kicked out", Toast.LENGTH_SHORT).show()
                     startActivity(Home)
 
-                }
-
-                else if (Global.roundNum == 2 && Global.questionNum == 3)
+                }else if (Global.roundNum == 2 && Global.questionNum == 3)
                     startActivity(intentEndOfGame)
                 else
                     startActivity(intentTypeLie)

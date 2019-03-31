@@ -15,6 +15,8 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.firebase.firestore.*
+import com.google.firebase.firestore.EventListener
+import java.util.*
 
 class PlayerlistActivity : AppCompatActivity() {
 
@@ -33,9 +35,17 @@ class PlayerlistActivity : AppCompatActivity() {
         players = findViewById<ListView>(R.id.players)
          intetToTypeLie = Intent(this, Type_Lie::class.java)
 
+        val timer = Timer()
 
+        timer.scheduleAtFixedRate(
+            object : TimerTask() {
 
-        getPlayers()
+                override fun  run() {
+                    getPlayers()
+                }
+            },
+            0, 2000
+        )   // 1000 Millisecond  = 1 second
 
         getNumOfRounds()
 

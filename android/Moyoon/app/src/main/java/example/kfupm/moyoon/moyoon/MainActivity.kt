@@ -8,22 +8,23 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_sign_in__facebook.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var nickname: EditText //Nickname Input
     private lateinit var sessionCode: EditText
-    private lateinit var join: ImageButton
-    private lateinit var login: ImageButton
+    private lateinit var join: Button
+    private lateinit var login: Button
     private lateinit var joinRandom: Button
     var CorrectSessionID:Boolean= false
 
@@ -42,6 +43,13 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, PlayerlistActivity::class.java)
         val intent2 = Intent(this, Sign_up::class.java)
 
+       if(Global.LoginUiFlag)
+           login.visibility = View.INVISIBLE
+        else
+           login.visibility = View.VISIBLE
+
+
+
 
         join.setOnClickListener {
             Global.sessionID = sessionCode.text.toString() //Session ID
@@ -57,14 +65,13 @@ class MainActivity : AppCompatActivity() {
                     Log.d("dddddddd",Global.playerID)
                     startActivity(intent)
                 }
-            }, 1000)
-
-
+            }, 2000)
         }
+
+
         login.setOnClickListener {
 
             startActivity(intent2)
-
         }
 
         joinR.setOnClickListener {
