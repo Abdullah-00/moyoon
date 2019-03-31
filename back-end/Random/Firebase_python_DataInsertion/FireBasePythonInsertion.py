@@ -66,7 +66,8 @@ def createSessionByCategory(questions, isPrivate):
                 u'Photo' : "URL",
                 u'Correct_Answer' : questions[j].Correct_answer,
                 u'isDoneSubmitAnswer' : False,
-                u'isDoneChooseAnswer' : False
+                u'isDoneChooseAnswer' : False,
+                u'isDoneShowingTheResult' : False
             }
             question_id.set(data2)
     return session_id
@@ -106,7 +107,8 @@ def createSessionWithUserInput(questions, round_limit):
             u'Photo': "URL",
             u'Correct_Answer': questions[j].Correct_answer,
             u'isDoneSubmitAnswer': False,
-            u'isDoneChooseAnswer': False
+            u'isDoneChooseAnswer': False,
+            u'isDoneShowingTheResult' : False
         }
         question_id.set(data2)
         j +=1
@@ -335,9 +337,11 @@ def questionController(session_id, round_id):
     counter = 0
     for i in question_id:
         time.sleep(10)
-        flagChanger(session_id, round_id, i, True)
+        flagChanger(session_id, round_id, i, True, False)
         time.sleep(10)
-        flagChanger(session_id, round_id, i, False)
+        flagChanger(session_id, round_id, i, False, False)
+        time.sleep(10)
+        flagChanger(session_id, round_id, i, False, True)
         counter += 1
     
     return counter
@@ -346,11 +350,13 @@ def questionController(session_id, round_id):
 # If flag == True then change isDoneSubmitAnswer
 # If flag == False then change isDoneChooseAnswer
 #
-def flagChanger(session_id, round_id, question_id, flag):
+def flagChanger(session_id, round_id, question_id, flag, flag2):
     db = firestore.client()
     question_doc = db.collection(u'Session').document(session_id).collection(u'Rounds').document(round_id).collection(u'Questions').document(question_id)
     question_info = question_doc.get().to_dict()
-    if(flag):
+    if(flag2):
+        question_info['isDoneShowingTheResult'] = True
+    elif(flag):
         question_info['isDoneSubmitAnswer'] = True
     else:
         question_info['isDoneChooseAnswer'] = True
