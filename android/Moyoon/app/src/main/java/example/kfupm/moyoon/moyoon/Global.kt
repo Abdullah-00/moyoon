@@ -19,9 +19,14 @@ class Global{
         var KickCounter: Int = 0
 
         // Profile info
-        var username :String = ""
+        var userid : String = ""
+        var name :String = ""
         var emailAddress : String = ""
-        var phone : String = ""
+        var gamesPlayed : Long = 0
+        var lastScore : Long = 0
+        var totalScore : Long = 0
+        var wins : Long = 0
+
 
 // to commit
     }

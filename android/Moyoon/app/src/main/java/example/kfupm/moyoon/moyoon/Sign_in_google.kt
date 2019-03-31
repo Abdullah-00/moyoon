@@ -17,7 +17,9 @@ import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_sign_in_google.*
+import java.util.*
 
 class Sign_in_google : AppCompatActivity() {
 
@@ -29,6 +31,7 @@ class Sign_in_google : AppCompatActivity() {
     lateinit var goPlay: Button
     lateinit var texv: TextView
     lateinit var gso: GoogleSignInOptions
+    private var db : FirebaseFirestore = FirebaseFirestore.getInstance()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -124,14 +127,53 @@ class Sign_in_google : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         texv= findViewById<TextView>(R.id.UserName)
-        texv.text = "Welcom " + user?.displayName
+        texv.text = "Welcome " + user?.displayName
 
-        Global.username = user?.displayName.toString()
+        Global.name = user?.displayName.toString()
         Global.emailAddress = user?.email.toString()
-        Global.phone = user?.phoneNumber.toString()
+        Global.userid = user?.uid.toString()
+
+        getInformation(Global.userid)
+
+
+        Log.w("TAG001", "THE user id is >> " + Global.userid)
 
         sign_in_button.visibility - View.INVISIBLE
         Sign_out.visibility = View.VISIBLE
         goPlay.visibility = View.VISIBLE
+    }
+
+    private fun getInformation(userid : String){
+        db.collection("Players").document(Global.userid).get()
+            .addOnSuccessListener { documentReference ->
+                Log.w("TAG001", "documentReference:  " + documentReference)
+                if(documentReference.exists()) {
+                    Log.w("TAG001", "Successssss")
+                    Global.name = documentReference.data!!["displayName"].toString()
+                    Global.emailAddress = documentReference.data!!["email"].toString()
+                    Global.gamesPlayed = documentReference.data!!["gamesPlayed"] as Long
+                    Global.lastScore = documentReference.data!!["lastScore"] as Long
+                    Global.totalScore = documentReference.data!!["totalScore"] as Long
+                    Global.wins = documentReference.data!!["wins"] as Long
+                }else {
+                    Log.w("TAG001", "Fialure")
+                    val note = HashMap<String, Any>()
+                    note.put("displayName", Global.name)
+                    note.put("email", Global.emailAddress)
+                    note.put("gamesPlayed", Global.gamesPlayed)
+                    note.put("lastScore", Global.lastScore)
+                    note.put("totalScore", Global.totalScore)
+                    note.put("wins", Global.wins)
+                    db.collection("Players").document(Global.userid).set(note)
+                        .addOnSuccessListener {
+                            Log.w("TAG001", "Document Created.")
+                        }.addOnFailureListener {
+                            Log.w("TAG001", "Document Is not Created.")
+                        }
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w("TAG001", "Document Is not Created.111", exception)
+            }
     }
 }
