@@ -27,16 +27,10 @@ class ChooseAnswer: UIViewController {
     var cellMarginSize = 10.0
     
 
-    var seconds = 11 //This variable will hold a starting value of seconds. It could be any amount above 0.
-    var timer =  Timer()
-    var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
     
     var sent = false;
     
     @IBAction func leaveSessionClicked(_ sender: Any) {
-        if(isTimerRunning){
-            self.timer.invalidate();
-        }
         leaveSession();
     }
     
@@ -62,31 +56,17 @@ class ChooseAnswer: UIViewController {
         self.performSegue(withIdentifier: "reset", sender: self)
     }
     
-    func runTimer() {
-        if(!isTimerRunning){
-            DispatchQueue.main.async {
-                self.timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(WriteAnswer.updateTimer)), userInfo: nil, repeats: true)
-            }
-            isTimerRunning = true;
-        }
-        
-    }
+
     
     @IBOutlet weak var timerLabel: UILabel!
     
-    @objc func updateTimer() {
-        seconds -= 1     //This will decrement(count down)the seconds.
-        timerLabel.text = "\(seconds)" //This will update the label.
-        if(seconds < 1){
-            timer.invalidate()
-            incrementQuestionsAndRounds()
-        }
-    }
+
     
     @IBOutlet var AnswersBorder: UICollectionView!
     
     @IBOutlet var QuestionBorder: UIView!
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,7 +101,6 @@ class ChooseAnswer: UIViewController {
                 }
                 print("Current data: \(data)")
                 if(data["isDoneChooseAnswer"] as! Bool == true){
-                    self.timer.invalidate()
                     self.incrementQuestionsAndRounds()
                 }
         }
@@ -220,9 +199,6 @@ class ChooseAnswer: UIViewController {
         }
         if(GlobalVariables.submitCounter == 0 && Int(GlobalVariables.questionId) == 3)
         {
-            if(isTimerRunning){
-                self.timer.invalidate();
-            }
             leaveSession();
             return;
         }
@@ -252,8 +228,29 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
             collectionView.allowsSelection = false;
             if let cell = collectionView.cellForItem(at: indexPath) as? ItemCell {
                 cell.backgroundColor = UIColor.orange
-                cell.sendAnswerToAPI(answer: cell.textLabel.text!)
-                print("Selected Cell "+cell.textLabel.text!)
+                sendAnswerToAPI(answer: cell.textLabel.text!)
+            }
+        }
+    }
+    
+    
+    func sendAnswerToAPI(answer: String)
+    {
+        print("Answer Selection Sent : \(answer)")
+        let urlExtension = "/SubmitAnswerChoice/"
+        let parameters: Parameters = [
+            "player_id": GlobalVariables.playerId,
+            "session_id": GlobalVariables.sessionId,
+            "question_id": GlobalVariables.questionId,
+            "round_id": GlobalVariables.roundId,
+            "answer": answer
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
+        
+        Alamofire.request(urlString!, parameters: parameters).response { response in
+            
+            if let data = response.data, let result = String(data: data, encoding: .utf8) {
             }
         }
     }

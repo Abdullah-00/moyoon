@@ -105,11 +105,21 @@ class User {
                 self.numberOfGamesPlayed = self.numberOfGamesPlayed ?? 0+1;
                 if(isWin){
                     self.numberOfWins = self.numberOfWins ?? 0+1;
-                    document.setValue(self.numberOfWins, forKey: "wins")
                 }
-                document.setValue(self.totalScore, forKey: "totalScore")
-                document.setValue(self.lastScore, forKey: "lastScore")
-                document.setValue(self.numberOfGamesPlayed, forKey: "gamesPlayed")
+                docRef.updateData([
+                    "totalScore": self.totalScore,
+                    "lastScore": self.lastScore,
+                    "gamesPlayed": self.numberOfGamesPlayed,
+                    "wins": self.numberOfWins
+                ]) { err in
+                    if let err = err {
+                        print("Error updating document: \(err)")
+                    } else {
+                        print("Document successfully updated")
+                    }
+                }
+                
+                print("Updated statistics");
             } else { // user document not found
                 print(error)
             }

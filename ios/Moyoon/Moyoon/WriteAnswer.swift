@@ -13,40 +13,12 @@ import FirebaseFirestore
 import FirebaseUI
 
 class WriteAnswer: UIViewController {
-    var submitted : Bool = false;
+
     
-    var seconds = 11 //This variable will hold a starting value of seconds. It could be any amount above 0.
-    var timer =  Timer()
-    var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
-    
-    
-    func runTimer() {
-        if(!isTimerRunning){
-                    timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(WriteAnswer.updateTimer)), userInfo: nil, repeats: true)
-        }
-        isTimerRunning = true;
-    }
-    
-    @IBOutlet weak var timerLabel: UILabel!
-    
-    @objc func updateTimer() {
-        if(isTimerRunning){
-            seconds -= 1     //This will decrement(count down)the seconds.
-            timerLabel.text = "\(seconds)" //This will update the label.
-            if(seconds < 1){
-                sendAnswerToAPI(answer: (answerField.text)!)
-                timer.invalidate()
-                performSegue(withIdentifier: "TypeToSelect", sender: self)
-        }
-        }
-    }
-    
+
     @IBOutlet var QuestionBorder: UIView!
     
     @IBAction func leaveSessionClicked(_ sender: Any) {
-        if(isTimerRunning){
-            self.timer.invalidate();
-        }
         leaveSession();
     }
     
@@ -96,13 +68,11 @@ class WriteAnswer: UIViewController {
                 }
                 print("Current data: \(data)")
                 if(data["isDoneSubmitAnswer"] as! Bool == true){
-                    self.timer.invalidate()
                     self.sendAnswerToAPI(answer: self.answerField.text!)
                     self.performSegue(withIdentifier: "TypeToSelect", sender: self)
                 }
         }
 
-        runTimer()
 
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -124,16 +94,10 @@ class WriteAnswer: UIViewController {
     }
     
     
-
-    
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "TypeToSelect"{
-            while(submitted == false){
-                //stall
-            }
-        }
-        return true;
+    func sendAnswerToAPIAux(){
+        sendAnswerToAPI(answer: (answerField.text)!);
     }
+    
     
     func sendAnswerToAPI(answer: String)
     {
@@ -154,6 +118,5 @@ class WriteAnswer: UIViewController {
 
             }
         }
-        submitted = true;
     }
 }
