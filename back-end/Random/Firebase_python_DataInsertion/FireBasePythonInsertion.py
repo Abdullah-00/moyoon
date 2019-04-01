@@ -181,7 +181,6 @@ def isCorrctAnswer(session_id, round_id, question_id):
     doc_ref = db.collection(u'Session').document(session_id)\
         .collection(u'Rounds').document(round_id)\
         .collection(u'Questions').document(question_id)
-    question_doc_id = doc_ref
     question_info = doc_ref.get().to_dict()
     answer = ""
     for key, value in question_info.items():
@@ -334,7 +333,7 @@ def winner(session_id):
     }
     player_doc.set(data)
     players_col = db.collection(u'Session').document(session_id).collection(u'Players')
-    players_list = players_col.get()
+    players_list = players_col.get() 
     for i in players_list:
         player_info = i.to_dict()
         data = {
