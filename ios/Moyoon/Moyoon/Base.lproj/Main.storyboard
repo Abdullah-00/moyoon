@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wB2-MX-LAF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wB2-MX-LAF">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -208,7 +208,7 @@
                                 <rect key="frame" x="67" y="108" width="240" height="173"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FaV-2t-lgH" userLabel="Stack2">
-                                <rect key="frame" x="97" y="491" width="180" height="170"/>
+                                <rect key="frame" x="97" y="491" width="180" height="230"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sJi-za-WtT" userLabel="Join">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="50"/>
@@ -229,7 +229,7 @@
                                             <constraint firstAttribute="height" constant="50" id="KJb-ea-SHp"/>
                                             <constraint firstAttribute="width" constant="180" id="NCp-hb-eIQ"/>
                                         </constraints>
-                                        <state key="normal" image="Rectangle-JoinRandom.png"/>
+                                        <state key="normal" image="Rectangle-Join-Random.png"/>
                                         <connections>
                                             <action selector="JoinRandomSessionClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="L7e-kJ-PZa"/>
                                         </connections>
@@ -243,6 +243,17 @@
                                         <state key="normal" image="Rectangle-Login2.png"/>
                                         <connections>
                                             <action selector="loginClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="msI-RP-m47"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A4E-i0-nFz" userLabel="Login">
+                                        <rect key="frame" x="0.0" y="180" width="180" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="180" id="1sH-XO-QhI"/>
+                                            <constraint firstAttribute="height" constant="50" id="rps-Sa-0Dr"/>
+                                        </constraints>
+                                        <state key="normal" image="Rectangle-Signout.png"/>
+                                        <connections>
+                                            <action selector="SignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WSP-v5-jtV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -273,6 +284,8 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Game" id="007-Ke-cL4"/>
                     <connections>
+                        <outlet property="LoginButton" destination="ycT-2H-5Gq" id="1t1-vQ-fVS"/>
+                        <outlet property="SignoutButton" destination="A4E-i0-nFz" id="kcs-iy-q96"/>
                         <outlet property="nicknameField" destination="S5W-4f-dgx" id="Df7-M6-cVG"/>
                         <outlet property="sessionField" destination="QhO-ps-kUw" id="Q3y-jO-puP"/>
                         <segue destination="yeN-yN-1do" kind="show" identifier="JoinSession" id="kc8-Er-TB8"/>
@@ -711,9 +724,10 @@
     </scenes>
     <resources>
         <image name="MoyoonLogo.png" width="500" height="200"/>
+        <image name="Rectangle-Join-Random.png" width="180" height="50"/>
         <image name="Rectangle-Join.png" width="180" height="50"/>
-        <image name="Rectangle-JoinRandom.png" width="180" height="50"/>
         <image name="Rectangle-Login2.png" width="180" height="50"/>
+        <image name="Rectangle-Signout.png" width="180" height="50"/>
         <image name="Rectangle-submit.png" width="180" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
