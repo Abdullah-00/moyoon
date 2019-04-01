@@ -30,7 +30,7 @@
             android:textAlignment="center" android:layout_marginBottom="8dp"
             app:layout_constraintBottom_toTopOf="@+id/GoPlay" app:layout_constraintVertical_bias="0.0"/>
     <Button
-            android:text="Sign out"
+            android:text="@string/Sign_out"
             android:layout_width="221dp"
             android:layout_height="41dp"
             android:id="@+id/Sign_out"
@@ -43,7 +43,7 @@
 
     />
     <Button
-            android:text="Start Play"
+            android:text="@string/GoPlay"
             android:layout_width="221dp"
             android:layout_height="41dp"
             android:id="@+id/GoPlay"

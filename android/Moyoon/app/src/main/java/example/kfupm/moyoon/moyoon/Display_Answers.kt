@@ -67,8 +67,8 @@ class Display_Answers : AppCompatActivity() {
 
 
 
-        roundText.text = "Round " + Global.roundID[Global.roundNum]
-        queistionText.text = "Question: " + Global.questionNum
+        roundText.text = roundText.text.toString() + Global.roundID[Global.roundNum]
+        queistionText.text =   queistionText.text.toString() + Global.questionNum
 
         questionDesplay.text = Global.question
         timerTxtAns =findViewById<TextView>(R.id.timerTxt)
@@ -84,6 +84,7 @@ class Display_Answers : AppCompatActivity() {
 
         answerslist.setOnItemClickListener { parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
         //
+
             //   submit.text= "You choose: "+playersAnswer[position]
             Global.pAnswer = playersAnswer[position]
             Log.d("nnnnnnnn", playersAnswer[position])
@@ -94,27 +95,7 @@ class Display_Answers : AppCompatActivity() {
 
     }
 
-    private fun isDoneChooseAnswer() {
-        db.collection("Session").document(Global.sessionID)
-            .collection("Rounds").document(Global.roundID[Global.roundNum])
-            .collection("Questions").document(Global.questionNum.toString())
-            .addSnapshotListener(EventListener<DocumentSnapshot> { document, e ->
-                if (e != null) {
-                    Log.w("33333", "listen:error", e)
-                    return@EventListener
-                }
-//                chooseAnswer = document!!.getBoolean("isDoneChooseAnswer")
-//                if (chooseAnswer == true) {
-//                    SendtoServer()
-//                    // Check if the Game is done or not
-//                    if(Global.roundNum >= 3)
-//                        startActivity(intentEndOfGame)
-//                    else
-//                        startActivity(intentTypeLie)
-//                }
-            }
-            )
-    }
+  
 
     /////////////////////////////////////////////////////////////////////
     inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {

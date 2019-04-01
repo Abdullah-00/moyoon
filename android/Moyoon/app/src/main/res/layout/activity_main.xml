@@ -10,7 +10,7 @@
 
 
     <Button
-            android:text="JOIN Randomly"
+            android:text="@string/joinR"
             android:layout_width="216dp"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
@@ -54,7 +54,7 @@
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:scaleType="fitXY"
             android:background="#008577"
-            android:textColor="#ffffff" android:text="Join"/>
+            android:textColor="#ffffff" android:text="@string/join"/>
     <Button
             android:layout_height="50dp" app:srcCompat="@drawable/rectangle_login2"
             android:id="@+id/login"
@@ -63,7 +63,7 @@
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:scaleType="fitXY"
             app:layout_constraintHorizontal_bias="0.502"
-            android:text="Login"
+            android:text="@string/login"
             android:background="#008577"
             android:textColor="#ffffff"/>
     <ImageView

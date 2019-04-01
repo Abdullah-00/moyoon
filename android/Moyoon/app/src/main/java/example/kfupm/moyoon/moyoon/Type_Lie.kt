@@ -67,8 +67,8 @@ class Type_Lie() : AppCompatActivity() {
 
         Log.d("T","C2"+Global.roundNum+"tttttttttt"+Global.questionNum)
 
-        roundText.text = "Round: " + Global.roundID[Global.roundNum]
-        queistionText.text = "Question: " + Global.questionNum
+        roundText.text = roundText.text.toString() + Global.roundID[Global.roundNum]
+        queistionText.text =   queistionText.text.toString() + Global.questionNum
 
         //// Display Question
         db.collection("Session").document(Global.sessionID)
@@ -184,8 +184,7 @@ class Type_Lie() : AppCompatActivity() {
                     return@EventListener
                 }
                 suspended = document!!.getDouble("Score")!!
-                suspended.toInt()
-                if (suspended > -50 ) {
+                if (suspended.toInt() > -50 ) {
                     lie.visibility = View.VISIBLE
 
                 }else{
