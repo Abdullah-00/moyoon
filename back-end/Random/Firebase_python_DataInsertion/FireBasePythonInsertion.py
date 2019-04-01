@@ -333,6 +333,8 @@ def winner(session_id):
             u'winnerFlagIsUpdated' : True
     }
     player_doc.set(data)
+    players_col = db.collection(u'Session').document(session_id).collection(u'Players')
+    players_list = players_col.get()
     for i in players_list:
         player_info = i.to_dict()
         data = {
