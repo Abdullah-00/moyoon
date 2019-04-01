@@ -168,7 +168,8 @@ def addPlayers(session_id, nick_name):
     data = {
         u'nick-name' : nick_name,
         u'Score' : 0,
-        u'isSuspended': False
+        u'isSuspended': False,
+        u'winner' : False
     }
     doc_ref.set(data)
     return player_id
@@ -303,9 +304,33 @@ def gameController(session_id):
         round_doc.set(round_info)
         checkPlayerScore(session_id)
         counter += 1
+    winner(session_id)
     time.sleep(300)
     round_col = db.collection(u'Session').document(session_id).delete()
     return (counter, qCounter)
+
+def winner(session_id):
+    db = firestore.client()
+    players_col = db.collection(u'Session').document(session_id).collection(u'Players')
+    players_list = players_col.get()
+    max_score = -99999999
+    player_id = 0
+    for i in players_list:
+        player_info = i.to_dict()
+        player_score = player_info['Score']
+        if(player_score > max_score):
+            max_score = player_score
+            player_id = i.id
+    player_doc = db.collection(u'Session').document(session_id).collection(u'Players').document(player_id)
+    player_info = player_doc.get()
+    data = {
+            u'nick-name': player_info['nick-name'],
+            u'Score': player_info['Score'],
+            u'isSuspended' : player_info['isSuspended'],
+            u'winner' : True
+    }
+    player_doc.set(data)
+            
 
 def checkPlayerScore(session_id):
     db = firestore.client()
@@ -321,7 +346,8 @@ def checkPlayerScore(session_id):
         data = {
             u'nick-name': player_info['nick-name'],
             u'Score': player_info['Score'],
-            u'isSuspended' : player_info['isSuspended']
+            u'isSuspended' : player_info['isSuspended'],
+            u'winner' : player_info['winner']
         }
         dict_ref = players_col.document(i.id)
         dict_ref.set(data)
@@ -340,8 +366,6 @@ def questionController(session_id, round_id):
         flagChanger(session_id, round_id, i, True, False)
         time.sleep(10)
         flagChanger(session_id, round_id, i, False, False)
-        time.sleep(10)
-        flagChanger(session_id, round_id, i, False, True)
         counter += 1 
     
     return counter
