@@ -9,7 +9,7 @@
         android:background="#E8E6E1">
 
     <TextView
-            android:text="Question:"
+            android:text="@string/questionRoundText7"
             android:layout_width="168dp"
             android:layout_height="33dp"
             android:id="@+id/questionRoundText7"
@@ -21,7 +21,7 @@
             app:layout_constraintEnd_toStartOf="@+id/roundText" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/timerTxt" app:layout_constraintHorizontal_bias="0.228"/>
     <TextView
-            android:text="Round:"
+            android:text="@string/roundText"
             android:layout_width="168dp"
             android:layout_height="33dp"
             android:id="@+id/roundText"
@@ -31,7 +31,7 @@
             android:layout_marginEnd="24dp" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/timerTxt"/>
     <TextView
-            android:text="Timer"
+            android:text="@string/timerTxt"
             android:layout_width="124dp"
             android:layout_height="20dp"
             android:id="@+id/timerTxt"
@@ -43,7 +43,6 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"/>
     <TextView
-            android:text="Question"
             android:layout_width="0dp"
             android:layout_height="106dp"
             android:id="@+id/question_desplay"
@@ -64,7 +63,7 @@
             android:id="@+id/Lie"
             android:textAlignment="center" android:autoText="false"
             android:background="@color/cardview_light_background"
-            android:hint="Lie" android:layout_marginTop="72dp"
+            android:hint="@string/Lie" android:layout_marginTop="72dp"
             app:layout_constraintTop_toBottomOf="@+id/question_desplay" android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.497"/>

@@ -32,7 +32,7 @@
             android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/quiston_at_selecton"
             android:background="@drawable/round_corner"/>
     <TextView
-            android:text="Round:"
+            android:text="@string/roundText"
             android:layout_width="168dp"
             android:layout_height="33dp"
             android:id="@+id/roundText"
@@ -42,7 +42,7 @@
             android:background="@drawable/round_corner_tr"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/timerTxt"/>
     <TextView
-            android:text="Question:"
+            android:text="@string/questionRoundText2"
             android:layout_width="168dp"
             android:layout_height="33dp"
             android:id="@+id/questionRoundText2"
@@ -54,7 +54,7 @@
             app:layout_constraintEnd_toStartOf="@+id/roundText" app:layout_constraintHorizontal_bias="0.0"
     />
     <TextView
-            android:text="Timer"
+            android:text="@string/timerTxt"
             android:layout_width="124dp"
             android:layout_height="20dp"
             android:id="@+id/timerTxt"

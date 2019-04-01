@@ -4,7 +4,7 @@
                                              android:layout_height="match_parent" android:background="#E8E6E1">
 
     <TextView
-            android:text="Wins"
+            android:text="@string/winsText"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:id="@+id/winsText"
@@ -34,7 +34,7 @@
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center"/>
     <TextView
-            android:text="Total Score"
+            android:text="@string/totalScoreText"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:id="@+id/totalScoreText"
@@ -46,7 +46,7 @@
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/lastScoreTxtV"
             android:textAlignment="center"/>
     <TextView
-            android:text="Username"
+            android:text="@string/usernameTextView"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:id="@+id/usernameTextView"
@@ -58,7 +58,7 @@
             app:layout_constraintTop_toBottomOf="@+id/profileTxtV"
             android:layout_marginTop="8dp"/>
     <TextView
-            android:text="Email"
+            android:text="@string/emailTextView"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:id="@+id/emailTextView"
@@ -69,7 +69,7 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:textAlignment="center"/>
     <TextView
-            android:text="Games Played"
+            android:text="@string/gamesPlayedText"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:id="@+id/gamesPlayedText"
@@ -80,7 +80,7 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
             app:layout_constraintStart_toStartOf="parent" android:textAlignment="center"/>
     <TextView
-            android:text="Last Score"
+            android:text="@string/lastScoreText"
             android:layout_width="120dp"
             android:layout_height="40dp"
             android:id="@+id/lastScoreText"
@@ -128,7 +128,7 @@
             android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center"/>
     <Button
-            android:text="Reset"
+            android:text="@string/modifyButton"
             android:layout_width="221dp"
             android:layout_height="41dp"
             android:id="@+id/modifyButton"
@@ -141,11 +141,12 @@
             android:textColor="#ffffff"
     />
     <TextView
-            android:text="Profile"
+            android:text="@string/profileTxtV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/profileTxtV" android:textSize="30sp" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
-            android:textAllCaps="true"/>
+            android:id="@+id/profileTxtV" android:textSize="30sp"
+            android:textAllCaps="true"
+            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toTopOf="parent"/>
 </android.support.constraint.ConstraintLayout>
