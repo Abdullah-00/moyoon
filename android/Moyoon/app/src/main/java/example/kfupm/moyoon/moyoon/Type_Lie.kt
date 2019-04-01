@@ -54,7 +54,8 @@ class Type_Lie() : AppCompatActivity() {
         intentDisplayAnswers = Intent(this,Display_Answers::class.java)
          timer = MyCounter(10000, 1000)
 
-        SusbendFlag()
+        if(Global.LeaveSession){
+        SusbendFlag()}
 
         Global.questionNum +=1
 
@@ -183,7 +184,10 @@ class Type_Lie() : AppCompatActivity() {
                     Log.w("33333", "listen:error", e)
                     return@EventListener
                 }
-                suspended = document!!.getDouble("Score")!!
+
+             if(Global.LeaveSession ){
+                 suspended = document!!.getDouble("Score")!!
+             }
                 if (suspended.toInt() > -50 ) {
                     lie.visibility = View.VISIBLE
 

@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         Global.roundNum = 0
         Global.questionNum=0
         Global.KickCounter = 0
+        Global.roundID.clear()
         sessionCode = findViewById<EditText>(R.id.Sission_Code)
         nickname = findViewById<EditText>(R.id.nickname)
         join = findViewById(R.id.join)
@@ -59,11 +60,11 @@ class MainActivity : AppCompatActivity() {
 
             Log.d("bbbbbbb",Global.playerID)
             Handler().postDelayed({
-                if(Global.playerID.equals("Cannot get you inside the session."))
-                    Toast.makeText(baseContext, "Wrong Session ID", Toast.LENGTH_SHORT).show()
-                else{
-                    Log.d("dddddddd",Global.playerID)
-                    startActivity(intent)
+                        if(Global.playerID.equals("Cannot get you inside the session."))
+                            Toast.makeText(baseContext, "Wrong Session ID", Toast.LENGTH_SHORT).show()
+                        else{
+                            Log.d("dddddddd",Global.playerID)
+                            startActivity(intent)
                 }
             }, 2000)
         }
@@ -75,9 +76,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         joinR.setOnClickListener {
-            Global.nickname = nickname.text.toString().trim()  //Player Nickname
+            Global.roundID.clear()
+            if(nickname.text.isNotEmpty()){
+            Global.nickname = nickname.text.toString().trim()
             SendtoServerR()
-          //  startActivity(intent)
+                Toast.makeText(baseContext, "Finding a Session ...Please wait ", Toast.LENGTH_SHORT).show()
+                Handler().postDelayed({
+                    startActivity(intent)
+
+                }, 3000)
+
+        }else
+                Toast.makeText(baseContext, "Enter Nick name Please ", Toast.LENGTH_SHORT).show()
+
 
         }
 
@@ -116,11 +127,12 @@ class MainActivity : AppCompatActivity() {
         // Request a string response from the provided URL.
         val stringRequest = StringRequest(Request.Method.GET, url,
             Response.Listener<String> { response ->
+                Log.d("asdfg",Global.sessionID )
                 // Display the first 500 characters of the response string.
                 Global.playerID = response.substringBefore(",").trim()
                 Global.sessionID = response.substringAfter(",",",").trim()
                 Log.d("eeeeee",Global.playerID )
-                Log.d("eeeeee",Global.sessionID )
+                Log.d("asdfg",Global.sessionID )
 
             },
             Response.ErrorListener { Log.d("t", "That didn't work!") })
