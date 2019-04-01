@@ -20,7 +20,11 @@ class Homepage: UIViewController {
     
     @IBOutlet weak var nicknameField: UITextField!
     
-    @IBOutlet weak public var userName: UILabel!
+    @IBOutlet weak var userName: UILabel!
+    
+    @IBOutlet var LoginButton: UIButton!
+    @IBOutlet var SignoutButton: UIButton!
+    
     
     
     override func viewDidLoad() {
@@ -30,6 +34,13 @@ class Homepage: UIViewController {
             if(user?.displayName != nil)
             {
                 nicknameField.text = user!.displayName!;
+                LoginButton.isHidden = true;
+                SignoutButton.isHidden = false;
+            }
+            else
+            {
+                LoginButton.isHidden = false;
+                SignoutButton.isHidden = true;
             }
         }
        
@@ -47,6 +58,16 @@ class Homepage: UIViewController {
         print(userName.text!)
     }*/
     
+    @IBAction func SignOut(_ sender: Any) {
+        try! Auth.auth().signOut()
+        if let storyBoard = self.storyboard {
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let balanceViewController = storyBoard.instantiateViewController(withIdentifier: "homepage") as! Homepage
+            self.present(balanceViewController, animated: true, completion: nil)
+           // let vc = storyboard.instantiateViewController(withIdentifier: "homepage") as! UINavigationController
+           // self.present(vc, animated: false, completion: nil)
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -67,13 +88,24 @@ class Homepage: UIViewController {
 //        self.present(balanceViewController, animated: true, completion: nil)
         
     }
+    /*func update()
+    {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let balanceViewController = storyBoard.instantiateViewController(withIdentifier: "homepage") as! Homepage
+        self.present(balanceViewController, animated: true, completion: nil)
+    }*/
+    
     
     @IBAction func loginClicked(_ sender: Any) {
+        
         let authUI = FUIAuth.defaultAuthUI()
         let authViewController = authUI!.authViewController()
         self.present(authViewController, animated: true, completion: nil)
+        
     }
+   
     
+
     
     fileprivate func displayError(msg : String) {
         let alertController = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
@@ -82,6 +114,7 @@ class Homepage: UIViewController {
         }
         alertController.addAction(action1)
         self.present(alertController, animated: true, completion: nil)
+        
     }
     
     func requestJoinRandomAPI(nickname: String){
@@ -93,19 +126,19 @@ class Homepage: UIViewController {
         let urlExtension = "/enterSession/"
         let parameters: Parameters = [
             "nick_name": nickname,
-            "category" : "algebra"
+            "category" : "Algebra"
         ]
         let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
         let urlString = urlRequest.url?.absoluteString
         
         Alamofire.request(urlString!, parameters: parameters).response { response in
 
-            if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
+            if let data = response.data, let serverResponse = String(data: data, encoding: .utf8)?.components(separatedBy: ",") {
                 if(response.response?.statusCode != 200){
                     self.displayError(msg: "Cannot join a random session.")
                 }else{
-                    GlobalVariables.playerId = playerId
-                    GlobalVariables.sessionId = ""
+                    GlobalVariables.playerId = serverResponse[0]
+                    GlobalVariables.sessionId = serverResponse[1]
                     self.performSegue(withIdentifier: "JoinSession", sender: self)
                 }
             }

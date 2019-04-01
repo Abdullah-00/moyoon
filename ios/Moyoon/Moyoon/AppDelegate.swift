@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
                      options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
         if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            
             return true
         }
         // other URL handling goes here.
@@ -52,6 +53,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
             return true
     }
     
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+    }
     
 
     func applicationWillResignActive(_ application: UIApplication) {

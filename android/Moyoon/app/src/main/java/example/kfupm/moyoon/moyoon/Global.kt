@@ -17,6 +17,7 @@ class Global{
         var playerLie : String = ""
         var LeaveSession:Boolean= true
         var KickCounter: Int = 0
+        var LoginUiFlag:Boolean = false
 
         // Profile info
         var userid : String = ""

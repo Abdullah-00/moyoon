@@ -47,8 +47,12 @@ class Sign_in_Facebook : AppCompatActivity() {
         val out = Intent(this, Sign_up::class.java)
         val play = Intent(this, MainActivity::class.java)
 
+        Sign_out.visibility = View.INVISIBLE
+        goPlayF.visibility = View.INVISIBLE
+
         Sign_outF.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
+            Global.LoginUiFlag = false
             startActivity(out)
         }
 
@@ -56,26 +60,28 @@ class Sign_in_Facebook : AppCompatActivity() {
             startActivity(play)
         }
 
+        login_button.setOnClickListener {
 
-        login_button.setReadPermissions("email", "public_profile")
-        login_button.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
-            override fun onSuccess(loginResult: LoginResult) {
-                Log.d("TAG", "facebook:onSuccess:$loginResult")
-                handleFacebookAccessToken(loginResult.accessToken)
-            }
+            login_button.setReadPermissions("email", "public_profile")
+            login_button.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
+                override fun onSuccess(loginResult: LoginResult) {
+                    Log.d("TAG", "facebook:onSuccess:$loginResult")
+                    handleFacebookAccessToken(loginResult.accessToken)
+                    Global.LoginUiFlag = true
+                }
 
-            override fun onCancel() {
-                Log.d("TAG", "facebook:onCancel")
-                // ...
-            }
+                override fun onCancel() {
+                    Log.d("TAG", "facebook:onCancel")
+                    // ...
+                }
 
-            override fun onError(error: FacebookException) {
-                Log.d("TAG", "facebook:onError", error)
-                // ...
-            }
-        })
-        // ...
-
+                override fun onError(error: FacebookException) {
+                    Log.d("TAG", "facebook:onError", error)
+                    // ...
+                }
+            })
+            // ...
+        }
 
     }
 
@@ -86,12 +92,12 @@ class Sign_in_Facebook : AppCompatActivity() {
         callbackManager!!.onActivityResult(requestCode, resultCode, data)
     }
 
-    public override fun onStart() {
+   /* public override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
         updateUI(currentUser)
-    }
+    }*/
 
     private fun handleFacebookAccessToken(token: AccessToken) {
         Log.d("TAG", "handleFacebookAccessToken:$token")
@@ -118,7 +124,8 @@ class Sign_in_Facebook : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         texvF= findViewById<TextView>(R.id.UserName)
-        texvF.text = "Welcome " + user?.displayName
+        texvF.text = "Welcom \n" + user?.displayName
+
 
         Global.name = user?.displayName.toString()
         Global.emailAddress = user?.email.toString()

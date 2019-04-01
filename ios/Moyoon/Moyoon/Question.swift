@@ -17,6 +17,7 @@ class Question: UIViewController {
     
     let db = Firestore.firestore()
     override func viewDidLoad() {
+        runTimer()
         super.viewDidLoad()
         getQuestion()
         updateScore();
@@ -107,6 +108,7 @@ class Question: UIViewController {
         }
     }
     
+    @IBOutlet weak var timerLabel: UILabel!
     func updateScore(){
         //
         let docPath = "/Session/\(GlobalVariables.sessionId)/Players/\(GlobalVariables.playerId)/"
@@ -118,6 +120,29 @@ class Question: UIViewController {
                 print("Current Score: \(score)")
             } else {
                 print("Score not found")
+            }
+        }
+    }
+        
+    var seconds = 11 //This variable will hold a starting value of seconds. It could be any amount above 0.
+    var timer =  Timer()
+    var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
+    
+    
+    func runTimer() {
+        if(!isTimerRunning){
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(Question.updateTimer)), userInfo: nil, repeats: true)
+        }
+        isTimerRunning = true;
+    }
+    
+    
+    @objc func updateTimer() {
+        if(isTimerRunning){
+            seconds -= 1     //This will decrement(count down)the seconds.
+            timerLabel.text = "\(seconds)" //This will update the label.
+            if(seconds < 1){
+                timer.invalidate()
             }
         }
     }

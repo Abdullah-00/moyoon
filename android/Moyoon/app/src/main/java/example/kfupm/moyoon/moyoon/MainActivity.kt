@@ -8,22 +8,23 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.ImageButton
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.*
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_sign_in__facebook.*
 
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var nickname: EditText //Nickname Input
     private lateinit var sessionCode: EditText
-    private lateinit var join: ImageButton
-    private lateinit var login: ImageButton
+    private lateinit var join: Button
+    private lateinit var login: Button
     private lateinit var joinRandom: Button
     var CorrectSessionID:Boolean= false
 
@@ -34,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         Global.roundNum = 0
         Global.questionNum=0
         Global.KickCounter = 0
+        Global.roundID.clear()
         sessionCode = findViewById<EditText>(R.id.Sission_Code)
         nickname = findViewById<EditText>(R.id.nickname)
         join = findViewById(R.id.join)
@@ -41,6 +43,13 @@ class MainActivity : AppCompatActivity() {
         joinRandom = findViewById(R.id.joinR)
         val intent = Intent(this, PlayerlistActivity::class.java)
         val intent2 = Intent(this, Sign_up::class.java)
+
+       if(Global.LoginUiFlag)
+           login.visibility = View.INVISIBLE
+        else
+           login.visibility = View.VISIBLE
+
+
 
 
         join.setOnClickListener {
@@ -51,26 +60,35 @@ class MainActivity : AppCompatActivity() {
 
             Log.d("bbbbbbb",Global.playerID)
             Handler().postDelayed({
-                if(Global.playerID.equals("Cannot get you inside the session."))
-                    Toast.makeText(baseContext, "Wrong Session ID", Toast.LENGTH_SHORT).show()
-                else{
-                    Log.d("dddddddd",Global.playerID)
-                    startActivity(intent)
+                        if(Global.playerID.equals("Cannot get you inside the session."))
+                            Toast.makeText(baseContext, "Wrong Session ID", Toast.LENGTH_SHORT).show()
+                        else{
+                            Log.d("dddddddd",Global.playerID)
+                            startActivity(intent)
                 }
-            }, 1000)
-
-
+            }, 2000)
         }
+
+
         login.setOnClickListener {
 
             startActivity(intent2)
-
         }
 
         joinR.setOnClickListener {
-            Global.nickname = nickname.text.toString().trim()  //Player Nickname
+            Global.roundID.clear()
+            if(nickname.text.isNotEmpty()){
+            Global.nickname = nickname.text.toString().trim()
             SendtoServerR()
-          //  startActivity(intent)
+                Toast.makeText(baseContext, "Finding a Session ...Please wait ", Toast.LENGTH_SHORT).show()
+                Handler().postDelayed({
+                    startActivity(intent)
+
+                }, 3000)
+
+        }else
+                Toast.makeText(baseContext, "Enter Nick name Please ", Toast.LENGTH_SHORT).show()
+
 
         }
 
@@ -109,11 +127,12 @@ class MainActivity : AppCompatActivity() {
         // Request a string response from the provided URL.
         val stringRequest = StringRequest(Request.Method.GET, url,
             Response.Listener<String> { response ->
+                Log.d("asdfg",Global.sessionID )
                 // Display the first 500 characters of the response string.
                 Global.playerID = response.substringBefore(",").trim()
                 Global.sessionID = response.substringAfter(",",",").trim()
                 Log.d("eeeeee",Global.playerID )
-                Log.d("eeeeee",Global.sessionID )
+                Log.d("asdfg",Global.sessionID )
 
             },
             Response.ErrorListener { Log.d("t", "That didn't work!") })

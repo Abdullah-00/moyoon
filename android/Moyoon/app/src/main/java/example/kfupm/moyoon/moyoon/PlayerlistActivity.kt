@@ -3,18 +3,18 @@ package example.kfupm.moyoon.moyoon
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.ContactsContract
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import android.view.View
 import android.widget.*
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import com.google.firebase.firestore.*
+import com.google.firebase.firestore.EventListener
+import java.util.*
 
 class PlayerlistActivity : AppCompatActivity() {
 
@@ -33,11 +33,20 @@ class PlayerlistActivity : AppCompatActivity() {
         players = findViewById<ListView>(R.id.players)
          intetToTypeLie = Intent(this, Type_Lie::class.java)
 
+        val timer = Timer()
 
+        timer.scheduleAtFixedRate(
+            object : TimerTask() {
 
-        getPlayers()
+                override fun  run() {
+                    getPlayers()
 
-        getNumOfRounds()
+                }
+            },
+            0, 2000
+        )   // 1000 Millisecond  = 1 second
+
+     getNumOfRounds()
 
         StartPlayFlag()
 
@@ -93,22 +102,26 @@ class PlayerlistActivity : AppCompatActivity() {
 
 
     private fun getNumOfRounds() {
-        var i =0 // for test
-        //Finding NUMBER of Rounds
-        db.collection("Session").document(Global.sessionID)
-            .collection("Rounds").get()
-            .addOnSuccessListener { k ->
 
-                for (document in k) {
-                    Global.roundID.add(document.id)
-                    Log.d("Round>>>>",Global.roundID[i])
-                    i++
-
-                }
-
-            }.addOnFailureListener { exception ->
-                Log.w("PlayerlistActivity", "Error getting documents.", exception)
-            }
+        Global.roundID.add("1")
+        Global.roundID.add("2")
+        Global.roundID.add("3")
+//        var i =0 // for test
+//        //Finding NUMBER of Rounds
+//        db.collection("Session").document(Global.sessionID)
+//            .collection("Rounds").get()
+//            .addOnSuccessListener { k ->
+//
+//                for (document in k) {
+//                    Global.roundID.add(document.id)
+//                    Log.d("Round>>>>",Global.roundID[i])
+//                    i++
+//
+//                }
+//
+//            }.addOnFailureListener { exception ->
+//                Log.w("PlayerlistActivity", "Error getting documents.", exception)
+//            }
 
     }
 

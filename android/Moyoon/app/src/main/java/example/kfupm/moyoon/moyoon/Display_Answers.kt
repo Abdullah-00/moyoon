@@ -23,6 +23,7 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.protobuf.Empty
+import java.util.*
 
 class Display_Answers : AppCompatActivity() {
     private lateinit var questionDesplay : TextView
@@ -31,6 +32,7 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var submit : ImageButton
     private lateinit var playersAnswer : ArrayList<String>
     private lateinit var roundText : TextView //Round Number
+    private lateinit var queistionText : TextView //Round Number
     private lateinit var arrayAdapter:ArrayAdapter<String>
     private lateinit var timerTxtAns : TextView //PLayer Lie
     private lateinit var intentTypeLie : Intent
@@ -55,9 +57,10 @@ class Display_Answers : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
         roundText = findViewById(R.id.roundText)
+        queistionText = findViewById(R.id.questionRoundText2)
         questionDesplay = findViewById(R.id.quiston_at_selecton)
         answerslist = findViewById(R.id.answers_list)
-        submit = findViewById(R.id.submit_ans)
+     //   submit = findViewById(R.id.submit_ans)
         playersAnswer = ArrayList()
         intentTypeLie = Intent(this,Type_Lie::class.java)
         intentEndOfGame = Intent(this,EndOfGame::class.java)
@@ -65,50 +68,31 @@ class Display_Answers : AppCompatActivity() {
 
 
 
-        roundText.text = "Round " + Global.roundID[Global.roundNum] +"\n Question " +Global.questionNum
+        roundText.text = roundText.text.toString() + Global.roundID[Global.roundNum]
+        queistionText.text =   queistionText.text.toString() + Global.questionNum
+
         questionDesplay.text = Global.question
         timerTxtAns =findViewById<TextView>(R.id.timerTxt)
 
        timer2 = MyCounter(10000, 1000)
         timer2.start()
-        //isDoneChooseAnswer()
-//        if (chooseAnswer == true)
-//            timer2.cancel()
 
-        //GetAnswers
         getAnswers()
 
         answerslist.setOnItemClickListener { parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
         //
+
             //   submit.text= "You choose: "+playersAnswer[position]
             Global.pAnswer = playersAnswer[position]
             Log.d("nnnnnnnn", playersAnswer[position])
+            Toast.makeText(baseContext, "You Select: "+ Global.pAnswer, Toast.LENGTH_SHORT).show()
+
             Log.d("nnnnnnnn", position.toString())
         }
 
     }
 
-    private fun isDoneChooseAnswer() {
-        db.collection("Session").document(Global.sessionID)
-            .collection("Rounds").document(Global.roundID[Global.roundNum])
-            .collection("Questions").document(Global.questionNum.toString())
-            .addSnapshotListener(EventListener<DocumentSnapshot> { document, e ->
-                if (e != null) {
-                    Log.w("33333", "listen:error", e)
-                    return@EventListener
-                }
-//                chooseAnswer = document!!.getBoolean("isDoneChooseAnswer")
-//                if (chooseAnswer == true) {
-//                    SendtoServer()
-//                    // Check if the Game is done or not
-//                    if(Global.roundNum >= 3)
-//                        startActivity(intentEndOfGame)
-//                    else
-//                        startActivity(intentTypeLie)
-//                }
-            }
-            )
-    }
+  
 
     /////////////////////////////////////////////////////////////////////
     inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
@@ -132,9 +116,7 @@ class Display_Answers : AppCompatActivity() {
                     Toast.makeText(baseContext, "You are Kicked out", Toast.LENGTH_SHORT).show()
                     startActivity(Home)
 
-                }
-
-                else if (Global.roundNum == 2 && Global.questionNum == 3)
+                }else if (Global.roundNum == 2 && Global.questionNum == 3)
                     startActivity(intentEndOfGame)
                 else
                     startActivity(intentTypeLie)
@@ -167,10 +149,28 @@ class Display_Answers : AppCompatActivity() {
             arrayAdapter = list_view_answerss(this,R.layout.list_view_answers,playersAnswer)
             answerslist.adapter = arrayAdapter
 
+            fun <playersAnswer> Array<playersAnswer>.shuffled(): Array<playersAnswer> {
+                val rng = Random()
+
+                for (index in 0..this.size - 1) {
+                    val randomIndex = rng.nextInt(index)
+                    Log.d("ggggg","tryrty")
+
+                    // Swap with the random position
+                    val temp = this[index]
+                    this[index] = this[randomIndex]
+                    this[randomIndex] = temp
+                }
+
+                return this
+            }
+
             // instead of simply using the entire query snapshot
             // see the actual changes to query results between query snapshots (added, removed, and modified)
         })
     }
+
+
 
     private fun SendtoServer() {
 
@@ -204,6 +204,7 @@ class Display_Answers : AppCompatActivity() {
         return when (item.itemId) {
             R.id.leave -> {
                 Global.LeaveSession =false
+                timer2.cancel()
                 SendtoServerLeave()
                 startActivity(Home)
 

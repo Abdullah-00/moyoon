@@ -17,11 +17,6 @@
         <activity android:name=".Sign_in_google">
         </activity>
         <activity android:name=".Sign_up">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-
-                <category android:name="android.intent.category.LAUNCHER"/>
-            </intent-filter>
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
