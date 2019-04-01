@@ -169,7 +169,8 @@ def addPlayers(session_id, nick_name):
         u'nick-name' : nick_name,
         u'Score' : 0,
         u'isSuspended': False,
-        u'winner' : False
+        u'winner' : False,
+        u'winnerFlagIsUpdated' : False
     }
     doc_ref.set(data)
     return player_id
@@ -321,15 +322,27 @@ def winner(session_id):
         if(player_score > max_score):
             max_score = player_score
             player_id = i.id
+
     player_doc = db.collection(u'Session').document(session_id).collection(u'Players').document(player_id)
     player_info = player_doc.get()
     data = {
             u'nick-name': player_info['nick-name'],
             u'Score': player_info['Score'],
             u'isSuspended' : player_info['isSuspended'],
-            u'winner' : True
+            u'winner' : True,
+            u'winnerFlagIsUpdated' : True
     }
     player_doc.set(data)
+    for i in players_list:
+        player_info = i.to_dict()
+        data = {
+            u'nick-name': player_info['nick-name'],
+            u'Score': player_info['Score'],
+            u'isSuspended' : player_info['isSuspended'],
+            u'winner' : player_info['winner'],
+            u'winnerFlagIsUpdated' : True
+        }
+        player_doc = db.collection(u'Session').document(session_id).collection(u'Players').document(i.id).set(data)
             
 
 def checkPlayerScore(session_id):
