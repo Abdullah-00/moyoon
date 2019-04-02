@@ -84,7 +84,7 @@ class MainActivity : AppCompatActivity() {
                 Handler().postDelayed({
                     startActivity(intent)
 
-                }, 3000)
+                }, 4000)
 
         }else
                 Toast.makeText(baseContext, "Enter Nick name Please ", Toast.LENGTH_SHORT).show()
@@ -121,13 +121,12 @@ class MainActivity : AppCompatActivity() {
     private fun SendtoServerR() {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "http://68.183.67.247:8000/enterSession/?category=Algebra"+"&nick_name="+Global.nickname
+        val url = "http://68.183.67.247:8000/enterSession/?category=Algebra&nick_name="+Global.nickname
         Log.d("eeeeee","ohuuygu")
 
         // Request a string response from the provided URL.
         val stringRequest = StringRequest(Request.Method.GET, url,
             Response.Listener<String> { response ->
-                Log.d("asdfg",Global.sessionID )
                 // Display the first 500 characters of the response string.
                 Global.playerID = response.substringBefore(",").trim()
                 Global.sessionID = response.substringAfter(",",",").trim()

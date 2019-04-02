@@ -78,7 +78,7 @@ class PlayerlistActivity : AppCompatActivity() {
 
 
 
-        private fun getPlayers() {
+         private fun getPlayers() {
 
                 db.collection("Session").document(Global.sessionID)
             .collection("Players")
