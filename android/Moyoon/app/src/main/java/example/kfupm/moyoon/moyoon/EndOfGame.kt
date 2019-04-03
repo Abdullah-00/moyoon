@@ -29,24 +29,27 @@ class EndOfGame : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_end_of_game)
-
-
         EndHome = findViewById(R.id.EndHome)
 
-        //getScore()
-        synchronized(AppCompatActivity()){
-            Thread.sleep(1000)
-            db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID).get()
-                .addOnSuccessListener { documentReference ->
-                    Log.w("TAG001", "documentReference:  $documentReference")
-                    if (documentReference.exists()) {
-                        Global.lastScore = documentReference.data!!["Score"] as Long
-                        isWinner = documentReference.data!!["winner"] as Boolean
-                        updateProfile()
-                        Log.w("TAG002", "Global.lastScore=== " + Global.lastScore)
+        //get the Score
+        //update the profile
+        if(Global.signedIn) {
+            synchronized(AppCompatActivity()) {
+                Thread.sleep(1000)
+                db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID)
+                    .get()
+                    .addOnSuccessListener { documentReference ->
+                        Log.w("TAG001", "documentReference:  $documentReference")
+                        if (documentReference.exists()) {
+                            Global.lastScore = documentReference.data!!["Score"] as Long
+                            isWinner = documentReference.data!!["winner"] as Boolean
+                            updateProfile()
+                            Log.w("TAG002", "Global.lastScore=== " + Global.lastScore)
+                        }
                     }
-                }
+            }
         }
+
         players_scores = findViewById<ListView>(R.id.players_Score)
         EndHome = findViewById<Button>(R.id.EndHome)
         val intent: Intent = Intent(this, MainActivity::class.java)
@@ -56,7 +59,6 @@ class EndOfGame : AppCompatActivity() {
         EndHome.setOnClickListener {
             startActivity(intent)
         }
-      //  updateProfile()
     }
 
 
@@ -77,7 +79,6 @@ class EndOfGame : AppCompatActivity() {
         note.put("lastScore", Global.lastScore)
         note.put("totalScore", Global.totalScore)
         note.put("wins", Global.wins)
-
 
         ///update the user profile in the fire base
         db.collection("Players").document(Global.userid).set(note)

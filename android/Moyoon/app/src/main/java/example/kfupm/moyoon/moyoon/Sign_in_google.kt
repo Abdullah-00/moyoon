@@ -134,6 +134,7 @@ class Sign_in_google : AppCompatActivity() {
         Global.name = user?.displayName.toString()
         Global.emailAddress = user?.email.toString()
         Global.userid = user?.uid.toString()
+        Global.signedIn = true
 
         getInformation(Global.userid)
 
