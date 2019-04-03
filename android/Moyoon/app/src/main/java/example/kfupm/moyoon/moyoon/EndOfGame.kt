@@ -15,50 +15,72 @@ import java.util.HashMap
 class EndOfGame : AppCompatActivity() {
     private lateinit var EndHome: Button
     private var db: FirebaseFirestore = FirebaseFirestore.getInstance()
-
+    private var isWinner =false;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_end_of_game)
 
-        EndHome = findViewById<Button>(R.id.EndHome)
+        EndHome = findViewById(R.id.EndHome)
         val intent = Intent(this, MainActivity::class.java)
 
-
+        //getScore()
+        synchronized(AppCompatActivity()){
+            Thread.sleep(1000)
+            db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID).get()
+                .addOnSuccessListener { documentReference ->
+                    Log.w("TAG001", "documentReference:  $documentReference")
+                    if (documentReference.exists()) {
+                        Global.lastScore = documentReference.data!!["Score"] as Long
+                        isWinner = documentReference.data!!["winner"] as Boolean
+                        updateProfile()
+                        Log.w("TAG002", "Global.lastScore=== " + Global.lastScore)
+                    }
+                }
+        }
 
         EndHome.setOnClickListener {
-
             startActivity(intent)
         }
-        updateProfile()
     }
+//    private fun getScore() {
+//        Thread.sleep(1000)
+//        db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID).get()
+//            .addOnSuccessListener { documentReference ->
+//                Log.w("TAG001", "documentReference:  $documentReference")
+//                if (documentReference.exists()) {
+//                    Global.lastScore = documentReference.data!!["Score"] as Long
+//                    //isWinner = documentReference.data!!["iswinner"] as Long
+//                    Log.w("TAG002", "Global.lastScore=== " + Global.lastScore)
+//                }
+//            }
+//    }
 
     private fun updateProfile() {
-        val note = HashMap<String, Any>()
         Global.gamesPlayed++
-        getScore()
-        Global.wins = 0
+        if(isWinner)
+            Global.wins++
         Global.totalScore += Global.lastScore
+
+        Log.w("TAG002", "Global.gamesPlayed= " + Global.gamesPlayed)
+        Log.w("TAG002", "Global.lastScore= " + Global.lastScore)
+        Log.w("TAG002", "Global.totalScore= " + Global.totalScore)
+
+        val note = HashMap<String, Any>()
         note.put("displayName", Global.name)
         note.put("email", Global.emailAddress)
         note.put("gamesPlayed", Global.gamesPlayed)
         note.put("lastScore", Global.lastScore)
         note.put("totalScore", Global.totalScore)
         note.put("wins", Global.wins)
+
+        ///update the user profile in the fire base
         db.collection("Players").document(Global.userid).set(note)
             .addOnSuccessListener {
-                Log.w("TAG001", "Document Created.")
+                Log.w("TAG002", "Document Created.")
             }.addOnFailureListener {
-                Log.w("TAG001", "Document Is not Created.")
+                Log.w("TAG002", "Document Is not Created.")
             }
     }
-    
-    private fun getScore() {
-        db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID).get()
-            .addOnSuccessListener { documentReference ->
-                Log.w("TAG001", "documentReference:  " + documentReference)
-                if (documentReference.exists()) {
-                    Global.lastScore = documentReference.data!!["Score"] as Long
-                }
-            }
-    }
+
+
 }

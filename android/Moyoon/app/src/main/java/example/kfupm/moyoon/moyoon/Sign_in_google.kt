@@ -129,7 +129,7 @@ class Sign_in_google : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         texv= findViewById<TextView>(R.id.UserName)
-        texv.text = "Welcom \n " + user?.displayName
+        texv.text = "Welcome \n " + user?.displayName
 
         Global.name = user?.displayName.toString()
         Global.emailAddress = user?.email.toString()
