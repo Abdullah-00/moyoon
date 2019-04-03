@@ -253,7 +253,7 @@
                                         </constraints>
                                         <state key="normal" image="Rectangle-Signout.png"/>
                                         <connections>
-                                            <action selector="SignOut:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WSP-v5-jtV"/>
+                                            <segue destination="wB2-MX-LAF" kind="show" id="T05-ra-Vxy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -765,6 +765,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="vDi-ao-qAf"/>
         <segue reference="JCF-eo-a4G"/>
-        <segue reference="vac-Gc-I9h"/>
+        <segue reference="T05-ra-Vxy"/>
     </inferredMetricsTieBreakers>
 </document>
