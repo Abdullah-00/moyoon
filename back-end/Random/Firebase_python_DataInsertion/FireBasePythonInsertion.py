@@ -400,9 +400,7 @@ def flagChanger(session_id, round_id, question_id, flag, flag2):
     db = firestore.client()
     question_doc = db.collection(u'Session').document(session_id).collection(u'Rounds').document(round_id).collection(u'Questions').document(question_id)
     question_info = question_doc.get().to_dict()
-    if(flag2):
-        question_info['isDoneShowingTheResult'] = True
-    elif(flag):
+    if(flag):
         question_info['isDoneSubmitAnswer'] = True
     else:
         question_info['isDoneChooseAnswer'] = True
