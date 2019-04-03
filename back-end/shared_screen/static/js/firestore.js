@@ -1,6 +1,6 @@
 function refresh(sessionID) {
-console.log(sessionID);
-// Initialize Firebase
+    console.log(sessionID);
+    // Initialize Firebase
     var config = {
         apiKey: "***REMOVED***",
         authDomain: "moyoon-abikmmr.firebaseapp.com",
@@ -18,16 +18,6 @@ console.log(sessionID);
     db.settings({
         timestampsInSnapshots: true
     });
-
-    var google = new firebase.auth.GoogleAuthProvider();
-    var facebook = new firebase.auth.FacebookAuthProvider();
-
-    function signIn(method) {
-        if (method == "google")
-            firebase.auth().signInWithRedirect(google);
-        else
-            firebase.auth().signInWithRedirect(facebook);
-    }
 
     const output = document.querySelector("#list");
 
