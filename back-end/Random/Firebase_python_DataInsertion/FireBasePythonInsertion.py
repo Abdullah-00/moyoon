@@ -295,6 +295,7 @@ def changeAddplayers(session_id):
 #     return (iCounter, jCounter)
 
 def gameController(session_id):
+    print("Hello there general kenopi")
     db = firestore.client()
     round_col = db.collection(u'Session').document(session_id).collection(u'Rounds')
     round_docs = round_col.get()
@@ -311,6 +312,7 @@ def gameController(session_id):
         round_doc.set(round_info)
         checkPlayerScore(session_id)
         counter += 1
+    print("Going into winner def")
     winner(session_id)
     time.sleep(300)
     round_col = db.collection(u'Session').document(session_id).delete()
@@ -326,11 +328,15 @@ def winner(session_id):
         player_info = i.to_dict()
         player_score = player_info['Score']
         if(player_score > max_score):
+            print("Look here")
+            print(max_score)
             max_score = player_score
+            print(max_score)
             player_id = i.id
-
+            print(player_id)
+    print(player_id)
     player_doc = db.collection(u'Session').document(session_id).collection(u'Players').document(player_id)
-    player_info = player_doc.get()
+    player_info = player_doc.get().to_dict()
     data = {
             u'nick-name': player_info['nick-name'],
             u'Score': player_info['Score'],
@@ -339,6 +345,7 @@ def winner(session_id):
             u'winnerFlagIsUpdated' : True
     }
     player_doc.set(data)
+    print("Should be updated")
     players_col = db.collection(u'Session').document(session_id).collection(u'Players')
     players_list = players_col.get() 
     for i in players_list:

@@ -34,13 +34,15 @@ class Profile : AppCompatActivity() {
         modifeyButton = findViewById(R.id.modifyButton)
 
         modifeyButton.setOnClickListener(){
-            reset()
-            name.text = Global.name
-            email.text = Global.emailAddress
-            gamesPlayed.text = Global.gamesPlayed.toString()
-            lastScore.text = Global.lastScore.toString()
-            totalScore.text = Global.totalScore.toString()
-            wins.text = Global.wins.toString()
+            if(Global.signedIn) {
+                reset()
+                name.text = Global.name
+                email.text = Global.emailAddress
+                gamesPlayed.text = Global.gamesPlayed.toString()
+                lastScore.text = Global.lastScore.toString()
+                totalScore.text = Global.totalScore.toString()
+                wins.text = Global.wins.toString()
+            }
         }
 
 

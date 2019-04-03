@@ -119,7 +119,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun SendtoServerR() {
-
         val queue = Volley.newRequestQueue(this)
         val url = "http://68.183.67.247:8000/enterSession/?category=Algebra&nick_name="+Global.nickname
         Log.d("eeeeee","ohuuygu")
@@ -131,8 +130,8 @@ class MainActivity : AppCompatActivity() {
                 Global.playerID = response.substringBefore(",").trim()
                 Global.sessionID = response.substringAfter(",",",").trim()
                 Log.d("eeeeee",Global.playerID )
+                Log.d("eeeeee",Global.sessionID )
                 Log.d("asdfg",Global.sessionID )
-
             },
             Response.ErrorListener { Log.d("t", "That didn't work!") })
 
