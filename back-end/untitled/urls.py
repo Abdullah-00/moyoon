@@ -39,6 +39,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
      path('media/', admin.site.urls),
     path(r'api/', include(router.urls)),
+    # route to leave session
+    path('leaveSession/', views.leaveSession, name='index'),
     # route on session page, calls index method on session.views class
     path('session/', views.createSessionView, name='index'),
     # route on enter session page, calls index method on session.views class

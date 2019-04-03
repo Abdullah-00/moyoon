@@ -21,10 +21,9 @@ class Lobby: UIViewController {
     var playersArray : [String] = []
 
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    fileprivate func initlizeLobby() {
         // Do any additional setup after loading the view, typically from a nib.
-
+        
         let path = "/Session/\(GlobalVariables.sessionId)/Players"
         let query: Query = Firestore.firestore().collection(path)
         query.addSnapshotListener { (querySnapshot, err) in
@@ -56,10 +55,14 @@ class Lobby: UIViewController {
                     self.performSegue(withIdentifier: "StartGame", sender: self)
                 }
         }
-
+        
         Players.dataSource = self
         Players.delegate = self
-
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initlizeLobby()
     }
     
     

@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Display_Answers"
-        android:background="#C9CACE">
+        android:background="#E8E6E1">
 
     <TextView
             android:text="Question"
@@ -15,46 +15,54 @@
             android:id="@+id/quiston_at_selecton" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:textAlignment="center"
-            android:layout_marginTop="20dp" app:layout_constraintTop_toBottomOf="@+id/roundText"
-            app:layout_constraintVertical_chainStyle="spread" android:layout_marginEnd="16dp"
-            android:layout_marginStart="16dp" android:textSize="24sp" app:layout_constraintHorizontal_bias="0.0"
-            android:textColor="@android:color/black"/>
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp" android:textSize="24sp"
+            android:textColor="@android:color/black"
+            android:background="@drawable/round_corner_buttom" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/questionRoundText2"/>
     <ListView
-            android:layout_width="wrap_content"
+            android:layout_width="380dp"
             android:layout_height="275dp"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="16dp"
             android:id="@+id/answers_list"
-            android:textAlignment="center" android:textDirection="rtl" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/submit_ans"
-    />
-    <Button
-            android:text="Choose Answer Please "
-            android:layout_width="330dp"
-            android:layout_height="42dp" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/submit_ans"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:background="#FFFF"/>
+            android:textAlignment="center" android:textDirection="rtl"
+            android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/quiston_at_selecton"
+            android:background="@drawable/round_corner"/>
     <TextView
-            android:text="Round"
-            android:layout_width="144dp"
+            android:text="@string/roundText"
+            android:layout_width="168dp"
             android:layout_height="33dp"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:id="@+id/roundText" android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/roundText"
             android:textAlignment="center" android:textStyle="bold" android:textSize="18sp"
-            android:textColor="@color/colorPrimary"/>
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
+            android:background="@drawable/round_corner_tr"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/timerTxt"/>
     <TextView
-            android:text="Timer"
+            android:text="@string/questionRoundText2"
+            android:layout_width="168dp"
+            android:layout_height="33dp"
+            android:id="@+id/questionRoundText2"
+            android:textAlignment="center" android:textStyle="bold" android:textSize="18sp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:layout_marginStart="16dp" app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/round_corner_tl" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/timerTxt" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/roundText" app:layout_constraintHorizontal_bias="0.0"
+    />
+    <TextView
+            android:text="@string/timerTxt"
             android:layout_width="124dp"
             android:layout_height="20dp"
-            android:id="@+id/timerAns" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/quiston_at_selecton" android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toTopOf="@+id/answers_list" android:textSize="18sp"
-            android:textAlignment="center" app:layout_constraintVertical_bias="1.0"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            android:textColor="@android:color/holo_red_light"/>
+            android:id="@+id/timerTxt"
+            android:textSize="18sp"
+            android:textAlignment="center"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
+            app:layout_constraintStart_toStartOf="parent"/>
 </android.support.constraint.ConstraintLayout>

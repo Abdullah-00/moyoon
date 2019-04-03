@@ -10,35 +10,50 @@ import Foundation
 import UIKit
 import Alamofire
 import FirebaseFirestore
+import FirebaseUI
 
 class WriteAnswer: UIViewController {
-    var submitted : Bool = false;
+
     
-    var seconds = 11 //This variable will hold a starting value of seconds. It could be any amount above 0.
-    var timer =  Timer()
-    var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
+
+    @IBOutlet var QuestionBorder: UIView!
     
-    
-    func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(WriteAnswer.updateTimer)), userInfo: nil, repeats: true)
+    @IBAction func leaveSessionClicked(_ sender: Any) {
+        leaveSession();
     }
     
-    @IBOutlet weak var timerLabel: UILabel!
-    
-    @objc func updateTimer() {
-        seconds -= 1     //This will decrement(count down)the seconds.
-        timerLabel.text = "\(seconds)" //This will update the label.
-        if(seconds < 1){
-            sendAnswerToAPI(answer: (answerField.text)!)
-            timer.invalidate()
-            performSegue(withIdentifier: "TypeToSelect", sender: self)
+    func leaveSession(){
+        print("Sending leave Request")
+        let urlExtension = "/leaveSession/"
+        let parameters: Parameters = [
+            "session_id": GlobalVariables.sessionId,
+            "player_id": GlobalVariables.playerId
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
+        
+        Alamofire.request(urlString!, parameters: parameters).response { response in
+
         }
+        // After leave and join another variables won't reset itself
+        GlobalVariables.roundId = "1";
+        GlobalVariables.questionId = "1";
+        GlobalVariables.submitCounter = 0;
+        // End reseting variables
+        
+        self.performSegue(withIdentifier: "reset", sender: self)
     }
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        // Question boreer enhancements
+        QuestionBorder.layer.cornerRadius = 10
+        QuestionBorder.layer.masksToBounds = true
+        
         
         let questionPath = "/Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)"
         Firestore.firestore().document(questionPath)
@@ -53,13 +68,11 @@ class WriteAnswer: UIViewController {
                 }
                 print("Current data: \(data)")
                 if(data["isDoneSubmitAnswer"] as! Bool == true){
-                    self.timer.invalidate()
                     self.sendAnswerToAPI(answer: self.answerField.text!)
                     self.performSegue(withIdentifier: "TypeToSelect", sender: self)
                 }
         }
 
-        runTimer()
 
         
         // Do any additional setup after loading the view, typically from a nib.
@@ -77,18 +90,14 @@ class WriteAnswer: UIViewController {
      //   var answer = answerField.text!
       //  sendAnswerToAPI(answer: answer)
         submitButton.isEnabled = false;
+        GlobalVariables.submitCounter += 1;
     }
     
-
     
-    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
-        if identifier == "TypeToSelect"{
-            while(submitted == false){
-                //stall
-            }
-        }
-        return true;
+    func sendAnswerToAPIAux(){
+        sendAnswerToAPI(answer: (answerField.text)!);
     }
+    
     
     func sendAnswerToAPI(answer: String)
     {
@@ -104,14 +113,10 @@ class WriteAnswer: UIViewController {
         let urlString = urlRequest.url?.absoluteString
         
         Alamofire.request(urlString!, parameters: parameters).response { response in
-            print("Request: \(response.request)")
-            print("Response: \(response.response)")
-            print("Error: \(response.error)")
-            print("Timeline: \(response.timeline)")
+
             if let data = response.data, let result = String(data: data, encoding: .utf8) {
-                print("Data: \(result)")
+
             }
         }
-        submitted = true;
     }
 }

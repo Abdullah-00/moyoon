@@ -1,8 +1,39 @@
 <resources>
     <string name="app_name">Moyoon</string>
-    <string name="join">Join</string>
+    <string name="join">join</string>
     <string name="Session_Code">Session Code</string>
     <string name="Lie">Lie</string>
     <string name="Submit_lie">Submit</string>
     <string name="nickname">Enter your name</string>
+    <string name="login">Login</string>
+    <string name="joinR">JOIN RANDOMLY</string>
+    <string name="Sign_out">SIGN OUT</string>
+    <string name="GoPlay">START PLAY</string>
+    <string name="menuProfile">Profile</string>
+    <string name="leave">leave</string>
+
+    <string name="profileTxtV">PROFILE</string>
+    <string name="usernameTextView">NAME</string>
+    <string name="emailTextView">EMAIL</string>
+    <string name="gamesPlayedText">GAMES PLAYED</string>
+    <string name="lastScoreText">LAST SCORE</string>
+    <string name="totalScoreText">TOTAL SCORE</string>
+    <string name="winsText">WINS</string>
+    <string name="modifyButton">RESET</string>
+    <string name="textViewPlayers">Players</string>
+
+    <string name="timerTxt">Timer</string>
+    <string name="questionRoundText7">"Question: "</string>
+    <string name="questionRoundText2">"Question: "</string>
+    <string name="roundText">"Round: "</string>
+
+    <string name="welcome">GAME OVER !</string>
+    <string name="LieToWin">Thanks</string>
+    <string name="EndHome">HOME</string>
+
+
+    <string name="facebook_app_id" translatable="false">341762823333904</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb341762823333904</string>
+
+
 </resources>

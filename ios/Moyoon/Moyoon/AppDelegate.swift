@@ -7,24 +7,55 @@
 //
 
 import UIKit
+import FirebaseUI
 import Firebase
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
+    
+
 
     var window: UIWindow?
 
-
+    
+    func application(_ app: UIApplication, open url: URL,
+                     options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
+        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            
+            return true
+        }
+        // other URL handling goes here.
+        return false
+    }
+    
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?)
         -> Bool {
+
             FirebaseApp.configure()
             let db = Firestore.firestore()
             let settings = db.settings
             settings.areTimestampsInSnapshotsEnabled = true
             db.settings = settings
+            let authUI = FUIAuth.defaultAuthUI()
+            // You need to adopt a FUIAuthDelegate protocol to receive callback
+            authUI?.delegate = self
+            
+            let providers: [FUIAuthProvider] = [
+                FUIGoogleAuth(),
+                FUIFacebookAuth(),
+                FUITwitterAuth(),
+                FUIPhoneAuth(authUI:FUIAuth.defaultAuthUI()!),
+                ]
+            authUI!.providers = providers
+            
             return true
     }
+    
+    func authUI(_ authUI: FUIAuth, didSignInWith authDataResult: AuthDataResult?, error: Error?) {
+    }
+    
 
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

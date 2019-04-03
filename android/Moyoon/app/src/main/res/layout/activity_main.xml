@@ -6,12 +6,25 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity"
-        android:background="#C9CACE" tools:layout_editor_absoluteY="81dp">
+        android:background="#E8E6E1" tools:layout_editor_absoluteY="81dp">
 
 
+    <Button
+            android:text="@string/joinR"
+            android:layout_width="216dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/joinR"
+            android:textStyle="normal|bold"
+            android:layout_marginBottom="44dp" app:layout_constraintHorizontal_bias="0.497"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/login"
+            app:layout_constraintVertical_bias="1.0"
+            android:background="#008577"
+            android:textColor="#ffffff"
+    />
     <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_width="221dp"
+            android:layout_height="41dp"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/Sission_Code"
@@ -19,47 +32,46 @@
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/LieToWin"
-            app:layout_constraintHorizontal_bias="0.518"/>
+            app:layout_constraintHorizontal_bias="0.497" app:layout_constraintTop_toBottomOf="@+id/logo"
+            android:layout_marginTop="60dp"/>
     <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_width="221dp"
+            android:layout_height="41dp"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/nickname"
             android:background="#FFFFFF" android:hint="@string/nickname" android:textAlignment="center"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintHorizontal_bias="0.525"
-            android:layout_marginTop="16dp" app:layout_constraintTop_toBottomOf="@+id/Sission_Code"
-    />
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/Sission_Code"
+            app:layout_constraintHorizontal_bias="0.497"/>
     <Button
-            android:text="@string/join"
-            android:layout_width="216dp"
-            android:layout_height="48dp"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" android:id="@+id/join"
-            android:background="#2493C8"
-            android:textColor="#FFFF" android:textStyle="normal|bold"
-            android:layout_marginBottom="116dp" app:layout_constraintHorizontal_bias="0.517"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/nickname"
-            app:layout_constraintVertical_bias="0.016"/>
-    <TextView
-            android:text="Welcome to Moyoon"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/welcome" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toTopOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:textStyle="bold"
-            android:fontFamily="monospace" android:textAlignment="center" android:textSize="30sp"
-            android:layout_marginEnd="16dp" android:layout_marginStart="16dp" android:textColor="#FFFFFF"/>
-    <TextView
-            android:text="Lie To Win!"
-            android:layout_width="0dp"
-            android:id="@+id/LieToWin"
+            android:layout_width="221dp"
+            android:layout_height="41dp" app:srcCompat="@drawable/rectangle_submit"
+            android:id="@+id/join" android:layout_marginTop="32dp"
+            app:layout_constraintTop_toBottomOf="@+id/nickname" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:scaleType="fitXY"
+            android:background="#008577"
+            android:textColor="#ffffff" android:text="@string/join"/>
+    <Button
+            android:layout_height="50dp" app:srcCompat="@drawable/rectangle_login2"
+            android:id="@+id/login"
+            android:layout_width="221dp" android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/join" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:scaleType="fitXY"
+            app:layout_constraintHorizontal_bias="0.502"
+            android:text="@string/login"
+            android:background="#008577"
+            android:textColor="#ffffff"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" app:srcCompat="@drawable/moyoon_logo"
+            android:id="@+id/logo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="16dp"
-            app:layout_constraintTop_toBottomOf="@+id/welcome" android:layout_height="wrap_content"
-            android:fontFamily="monospace" android:textAlignment="center" android:textSize="24sp"
-            android:layout_marginEnd="16dp" android:layout_marginStart="16dp" android:textColor="#FFFFFF"/>
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"/>
 </android.support.constraint.ConstraintLayout>

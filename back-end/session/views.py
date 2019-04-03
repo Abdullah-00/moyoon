@@ -68,7 +68,7 @@ def createSessionView(request):
     if(is_provided=="False"):
         catagory_id = request.GET.get('catagory_id')
         query_set = Question.objects.filter(Category_parent=catagory_id)
-        x = createSessionByCategory(query_set)
+        x = createSessionByCategory(query_set,True)
 
         # Questions coming from User
     elif(request.method == 'POST'):
@@ -120,11 +120,21 @@ def chooseCategoryView(request):
 def enterSessionView(request):
     nick_name = request.GET.get('nick_name')
     session_id = request.GET.get('session_id')
-    if(checkAddPlayer(session_id)):
-        x = addPlayers(session_id, nick_name)
-        return HttpResponse(x.id)
+    if(session_id != None):
+        if(checkAddPlayer(session_id)):
+            x = addPlayers(session_id, nick_name)
+            return HttpResponse(x.id)
+        else:
+            return HttpResponse("Cannot get you inside the session.")
     else:
-        return HttpResponse("Cannot get you inside the session.")
+        category = request.GET.get('category')
+        query_set = Category.objects.get(name=category)
+        questions = Question.objects.filter(Category_parent=query_set)
+        x = searchForSession(nick_name,questions)
+        if (checkNumberOfPlayers(x[1].id)):
+            t = Thread(target=SecondControllerView, args=(x[1].id,))
+            t.start()
+        return HttpResponse(x[0].id+","+x[1].id)
 
 #TC1:
 #   Link: http://127.0.0.1:8000/SubmitAnswer/?session_id=CSC8hsgaLCwz6OcLmblN&round_id=1&question_id=1&player_id=9fCmtNjkb0OavZX8mdYO&answer=6
@@ -162,7 +172,7 @@ def SubmitAnswerChoiceView(request):
     else:
         # subtract 10 points
         decrementPlayerScore(session_id, player_id, 10)
-        incrementAuthorScore(session_id, round_id, question_id, answer)
+        incrementAuthorScore(session_id, round_id, question_id, player_id, answer)
         return HttpResponse("Done Submit wrong choice")
 
 def SecondControllerView(session_id):
@@ -177,3 +187,13 @@ def controllerView(request):
     t = Thread(target=SecondControllerView, args=(session_id, ))
     t.start()
     return HttpResponse("Game Ended")
+
+#Link: http://127.0.0.1:8000/leaveSession/?session_id=CSC8hsgaLCwz6OcLmblN&player_id=9fCmtNjkb0OavZX8mdYO&answer=7
+def leaveSession(request):
+    player_id = request.GET.get('player_id')
+    session_id = request.GET.get('session_id')
+    leaveController(player_id, session_id)
+
+    return HttpResponse('Done')
+
+

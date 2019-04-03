@@ -12,6 +12,9 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.collections.ArrayList
 import android.widget.AdapterView
 import android.os.CountDownTimer
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -19,18 +22,29 @@ import com.android.volley.toolbox.Volley
 import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.QuerySnapshot
+import com.google.protobuf.Empty
+import java.util.*
 
 class Display_Answers : AppCompatActivity() {
     private lateinit var questionDesplay : TextView
     private lateinit var db : FirebaseFirestore
     private lateinit var answerslist : ListView
-    private lateinit var submit : Button
+    private lateinit var submit : ImageButton
     private lateinit var playersAnswer : ArrayList<String>
     private lateinit var roundText : TextView //Round Number
+    private lateinit var queistionText : TextView //Round Number
     private lateinit var arrayAdapter:ArrayAdapter<String>
     private lateinit var timerTxtAns : TextView //PLayer Lie
-    private val intentTypeLie : Intent = Intent(this,Type_Lie::class.java)
-    private val intentEndOfGame : Intent = Intent(this,EndOfGame::class.java)
+    private lateinit var intentTypeLie : Intent
+    private lateinit var intentEndOfGame : Intent
+    lateinit var Home : Intent
+    lateinit  var timer2: MyCounter
+
+
+
+
+
+
     //private var chooseAnswer: Boolean? = false
     //private lateinit var intentCorrect : Intent
     //private lateinit var intentWrong : Intent
@@ -43,60 +57,42 @@ class Display_Answers : AppCompatActivity() {
 
         db = FirebaseFirestore.getInstance()
         roundText = findViewById(R.id.roundText)
+        queistionText = findViewById(R.id.questionRoundText2)
         questionDesplay = findViewById(R.id.quiston_at_selecton)
         answerslist = findViewById(R.id.answers_list)
-        submit = findViewById(R.id.submit_ans)
+     //   submit = findViewById(R.id.submit_ans)
         playersAnswer = ArrayList()
+        intentTypeLie = Intent(this,Type_Lie::class.java)
+        intentEndOfGame = Intent(this,EndOfGame::class.java)
+        Home = Intent(this,MainActivity::class.java)
 
 
-        //intentCorrect = Intent(this,Correct::class.java)
-        //intentWrong = Intent(this,Wrong::class.java)
 
+        roundText.text = roundText.text.toString() + Global.roundID[Global.roundNum]
+        queistionText.text =   queistionText.text.toString() + Global.questionNum
 
-
-        roundText.text = "Round " + Global.roundID[Global.roundNum] +"\n Question " +Global.questionNum
         questionDesplay.text = Global.question
-        timerTxtAns =findViewById<TextView>(R.id.timerAns)
+        timerTxtAns =findViewById<TextView>(R.id.timerTxt)
 
-        val timer2 = MyCounter(10000, 1000)
+       timer2 = MyCounter(10000, 1000)
         timer2.start()
-        //isDoneChooseAnswer()
-//        if (chooseAnswer == true)
-//            timer2.cancel()
 
-        //GetAnswers
         getAnswers()
 
         answerslist.setOnItemClickListener { parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
-           submit.text= "You choose: "+playersAnswer[position]
+        //
+
+            //   submit.text= "You choose: "+playersAnswer[position]
             Global.pAnswer = playersAnswer[position]
             Log.d("nnnnnnnn", playersAnswer[position])
+            Toast.makeText(baseContext, "You Select: "+ Global.pAnswer, Toast.LENGTH_SHORT).show()
+
             Log.d("nnnnnnnn", position.toString())
         }
 
     }
 
-    private fun isDoneChooseAnswer() {
-        db.collection("Session").document(Global.sessionID)
-            .collection("Rounds").document(Global.roundID[Global.roundNum])
-            .collection("Questions").document(Global.questionNum.toString())
-            .addSnapshotListener(EventListener<DocumentSnapshot> { document, e ->
-                if (e != null) {
-                    Log.w("33333", "listen:error", e)
-                    return@EventListener
-                }
-//                chooseAnswer = document!!.getBoolean("isDoneChooseAnswer")
-//                if (chooseAnswer == true) {
-//                    SendtoServer()
-//                    // Check if the Game is done or not
-//                    if(Global.roundNum >= 3)
-//                        startActivity(intentEndOfGame)
-//                    else
-//                        startActivity(intentTypeLie)
-//                }
-            }
-            )
-    }
+  
 
     /////////////////////////////////////////////////////////////////////
     inner class MyCounter(millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
@@ -106,22 +102,28 @@ class Display_Answers : AppCompatActivity() {
         }
 
         override fun onFinish() {
-            println("Timer Completed.")
+            if(Global.pAnswer.isEmpty() && Global.playerLie.isEmpty()){
+                Global.KickCounter++
+            }
             timerTxtAns.text = "Timer Completed."
-            SendtoServer()
+     SendtoServer()
 
-            if (Global.roundNum >= 3 && Global.questionNum >=3)
-                startActivity(intentEndOfGame)
-            else
-                startActivity(intentTypeLie)
+            if(Global.LeaveSession) {
 
-//            if(Global.pAnswer == Global.qAnswer) {
-//                    startActivity(intentCorrect)
-//            }
-//            else {
-//                    startActivity(intentWrong)
-//            }
+                if(Global.KickCounter == 3){
+                    Global.LeaveSession = false
+                    SendtoServerLeave()
+                    Toast.makeText(baseContext, "You are Kicked out", Toast.LENGTH_SHORT).show()
+                    startActivity(Home)
 
+                }else if (Global.roundNum == 2 && Global.questionNum == 3)
+                    startActivity(intentEndOfGame)
+                else
+                    startActivity(intentTypeLie)
+            }else timer2.cancel()
+
+            Global.pAnswer= ""
+            Global.playerLie = ""
         }
     }
 
@@ -147,10 +149,28 @@ class Display_Answers : AppCompatActivity() {
             arrayAdapter = list_view_answerss(this,R.layout.list_view_answers,playersAnswer)
             answerslist.adapter = arrayAdapter
 
+            fun <playersAnswer> Array<playersAnswer>.shuffled(): Array<playersAnswer> {
+                val rng = Random()
+
+                for (index in 0..this.size - 1) {
+                    val randomIndex = rng.nextInt(index)
+                    Log.d("ggggg","tryrty")
+
+                    // Swap with the random position
+                    val temp = this[index]
+                    this[index] = this[randomIndex]
+                    this[randomIndex] = temp
+                }
+
+                return this
+            }
+
             // instead of simply using the entire query snapshot
             // see the actual changes to query results between query snapshots (added, removed, and modified)
         })
     }
+
+
 
     private fun SendtoServer() {
 
@@ -171,5 +191,49 @@ class Display_Answers : AppCompatActivity() {
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu1, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Handle item selection
+        return when (item.itemId) {
+            R.id.leave -> {
+                Global.LeaveSession =false
+                timer2.cancel()
+                SendtoServerLeave()
+                startActivity(Home)
+
+                true
+            }
+
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun SendtoServerLeave() {
+
+        val queue = Volley.newRequestQueue(this)
+        val url = "http://68.183.67.247:8000/leaveSession/?session_id="+Global.sessionID+"&player_id="+Global.playerID
+        Log.d("eeeeee","ohuuygu")
+
+        // Request a string response from the provided URL.
+        val stringRequest = StringRequest(Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                // Display the first 500 characters of the response string.
+                //  Global.nickname = response.substringAfter(",",",").trim()
+                //   Global.playerID = response.substringBefore(",").trim()
+                Log.d("eeeeee",Global.nickname)
+            },
+            Response.ErrorListener { Log.d("t", "That didn't work!") })
+
+        // Add the request to the RequestQueue.
+        queue.add(stringRequest)
+
+
     }
 }

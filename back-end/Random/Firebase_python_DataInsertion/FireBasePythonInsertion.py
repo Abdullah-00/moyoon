@@ -30,14 +30,23 @@ def randomString():
         strg = strg + y
     return strg
 
-def createSessionByCategory(questions):
+def createSessionByCategory(questions, isPrivate):
     db = firestore.client()
     x = randomString()
     doc_ref = db.collection(u'Session').document(x)
     session_id = doc_ref
-    data2 = {
-        u'addPlayers' : True
-    }
+    if(isPrivate):
+        data2 = {
+            u'addPlayers' : True,
+            u'isPrivate': True,
+            u'isFull': False
+        }
+    else:
+        data2 = {
+            u'addPlayers': True,
+            u'isPrivate': False,
+            u'isFull': False
+        }
     session_id.set(data2)
 
     for i in range(3):
@@ -57,7 +66,8 @@ def createSessionByCategory(questions):
                 u'Photo' : "URL",
                 u'Correct_Answer' : questions[j].Correct_answer,
                 u'isDoneSubmitAnswer' : False,
-                u'isDoneChooseAnswer' : False
+                u'isDoneChooseAnswer' : False,
+                u'isDoneShowingTheResult' : False
             }
             question_id.set(data2)
     return session_id
@@ -68,7 +78,9 @@ def createSessionWithUserInput(questions, round_limit):
     doc_ref = db.collection(u'Session').document(x)
     session_id = doc_ref
     data2 = {
-        u'addPlayers' : True
+        u'addPlayers' : True,
+        u'isPrivate': True,
+        u'isFull': False
     }
     session_id.set(data2)
 
@@ -95,7 +107,8 @@ def createSessionWithUserInput(questions, round_limit):
             u'Photo': "URL",
             u'Correct_Answer': questions[j].Correct_answer,
             u'isDoneSubmitAnswer': False,
-            u'isDoneChooseAnswer': False
+            u'isDoneChooseAnswer': False,
+            u'isDoneShowingTheResult' : False
         }
         question_id.set(data2)
         j +=1
@@ -139,6 +152,8 @@ def checkAddPlayer(session_id):
     db = firestore.client()
     doc_ref = db.collection(u'Session').document(session_id)
     addplayer = doc_ref.get().to_dict()
+    if(addplayer == None):
+        return False
     for key, value in addplayer.items():
         addplayer = value
         break
@@ -152,17 +167,20 @@ def addPlayers(session_id, nick_name):
     player_id = doc_ref
     data = {
         u'nick-name' : nick_name,
-        u'Score' : 0
+        u'Score' : 0,
+        u'isSuspended': False,
+        u'winner' : False,
+        u'winnerFlagIsUpdated' : False
     }
     doc_ref.set(data)
     return player_id
+
 
 def isCorrctAnswer(session_id, round_id, question_id):
     db = firestore.client()
     doc_ref = db.collection(u'Session').document(session_id)\
         .collection(u'Rounds').document(round_id)\
         .collection(u'Questions').document(question_id)
-    question_doc_id = doc_ref
     question_info = doc_ref.get().to_dict()
     answer = ""
     for key, value in question_info.items():
@@ -218,7 +236,7 @@ def decrementPlayerScore(session_id, player_id, points):
     }
     doc_ref.set(data)
 
-def incrementAuthorScore(session_id, round_id, question_id, answer):
+def incrementAuthorScore(session_id, round_id, question_id, player_id, answer):
     db = firestore.client()
     Answer_col = db.collection(u'Session').document(session_id)\
         .collection(u'Rounds').document(round_id)\
@@ -227,14 +245,16 @@ def incrementAuthorScore(session_id, round_id, question_id, answer):
     answer_doc = Answer_col.get()
     for i in answer_doc:
         answer_info = i.to_dict()
-        if(answer_info['Answer'] == answer):
+        if(answer_info['Answer'] == answer and player_id != answer_info['player_id']):
             incrementPlayerScore(session_id, answer_info['player_id'], 10)
             
 def changeAddplayers(session_id):
     db = firestore.client()
     doc_ref = db.collection(u'Session').document(session_id)
     data = {
-        u'addPlayers' : False
+        u'addPlayers' : False,
+        u'isPrivate': True,
+        u'isFull': False
     }
     doc_ref.set(data)
 
@@ -282,10 +302,70 @@ def gameController(session_id):
         round_info = round_doc.get().to_dict()
         round_info['isDone'] = True
         round_doc.set(round_info)
+        checkPlayerScore(session_id)
         counter += 1
+    winner(session_id)
     time.sleep(300)
     round_col = db.collection(u'Session').document(session_id).delete()
     return (counter, qCounter)
+
+def winner(session_id):
+    db = firestore.client()
+    players_col = db.collection(u'Session').document(session_id).collection(u'Players')
+    players_list = players_col.get()
+    max_score = -99999999
+    player_id = 0
+    for i in players_list:
+        player_info = i.to_dict()
+        player_score = player_info['Score']
+        if(player_score > max_score):
+            max_score = player_score
+            player_id = i.id
+
+    player_doc = db.collection(u'Session').document(session_id).collection(u'Players').document(player_id)
+    player_info = player_doc.get()
+    data = {
+            u'nick-name': player_info['nick-name'],
+            u'Score': player_info['Score'],
+            u'isSuspended' : player_info['isSuspended'],
+            u'winner' : True,
+            u'winnerFlagIsUpdated' : True
+    }
+    player_doc.set(data)
+    players_col = db.collection(u'Session').document(session_id).collection(u'Players')
+    players_list = players_col.get() 
+    for i in players_list:
+        player_info = i.to_dict()
+        data = {
+            u'nick-name': player_info['nick-name'],
+            u'Score': player_info['Score'],
+            u'isSuspended' : player_info['isSuspended'],
+            u'winner' : player_info['winner'],
+            u'winnerFlagIsUpdated' : True
+        }
+        player_doc = db.collection(u'Session').document(session_id).collection(u'Players').document(i.id).set(data)
+            
+
+def checkPlayerScore(session_id):
+    db = firestore.client()
+    players_col = db.collection(u'Session').document(session_id).collection(u'Players')
+    players_list = players_col.get()
+
+    for i in players_list:
+        player_info = i.to_dict()
+        if(player_info['Score'] >= -20):
+            player_info['isSuspended'] = False
+        elif(player_info['Score'] <= -50):
+            player_info['isSuspended'] = True
+        data = {
+            u'nick-name': player_info['nick-name'],
+            u'Score': player_info['Score'],
+            u'isSuspended' : player_info['isSuspended'],
+            u'winner' : player_info['winner']
+        }
+        dict_ref = players_col.document(i.id)
+        dict_ref.set(data)
+
 
 def questionController(session_id, round_id):
     db = firestore.client()
@@ -297,10 +377,10 @@ def questionController(session_id, round_id):
     counter = 0
     for i in question_id:
         time.sleep(10)
-        flagChanger(session_id, round_id, i, True)
+        flagChanger(session_id, round_id, i, True, False)
         time.sleep(10)
-        flagChanger(session_id, round_id, i, False)
-        counter += 1
+        flagChanger(session_id, round_id, i, False, False)
+        counter += 1 
     
     return counter
 
@@ -308,13 +388,57 @@ def questionController(session_id, round_id):
 # If flag == True then change isDoneSubmitAnswer
 # If flag == False then change isDoneChooseAnswer
 #
-def flagChanger(session_id, round_id, question_id, flag):
+def flagChanger(session_id, round_id, question_id, flag, flag2):
     db = firestore.client()
     question_doc = db.collection(u'Session').document(session_id).collection(u'Rounds').document(round_id).collection(u'Questions').document(question_id)
     question_info = question_doc.get().to_dict()
-    if(flag):
+    if(flag2):
+        question_info['isDoneShowingTheResult'] = True
+    elif(flag):
         question_info['isDoneSubmitAnswer'] = True
     else:
         question_info['isDoneChooseAnswer'] = True
     question_doc.set(question_info)
 
+
+def searchForSession(nick_name,questions):
+    db = firestore.client()
+    doc_ref = db.collection(u'Session')
+    session_list = doc_ref.get()
+
+    for i in session_list:
+        doc = i.to_dict()
+        if (doc["isPrivate"] == False and doc["isFull"] == False):
+            x = addPlayers(i.id, nick_name)
+            session_id = i
+            return (x,session_id)
+
+    session_id = createSessionByCategory(questions, False)
+    player_id = addPlayers(session_id.id,nick_name)
+    return (player_id,session_id)
+
+def checkNumberOfPlayers(session_id):
+    db = firestore.client()
+    players_list = db.collection(u'Session').document(session_id).collection(u'Players').get()
+    count = 0
+    for i in players_list:
+        count +=1
+        if(count == 4):
+            return True
+    return False
+
+
+
+
+
+def leaveController(player_id,session_id):
+    db = firestore.client()
+    player_doc = db.collection(u'Session').document(session_id).collection(u'Players')
+    players_list = player_doc.get()
+
+    for i in players_list:
+
+        if (i.id == player_id):
+            player = db.collection(u'Session').document(session_id).collection(u'Players').document(i.id).delete()
+        else:
+            return ('Player id Does not exist')

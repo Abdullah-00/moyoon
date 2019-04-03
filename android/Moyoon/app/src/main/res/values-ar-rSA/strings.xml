@@ -3,8 +3,34 @@
     <string name="app_name">مُيُونْ</string>
     <string name="join">انضمام</string>
     <string name="Session_Code">رقم الجلسة</string>
-    <string name="Lie">كيّس</string>
+    <string name="Lie">المَين</string>
     <string name="Submit_lie">ارسال</string>
     <string name="nickname">ادخل اسمك</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="joinR">لعبة عشوائية</string>
+    <string name="Sign_out">تسجيل الخروج</string>
+    <string name="GoPlay">بدء اللعب</string>
+    <string name="menuProfile">الملف الشخصي</string>
+    <string name="leave">خروج</string>
+    <string name="profileTxtV">الملف الشخصي</string>
+    <string name="usernameTextView">الاسم</string>
+    <string name="emailTextView">الايميل</string>
+    <string name="gamesPlayedText">الجلسات الملعوبة</string>
+    <string name="lastScoreText">اخر نتيجة</string>
+    <string name="totalScoreText">مجموع النقاط</string>
+    <string name="winsText">الفوز</string>
+    <string name="modifyButton">اعادة الضبط</string>
+    <string name="textViewPlayers">اللاعبون</string>
+    <string name="timerTxt">الوقت</string>
+    <string name="questionRoundText7">"السؤال: "</string>
+    <string name="roundText">"الجولة: "</string>
+    <string name="questionRoundText2">"السؤال: "</string>
+    <string name="welcome">انتهت اللعبة!</string>
+    <string name="LieToWin">شكرا</string>
+    <string name="EndHome">الصفحة الرئيسية</string>
+
+
+    <!--<string name="facebook_app_id">341762823333904</string>-->
+    <!--<string name="fb_login_protocol_scheme">fb341762823333904</string>-->
 
 </resources>

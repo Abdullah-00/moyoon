@@ -13,14 +13,69 @@ import FirebaseFirestore
 
 class Question: UIViewController {
     
-    override func viewDidLoad() {        
+    @IBOutlet var status: UILabel!
+    
+    let db = Firestore.firestore()
+    override func viewDidLoad() {
+        runTimer()
         super.viewDidLoad()
         getQuestion()
-
-        // Do any additional setup after loading the view, typically from a nib.
+        updateScore();
+        
+        // Check suspension
+        var q = false;
+        let isSuspended = db.collection("Session").document(GlobalVariables.sessionId).collection("Players").document(GlobalVariables.playerId)
+        
+        isSuspended.getDocument { (document, error) in
+            if let document = document, document.exists {
+                
+                if document.data()!["isSuspended"] != nil {
+                    q = document.data()!["isSuspended"] as! Bool
+                }
+                //self.question.text = q
+                
+                print("Suspended: \(q)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+        if(!q)
+        {
+            GlobalVariables.isSunspended = q;
+            status.text = "Active"
+            status.textColor = hexStringToUIColor(hex: "#06BC00")
+        }
+        else
+        {
+            GlobalVariables.isSunspended = q;
+            status.text = "Suspended"
+            status.textColor = UIColor.red
+        }
+        
     }
     @IBOutlet weak var question: UILabel!
     
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
+    }
     override func viewWillAppear(_ animated: Bool) {
         questionNumberLabel.text = "Question: \(GlobalVariables.questionId)"
         roundNumberLabel.text = "Round: \(GlobalVariables.roundId)"
@@ -28,6 +83,7 @@ class Question: UIViewController {
     
     @IBOutlet weak var questionNumberLabel: UILabel!
     @IBOutlet weak var roundNumberLabel: UILabel!
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -37,7 +93,7 @@ class Question: UIViewController {
     
     
     func getQuestion(){
-        let db = Firestore.firestore()
+        
 
         let docRef = db.collection("Session").document(GlobalVariables.sessionId).collection("Rounds").document(GlobalVariables.roundId).collection("Questions").document(GlobalVariables.questionId)
         
@@ -48,6 +104,45 @@ class Question: UIViewController {
                 print("Document data: \(q)")
             } else {
                 print("Document does not exist")
+            }
+        }
+    }
+    
+    @IBOutlet weak var timerLabel: UILabel!
+    func updateScore(){
+        //
+        let docPath = "/Session/\(GlobalVariables.sessionId)/Players/\(GlobalVariables.playerId)/"
+        let docRef = db.document(docPath)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let score = document.data()!["Score"] as! Int
+                GlobalVariables.currentScore = score;
+                print("Current Score: \(score)")
+            } else {
+                print("Score not found")
+            }
+        }
+    }
+        
+    var seconds = 11 //This variable will hold a starting value of seconds. It could be any amount above 0.
+    var timer =  Timer()
+    var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
+    
+    
+    func runTimer() {
+        if(!isTimerRunning){
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(Question.updateTimer)), userInfo: nil, repeats: true)
+        }
+        isTimerRunning = true;
+    }
+    
+    
+    @objc func updateTimer() {
+        if(isTimerRunning){
+            seconds -= 1     //This will decrement(count down)the seconds.
+            timerLabel.text = "\(seconds)" //This will update the label.
+            if(seconds < 1){
+                timer.invalidate()
             }
         }
     }

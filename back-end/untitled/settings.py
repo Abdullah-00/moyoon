@@ -43,7 +43,13 @@ INSTALLED_APPS = [
     'content.apps.ContentConfig',
     'session.apps.SessionConfig',
     'shared_screen.apps.SharedScreenConfig',
+    #'social_django',
 ]
+
+# AUTHENTICATION_BACKENDS = (
+#     'social_core.backends.google.GoogleOAuth2',
+#     'django.contrib.auth.backends.ModelBackend',
+# )
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

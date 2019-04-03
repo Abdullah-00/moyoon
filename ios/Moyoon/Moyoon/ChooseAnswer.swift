@@ -10,10 +10,15 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseFirestore
+import Alamofire
 
 class ChooseAnswer: UIViewController {
     
-
+    
+    @IBOutlet var status: UILabel!
+    
+    
+    let db = Firestore.firestore()
     @IBOutlet weak var collectionView: UICollectionView!
     
     var dataArray : [String] = []
@@ -22,33 +27,69 @@ class ChooseAnswer: UIViewController {
     var cellMarginSize = 10.0
     
 
-    var seconds = 11 //This variable will hold a starting value of seconds. It could be any amount above 0.
-    var timer =  Timer()
-    var isTimerRunning = false //This will be used to make sure only one timer is created at a time.
     
+    var sent = false;
     
-    func runTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(WriteAnswer.updateTimer)), userInfo: nil, repeats: true)
+    @IBAction func leaveSessionClicked(_ sender: Any) {
+        leaveSession();
     }
+    
+    func leaveSession(){
+        print("Sending leave Request")
+        let urlExtension = "/leaveSession/"
+        let parameters: Parameters = [
+            "session_id": GlobalVariables.sessionId,
+            "player_id": GlobalVariables.playerId
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
+        
+        Alamofire.request(urlString!, parameters: parameters).response { response in
+
+        }
+        // After leave and join another variables won't reset itself
+        GlobalVariables.roundId = "1";
+        GlobalVariables.questionId = "1";
+        GlobalVariables.submitCounter = 0;
+        // End reseting variables
+        
+        self.performSegue(withIdentifier: "reset", sender: self)
+    }
+    
+
     
     @IBOutlet weak var timerLabel: UILabel!
     
-    @objc func updateTimer() {
-        seconds -= 1     //This will decrement(count down)the seconds.
-        timerLabel.text = "\(seconds)" //This will update the label.
-        if(seconds < 1){
-            timer.invalidate()
-            incrementQuestionsAndRounds()
-        }
-    }
+
     
+    @IBOutlet var AnswersBorder: UICollectionView!
     
+    @IBOutlet var QuestionBorder: UIView!
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (GlobalVariables.isSunspended == true)
+        {
+            collectionView.allowsSelection = false
+        }
+        else
+        {
+            collectionView.allowsSelection = true
+        }
+        
+        // Answeres border enhancements
+        AnswersBorder.layer.cornerRadius = 10
+        AnswersBorder.layer.masksToBounds = true
+        
+        // Question boreer enhancements
+        QuestionBorder.layer.cornerRadius = 10
+        QuestionBorder.layer.masksToBounds = true
+        
         let questionPath = "/Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)"
-        Firestore.firestore().document(questionPath)
+        db.document(questionPath)
             .addSnapshotListener { documentSnapshot, error in
                 guard let document = documentSnapshot else {
                     print("Error fetching document: \(error!)")
@@ -60,13 +101,12 @@ class ChooseAnswer: UIViewController {
                 }
                 print("Current data: \(data)")
                 if(data["isDoneChooseAnswer"] as! Bool == true){
-                    self.timer.invalidate()
                     self.incrementQuestionsAndRounds()
                 }
         }
         
-        runTimer()
-        
+        //runTimer()
+
         
         
         // Set Delegates
@@ -92,7 +132,7 @@ class ChooseAnswer: UIViewController {
     func getAnswers(){
 
         // false answers
-        let db = Firestore.firestore()
+        
         let path = "Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)/Answer"
         print (path)
         db.collection(path).addSnapshotListener() { (querySnapshot, err) in
@@ -134,7 +174,6 @@ class ChooseAnswer: UIViewController {
 
     
     override func viewWillAppear(_ animated: Bool) {
-
         getAnswers()
     }
     
@@ -147,21 +186,29 @@ class ChooseAnswer: UIViewController {
     // MARK: UITableViewDataSource
     @IBOutlet weak var submitButton: UIButton!
     
+    
     @IBAction func selectAnswer(_ sender: Any) {
+        GlobalVariables.submitCounter += 1;
         submitButton.isEnabled = false;
 }
 
     func incrementQuestionsAndRounds() {
-        GlobalVariables.sent = false;
         if ( (Int(GlobalVariables.roundId)==3) && (Int(GlobalVariables.questionId)==3) ){
             performSegue(withIdentifier: "Finished", sender: self)
             return;
         }
+        if(GlobalVariables.submitCounter == 0 && Int(GlobalVariables.questionId) == 3)
+        {
+            leaveSession();
+            return;
+        }
         GlobalVariables.questionId = String(Int(GlobalVariables.questionId)!+1)
         if(Int(GlobalVariables.questionId)! == 4){
+            GlobalVariables.submitCounter = 0;
             GlobalVariables.questionId = String(1)
             GlobalVariables.roundId = String(Int(GlobalVariables.roundId)!+1)
         }
+        
         performSegue(withIdentifier: "SelectToType", sender: self)
     }
 }
@@ -169,19 +216,46 @@ class ChooseAnswer: UIViewController {
 
 
 
-extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching {
+extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePrefetching, UICollectionViewDelegate {
     
     func collectionView(_: UICollectionView, prefetchItemsAt: [IndexPath]){
         
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-     //   print("section: \(indexPath.row)")
-
+        if(!sent){
+            sent=true;
+            collectionView.allowsSelection = false;
+            if let cell = collectionView.cellForItem(at: indexPath) as? ItemCell {
+                cell.backgroundColor = UIColor.orange
+                sendAnswerToAPI(answer: cell.textLabel.text!)
+            }
+        }
+    }
+    
+    
+    func sendAnswerToAPI(answer: String)
+    {
+        print("Answer Selection Sent : \(answer)")
+        let urlExtension = "/SubmitAnswerChoice/"
+        let parameters: Parameters = [
+            "player_id": GlobalVariables.playerId,
+            "session_id": GlobalVariables.sessionId,
+            "question_id": GlobalVariables.questionId,
+            "round_id": GlobalVariables.roundId,
+            "answer": answer
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
+        
+        Alamofire.request(urlString!, parameters: parameters).response { response in
+            
+            if let data = response.data, let result = String(data: data, encoding: .utf8) {
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
         collectionView.reloadData()
         return self.dataArray.count
     }
@@ -189,9 +263,13 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCell
         cell.setData(text: self.dataArray[indexPath.row])
-        
         return cell
     }
+    
+    
+
+    
+    
 }
 
 extension ChooseAnswer: UICollectionViewDelegateFlowLayout {
@@ -209,6 +287,8 @@ extension ChooseAnswer: UICollectionViewDelegateFlowLayout {
         
         return width
     }
+    
+
 }
 
 
