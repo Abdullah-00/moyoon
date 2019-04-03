@@ -40,12 +40,13 @@ class PlayerlistActivity : AppCompatActivity() {
 
                 override fun  run() {
                     getPlayers()
+
                 }
             },
             0, 2000
         )   // 1000 Millisecond  = 1 second
 
-        getNumOfRounds()
+     getNumOfRounds()
 
         StartPlayFlag()
 
@@ -77,7 +78,7 @@ class PlayerlistActivity : AppCompatActivity() {
 
 
 
-        private fun getPlayers() {
+         private fun getPlayers() {
 
                 db.collection("Session").document(Global.sessionID)
             .collection("Players")
@@ -101,22 +102,26 @@ class PlayerlistActivity : AppCompatActivity() {
 
 
     private fun getNumOfRounds() {
-        var i =0 // for test
-        //Finding NUMBER of Rounds
-        db.collection("Session").document(Global.sessionID)
-            .collection("Rounds").get()
-            .addOnSuccessListener { k ->
 
-                for (document in k) {
-                    Global.roundID.add(document.id)
-                    Log.d("Round>>>>",Global.roundID[i])
-                    i++
-
-                }
-
-            }.addOnFailureListener { exception ->
-                Log.w("PlayerlistActivity", "Error getting documents.", exception)
-            }
+        Global.roundID.add("1")
+        Global.roundID.add("2")
+        Global.roundID.add("3")
+//        var i =0 // for test
+//        //Finding NUMBER of Rounds
+//        db.collection("Session").document(Global.sessionID)
+//            .collection("Rounds").get()
+//            .addOnSuccessListener { k ->
+//
+//                for (document in k) {
+//                    Global.roundID.add(document.id)
+//                    Log.d("Round>>>>",Global.roundID[i])
+//                    i++
+//
+//                }
+//
+//            }.addOnFailureListener { exception ->
+//                Log.w("PlayerlistActivity", "Error getting documents.", exception)
+//            }
 
     }
 

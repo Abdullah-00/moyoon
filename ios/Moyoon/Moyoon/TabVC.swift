@@ -21,6 +21,10 @@ class TabVC : UITabBarController {
     
     override func viewDidLoad() {
         
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         let profile = myTabBar.items?.last
         let user = Auth.auth().currentUser;
         if (user == nil) {

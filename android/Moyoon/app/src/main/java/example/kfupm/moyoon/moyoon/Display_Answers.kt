@@ -23,6 +23,7 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.protobuf.Empty
+import java.util.*
 
 class Display_Answers : AppCompatActivity() {
     private lateinit var questionDesplay : TextView
@@ -75,11 +76,7 @@ class Display_Answers : AppCompatActivity() {
 
        timer2 = MyCounter(10000, 1000)
         timer2.start()
-        //isDoneChooseAnswer()
-//        if (chooseAnswer == true)
-//            timer2.cancel()
 
-        //GetAnswers
         getAnswers()
 
         answerslist.setOnItemClickListener { parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
@@ -152,10 +149,28 @@ class Display_Answers : AppCompatActivity() {
             arrayAdapter = list_view_answerss(this,R.layout.list_view_answers,playersAnswer)
             answerslist.adapter = arrayAdapter
 
+            fun <playersAnswer> Array<playersAnswer>.shuffled(): Array<playersAnswer> {
+                val rng = Random()
+
+                for (index in 0..this.size - 1) {
+                    val randomIndex = rng.nextInt(index)
+                    Log.d("ggggg","tryrty")
+
+                    // Swap with the random position
+                    val temp = this[index]
+                    this[index] = this[randomIndex]
+                    this[randomIndex] = temp
+                }
+
+                return this
+            }
+
             // instead of simply using the entire query snapshot
             // see the actual changes to query results between query snapshots (added, removed, and modified)
         })
     }
+
+
 
     private fun SendtoServer() {
 
@@ -189,6 +204,7 @@ class Display_Answers : AppCompatActivity() {
         return when (item.itemId) {
             R.id.leave -> {
                 Global.LeaveSession =false
+                timer2.cancel()
                 SendtoServerLeave()
                 startActivity(Home)
 
