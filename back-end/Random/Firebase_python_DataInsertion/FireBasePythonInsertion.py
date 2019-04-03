@@ -202,7 +202,10 @@ def incrementPlayerScore(session_id, player_id, points):
             nick_name = value
     data = {
         u'nick-name' : nick_name,
-        u'Score' : score
+        u'Score' : score,
+        u'isSuspended' : player_info['isSuspended'],
+        u'winner' : player_info['winner'],
+        u'winnerFlagIsUpdated' : player_info['winnerFlagIsUpdated']
     }
     doc_ref.set(data)
 
@@ -230,9 +233,13 @@ def decrementPlayerScore(session_id, player_id, points):
             score = int(value)-points
         elif(key == "nick-name"):
             nick_name = value
+    #doc_ref = db.collection(u'Session').document(session_id).collection(u'Players').document(player_id).get().to_dict()
     data = {
         u'nick-name' : nick_name,
-        u'Score' : score
+        u'Score' : score,
+        u'isSuspended' : player_info['isSuspended'],
+        u'winner' : player_info['winner'],
+        u'winnerFlagIsUpdated' : player_info['winnerFlagIsUpdated']
     }
     doc_ref.set(data)
 
@@ -361,7 +368,8 @@ def checkPlayerScore(session_id):
             u'nick-name': player_info['nick-name'],
             u'Score': player_info['Score'],
             u'isSuspended' : player_info['isSuspended'],
-            u'winner' : player_info['winner']
+            u'winner' : player_info['winner'],
+            u'winnerFlagIsUpdated' : player_info['winnerFlagIsUpdated']
         }
         dict_ref = players_col.document(i.id)
         dict_ref.set(data)
@@ -426,10 +434,6 @@ def checkNumberOfPlayers(session_id):
         if(count == 4):
             return True
     return False
-
-
-
-
 
 def leaveController(player_id,session_id):
     db = firestore.client()
