@@ -35,15 +35,19 @@ class EndOfGame : AppCompatActivity() {
         //update the profile
         if(Global.signedIn) {
             synchronized(AppCompatActivity()) {
-                Thread.sleep(1000)
+                Thread.sleep(1500)
                 db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID)
                     .get()
                     .addOnSuccessListener { documentReference ->
                         Log.w("TAG001", "documentReference:  $documentReference")
                         if (documentReference.exists()) {
                             Global.lastScore = documentReference.data!!["Score"] as Long
-                            isWinner = documentReference.data!!["winner"] as Boolean
+                            var i = documentReference.data!!["winner"].toString()
+                            Log.w("TAG002", "i >> === " + i)
+                            if(i.equals("true"))
+                                isWinner = true
                             updateProfile()
+                            Log.w("TAG002", "isWinner === " + isWinner)
                             Log.w("TAG002", "Global.lastScore=== " + Global.lastScore)
                         }
                     }
@@ -64,8 +68,9 @@ class EndOfGame : AppCompatActivity() {
 
     private fun updateProfile() {
         Global.gamesPlayed++
-        if(isWinner)
+        if(isWinner) {
             Global.wins++
+        }
         Global.totalScore += Global.lastScore
 
         Log.w("TAG002", "Global.gamesPlayed= " + Global.gamesPlayed)
