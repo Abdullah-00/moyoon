@@ -18,6 +18,10 @@ h6 {
   font-family: 'Montserrat';
 }
 
+.container {
+  align-content: center;
+}
+
 hr.star-light,
 hr.star-dark {
   max-width: 15rem;
@@ -44,21 +48,21 @@ hr.star-dark:after {
 }
 
 hr.star-light {
-  border-color: #fff;
+  border-color: #FAF9F7;
 }
 
 hr.star-light:after {
-  color: #fff;
-  background-color: #018577;
+  color: #FAF9F7;
+  background-color: #2CB1BC;
 }
 
 hr.star-dark {
-  border-color: #2C3E50;
+  border-color: #2CB1BC;
 }
 
 hr.star-dark:after {
-  color: #2C3E50;
-  background-color: white;
+  color: #2CB1BC;
+  background-color: #FAF9F7;
 }
 
 section {
@@ -75,6 +79,10 @@ section h2 {
     font-size: 3rem;
     line-height: 2.5rem;
   }
+}
+
+#play, #contact {
+  background-color: #FAF9F7;
 }
 
 .btn-xl {
@@ -111,7 +119,7 @@ section h2 {
 }
 
 #mainNav .navbar-brand {
-  color: #fff;
+  color: #2CB1BC;
 }
 
 #mainNav .navbar-nav {
@@ -120,19 +128,19 @@ section h2 {
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link {
-  color: #fff;
+  color: #2CB1BC;
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
-  color: #018577;
+  color: #044E54;
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link:active, #mainNav .navbar-nav li.nav-item a.nav-link:focus {
-  color: #fff;
+  color: #FAF9F7;
 }
 
 #mainNav .navbar-nav li.nav-item a.nav-link.active {
-  color: #018577;
+  color: #2CB1BC;
 }
 
 #mainNav .navbar-toggler {
@@ -156,12 +164,12 @@ section h2 {
     margin-top: 0;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active {
-    color: #fff;
-    background: #018577;
+    color: #FAF9F7;
+    background: #2CB1BC;
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link.active:active, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link.active:hover {
-    color: #fff;
-    background: #018577;
+    color: #FAF9F7;
+    background: #2CB1BC;
   }
   #mainNav.navbar-shrink {
     padding-top: 0.5rem;
@@ -216,7 +224,7 @@ header.masthead h2 {
   -webkit-transition: all ease 0.5s;
   transition: all ease 0.5s;
   opacity: 0;
-  background-color: #018577;
+  background-color: #2CB1BC;
 }
 
 .play .play-item .play-item-caption:hover {
@@ -273,7 +281,7 @@ header.masthead h2 {
 
 .floating-label-form-group {
   position: relative;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid #E8E6E1;
 }
 
 .floating-label-form-group input,
@@ -308,7 +316,7 @@ header.masthead h2 {
 
 .floating-label-form-group:not(:first-child) {
   padding-left: 14px;
-  border-left: 1px solid #e9ecef;
+  border-left: 1px solid #E8E6E1;
 }
 
 .floating-label-form-group-with-value label {
@@ -321,14 +329,14 @@ header.masthead h2 {
 }
 
 form .row:first-child .floating-label-form-group {
-  border-top: 1px solid #e9ecef;
+  border-top: 1px solid #E8E6E1;
 }
 
 .footer {
   padding-top: 5rem;
   padding-bottom: 5rem;
   background-color: #2C3E50;
-  color: #fff;
+  color: #2CB1BC;
 }
 
 .copyright {
@@ -336,11 +344,11 @@ form .row:first-child .floating-label-form-group {
 }
 
 a {
-  color: #018577;
+  color: #2CB1BC;
 }
 
 a:focus, a:hover, a:active {
-  color: #128f76;
+  color: #044E54;
 }
 
 .btn {
@@ -348,29 +356,29 @@ a:focus, a:hover, a:active {
 }
 
 .bg-primary {
-  background-color: #018577 !important;
+  background-color: #2CB1BC !important;
 }
 
 .bg-secondary {
-  background-color: #2C3E50 !important;
+  background-color: #FAF9F7 !important;
 }
 
 .text-primary {
-  color: #018577 !important;
+  color: #2CB1BC !important;
 }
 
 .text-secondary {
-  color: #2C3E50 !important;
+  color: #044E54 !important;
 }
 
 .btn-primary {
-  background-color: #018577;
-  border-color: #018577;
+  background-color: #2CB1BC;
+  border-color: #2CB1BC;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: #018577;
-  border-color: #018577;
+  background-color: #044E54;
+  border-color: #044E54;
 }
 
 .btn-secondary {
@@ -381,4 +389,119 @@ a:focus, a:hover, a:active {
 .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
   background-color: #1a252f;
   border-color: #1a252f;
+}
+
+
+/* sign in FORM */
+.logreg-forms{
+    width:412px;
+    margin:10vh auto;
+    background-color:#FAF9F7;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+.logreg-forms form {
+    width: 100%;
+    max-width: 410px;
+    padding: 15px;
+    margin: auto;
+}
+.logreg-forms .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+}
+.logreg-forms .form-control:focus { z-index: 2; }
+.logreg-forms .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.logreg-forms .form-signin input[type="password"] {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.logreg-forms .social-login{
+    width:390px;
+    margin:0 auto;
+    margin-bottom: 14px;
+}
+.logreg-forms .social-btn{
+    font-weight: 100;
+    color:white;
+    width:190px;
+    font-size: 0.9rem;
+}
+
+.logreg-forms a{
+    display: block;
+    padding-top:10px;
+    color:lightseagreen;
+}
+
+#logreg-form .lines{
+    width:200px;
+    border:1px solid red;
+}
+
+
+.logreg-forms button[type="submit"]{ margin-top:10px; }
+
+.logreg-forms .facebook-btn{  background-color:#3C589C; }
+
+.logreg-forms .google-btn{ background-color: #DF4B3B; }
+
+.logreg-forms .form-reset, .logreg-forms .form-signup{ display: none; }
+
+.logreg-forms .form-signup .social-btn{ width:210px; }
+
+.logreg-forms .form-signup input { margin-bottom: 2px;}
+
+.form-signup .social-login{
+    width:210px !important;
+    margin: 0 auto;
+}
+
+/* Mobile */
+
+@media screen and (max-width:500px){
+    .logreg-forms{
+        width:300px;
+    }
+
+    .logreg-forms  .social-login{
+        width:200px;
+        margin:0 auto;
+        margin-bottom: 10px;
+    }
+    .logreg-forms  .social-btn{
+        font-size: 1.3rem;
+        font-weight: 100;
+        color:white;
+        width:200px;
+        height: 56px;
+
+    }
+    .logreg-forms .social-btn:nth-child(1){
+        margin-bottom: 5px;
+    }
+    .logreg-forms .social-btn span{
+        display: none;
+    }
+    .logreg-forms  .facebook-btn:after{
+        content:'Facebook';
+    }
+
+    .logreg-forms  .google-btn:after{
+        content:'Google+';
+    }
+
+    .col {
+      align-content: center;
+      align-items: center;
+    }
+
 }

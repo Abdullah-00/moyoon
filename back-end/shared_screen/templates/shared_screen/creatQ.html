@@ -1,0 +1,130 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Moyoon</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/freelancer.css' %}" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "***REMOVED***",
+        authDomain: "moyoon-abikmmr.firebaseapp.com",
+        databaseURL: "https://moyoon-abikmmr.firebaseio.com",
+        projectId: "moyoon-abikmmr",
+        storageBucket: "moyoon-abikmmr.appspot.com",
+        messagingSenderId: "118454694024"
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Moyoon</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container">
+        <h1 class="text-uppercase mb-0">Moyoon</h1>
+        <hr class="star-light">
+        <h2 class="font-weight-light mb-0">Mislead To Win!</h2>
+      </div>
+    </header>
+
+    <!-- play Grid Section -->
+    <section class="play" id="play">
+      <div class="container">
+          <h2 class="text-center text-uppercase text-primary mb-0">Play</h2>
+        <hr class="star-dark mb-5">
+          <div class="row">
+              <div class="col">
+        <h4 class="text-center text-uppercase text-primary mb-0">Select Category</h4>
+        {% if catagory_list %}
+        <div class="text-center mt-4">
+            <form action="create" method="GET">
+                    <div class="form-group">
+                        <select class="form-control" name="category">
+                            {% for category in catagory_list %}
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                <div class="form-group">
+                <button type="submit"  class="btn btn-primary"><i class="fas fa-play"></i></button>
+                </div>
+            </form>
+          {% else %}
+          <br>
+          <h6 class="text-center text-secondary mb-0">No Categories are available!</h6>
+          {% endif %}
+        </div>
+              </div>
+              <div class="col">
+                  <br>
+                  <br>
+                    <h4 class="text-center text-uppercase text-primary mb-0">OR</h4>
+              </div>
+              <div class="col" style="width: 50%; margin: 0 auto;">
+                  <h4 class="text-center text-uppercase text-primary mb-0">Create Your Own Questions</h4>
+                  <br>
+                  <div class="form-group " style="width: 50%; margin-left: 130px;">
+                <button type="submit"  class="btn btn-primary"><i class="fas fa-plus-square" style="margin-right: 5px"></i>Create</button>
+                </div>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/contact_me.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/freelancer.min.js' %}"></script>
+
+  </body>
+
+</html>
