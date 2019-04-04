@@ -33,23 +33,22 @@ class EndOfGame : AppCompatActivity() {
         //get the Score
         //update the profile
         if(Global.signedIn) {
-            Thread.sleep(5500)
             synchronized(AppCompatActivity()) {
                 db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID)
-                    .get()
-                    .addOnSuccessListener { documentReference ->
+                    .addSnapshotListener(EventListener<DocumentSnapshot>  { documentReference, e ->
+                        if (e != null) {
+                            Log.w("33333", "listen:error", e)
+                            return@EventListener
+                        }
                         Log.w("TAG001", "documentReference:  $documentReference")
-                        if (documentReference.exists()) {
-                            Global.lastScore = documentReference.data!!["Score"] as Long
-                            var i = documentReference.data!!["winner"].toString()
-                            Log.w("TAG002", "i >> === " + i)
+                        if (documentReference!!.getBoolean("winnerFlagIsUpdated")!!) {
+                            Global.lastScore = documentReference!!.getLong("Score")!!
+                            isWinner = documentReference!!.getBoolean("winner")!!
                             Log.w("TAG002", "Global.lastScore=== " + Global.lastScore)
-                            if(i.equals("true"))
-                                isWinner = true
                             Log.w("TAG002", "isWinner === " + isWinner)
                             updateProfile()
                         }
-                    }
+                    })
             }
         }
 
