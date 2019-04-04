@@ -1,0 +1,353 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Moyoon</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- Plugin CSS -->
+    <link href="{% static 'vendor/magnific-popup/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-auth.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "***REMOVED***",
+        authDomain: "moyoon-abikmmr.firebaseapp.com",
+        databaseURL: "https://moyoon-abikmmr.firebaseio.com",
+        projectId: "moyoon-abikmmr",
+        storageBucket: "moyoon-abikmmr.appspot.com",
+        messagingSenderId: "118454694024"
+      };
+      firebase.initializeApp(config);
+      firebase.auth().getRedirectResult().then(function(result) {
+          if (result.credential) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+          }
+          // The signed-in user info.
+          var user = result.user;
+        }).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+        });
+
+      var isSignedIn;
+
+      firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+
+    document.getElementById("signOut").style.display = "block";
+    document.getElementById("signIn").style.display = "none";
+
+    var user = firebase.auth().currentUser;
+
+    if(user != null){
+
+      var name = user.displayName;
+      var space = name.indexOf(" ");
+      name = name.substr(0, space);
+      document.getElementById("user_name").innerHTML = "Welcome " + name + "!";
+
+      isSignedIn = true;
+    }
+
+  } else {
+    // No user is signed in.
+    isSignedIn = false;
+    document.getElementById("signOut").style.display = "none";
+    document.getElementById("user_name").style.display = "none";
+    document.getElementById("signIn").style.display = "block";
+
+  }
+});
+      function logOut(){
+        firebase.auth().signOut();
+
+    }
+    </script>
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/">Moyoon</a>
+        <button class="navbar-toggler navbar-toggler-right text-uppercase bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#play">Play</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#signIn">Register</a>
+            </li>
+            <li class="nav-item mx-0 mx-lg-1">
+              <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#about">About</a>
+            </li>
+              <li class="nav-item mx-0 mx-lg-5">
+                 <a class="nav-link py-3 px-0 px-lg-3 rounded" id="user_name"></a>
+            </li>
+              <li class="nav-item mx-0 mx-lg-5">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/" id="signOut" style="color: #044E54" onclick="logOut()">Sign Out</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="masthead bg-primary text-white text-center">
+      <div class="container">
+        <h1 class="text-uppercase mb-0">Moyoon</h1>
+        <hr class="star-light">
+        <h2 class="font-weight-light mb-0">Mislead To Win!</h2>
+      </div>
+    </header>
+
+   <section class="play" id="play">
+      <div class="container">
+          <h2 class="text-center text-uppercase text-primary mb-0">Create Your Own Questions</h2>
+        <hr class="star-dark mb-5">
+          <div class="row">
+              <div class="col">
+        {% if catagory_list %}
+        <div class="mt-lg-2">
+            <form>
+                    <div class="form-group">
+                        <label for="category">Category:</label>
+                        <select class="form-control" id="category">
+                            {% for category in catagory_list %}
+                            <option value="{{ category.id }}">{{ category.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="qNum">Number of Questions:</label>
+                        <input type="number" class="form-control" id="qNum" min="4" max="30">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="gridCheck">
+                            <label class="form-check-label" for="gridCheck">
+                            Share with others
+                            </label>
+                        </div>
+                    </div>
+                <div class="form-group">
+                <button type="button" onclick="createQ()"  class="btn btn-primary" id="bt1">Enter Questions   <i class="fas fa-play"></i></button>
+                </div>
+          {% else %}
+          <br>
+          <h6 class="text-center text-secondary mb-0">No Categories are available!</h6>
+          {% endif %}
+                  </form>
+        </div>
+              </div>
+          <div class="col"></div>
+              <div class="col" style="border-left: 6px solid #2CB1BC; height:300px; width: 50%; margin: 0 auto;">
+              </div>
+              <script>
+                  var jsonText;
+                  var jsonObj;
+                  var num;
+                  var count = 0;
+                function createQ() {
+                    num = document.getElementById("qNum").value;
+                    var id = 231;
+                    var share = document.getElementById("gridCheck").checked;
+                    num = parseInt(num);
+                    if (num < 4) {
+                        document.getElementById("qs").innerHTML = "<div class=\"alert alert-danger\" role=\"alert\">\n" +
+                            "  You need at least 4 questions!" +
+                            "</div>";
+                    }
+                    else {
+                        jsonText = '{ ' +
+                                '"is_saved":"True",' +
+                                '"is_signed_in":' + '"' + isSignedIn + '"' + "," +
+                                '"creator_id":' + '"' + id + '"' + "," +
+                                '"is_sharable":' + '"' + share + '"' + "," +
+                                '"Questions":[';
+                        document.getElementById("category").disabled = true;
+                        document.getElementById("qNum").disabled = true;
+                        document.getElementById("gridCheck").disabled = true;
+                        document.getElementById("bt1").disabled = true;
+
+                        document.getElementById("qs").innerHTML = "<form action=\"createCS/\" method=\"POST\">" +
+                                " <div class=\"form-group\">" +
+                                "<label for=\"qNum\">Questions:</label>\n" +
+                            "    <input type=\"text\" class=\"form-control\" id=\"ques\">" +
+                                "</div>" +
+                                " <div class=\"form-group\">" +
+                                "<label for=\"qNum\">Answer:</label>\n" +
+                            "    <input type=\"text\" class=\"form-control\" id=\"ans\">" +
+                                "</div>" +
+                                " <div class=\"form-group\">" +
+                                "<label for=\"qNum\">Difficulty:</label>\n" +
+                            "    <input type=\"text\" class=\"form-control\" id=\"diff\" min=\"1\" max=\"5\">" +
+                                "</div>" +
+                                " <div class=\"form-group\">" +
+                                "<label for=\"qNum\">Age Rating:</label>\n" +
+                            "    <input type=\"text\" class=\"form-control\" id=\"age\" min=\"1\" max=\"100\">" +
+                                "</div>" +
+                                "<div class=\"form-group\">\n" +
+                            "                <button type=\"button\" onclick=\"addQ()\"  class=\"btn btn-primary\" id=\"addBtn\">Add   <i class=\"fas fa-plus-square\"></i></button>\n" +
+                                "                <button type=\"submit\"  class=\"btn btn-primary\" id=\"subBtn\">Submit</button>\n" +
+                            "                </div>" +
+                            " </form>";
+                        document.getElementById("subBtn").disabled = true;
+                    }
+                }
+                
+                function addQ() {
+                    count++;
+                    if (count == num){
+                        var ques = document.getElementById("ques").value;
+                        var ans = document.getElementById("ans").value;
+                        var diff = document.getElementById("diff").value;
+                        var age = document.getElementById("age").value;
+
+                        jsonText = jsonText +
+                                    '{ "name":'+ '"' + ques + '"' + ',"name_ar":"None","Correct_answer":' + '"' +  ans + '"' +  ',"difficulty":' + '"' + diff + '"' + ',"age_rating":' + '"' + age + '"' + '}]}';
+
+                        document.getElementById("ques").disabled = true;
+                        document.getElementById("ans").disabled = true;
+                        document.getElementById("diff").disabled = true;
+                        document.getElementById("age").disabled = true;
+
+                        document.getElementById("addBtn").disabled = true;
+                        document.getElementById("subBtn").disabled = false;
+
+                        jsonObj = JSON.parse(jsonText);
+                            $.post( "createCS", {data: jsonObj}, function( data ) {
+                        });
+                        console.log(jsonObj);
+                    } else {
+                        var ques = document.getElementById("ques").value;
+                        var ans = document.getElementById("ans").value;
+                        var diff = document.getElementById("diff").value;
+                        var age = document.getElementById("age").value;
+
+                        jsonText = jsonText +
+                                    '{ "name":'+ '"' + ques + '"' + ',"name_ar":"None","Correct_answer":' + '"' +  ans + '"' +  ',"difficulty":' + '"' + diff + '"' + ',"age_rating":' + '"' + age + '"' +'},';
+
+                        var ques = document.getElementById("ques").value = "";
+                        var ans = document.getElementById("ans").value = "";
+                        var diff = document.getElementById("diff").value = "";
+                        var age = document.getElementById("age").value = "";
+                    }
+                }
+              </script>
+              <div class="col" id="qs" style="width: 50%; margin: 0 auto;">
+                  <form action="customSession" method="POST">
+                  </form>
+              </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4"></h4>
+            <p class="lead mb-0">
+              <br></p>
+          </div>
+          <div class="col-md-4 mb-5 mb-lg-0">
+            <h4 class="text-uppercase mb-4">Around the Web</h4>
+            <ul class="list-inline mb-0">
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-facebook-f"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-twitter"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="#">
+                  <i class="fab fa-fw fa-linkedin-in"></i>
+                </a>
+              </li>
+              <li class="list-inline-item">
+                <a class="btn btn-outline-light btn-social text-center rounded-circle" href="https://github.com/Abdullah-00/moyoon">
+                  <i class="fab fa-fw fa-github"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+    <div class="copyright py-4 text-center text-white">
+      <div class="container">
+        <small>Copyright &copy; Moyoon 2018</small>
+      </div>
+    </div>
+
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+    <div class="scroll-to-top d-lg-none position-fixed ">
+      <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+      </a>
+    </div>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+    <script src="{% static 'vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
+
+    <!-- Contact Form JavaScript -->
+    <script src="{% static 'js/jqBootstrapValidation.js' %}"></script>
+    <script src="{% static 'js/contact_me.js' %}"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="{% static 'js/behaviour.min.js' %}"></script>
+      <script src="{% static 'js/signIn.js' %}"></script>
+
+
+  </body>
+
+</html>

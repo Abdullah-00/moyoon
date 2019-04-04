@@ -8,4 +8,8 @@ urlpatterns = [
     path('create', views.create, name='create'),
     path('create/', views.create, name='create'),
     path('start/', views.start, name='start'),
+    path('customSession.html/createCS/start/', views.start, name='start'),
+    path('customSession.html/', views.customSession, name='customSession'),
+    path('customSession.html/createCS/', views.createCS, name='createCS'),
 ]
+

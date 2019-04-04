@@ -56,6 +56,14 @@ def create(request):
     }
     return render(request, 'shared_screen/lobby.html', context)
 
+
+def customSession(request):
+    catagory_list = Category.objects.order_by('id')[:5]
+    context = {
+        'catagory_list': catagory_list,
+    }
+    return render(request, 'shared_screen/customSession.html', context)
+
 def start(request):
     s = requests.get('http://68.183.67.247:8000/beginGame/?session_id=' + session_id)
     context = {
@@ -63,3 +71,13 @@ def start(request):
     }
     return render(request, 'shared_screen/leaderboard.html', context)
 
+def createCS(request):
+    post_data = request.POST
+    print(post_data)
+    global session_id
+    session_id = requests.post('http://68.183.67.247:8000/session/', data=post_data).text
+
+    context = {
+        'session_id': session_id,
+    }
+    return render(request, 'shared_screen/lobby.html', context)
