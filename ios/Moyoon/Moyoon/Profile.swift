@@ -19,6 +19,8 @@ class Profile : UIViewController{
     
     override func viewWillAppear(_ animated: Bool) {
         let user = User.getUser();
+        print("Getting data")
+        
         user.syncData { (array) in
             self.displayName.text = user.displayName;
             self.displayEmail.text = user.email;
@@ -26,6 +28,7 @@ class Profile : UIViewController{
             self.displayTotalScore.text = "\(user.totalScore!)" ;
             self.displayGamesPlayed.text = "\(user.numberOfGamesPlayed!)" ;
             self.displayNumberOfWins.text = "\(user.numberOfWins!)" ;
+            print(array)
         }
     }
     

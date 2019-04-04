@@ -16,7 +16,6 @@ class User {
     var displayName : String!
     var email : String!
     var uid : String!
-    
     var totalScore : Int!
     var lastScore : Int!
     var numberOfGamesPlayed : Int!
@@ -49,9 +48,8 @@ class User {
     }
     
     
-
-    
     func syncData(_ completion: @escaping (Array<Any>) -> ()) {
+        print("Uid is \(self.uid)")
         let docPath = "/Players/\(self.uid!)/"
         let docRef = db.document(docPath)
         docRef.getDocument { (document, error) in
@@ -69,6 +67,7 @@ class User {
                 self.displayName = self.firebaseUser!.displayName;
                 self.email = self.firebaseUser!.email;
                 self.uid = self.firebaseUser!.uid;
+                
                 self.createUser();
             }
             
@@ -95,6 +94,9 @@ class User {
     }
     
     func updateUser(newScore : Int, isWin : Bool){
+        if(Auth.auth().currentUser == nil){
+            return;
+        }
         let docPath = "/Players/\(self.uid!)/"
         let docRef = db.document(docPath)
         print("Updating...")

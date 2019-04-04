@@ -26,14 +26,14 @@ class Homepage: UIViewController {
     @IBOutlet var SignoutButton: UIButton!
     
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
         do{
-            let user = Auth.auth().currentUser;
+            let user = Auth.auth().currentUser
             if(user?.displayName != nil)
             {
-                nicknameField.text = user!.displayName!;
+                nicknameField.text = user?.displayName!;
                 LoginButton.isHidden = true;
                 SignoutButton.isHidden = false;
             }
@@ -43,6 +43,10 @@ class Homepage: UIViewController {
                 SignoutButton.isHidden = true;
             }
         }
+    }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
        
        // changeName(s: "Hello")
         
@@ -60,13 +64,8 @@ class Homepage: UIViewController {
     
     @IBAction func SignOut(_ sender: Any) {
         try! Auth.auth().signOut()
-        if let storyBoard = self.storyboard {
-            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let balanceViewController = storyBoard.instantiateViewController(withIdentifier: "homepage") as! Homepage
-            self.present(balanceViewController, animated: true, completion: nil)
-           // let vc = storyboard.instantiateViewController(withIdentifier: "homepage") as! UINavigationController
-           // self.present(vc, animated: false, completion: nil)
-        }
+        performSegue(withIdentifier: "SignOut", sender: self)
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,19 +81,7 @@ class Homepage: UIViewController {
          //loadSession(session: session)
          
          requestJoinAPI(nickname: nickname, gameSession: session)
-        
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let balanceViewController = storyBoard.instantiateViewController(withIdentifier: "chooseAnswer") as! ChooseAnswer
-//        self.present(balanceViewController, animated: true, completion: nil)
-        
     }
-    /*func update()
-    {
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let balanceViewController = storyBoard.instantiateViewController(withIdentifier: "homepage") as! Homepage
-        self.present(balanceViewController, animated: true, completion: nil)
-    }*/
-    
     
     @IBAction func loginClicked(_ sender: Any) {
         
@@ -167,6 +154,7 @@ class Homepage: UIViewController {
                 }else{
                     GlobalVariables.playerId = playerId
                     GlobalVariables.sessionId = gameSession
+                    print(response.response)
                     self.performSegue(withIdentifier: "JoinSession", sender: self)
                 }
             }

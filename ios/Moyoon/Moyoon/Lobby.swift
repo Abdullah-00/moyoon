@@ -12,12 +12,36 @@ import Firebase
 import FirebaseCore
 import FirebaseFirestore
 import FirebaseUI
-
+import Alamofire
 
 class Lobby: UIViewController {
 
+    @IBAction func leaveSessionClicked(_ sender: Any) {
+        leaveSession()
+    }
     
     
+    func leaveSession(){
+        print("Sending leave Request")
+        let urlExtension = "/leaveSession/"
+        let parameters: Parameters = [
+            "session_id": GlobalVariables.sessionId,
+            "player_id": GlobalVariables.playerId
+        ]
+        let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
+        let urlString = urlRequest.url?.absoluteString
+        
+        Alamofire.request(urlString!, parameters: parameters).response { response in
+            
+        }
+        // After leave and join another variables won't reset itself
+        GlobalVariables.roundId = "1";
+        GlobalVariables.questionId = "1";
+        GlobalVariables.submitCounter = 0;
+        // End reseting variables
+        
+        self.performSegue(withIdentifier: "reset", sender: self)
+    }
     var playersArray : [String] = []
 
     
@@ -62,6 +86,9 @@ class Lobby: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Players.layer.cornerRadius = 10
+        Players.layer.masksToBounds = true
+        
         initlizeLobby()
     }
     

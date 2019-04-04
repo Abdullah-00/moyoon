@@ -14,19 +14,35 @@ class Score : UIViewController{
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var Players: UITableView!
     
+    @IBOutlet weak var indicator: UIActivityIndicatorView!
+    @IBOutlet weak var rankLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initlizeLobby()
         let db = Firestore.firestore();
         let docPath = "/Session/\(GlobalVariables.sessionId)/Players/\(GlobalVariables.playerId)/"
         let docRef = db.document(docPath)
+        sleep(3);
+        indicator.stopAnimating();
+        indicator.isHidden = true;
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 let user = User.getUser();
                 let score = document.data()!["Score"] as! Int
+                let isWin = document.data()!["winner"] as! Bool
                 GlobalVariables.currentScore = score;
-                self.scoreLabel.text = "\(GlobalVariables.currentScore)";
-                user.updateUser(newScore: score, isWin: true) // true always
+                self.scoreLabel.text = "Score : \(GlobalVariables.currentScore)";
+                if(isWin){
+                    self.rankLabel.text = "Winner 😎"
+                }
+                else{
+                    self.rankLabel.text = "Loser 😂"
+                }
+                if(Auth.auth().currentUser != nil){
+                    user.updateUser(newScore: score, isWin: isWin)
+                }
             } else {
                 print("Score not found")
             }
@@ -34,7 +50,7 @@ class Score : UIViewController{
     }
     
     var playersArray : [String] = []
-    var scoresArray : [String] = []
+    var scoresArray : [Int] = []
 
     
     fileprivate func initlizeLobby() {
@@ -50,7 +66,7 @@ class Score : UIViewController{
                 for document in querySnapshot!.documents {
                     print("\(document.documentID) => \(document.data())")
                     let nickName = document.data()["nick-name"] as! String
-                    let score = document.data()["Score"] as! String
+                    let score = document.data()["Score"] as! Int
                     self.playersArray.append(nickName)
                     self.scoresArray.append(score)
                 }
@@ -70,9 +86,6 @@ class Score : UIViewController{
                     return
                 }
                 print("Current data: \(data)")
-                if(data["addPlayers"] as! Bool == false){
-                    self.performSegue(withIdentifier: "StartGame", sender: self)
-                }
         }
         
         Players.dataSource = self
@@ -95,7 +108,7 @@ extension Score:UITableViewDelegate,UITableViewDataSource{
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath);
         cell.textLabel?.text = playersArray[indexPath.row]
-        cell.detailTextLabel?.text = scoresArray[indexPath.row]
+        cell.detailTextLabel?.text = String(scoresArray[indexPath.row])
         return cell;
     }
     

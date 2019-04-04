@@ -71,6 +71,7 @@ class ChooseAnswer: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         if (GlobalVariables.isSunspended == true)
         {
             collectionView.allowsSelection = false
@@ -135,6 +136,7 @@ class ChooseAnswer: UIViewController {
         
         let path = "Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)/Answer"
         print (path)
+        let docArray : [QueryDocumentSnapshot] = []
         db.collection(path).addSnapshotListener() { (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
@@ -188,7 +190,6 @@ class ChooseAnswer: UIViewController {
     
     
     @IBAction func selectAnswer(_ sender: Any) {
-        GlobalVariables.submitCounter += 1;
         submitButton.isEnabled = false;
 }
 
@@ -224,6 +225,7 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if(!sent){
+            GlobalVariables.submitCounter += 1;
             sent=true;
             collectionView.allowsSelection = false;
             if let cell = collectionView.cellForItem(at: indexPath) as? ItemCell {
