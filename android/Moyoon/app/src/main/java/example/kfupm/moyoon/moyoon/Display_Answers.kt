@@ -74,7 +74,7 @@ class Display_Answers : AppCompatActivity() {
         questionDesplay.text = Global.question
         timerTxtAns =findViewById<TextView>(R.id.timerTxt)
 
-       timer2 = MyCounter(10000, 1000)
+       timer2 = MyCounter(11000, 1000)
         timer2.start()
 
         getAnswers()
@@ -85,7 +85,8 @@ class Display_Answers : AppCompatActivity() {
             //   submit.text= "You choose: "+playersAnswer[position]
             Global.pAnswer = playersAnswer[position]
             Log.d("nnnnnnnn", playersAnswer[position])
-            Toast.makeText(baseContext, "You Select: "+ Global.pAnswer, Toast.LENGTH_SHORT).show()
+
+            Toast.makeText(baseContext, "انت اخترت: "+ Global.pAnswer, Toast.LENGTH_SHORT).show()
 
             Log.d("nnnnnnnn", position.toString())
         }
@@ -113,7 +114,7 @@ class Display_Answers : AppCompatActivity() {
                 if(Global.KickCounter == 3){
                     Global.LeaveSession = false
                     SendtoServerLeave()
-                    Toast.makeText(baseContext, "You are Kicked out", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "تم طردك لعدم النشاط", Toast.LENGTH_SHORT).show()
                     startActivity(Home)
 
                 }else if (Global.roundNum == 2 && Global.questionNum == 3)
@@ -149,21 +150,8 @@ class Display_Answers : AppCompatActivity() {
             arrayAdapter = list_view_answerss(this,R.layout.list_view_answers,playersAnswer)
             answerslist.adapter = arrayAdapter
 
-            fun <playersAnswer> Array<playersAnswer>.shuffled(): Array<playersAnswer> {
-                val rng = Random()
-
-                for (index in 0..this.size - 1) {
-                    val randomIndex = rng.nextInt(index)
-                    Log.d("ggggg","tryrty")
-
-                    // Swap with the random position
-                    val temp = this[index]
-                    this[index] = this[randomIndex]
-                    this[randomIndex] = temp
-                }
-
-                return this
-            }
+            val seed = System.nanoTime()
+            Collections.shuffle(playersAnswer, Random(seed))
 
             // instead of simply using the entire query snapshot
             // see the actual changes to query results between query snapshots (added, removed, and modified)
