@@ -35,8 +35,8 @@ def get_image_path(instance, filename):
     return os.path.join('media', str(instance.id), filename)
 
 class Question(models.Model):
-    name = models.CharField(max_length=35, null=True)
-    name_ar = models.CharField(max_length=35, null=True, blank=True)
+    name = models.CharField(max_length=150, null=True)
+    name_ar = models.CharField(max_length=150, null=True, blank=True)
     age_rating = models.CharField(max_length=3)
     Correct_answer = models.CharField(max_length=150)
 
@@ -61,8 +61,8 @@ class Question(models.Model):
 ## add creator ID after implementing sign up
 
 class CategoryTmp(models.Model):
-    name = models.CharField(max_length=35)
-    name_ar = models.CharField(max_length=35)
+    name = models.CharField(max_length=150)
+    name_ar = models.CharField(max_length=150)
     age_rating = models.CharField(max_length=3)
     difficulty = models.IntegerField(validators=[MaxValueValidator(5,'Maximum Limit is 5')])
 
@@ -71,8 +71,8 @@ class CategoryTmp(models.Model):
             return self.name
 
 class QuestionTmp(models.Model):
-    name = models.CharField(max_length=35, null=True)
-    name_ar = models.CharField(max_length=35, null=True, blank=True)
+    name = models.CharField(max_length=150, null=True)
+    name_ar = models.CharField(max_length=150, null=True, blank=True)
     age_rating = models.CharField(max_length=3)
     Correct_answer = models.CharField(max_length=150, null=True, blank=True)
     creator_id = models.CharField(max_length=150)

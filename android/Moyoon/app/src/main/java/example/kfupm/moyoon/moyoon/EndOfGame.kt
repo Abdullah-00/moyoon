@@ -13,8 +13,7 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.QuerySnapshot
-import java.util.ArrayList
-import java.util.HashMap
+import java.util.*
 
 class EndOfGame : AppCompatActivity() {
     private lateinit var EndHome: Button
@@ -34,20 +33,33 @@ class EndOfGame : AppCompatActivity() {
         //get the Score
         //update the profile
         if(Global.signedIn) {
-            synchronized(AppCompatActivity()) {
-                Thread.sleep(1000)
-                db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID)
-                    .get()
-                    .addOnSuccessListener { documentReference ->
-                        Log.w("TAG001", "documentReference:  $documentReference")
-                        if (documentReference.exists()) {
-                            Global.lastScore = documentReference.data!!["Score"] as Long
-                            isWinner = documentReference.data!!["winner"] as Boolean
-                            updateProfile()
-                            Log.w("TAG002", "Global.lastScore=== " + Global.lastScore)
-                        }
+        val timer = Timer()
+
+        timer.scheduleAtFixedRate(
+            object : TimerTask() {
+
+                override fun  run() {
+                    synchronized(AppCompatActivity()) {
+                        db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID)
+                            .get()
+                            .addOnSuccessListener { documentReference ->
+                                Log.w("TAG001", "documentReference:  $documentReference")
+                                if (documentReference.exists()) {
+                                    Global.lastScore = documentReference.data!!["Score"] as Long
+                                    var i = documentReference.data!!["winner"].toString()
+                                    Log.w("TAG002", "i >> === " + i)
+                                    if(i.equals("true"))
+                                        isWinner = true
+                                    updateProfile()
+                                    Log.w("TAG002", "isWinner === " + isWinner)
+                                    Log.w("TAG002", "Global.lastScore=== " + Global.lastScore)
+                                }
+                            }
                     }
-            }
+                }
+            },
+            0, 1500
+        )
         }
 
         players_scores = findViewById<ListView>(R.id.players_Score)
@@ -64,8 +76,9 @@ class EndOfGame : AppCompatActivity() {
 
     private fun updateProfile() {
         Global.gamesPlayed++
-        if(isWinner)
+        if(isWinner) {
             Global.wins++
+        }
         Global.totalScore += Global.lastScore
 
         Log.w("TAG002", "Global.gamesPlayed= " + Global.gamesPlayed)
