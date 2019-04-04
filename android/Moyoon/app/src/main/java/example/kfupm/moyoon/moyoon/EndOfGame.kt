@@ -33,33 +33,24 @@ class EndOfGame : AppCompatActivity() {
         //get the Score
         //update the profile
         if(Global.signedIn) {
-        val timer = Timer()
-
-        timer.scheduleAtFixedRate(
-            object : TimerTask() {
-
-                override fun  run() {
-                    synchronized(AppCompatActivity()) {
-                        db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID)
-                            .get()
-                            .addOnSuccessListener { documentReference ->
-                                Log.w("TAG001", "documentReference:  $documentReference")
-                                if (documentReference.exists()) {
-                                    Global.lastScore = documentReference.data!!["Score"] as Long
-                                    var i = documentReference.data!!["winner"].toString()
-                                    Log.w("TAG002", "i >> === " + i)
-                                    if(i.equals("true"))
-                                        isWinner = true
-                                    updateProfile()
-                                    Log.w("TAG002", "isWinner === " + isWinner)
-                                    Log.w("TAG002", "Global.lastScore=== " + Global.lastScore)
-                                }
-                            }
+            Thread.sleep(5500)
+            synchronized(AppCompatActivity()) {
+                db.collection("Session").document(Global.sessionID).collection("Players").document(Global.playerID)
+                    .get()
+                    .addOnSuccessListener { documentReference ->
+                        Log.w("TAG001", "documentReference:  $documentReference")
+                        if (documentReference.exists()) {
+                            Global.lastScore = documentReference.data!!["Score"] as Long
+                            var i = documentReference.data!!["winner"].toString()
+                            Log.w("TAG002", "i >> === " + i)
+                            Log.w("TAG002", "Global.lastScore=== " + Global.lastScore)
+                            if(i.equals("true"))
+                                isWinner = true
+                            Log.w("TAG002", "isWinner === " + isWinner)
+                            updateProfile()
+                        }
                     }
-                }
-            },
-            0, 1500
-        )
+            }
         }
 
         players_scores = findViewById<ListView>(R.id.players_Score)
