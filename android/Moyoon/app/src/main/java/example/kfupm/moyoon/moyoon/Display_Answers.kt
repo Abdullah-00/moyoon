@@ -74,7 +74,7 @@ class Display_Answers : AppCompatActivity() {
         questionDesplay.text = Global.question
         timerTxtAns =findViewById<TextView>(R.id.timerTxt)
 
-       timer2 = MyCounter(11000, 1000)
+       timer2 = MyCounter(10000, 1000)
         timer2.start()
 
         getAnswers()
@@ -106,7 +106,7 @@ class Display_Answers : AppCompatActivity() {
             if(Global.pAnswer.isEmpty() && Global.playerLie.isEmpty()){
                 Global.KickCounter++
             }
-            timerTxtAns.text = "Timer Completed."
+            timerTxtAns.text = "انتهى الوقت"
      SendtoServer()
 
             if(Global.LeaveSession) {

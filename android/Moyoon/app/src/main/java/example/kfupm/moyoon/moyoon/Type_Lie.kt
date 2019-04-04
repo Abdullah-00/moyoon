@@ -52,7 +52,7 @@ class Type_Lie() : AppCompatActivity() {
         lie = findViewById(R.id.Lie)
         timerTxt = findViewById(R.id.timerTxt)
         intentDisplayAnswers = Intent(this,Display_Answers::class.java)
-         timer = MyCounter(11000, 1000)
+         timer = MyCounter(10000, 1000)
 
         if(Global.LeaveSession){
         SusbendFlag()}
@@ -104,7 +104,7 @@ class Type_Lie() : AppCompatActivity() {
 
         override fun onFinish() {
             println("Timer Completed.")
-            timerTxt.text = "Timer Completed."
+            timerTxt.text = "انتهى الوقت"
             Global.playerLie = lie.text.toString()
             if (Global.LeaveSession) {
                 if(Global.playerLie.isNotEmpty())
