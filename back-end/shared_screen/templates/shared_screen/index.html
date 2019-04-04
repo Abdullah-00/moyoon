@@ -59,33 +59,34 @@
           var credential = error.credential;
         });
 
-      firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            // User is signed in.
 
-    document.getElementById("signOut").style.display = "block";
-    document.getElementById("signIn").style.display = "none";
+            document.getElementById("signOut").style.display = "block";
+            document.getElementById("signIn").style.display = "none";
 
-    var user = firebase.auth().currentUser;
+            var user = firebase.auth().currentUser;
 
-    if(user != null){
+            if (user != null) {
 
-      var name = user.displayName;
-      var space = name.indexOf(" ");
-      name = name.substr(0, space);
-      document.getElementById("user_name").innerHTML = "Welcome " + name + "!";
-    }
+                var name = user.displayName;
+                var space = name.indexOf(" ");
+                name = name.substr(0, space);
+                document.getElementById("user_name").innerHTML = "Welcome " + name + "!";
+            }
 
-  } else {
-    // No user is signed in.
+        } else {
+            // No user is signed in.
 
-    document.getElementById("signOut").style.display = "none";
-    document.getElementById("user_name").style.display = "none";
-    document.getElementById("signIn").style.display = "block";
+            document.getElementById("signOut").style.display = "none";
+            document.getElementById("user_name").style.display = "none";
+            document.getElementById("signIn").style.display = "block";
 
-  }
-});
-      function logOut(){
+        }
+    });
+
+    function logOut() {
         firebase.auth().signOut();
     }
     </script>
@@ -116,7 +117,7 @@
                  <a class="nav-link py-3 px-0 px-lg-3 rounded" id="user_name"></a>
             </li>
               <li class="nav-item mx-0 mx-lg-5">
-                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="signOut" style="color: #044E54" onclick="logOut()">Sign Out</a>
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/" id="signOut" style="color: #044E54" onclick="logOut()">Sign Out</a>
             </li>
           </ul>
         </div>
@@ -168,9 +169,11 @@
               <div class="col" style="width: 50%; margin: 0 auto;">
                   <h4 class="text-center text-uppercase text-primary mb-0">Create Your Own Questions</h4>
                   <br>
+                  <form action="customSession" method="GET">
                   <div class="form-group " style="width: 50%; margin-left: 130px;">
-                <a href="creatQ.html" class="btn btn-primary" style="color: #fff;"><i class="fas fa-plus-square" style="margin-right: 5px"></i>Create</a>
+                <a href="customSession.html" class="btn btn-primary" style="color: #fff;"><i class="fas fa-plus-square" style="margin-right: 5px"></i>Create</a>
                 </div>
+                  </form>
               </div>
           </div>
       </div>
