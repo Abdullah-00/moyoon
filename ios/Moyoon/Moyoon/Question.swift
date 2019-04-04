@@ -15,6 +15,7 @@ class Question: UIViewController {
     
     @IBOutlet var status: UILabel!
     
+    var q = true;
     let db = Firestore.firestore()
     override func viewDidLoad() {
         runTimer()
@@ -23,34 +24,35 @@ class Question: UIViewController {
         updateScore();
         
         // Check suspension
-        var q = false;
+        
         let isSuspended = db.collection("Session").document(GlobalVariables.sessionId).collection("Players").document(GlobalVariables.playerId)
         
         isSuspended.getDocument { (document, error) in
             if let document = document, document.exists {
                 
                 if document.data()!["isSuspended"] != nil {
-                    q = document.data()!["isSuspended"] as! Bool
+                    self.q = document.data()!["isSuspended"] as! Bool
                 }
                 //self.question.text = q
                 
-                print("Suspended: \(q)")
+                print("Suspended: \(self.q)")
             } else {
                 print("Document does not exist")
             }
+            if(self.q != true)
+            {
+                GlobalVariables.isSunspended = self.q;
+                self.status.text = "Active"
+                self.status.textColor = self.hexStringToUIColor(hex: "#06BC00")
+            }
+            else
+            {
+                GlobalVariables.isSunspended = self.q;
+                self.status.text = "Suspended"
+                self.status.textColor = UIColor.red
+            }
         }
-        if(!q)
-        {
-            GlobalVariables.isSunspended = q;
-            status.text = "Active"
-            status.textColor = hexStringToUIColor(hex: "#06BC00")
-        }
-        else
-        {
-            GlobalVariables.isSunspended = q;
-            status.text = "Suspended"
-            status.textColor = UIColor.red
-        }
+        
         
     }
     @IBOutlet weak var question: UILabel!

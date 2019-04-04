@@ -20,6 +20,11 @@ class Score : UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // After leave and join another variables won't reset itself
+        GlobalVariables.roundId = "1";
+        GlobalVariables.questionId = "1";
+        GlobalVariables.submitCounter = 0;
+        // End reseting variables
         initlizeLobby()
         let db = Firestore.firestore();
         let docPath = "/Session/\(GlobalVariables.sessionId)/Players/\(GlobalVariables.playerId)/"
@@ -112,11 +117,4 @@ extension Score:UITableViewDelegate,UITableViewDataSource{
         return cell;
     }
     
-    
-    
 }
-
-
-
-
-
