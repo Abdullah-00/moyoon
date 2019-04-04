@@ -56,12 +56,12 @@ class MainActivity : AppCompatActivity() {
             Global.sessionID = sessionCode.text.toString() //Session ID
             Global.nickname = nickname.text.toString().trim()  //Player Nickname
             SendtoServer()
-            Toast.makeText(baseContext, "Finding the Session ... ", Toast.LENGTH_SHORT).show()
+            Toast.makeText(baseContext, "جاري البحث عن الجلسة ... ", Toast.LENGTH_SHORT).show()
 
             Log.d("bbbbbbb",Global.playerID)
             Handler().postDelayed({
                         if(Global.playerID.equals("Cannot get you inside the session."))
-                            Toast.makeText(baseContext, "Wrong Session ID", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(baseContext, "رقم الجلسة خاطئ", Toast.LENGTH_SHORT).show()
                         else{
                             Log.d("dddddddd",Global.playerID)
                             startActivity(intent)
@@ -80,14 +80,14 @@ class MainActivity : AppCompatActivity() {
             if(nickname.text.isNotEmpty()){
             Global.nickname = nickname.text.toString().trim()
             SendtoServerR()
-                Toast.makeText(baseContext, "Finding a Session ...Please wait ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, "البحث عن جلسة ... الرجاء الانتظار", Toast.LENGTH_SHORT).show()
                 Handler().postDelayed({
                     startActivity(intent)
 
                 }, 4000)
 
         }else
-                Toast.makeText(baseContext, "Enter Nick name Please ", Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, "ادخل اسم اولا ", Toast.LENGTH_SHORT).show()
 
 
         }
@@ -119,7 +119,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun SendtoServerR() {
-
         val queue = Volley.newRequestQueue(this)
         val url = "http://68.183.67.247:8000/enterSession/?category=Algebra&nick_name="+Global.nickname
         Log.d("eeeeee","ohuuygu")
@@ -131,10 +130,13 @@ class MainActivity : AppCompatActivity() {
                 Global.playerID = response.substringBefore(",").trim()
                 Global.sessionID = response.substringAfter(",",",").trim()
                 Log.d("eeeeee",Global.playerID )
+                Log.d("eeeeee",Global.sessionID )
                 Log.d("asdfg",Global.sessionID )
-
             },
-            Response.ErrorListener { Log.d("t", "That didn't work!") })
+            Response.ErrorListener
+            { Log.d("t", "That didn't work!")
+            }
+        )
 
         // Add the request to the RequestQueue.
         queue.add(stringRequest)

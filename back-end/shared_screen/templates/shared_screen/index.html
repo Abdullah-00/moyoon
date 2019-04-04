@@ -25,7 +25,12 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
-    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/5.9.2/firebase-auth.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+
     <script>
       // Initialize Firebase
       var config = {
@@ -37,11 +42,53 @@
         messagingSenderId: "118454694024"
       };
       firebase.initializeApp(config);
+      firebase.auth().getRedirectResult().then(function(result) {
+          if (result.credential) {
+            // This gives you a Google Access Token. You can use it to access the Google API.
+            var token = result.credential.accessToken;
+          }
+          // The signed-in user info.
+          var user = result.user;
+        }).catch(function(error) {
+          // Handle Errors here.
+          var errorCode = error.code;
+          var errorMessage = error.message;
+          // The email of the user's account used.
+          var email = error.email;
+          // The firebase.auth.AuthCredential type that was used.
+          var credential = error.credential;
+        });
+
+      firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+
+    document.getElementById("signOut").style.display = "block";
+    document.getElementById("signIn").style.display = "none";
+
+    var user = firebase.auth().currentUser;
+
+    if(user != null){
+
+      var name = user.displayName;
+      var space = name.indexOf(" ");
+      name = name.substr(0, space);
+      document.getElementById("user_name").innerHTML = "Welcome " + name + "!";
+    }
+
+  } else {
+    // No user is signed in.
+
+    document.getElementById("signOut").style.display = "none";
+    document.getElementById("user_name").style.display = "none";
+    document.getElementById("signIn").style.display = "block";
+
+  }
+});
+      function logOut(){
+        firebase.auth().signOut();
+    }
     </script>
-
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
-
   </head>
 
   <body id="page-top">
@@ -64,6 +111,12 @@
             </li>
             <li class="nav-item mx-0 mx-lg-1">
               <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+            </li>
+              <li class="nav-item mx-0 mx-lg-5">
+                 <a class="nav-link py-3 px-0 px-lg-3 rounded" id="user_name"></a>
+            </li>
+              <li class="nav-item mx-0 mx-lg-5">
+                  <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#" id="signOut" style="color: #044E54" onclick="logOut()">Sign Out</a>
             </li>
           </ul>
         </div>
@@ -124,7 +177,6 @@
     </section>
 
     <!-- Reg Section -->
-
     <section class="bg-primary text-white ml-0" id="signIn">
       <div class="container">
           <div class="row">
@@ -134,8 +186,8 @@
                         <h1 class="text-center text-uppercase text-primary mb-0" style="text-align: center"> Sign in</h1>
                     <br>
                         <div class="social-login">
-                            <button class="btn facebook-btn social-btn" type="button"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
-                            <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
+                            <button class="btn facebook-btn social-btn" type="button" id="facebookSignIn"><span><i class="fab fa-facebook-f"></i> Sign in with Facebook</span> </button>
+                            <button class="btn google-btn social-btn" type="button" id="googleSignIn"><span><i class="fab fa-google-plus-g"></i> Sign in with Google+</span> </button>
                         </div>
                     </form>
           </div>
@@ -234,6 +286,8 @@
 
     <!-- Custom scripts for this template -->
     <script src="{% static 'js/behaviour.min.js' %}"></script>
+      <script src="{% static 'js/signIn.js' %}"></script>
+
 
   </body>
 

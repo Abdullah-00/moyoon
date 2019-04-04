@@ -124,13 +124,13 @@ class Sign_in_Facebook : AppCompatActivity() {
 
     private fun updateUI(user: FirebaseUser?) {
         texvF= findViewById<TextView>(R.id.UserName)
-        texvF.text = "Welcom \n" + user?.displayName
+        texvF.text = "Welcome \n" + user?.displayName
 
 
         Global.name = user?.displayName.toString()
         Global.emailAddress = user?.email.toString()
         Global.userid = user?.uid.toString()
-
+        Global.signedIn = true
         getInformation(Global.userid)
 
         Sign_out.visibility = View.VISIBLE

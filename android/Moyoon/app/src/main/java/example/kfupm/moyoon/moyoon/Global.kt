@@ -27,7 +27,7 @@ class Global{
         var lastScore : Long = 0
         var totalScore : Long = 0
         var wins : Long = 0
-
+        var signedIn = false
 
 // to commit
     }

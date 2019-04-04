@@ -52,7 +52,7 @@ class Type_Lie() : AppCompatActivity() {
         lie = findViewById(R.id.Lie)
         timerTxt = findViewById(R.id.timerTxt)
         intentDisplayAnswers = Intent(this,Display_Answers::class.java)
-         timer = MyCounter(10000, 1000)
+         timer = MyCounter(11000, 1000)
 
         if(Global.LeaveSession){
         SusbendFlag()}
@@ -77,7 +77,7 @@ class Type_Lie() : AppCompatActivity() {
             .collection("Questions").document(Global.questionNum.toString())
             .get()
             .addOnSuccessListener { documentReference ->
-                questionDesplay.text = documentReference.data!!["name"].toString()
+                questionDesplay.text = documentReference.data!!["name_ar"].toString()
                 var st : String = questionDesplay.text as String
                 Global.question = st
                 Global.qAnswer = documentReference.data!!["Correct_Answer"].toString()
@@ -193,7 +193,7 @@ class Type_Lie() : AppCompatActivity() {
 
                 }else{
                     lie.visibility = View.INVISIBLE
-                    Toast.makeText(baseContext, "You Are Suspended", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(baseContext, "انت موقوف", Toast.LENGTH_SHORT).show()
                 }
 
 
