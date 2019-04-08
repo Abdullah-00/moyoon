@@ -64,12 +64,14 @@ def customSession(request):
     }
     return render(request, 'shared_screen/customSession.html', context)
 
+
 def start(request):
     s = requests.get('http://68.183.67.247/beginGame/?session_id=' + session_id)
     context = {
         'session_id': session_id,
     }
     return render(request, 'shared_screen/leaderboard.html', context)
+
 
 def createCS(request):
     post_data = request.POST
