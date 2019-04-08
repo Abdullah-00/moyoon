@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 extension String{
     func toDictionary() -> NSDictionary {
         let blankDict : NSDictionary = [:]
@@ -23,6 +25,7 @@ extension String{
 
 
 struct GlobalVariables{
+    
     static var hostname = "http://68.183.67.247:8000"
     static var playerId = "1";
     static var sessionId = "1";
