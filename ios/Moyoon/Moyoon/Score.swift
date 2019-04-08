@@ -11,15 +11,30 @@ import UIKit
 import Firebase
 class Score : UIViewController{
     
+    let layer = CAGradientLayer()
+    
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var Players: UITableView!
     
     @IBOutlet weak var indicator: UIActivityIndicatorView!
     @IBOutlet weak var rankLabel: UILabel!
     
+    @IBOutlet var homeButton: UIButton!
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Players.layer.cornerRadius = 10
+        Players.layer.masksToBounds = true
+        setupBackground()
+        setupButtons()
+        self.scoreLabel.textColor = UIColor.white;
+        self.scoreLabel.font = UIFont(name: "Lato-Bold", size: 17)
+        self.rankLabel.textColor = UIColor.white;
+        self.rankLabel.font = UIFont(name: "Lato-Bold", size: 17)
+
+        
         // After leave and join another variables won't reset itself
         GlobalVariables.roundId = "1";
         GlobalVariables.questionId = "1";
@@ -39,6 +54,7 @@ class Score : UIViewController{
                 let isWin = document.data()!["winner"] as! Bool
                 GlobalVariables.currentScore = score;
                 self.scoreLabel.text = "Score : \(GlobalVariables.currentScore)";
+                
                 if(isWin){
                     self.rankLabel.text = "Winner 😎"
                 }
@@ -102,6 +118,29 @@ class Score : UIViewController{
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setupBackground()
+    {
+        // Setup Background
+        layer.frame = view.bounds
+        layer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor /* #000000 */, UIColor(red: 0, green: 0.696, blue: 0.766, alpha: 1).cgColor /* #00B2C3 */]
+        layer.locations = [0, 0.757]
+        layer.startPoint = CGPoint(x: 0.311, y: 1.098)
+        layer.endPoint = CGPoint(x: 0.689, y: -0.098)
+        self.view.layer.insertSublayer(layer, at: 0)
+    }
+    
+    func setupButtons()
+    {
+        // Setup buttons
+        homeButton.layer.masksToBounds = true
+        homeButton.layer.cornerRadius = 5
+        homeButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        homeButton.layer.shadowOffset = CGSize(width: 0, height: 20)
+        homeButton.layer.shadowRadius = 25
+        homeButton.layer.shadowOpacity = 1
+        
+    }
 }
 
 extension Score:UITableViewDelegate,UITableViewDataSource{
@@ -116,5 +155,6 @@ extension Score:UITableViewDelegate,UITableViewDataSource{
         cell.detailTextLabel?.text = String(scoresArray[indexPath.row])
         return cell;
     }
+    
     
 }

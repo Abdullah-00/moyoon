@@ -17,6 +17,10 @@ import Alamofire
 class Lobby: UIViewController {
     
     let layer = CAGradientLayer()
+    
+    @IBOutlet var players_inLobby: UILabel!
+    @IBOutlet var waitingSession: UILabel!
+    
 
     @IBOutlet var leaveButton: UIButton!
     @IBAction func leaveSessionClicked(_ sender: Any) {
@@ -93,7 +97,10 @@ class Lobby: UIViewController {
         setupButtons()
         Players.layer.cornerRadius = 10
         Players.layer.masksToBounds = true
-        
+        self.players_inLobby.textColor = UIColor.white;
+        self.players_inLobby.font = UIFont(name: "Lato-Bold", size: 17)
+        self.waitingSession.textColor = UIColor.white;
+        self.waitingSession.font = UIFont(name: "Lato-Bold", size: 17)
         
         
         initlizeLobby()

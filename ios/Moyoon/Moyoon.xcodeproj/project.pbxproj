@@ -783,13 +783,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Moyoon/Moyoon.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ACL6D84ZYG;
+				DEVELOPMENT_TEAM = YL3BV58A6K;
 				INFOPLIST_FILE = Moyoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "KFUPM-SWE417.Moyoon";
+				PRODUCT_BUNDLE_IDENTIFIER = "KFUPM-SWE418.Moyoon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -803,13 +803,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Moyoon/Moyoon.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ACL6D84ZYG;
+				DEVELOPMENT_TEAM = YL3BV58A6K;
 				INFOPLIST_FILE = Moyoon/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "KFUPM-SWE417.Moyoon";
+				PRODUCT_BUNDLE_IDENTIFIER = "KFUPM-SWE418.Moyoon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

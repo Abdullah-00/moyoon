@@ -12,7 +12,8 @@ import Firebase
 import FirebaseFirestore
 import Alamofire
 import FirebaseUI
-class Homepage: UIViewController {
+
+class Homepage: UIViewController, UITextFieldDelegate {
 
     //var text = "hey"
     let layer = CAGradientLayer()
@@ -53,12 +54,20 @@ class Homepage: UIViewController {
         setupBackground()
         setupTextFields()
         setupButtons()
+        self.hideKeyboardWhenTappedAround()
+        self.sessionField.delegate = self
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-    func changeNickname()
-    {
-        nicknameField.text = "TEST";
+
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        //textField code
+        
+        textField.resignFirstResponder()  //if desired
+        JoinButton.sendActions(for: .touchUpInside)
+        return true
     }
     /*func changeName(s: String?){
         userName.text = s;

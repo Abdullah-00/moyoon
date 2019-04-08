@@ -12,7 +12,7 @@ import Alamofire
 import FirebaseFirestore
 import FirebaseUI
 
-class WriteAnswer: UIViewController {
+class WriteAnswer: UIViewController, UITextFieldDelegate {
 
     
     let layer = CAGradientLayer()
@@ -52,6 +52,8 @@ class WriteAnswer: UIViewController {
         setupBackground()
         setupTextFields()
         setupButtons()
+        self.hideKeyboardWhenTappedAround()
+        self.answerField.delegate = self
         
         
         // Question boreer enhancements
@@ -80,6 +82,15 @@ class WriteAnswer: UIViewController {
 
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        //textField code
+        
+        textField.resignFirstResponder()  //if desired
+        submitButton.sendActions(for: .touchUpInside)
+        return true
     }
     
     @IBOutlet weak var answerField: UITextField!
