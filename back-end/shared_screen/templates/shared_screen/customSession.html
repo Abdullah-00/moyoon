@@ -196,9 +196,10 @@
                     }
                     else {
                         jsonText = '{ ' +
+                                '"round_limit":' + 4 + "," +
                                 '"is_saved":"True",' +
                                 '"is_signed_in":' + '"' + isSignedIn + '"' + "," +
-                                '"creator_id":' + '"' + id + '"' + "," +
+                                '"creator_id":' + id + "," +
                                 '"is_sharable":' + '"' + share + '"' + "," +
                                 '"Questions":[';
                         document.getElementById("category").disabled = true;
@@ -207,21 +208,22 @@
                         document.getElementById("bt1").disabled = true;
 
                         document.getElementById("qs").innerHTML = "<form action=\"createCS/\" method=\"POST\">" +
+                                "<input type=\"text\" style=\"display: none\" class=\"form-control\" id=\"hid\" name=\"hid\">" +
                                 " <div class=\"form-group\">" +
                                 "<label for=\"qNum\">Questions:</label>\n" +
-                            "    <input type=\"text\" class=\"form-control\" id=\"ques\">" +
+                            "    <input type=\"text\" class=\"form-control\" id=\"ques\" name=\"ques\">" +
                                 "</div>" +
                                 " <div class=\"form-group\">" +
                                 "<label for=\"qNum\">Answer:</label>\n" +
-                            "    <input type=\"text\" class=\"form-control\" id=\"ans\">" +
+                            "    <input type=\"text\" class=\"form-control\" id=\"ans\" name=\"ans\">" +
                                 "</div>" +
                                 " <div class=\"form-group\">" +
                                 "<label for=\"qNum\">Difficulty:</label>\n" +
-                            "    <input type=\"text\" class=\"form-control\" id=\"diff\" min=\"1\" max=\"5\">" +
+                            "    <input type=\"text\" class=\"form-control\" id=\"diff\" name=\"diff\" min=\"1\" max=\"5\">" +
                                 "</div>" +
                                 " <div class=\"form-group\">" +
                                 "<label for=\"qNum\">Age Rating:</label>\n" +
-                            "    <input type=\"text\" class=\"form-control\" id=\"age\" min=\"1\" max=\"100\">" +
+                            "    <input type=\"text\" class=\"form-control\" id=\"age\" name=\"age\" min=\"1\" max=\"100\">" +
                                 "</div>" +
                                 "<div class=\"form-group\">\n" +
                             "                <button type=\"button\" onclick=\"addQ()\"  class=\"btn btn-primary\" id=\"addBtn\">Add   <i class=\"fas fa-plus-square\"></i></button>\n" +
@@ -251,10 +253,8 @@
                         document.getElementById("addBtn").disabled = true;
                         document.getElementById("subBtn").disabled = false;
 
-                        jsonObj = JSON.parse(jsonText);
-                            $.post( "createCS", {data: jsonObj}, function( data ) {
-                        });
-                        console.log(jsonObj);
+                        document.getElementById("hid").value = jsonText;
+
                     } else {
                         var ques = document.getElementById("ques").value;
                         var ans = document.getElementById("ans").value;
