@@ -15,7 +15,8 @@ import FirebaseUI
 class Homepage: UIViewController {
 
     //var text = "hey"
-
+    let layer = CAGradientLayer()
+    
     @IBOutlet weak var sessionField: UITextField!
     
     @IBOutlet weak var nicknameField: UITextField!
@@ -24,11 +25,14 @@ class Homepage: UIViewController {
     
     @IBOutlet var LoginButton: UIButton!
     @IBOutlet var SignoutButton: UIButton!
+    @IBOutlet var FindGameButton: UIButton!
+    @IBOutlet var JoinButton: UIButton!
+    @IBOutlet var JoinView: UIView!
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+
         do{
             let user = Auth.auth().currentUser
             if(user?.displayName != nil)
@@ -46,9 +50,9 @@ class Homepage: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
-       // changeName(s: "Hello")
+        setupBackground()
+        setupTextFields()
+        setupButtons()
         
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -160,7 +164,57 @@ class Homepage: UIViewController {
             }
         }
     }
-    
+    func setupBackground()
+    {
+        // Setup Background
+        layer.frame = view.bounds
+        layer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor /* #000000 */, UIColor(red: 0, green: 0.696, blue: 0.766, alpha: 1).cgColor /* #00B2C3 */]
+        layer.locations = [0, 0.757]
+        layer.startPoint = CGPoint(x: 0.311, y: 1.098)
+        layer.endPoint = CGPoint(x: 0.689, y: -0.098)
+        self.view.layer.insertSublayer(layer, at: 0)
+    }
+    func setupTextFields()
+    {
+        //Setup join view
+        self.JoinView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        self.JoinView.layer.shadowOffset = CGSize(width: 0, height: 20)
+        self.JoinView.layer.shadowRadius = 25
+        self.JoinView.layer.shadowOpacity = 1
+        self.JoinView.layer.cornerRadius = 2
+        self.JoinView.layer.masksToBounds = true
+    }
+    func setupButtons()
+    {
+        // Setup buttons
+        LoginButton.layer.masksToBounds = true
+        LoginButton.layer.cornerRadius = 5
+        LoginButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        LoginButton.layer.shadowOffset = CGSize(width: 0, height: 20)
+        LoginButton.layer.shadowRadius = 25
+        LoginButton.layer.shadowOpacity = 1
+        
+        SignoutButton.layer.masksToBounds = true
+        SignoutButton.layer.cornerRadius = 5
+        SignoutButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        SignoutButton.layer.shadowOffset = CGSize(width: 0, height: 20)
+        SignoutButton.layer.shadowRadius = 25
+        SignoutButton.layer.shadowOpacity = 1
+        
+        FindGameButton.layer.masksToBounds = true
+        FindGameButton.layer.cornerRadius = 5
+        FindGameButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        FindGameButton.layer.shadowOffset = CGSize(width: 0, height: 20)
+        FindGameButton.layer.shadowRadius = 25
+        FindGameButton.layer.shadowOpacity = 1
+        
+        JoinButton.layer.masksToBounds = true
+        JoinButton.layer.cornerRadius = 5
+        JoinButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        JoinButton.layer.shadowOffset = CGSize(width: 0, height: 20)
+        JoinButton.layer.shadowRadius = 25
+        JoinButton.layer.shadowOpacity = 1
+    }
     
     @IBAction func JoinRandomSessionClicked(_ sender: Any) {
         var nickname = nicknameField.text!

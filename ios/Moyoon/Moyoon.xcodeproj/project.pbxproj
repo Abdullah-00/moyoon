@@ -37,6 +37,14 @@
 		A1C61EC7220DBEA2007A69B8 /* Rectangle-Join.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C61EC6220DBEA2007A69B8 /* Rectangle-Join.png */; };
 		A1C61EC9220DBF43007A69B8 /* Rectangle-Login2.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C61EC8220DBF43007A69B8 /* Rectangle-Login2.png */; };
 		A1D66F0622088FD3004045E0 /* MoyoonLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A1D66F0522088FD2004045E0 /* MoyoonLogo.png */; };
+		A1DBDEE4225A955A008FFBA5 /* Log-in.png in Resources */ = {isa = PBXBuildFile; fileRef = A1DBDEE3225A955A008FFBA5 /* Log-in.png */; };
+		A1DBDEE8225A9653008FFBA5 /* JOIN.png in Resources */ = {isa = PBXBuildFile; fileRef = A1DBDEE5225A9652008FFBA5 /* JOIN.png */; };
+		A1DBDEE9225A9653008FFBA5 /* SIGN-OUT.png in Resources */ = {isa = PBXBuildFile; fileRef = A1DBDEE6225A9653008FFBA5 /* SIGN-OUT.png */; };
+		A1DBDEEA225A9653008FFBA5 /* FIND-GAME.png in Resources */ = {isa = PBXBuildFile; fileRef = A1DBDEE7225A9653008FFBA5 /* FIND-GAME.png */; };
+		A1DBDEF0225AA2F7008FFBA5 /* WHITE_LOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = A1DBDEEF225AA2F7008FFBA5 /* WHITE_LOGO.png */; };
+		A1DBDEF4225AC340008FFBA5 /* HOME.png in Resources */ = {isa = PBXBuildFile; fileRef = A1DBDEF1225AC33F008FFBA5 /* HOME.png */; };
+		A1DBDEF5225AC340008FFBA5 /* LEAVE.png in Resources */ = {isa = PBXBuildFile; fileRef = A1DBDEF2225AC340008FFBA5 /* LEAVE.png */; };
+		A1DBDEF6225AC340008FFBA5 /* SUBMIT.png in Resources */ = {isa = PBXBuildFile; fileRef = A1DBDEF3225AC340008FFBA5 /* SUBMIT.png */; };
 		A1E91F8E21B1AB8E008AB3B3 /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1E91F8D21B1AB8E008AB3B3 /* Question.swift */; };
 		D1E5EFAFDA48E4A4F058F3F9 /* Pods_MoyoonUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BAD104A8452C57960A2295E /* Pods_MoyoonUITests.framework */; };
 		EB423B7210ED8D53BB0CC768 /* Pods_MoyoonTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9F6E09395408E6E653757E7 /* Pods_MoyoonTests.framework */; };
@@ -104,6 +112,14 @@
 		A1C61EC6220DBEA2007A69B8 /* Rectangle-Join.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle-Join.png"; sourceTree = "<group>"; };
 		A1C61EC8220DBF43007A69B8 /* Rectangle-Login2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Rectangle-Login2.png"; sourceTree = "<group>"; };
 		A1D66F0522088FD2004045E0 /* MoyoonLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MoyoonLogo.png; sourceTree = "<group>"; };
+		A1DBDEE3225A955A008FFBA5 /* Log-in.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Log-in.png"; sourceTree = "<group>"; };
+		A1DBDEE5225A9652008FFBA5 /* JOIN.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JOIN.png; sourceTree = "<group>"; };
+		A1DBDEE6225A9653008FFBA5 /* SIGN-OUT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "SIGN-OUT.png"; sourceTree = "<group>"; };
+		A1DBDEE7225A9653008FFBA5 /* FIND-GAME.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FIND-GAME.png"; sourceTree = "<group>"; };
+		A1DBDEEF225AA2F7008FFBA5 /* WHITE_LOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = WHITE_LOGO.png; path = "../../../../../New Buttons/WHITE_LOGO.png"; sourceTree = "<group>"; };
+		A1DBDEF1225AC33F008FFBA5 /* HOME.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HOME.png; sourceTree = "<group>"; };
+		A1DBDEF2225AC340008FFBA5 /* LEAVE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LEAVE.png; sourceTree = "<group>"; };
+		A1DBDEF3225AC340008FFBA5 /* SUBMIT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SUBMIT.png; sourceTree = "<group>"; };
 		A1E91F8D21B1AB8E008AB3B3 /* Question.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		B9F6E09395408E6E653757E7 /* Pods_MoyoonTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyoonTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE33C0C141F76C19726B0CA5 /* Pods-MoyoonTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyoonTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MoyoonTests/Pods-MoyoonTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -242,6 +258,14 @@
 		A1B3A5B2220774FA00205447 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A1DBDEF1225AC33F008FFBA5 /* HOME.png */,
+				A1DBDEF2225AC340008FFBA5 /* LEAVE.png */,
+				A1DBDEF3225AC340008FFBA5 /* SUBMIT.png */,
+				A1DBDEEF225AA2F7008FFBA5 /* WHITE_LOGO.png */,
+				A1DBDEE7225A9653008FFBA5 /* FIND-GAME.png */,
+				A1DBDEE5225A9652008FFBA5 /* JOIN.png */,
+				A1DBDEE6225A9653008FFBA5 /* SIGN-OUT.png */,
+				A1DBDEE3225A955A008FFBA5 /* Log-in.png */,
 				A19FDB032255CE0600526E19 /* Rectangle-Home.png */,
 				A19FDB042255CE0700526E19 /* Rectangle-Leave.png */,
 				A1AA922C2251CD5F00A1B7BC /* Rectangle-Signout.png */,
@@ -372,14 +396,22 @@
 			files = (
 				A19FDB052255CE0700526E19 /* Rectangle-Home.png in Resources */,
 				A19FDB062255CE0700526E19 /* Rectangle-Leave.png in Resources */,
+				A1DBDEEA225A9653008FFBA5 /* FIND-GAME.png in Resources */,
 				961ACCDF21B1B44B005E252E /* LaunchScreen.storyboard in Resources */,
+				A1DBDEF5225AC340008FFBA5 /* LEAVE.png in Resources */,
 				A1D66F0622088FD3004045E0 /* MoyoonLogo.png in Resources */,
 				A1C61EC7220DBEA2007A69B8 /* Rectangle-Join.png in Resources */,
 				A1AA922D2251CD5F00A1B7BC /* Rectangle-Signout.png in Resources */,
+				A1DBDEE9225A9653008FFBA5 /* SIGN-OUT.png in Resources */,
+				A1DBDEE4225A955A008FFBA5 /* Log-in.png in Resources */,
 				A1C61EC9220DBF43007A69B8 /* Rectangle-Login2.png in Resources */,
 				A19AFA862210FA1500DE301C /* Rectangle-JoinRandom.png in Resources */,
 				A11A0F50220DAC4300EF8CF5 /* Rectangle-submit.png in Resources */,
+				A1DBDEF6225AC340008FFBA5 /* SUBMIT.png in Resources */,
+				A1DBDEF4225AC340008FFBA5 /* HOME.png in Resources */,
 				96C4921F21B1A5E6008DB0B9 /* GoogleService-Info.plist in Resources */,
+				A1DBDEE8225A9653008FFBA5 /* JOIN.png in Resources */,
+				A1DBDEF0225AA2F7008FFBA5 /* WHITE_LOGO.png in Resources */,
 				9643548C21B5CA0400619CCB /* ItemCell.xib in Resources */,
 				961ACCDC21B1B44B005E252E /* Assets.xcassets in Resources */,
 				961ACCDA21B1B44A005E252E /* Main.storyboard in Resources */,
