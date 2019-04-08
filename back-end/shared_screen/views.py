@@ -49,7 +49,7 @@ def create(request):
         message = 'You submitted an empty form.'
 
     global session_id
-    session_id = requests.get('http://68.183.67.247:8000/session/?catagory_id=' + catID +'&is_provided=False&questions=').text
+    session_id = requests.get('http://68.183.67.247/session/?catagory_id=' + catID +'&is_provided=False&questions=').text
 
     context = {
         'session_id': session_id,
@@ -65,7 +65,7 @@ def customSession(request):
     return render(request, 'shared_screen/customSession.html', context)
 
 def start(request):
-    s = requests.get('http://68.183.67.247:8000/beginGame/?session_id=' + session_id)
+    s = requests.get('http://68.183.67.247/beginGame/?session_id=' + session_id)
     context = {
         'session_id': session_id,
     }
@@ -75,9 +75,10 @@ def createCS(request):
     post_data = request.POST
     print(post_data)
     global session_id
-    session_id = requests.post('http://68.183.67.247:8000/session/', data=post_data).text
+    session_id = requests.post('http://68.183.67.247/session/', data=post_data).text
 
     context = {
         'session_id': session_id,
     }
     return render(request, 'shared_screen/lobby.html', context)
+

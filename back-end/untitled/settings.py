@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 #     'social_core.backends.google.GoogleOAuth2',
 #     'django.contrib.auth.backends.ModelBackend',
 # )
+APPEND_SLASH=False
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

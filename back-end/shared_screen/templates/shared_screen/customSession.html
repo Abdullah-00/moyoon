@@ -196,9 +196,10 @@
                     }
                     else {
                         jsonText = '{ ' +
+                                '"round_limit":' + 4 + "," +
                                 '"is_saved":"True",' +
                                 '"is_signed_in":' + '"' + isSignedIn + '"' + "," +
-                                '"creator_id":' + '"' + id + '"' + "," +
+                                '"creator_id":' + id + "," +
                                 '"is_sharable":' + '"' + share + '"' + "," +
                                 '"Questions":[';
                         document.getElementById("category").disabled = true;
@@ -250,6 +251,7 @@
 
                         document.getElementById("addBtn").disabled = true;
                         document.getElementById("subBtn").disabled = false;
+                        console.log(jsonText);
 
                         jsonObj = JSON.parse(jsonText);
                             $.post( "createCS", {data: jsonObj}, function( data ) {
