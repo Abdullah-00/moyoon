@@ -75,9 +75,9 @@ def start(request):
 
 def createCS(request):
     post_data = request.POST
-    print(post_data)
+    jsonText = post_data['hid']
     global session_id
-    session_id = requests.post('http://68.183.67.247/session/', data=post_data).text
+    session_id = requests.post('http://68.183.67.247/session/', data=jsonText).text
 
     context = {
         'session_id': session_id,
