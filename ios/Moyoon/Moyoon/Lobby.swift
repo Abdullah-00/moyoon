@@ -107,7 +107,28 @@ class Lobby: UIViewController {
     }
     
     
+    func setupBackground()
+    {
+        // Setup Background
+        layer.frame = view.bounds
+        layer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor /* #000000 */, UIColor(red: 0, green: 0.696, blue: 0.766, alpha: 1).cgColor /* #00B2C3 */]
+        layer.locations = [0, 0.757]
+        layer.startPoint = CGPoint(x: 0.311, y: 1.098)
+        layer.endPoint = CGPoint(x: 0.689, y: -0.098)
+        self.view.layer.insertSublayer(layer, at: 0)
+    }
     
+    func setupButtons()
+    {
+        // Setup buttons
+        leaveButton.layer.masksToBounds = true
+        leaveButton.layer.cornerRadius = 5
+        leaveButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        leaveButton.layer.shadowOffset = CGSize(width: 0, height: 20)
+        leaveButton.layer.shadowRadius = 25
+        leaveButton.layer.shadowOpacity = 1
+        
+    }
 
 
     @IBOutlet weak var Players: UITableView!
@@ -130,28 +151,7 @@ extension Lobby:UITableViewDelegate,UITableViewDataSource{
         return cell;
     }
     
-    func setupBackground()
-    {
-        // Setup Background
-        layer.frame = view.bounds
-        layer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor /* #000000 */, UIColor(red: 0, green: 0.696, blue: 0.766, alpha: 1).cgColor /* #00B2C3 */]
-        layer.locations = [0, 0.757]
-        layer.startPoint = CGPoint(x: 0.311, y: 1.098)
-        layer.endPoint = CGPoint(x: 0.689, y: -0.098)
-        self.view.layer.insertSublayer(layer, at: 0)
-    }
-
-    func setupButtons()
-    {
-        // Setup buttons
-        leaveButton.layer.masksToBounds = true
-        leaveButton.layer.cornerRadius = 5
-        leaveButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
-        leaveButton.layer.shadowOffset = CGSize(width: 0, height: 20)
-        leaveButton.layer.shadowRadius = 25
-        leaveButton.layer.shadowOpacity = 1
-        
-    }
+    
     
     
     
