@@ -47,6 +47,15 @@ class User {
         return myUser
     }
     
+    func signOut(){
+        var displayName : String!
+        var email : String!
+        var uid : String!
+        var totalScore : Int!
+        var lastScore : Int!
+        var numberOfGamesPlayed : Int!
+        var numberOfWins : Int!
+    }
     
     func syncData(_ completion: @escaping (Array<Any>) -> ()) {
         print("Uid is \(self.uid)")

@@ -77,6 +77,7 @@ class Homepage: UIViewController, UITextFieldDelegate {
     
     @IBAction func SignOut(_ sender: Any) {
         try! Auth.auth().signOut()
+        User.getUser().signOut();
         performSegue(withIdentifier: "SignOut", sender: self)
         
     }
