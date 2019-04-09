@@ -18,7 +18,6 @@ class Profile : UIViewController{
     var totalScore = 0
     
     override func viewDidLoad() {
-        initlizeProfile()
         setupBackground()
         whiteView.layer.masksToBounds = true
         
@@ -32,6 +31,8 @@ class Profile : UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        initlizeProfile()
+
         if(totalScore <= 100)
         {
             levelTitle.text = "Rookie🤓"

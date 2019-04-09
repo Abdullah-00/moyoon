@@ -48,17 +48,14 @@ class User {
     }
     
     func signOut(){
-        var displayName : String!
-        var email : String!
-        var uid : String!
-        var totalScore : Int!
-        var lastScore : Int!
-        var numberOfGamesPlayed : Int!
-        var numberOfWins : Int!
+        User.user = nil
     }
     
     func syncData(_ completion: @escaping (Array<Any>) -> ()) {
         print("Uid is \(self.uid)")
+        if(self.uid == nil){
+            return;
+        }
         let docPath = "/Players/\(self.uid!)/"
         let docRef = db.document(docPath)
         docRef.getDocument { (document, error) in

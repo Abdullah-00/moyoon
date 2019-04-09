@@ -31,23 +31,29 @@ class Homepage: UIViewController, UITextFieldDelegate {
     @IBOutlet var JoinView: UIView!
     
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        let user = Auth.auth().currentUser;
+        if(user == nil)
+        {
+            LoginButton.isHidden = false;
+            SignoutButton.isHidden = true;
+        }
+        else
+        {
+            nicknameField.text = user?.displayName!;
+            LoginButton.isHidden = true;
+            SignoutButton.isHidden = false;
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        LoginButton.isHidden = true;
+        SignoutButton.isHidden = true;
+        
 
-        do{
-            let user = Auth.auth().currentUser
-            if(user?.displayName != nil)
-            {
-                nicknameField.text = user?.displayName!;
-                LoginButton.isHidden = true;
-                SignoutButton.isHidden = false;
-            }
-            else
-            {
-                LoginButton.isHidden = false;
-                SignoutButton.isHidden = true;
-            }
-        }
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
