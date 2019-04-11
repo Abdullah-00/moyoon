@@ -95,7 +95,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="EJV-wU-foE"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="6gd-UV-fyY"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="user_male.png" id="6gd-UV-fyY"/>
                     <connections>
                         <outlet property="detailsTable" destination="csw-Cq-Y0e" id="nIH-qj-qnU"/>
                         <outlet property="displayName" destination="jLL-QQ-3Lc" id="gzi-BV-SmK"/>
@@ -241,7 +241,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Game" id="007-Ke-cL4"/>
+                    <tabBarItem key="tabBarItem" title="Game" image="game_controller.png" id="007-Ke-cL4"/>
                     <connections>
                         <outlet property="FindGameButton" destination="VE6-FV-Ruz" id="6kN-SD-p5q"/>
                         <outlet property="JoinButton" destination="sJi-za-WtT" id="UrR-Cw-DJL"/>
@@ -710,10 +710,12 @@
         <image name="SIGN-OUT.png" width="540" height="150"/>
         <image name="SUBMIT.png" width="540" height="150"/>
         <image name="WHITE_LOGO.png" width="1000" height="400"/>
+        <image name="game_controller.png" width="30" height="30"/>
+        <image name="user_male.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gv6-9i-4Ny"/>
-        <segue reference="bkU-Mi-Orh"/>
+        <segue reference="vDi-ao-qAf"/>
+        <segue reference="JCF-eo-a4G"/>
         <segue reference="Akg-ci-QA8"/>
     </inferredMetricsTieBreakers>
 </document>

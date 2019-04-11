@@ -24,8 +24,7 @@ class ChooseAnswer: UIViewController {
     
     var dataArray : [String] = []
     
-    var estimateWidth = 80.0
-    var cellMarginSize = 10.0
+    var cellMarginSize = 1
     
 
     
@@ -73,8 +72,7 @@ class ChooseAnswer: UIViewController {
         super.viewDidLoad()
         setupBackground()
         setupButtons()
-        
-        
+
         
         if (GlobalVariables.isSunspended == true)
         {
@@ -186,7 +184,7 @@ class ChooseAnswer: UIViewController {
     func setupGridView() {
         let flow = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         flow.minimumInteritemSpacing = CGFloat(self.cellMarginSize)
-        flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
+        flow.minimumLineSpacing = CGFloat(self.cellMarginSize*10)
     }
     
 
@@ -263,6 +261,14 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCell
         cell.setData(text: self.dataArray[indexPath.row])
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 5
+        cell.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        cell.layer.shadowOffset = CGSize(width: 0, height: 20)
+        cell.layer.shadowRadius = 25
+        cell.layer.shadowOpacity = 1
+        cell.layer.borderWidth = 2
+        cell.layer.borderColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1).cgColor;
         return cell
     }
     
@@ -275,6 +281,8 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
         layer.startPoint = CGPoint(x: 0.311, y: 1.098)
         layer.endPoint = CGPoint(x: 0.689, y: -0.098)
         self.view.layer.insertSublayer(layer, at: 0)
+        
+                collectionView.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0)
     }
     
     func setupButtons()
@@ -294,15 +302,14 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
 extension ChooseAnswer: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.calculateWith()
-        return CGSize(width: width, height: width)
+        return CGSize(width: width, height: width/2)
     }
     
     func calculateWith() -> CGFloat {
-        let estimatedWidth = CGFloat(estimateWidth)
-        let cellCount = floor(CGFloat(self.view.frame.size.width / estimatedWidth))
+        let cellCount = floor(CGFloat(2))
         
-        let margin = CGFloat(cellMarginSize * 2)
-        let width = (self.view.frame.size.width - CGFloat(cellMarginSize) * (cellCount - 1) - margin) / cellCount
+        let margin = CGFloat(1)
+        let width = ((self.view.frame.size.width/cellCount) - CGFloat(cellMarginSize) - (cellCount*margin*4)-(margin*cellCount*8))
         
         return width
     }
