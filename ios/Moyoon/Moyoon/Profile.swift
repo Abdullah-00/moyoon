@@ -33,30 +33,7 @@ class Profile : UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         initlizeProfile()
 
-        if(totalScore <= 100)
-        {
-            levelTitle.text = "Rookie🤓"
-        }
-        else if(totalScore <= 250)
-        {
-            levelTitle.text = "Semi-Pro🤨"
-        }
-        else if(totalScore <= 500)
-        {
-            levelTitle.text = "Pro🧐"
-        }
-        else if(totalScore <= 800)
-        {
-            levelTitle.text = "Expert😌"
-        }
-        else if(totalScore <= 1500)
-        {
-            levelTitle.text = "Master😎"
-        }
-        else
-        {
-            levelTitle.text = "Legend🤩"
-        }
+        
     }
     fileprivate func initlizeProfile() {
         // Do any additional setup after loading the view, typically from a nib.
@@ -85,15 +62,37 @@ class Profile : UIViewController{
             
             self.totalScore = user.totalScore!
             self.detailsTable.reloadData()
+            if(self.totalScore <= 100)
+            {
+                self.levelTitle.text = "Rookie🤓"
+            }
+            else if(self.totalScore <= 250)
+            {
+                self.levelTitle.text = "Semi-Pro🤨"
+            }
+            else if(self.totalScore <= 500)
+            {
+                self.levelTitle.text = "Pro🧐"
+            }
+            else if(self.totalScore <= 800)
+            {
+                self.levelTitle.text = "Expert😌"
+            }
+            else if(self.totalScore <= 1500)
+            {
+                self.levelTitle.text = "Master😎"
+            }
+            else
+            {
+                self.levelTitle.text = "Legend🤩"
+            }
             
-            print(self.list2[0])
             //self.displayEmail.text = user.email;
             //self.displayLastScore.text = "\(user.lastScore!)" ;
             //  self.displayTotalScore.text = "\(user.totalScore!)" ;
             //  self.displayGamesPlayed.text = "\(user.numberOfGamesPlayed!)" ;
             //  self.displayNumberOfWins.text = "\(user.numberOfWins!)" ;
             // self.totalScore = Int(user.totalScore!);
-            print(array)
         }
         
         

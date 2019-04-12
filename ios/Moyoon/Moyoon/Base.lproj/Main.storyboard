@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wB2-MX-LAF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wB2-MX-LAF">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,16 +22,16 @@
                                 <rect key="frame" x="-50" y="-246" width="476" height="512"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="fAm-Bt-hEJ">
-                                        <rect key="frame" x="200" y="353" width="76" height="61.333333333333314"/>
+                                        <rect key="frame" x="213" y="353" width="50" height="55"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLL-QQ-3Lc">
-                                                <rect key="frame" x="0.0" y="0.0" width="76" height="32.333333333333336"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jLL-QQ-3Lc">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="27"/>
                                                 <color key="textColor" red="0.0" green="0.58823529409999997" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2H5-En-dkH">
-                                                <rect key="frame" x="0.0" y="37.333333333333343" width="76" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2H5-En-dkH">
+                                                <rect key="frame" x="0.0" y="5" width="50" height="50"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <color key="textColor" red="0.0" green="0.61568627450000002" blue="0.68627450980000004" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -224,8 +224,12 @@
                                     <constraint firstAttribute="width" constant="180" id="sto-Ps-oUD"/>
                                 </constraints>
                             </stackView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WHITE_LOGO.png" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-m8-Msq">
-                                <rect key="frame" x="-312.66666666666669" y="-89" width="1000.3333333333335" height="400"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LOGO.png" translatesAutoresizingMaskIntoConstraints="NO" id="1KZ-m8-Msq">
+                                <rect key="frame" x="67.666666666666686" y="61" width="240" height="260"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="260" id="Xq6-E7-Wdm"/>
+                                    <constraint firstAttribute="width" constant="240" id="cUt-X8-ozB"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.90980392156862744" green="0.90196078431372551" blue="0.88235294117647056" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -236,7 +240,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eUa-X5-Lgq" secondAttribute="trailing" constant="40" id="Ybq-Ju-gSY"/>
                             <constraint firstItem="FaV-2t-lgH" firstAttribute="centerX" secondItem="eUa-X5-Lgq" secondAttribute="centerX" id="dI5-u0-u3E"/>
                             <constraint firstItem="eUa-X5-Lgq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="g9B-qc-UOf"/>
-                            <constraint firstItem="eUa-X5-Lgq" firstAttribute="top" secondItem="1KZ-m8-Msq" secondAttribute="bottom" constant="55" id="vVg-BE-ZNb"/>
+                            <constraint firstItem="eUa-X5-Lgq" firstAttribute="top" secondItem="1KZ-m8-Msq" secondAttribute="bottom" constant="45" id="vVg-BE-ZNb"/>
                             <constraint firstItem="1KZ-m8-Msq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yNE-C8-SwR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -706,16 +710,16 @@
         <image name="JOIN.png" width="540" height="150"/>
         <image name="LEAVE.png" width="540" height="150"/>
         <image name="LEAVE_RED.png" width="180" height="50"/>
+        <image name="LOGO.png" width="1200" height="1300"/>
         <image name="Log-in.png" width="540" height="150"/>
         <image name="SIGN-OUT.png" width="540" height="150"/>
         <image name="SUBMIT.png" width="540" height="150"/>
-        <image name="WHITE_LOGO.png" width="1000" height="400"/>
         <image name="game_controller.png" width="30" height="30"/>
         <image name="user_male.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vDi-ao-qAf"/>
-        <segue reference="JCF-eo-a4G"/>
+        <segue reference="bkU-Mi-Orh"/>
         <segue reference="Akg-ci-QA8"/>
     </inferredMetricsTieBreakers>
 </document>
