@@ -6,6 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".list_names"
+
 >
 
     <TextView
@@ -15,7 +16,7 @@
             app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/names" android:textAlignment="center" android:textSize="18sp" android:textStyle="bold"
             android:layout_marginTop="16dp" app:layout_constraintTop_toTopOf="parent" android:visibility="visible"
-            android:textColor="@color/colorAccent" app:layout_constraintHorizontal_bias="0.507"
+            android:textColor="#00B2C3" app:layout_constraintHorizontal_bias="0.507"
 
     />
 </android.support.constraint.ConstraintLayout>

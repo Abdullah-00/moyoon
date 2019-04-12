@@ -6,8 +6,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity"
-        android:background="#E8E6E1" tools:layout_editor_absoluteY="81dp">
-
+        android:background="@drawable/background_color"
+        tools:layout_editor_absoluteY="81dp">
 
     <Button
             android:text="@string/joinR"
@@ -19,7 +19,7 @@
             android:layout_marginBottom="44dp" app:layout_constraintHorizontal_bias="0.497"
             android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/login"
             app:layout_constraintVertical_bias="1.0"
-            android:background="#008577"
+            android:background="#00B2C3"
             android:textColor="#ffffff"
     />
     <EditText
@@ -53,7 +53,7 @@
             app:layout_constraintTop_toBottomOf="@+id/nickname" app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:scaleType="fitXY"
-            android:background="#008577"
+            android:background="#00B2C3"
             android:textColor="#ffffff" android:text="@string/join"/>
     <Button
             android:layout_height="50dp" app:srcCompat="@drawable/rectangle_login2"
@@ -64,11 +64,11 @@
             android:layout_marginStart="8dp" android:scaleType="fitXY"
             app:layout_constraintHorizontal_bias="0.502"
             android:text="@string/login"
-            android:background="#008577"
+            android:background="#00B2C3"
             android:textColor="#ffffff"/>
     <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" app:srcCompat="@drawable/moyoon_logo"
+            android:layout_width="226dp"
+            android:layout_height="156dp" app:srcCompat="@drawable/icon"
             android:id="@+id/logo"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"

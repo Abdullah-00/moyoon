@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Sign_in_google"
-        android:background="#E8E6E1">
+        android:background="@drawable/background_color">
 
     <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"

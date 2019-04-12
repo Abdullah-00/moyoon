@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Sign_up"
-        android:background="#E8E6E1">
+        android:background="@drawable/background_color">
     <ImageButton
             android:layout_width="180dp"
             android:layout_height="69dp" app:srcCompat="@drawable/facebooklogin"
