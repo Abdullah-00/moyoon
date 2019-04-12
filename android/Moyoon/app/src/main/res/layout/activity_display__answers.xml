@@ -19,7 +19,8 @@
             android:layout_marginStart="16dp" android:textSize="24sp"
             android:textColor="@android:color/black"
             android:background="@drawable/round_corner_buttom" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/questionRoundText2"/>
+            app:layout_constraintTop_toBottomOf="@+id/questionRoundText2"
+            android:fontFamily="@font/lato_black"/>
     <ListView
             android:layout_width="380dp"
             android:layout_height="275dp"
@@ -30,7 +31,8 @@
             android:id="@+id/answers_list"
             android:textAlignment="center" android:textDirection="rtl"
             android:layout_marginTop="24dp" app:layout_constraintTop_toBottomOf="@+id/quiston_at_selecton"
-            android:background="@drawable/round_corner"/>
+            android:background="@drawable/round_corner"
+            android:fontFamily="@font/lato_black"/>
     <TextView
             android:text="@string/roundText"
             android:layout_width="168dp"
@@ -40,7 +42,8 @@
             android:textColor="@color/common_google_signin_btn_text_dark_focused"
             android:layout_marginEnd="16dp" app:layout_constraintEnd_toEndOf="parent"
             android:background="@drawable/round_corner_tr"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/timerTxt"/>
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/timerTxt"
+            android:fontFamily="@font/lato_black"/>
     <TextView
             android:text="@string/questionRoundText2"
             android:layout_width="168dp"
@@ -52,6 +55,7 @@
             android:background="@drawable/round_corner_tl" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/timerTxt" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toStartOf="@+id/roundText" app:layout_constraintHorizontal_bias="0.0"
+            android:fontFamily="@font/lato_black"
     />
     <TextView
             android:text="@string/timerTxt"
@@ -60,9 +64,10 @@
             android:id="@+id/timerTxt"
             android:textSize="18sp"
             android:textAlignment="center"
-            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textColor="#ffff"
             android:layout_marginTop="16dp"
             app:layout_constraintTop_toTopOf="parent" android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
-            app:layout_constraintStart_toStartOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/lato_black"/>
 </android.support.constraint.ConstraintLayout>
