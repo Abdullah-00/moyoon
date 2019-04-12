@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 extension String{
     func toDictionary() -> NSDictionary {
         let blankDict : NSDictionary = [:]
@@ -21,9 +23,22 @@ extension String{
     }
 }
 
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
 
 struct GlobalVariables{
-    static var hostname = "http://68.183.67.247:8000"
+    
+    static var hostname = "http://68.183.67.247"
     static var playerId = "1";
     static var sessionId = "1";
     static var roundId = "1";

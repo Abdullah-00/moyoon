@@ -12,10 +12,11 @@ import Alamofire
 import FirebaseFirestore
 import FirebaseUI
 
-class WriteAnswer: UIViewController {
+class WriteAnswer: UIViewController, UITextFieldDelegate {
 
     
-
+    let layer = CAGradientLayer()
+    
     @IBOutlet var QuestionBorder: UIView!
     
     @IBAction func leaveSessionClicked(_ sender: Any) {
@@ -48,6 +49,11 @@ class WriteAnswer: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBackground()
+        setupTextFields()
+        setupButtons()
+        self.hideKeyboardWhenTappedAround()
+        self.answerField.delegate = self
         
         
         // Question boreer enhancements
@@ -78,17 +84,28 @@ class WriteAnswer: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        //textField code
+        
+        textField.resignFirstResponder()  //if desired
+        submitButton.sendActions(for: .touchUpInside)
+        return true
+    }
+    
     @IBOutlet weak var answerField: UITextField!
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    @IBOutlet var leaveButton: UIButton!
     
     @IBOutlet weak var submitButton: UIButton!
     @IBAction func submitAnswer(_ sender: Any) {
      //   var answer = answerField.text!
       //  sendAnswerToAPI(answer: answer)
+        answerField.isEnabled = false
         submitButton.isEnabled = false;
         GlobalVariables.submitCounter += 1;
     }
@@ -118,5 +135,43 @@ class WriteAnswer: UIViewController {
 
             }
         }
+    }
+    func setupBackground()
+    {
+        // Setup Background
+        layer.frame = view.bounds
+        layer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor /* #000000 */, UIColor(red: 0, green: 0.696, blue: 0.766, alpha: 1).cgColor /* #00B2C3 */]
+        layer.locations = [0, 0.757]
+        layer.startPoint = CGPoint(x: 0.311, y: 1.098)
+        layer.endPoint = CGPoint(x: 0.689, y: -0.098)
+        self.view.layer.insertSublayer(layer, at: 0)
+    }
+    func setupTextFields()
+    {
+        //Setup join view
+        self.answerField.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        self.answerField.layer.shadowOffset = CGSize(width: 0, height: 20)
+        self.answerField.layer.shadowRadius = 25
+        self.answerField.layer.shadowOpacity = 1
+        self.answerField.layer.cornerRadius = 2
+        self.answerField.layer.masksToBounds = true
+    }
+    func setupButtons()
+    {
+        // Setup buttons
+        submitButton.layer.masksToBounds = true
+        submitButton.layer.cornerRadius = 5
+        submitButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        submitButton.layer.shadowOffset = CGSize(width: 0, height: 20)
+        submitButton.layer.shadowRadius = 25
+        submitButton.layer.shadowOpacity = 1
+        
+        leaveButton.layer.masksToBounds = true
+        leaveButton.layer.cornerRadius = 5
+        leaveButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        leaveButton.layer.shadowOffset = CGSize(width: 0, height: 20)
+        leaveButton.layer.shadowRadius = 25
+        leaveButton.layer.shadowOpacity = 1
+        
     }
 }

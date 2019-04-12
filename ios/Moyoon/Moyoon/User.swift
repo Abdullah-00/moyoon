@@ -47,9 +47,15 @@ class User {
         return myUser
     }
     
+    func signOut(){
+        User.user = nil
+    }
     
     func syncData(_ completion: @escaping (Array<Any>) -> ()) {
         print("Uid is \(self.uid)")
+        if(self.uid == nil){
+            return;
+        }
         let docPath = "/Players/\(self.uid!)/"
         let docRef = db.document(docPath)
         docRef.getDocument { (document, error) in

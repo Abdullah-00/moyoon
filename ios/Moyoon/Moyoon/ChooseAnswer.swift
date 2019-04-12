@@ -15,16 +15,16 @@ import Alamofire
 class ChooseAnswer: UIViewController {
     
     
-    @IBOutlet var status: UILabel!
+    let layer = CAGradientLayer()
     
+    @IBOutlet var leaveButton: UIButton!
     
     let db = Firestore.firestore()
     @IBOutlet weak var collectionView: UICollectionView!
     
     var dataArray : [String] = []
     
-    var estimateWidth = 80.0
-    var cellMarginSize = 10.0
+    var cellMarginSize = 1
     
 
     
@@ -70,7 +70,9 @@ class ChooseAnswer: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setupBackground()
+        setupButtons()
+
         
         if (GlobalVariables.isSunspended == true)
         {
@@ -182,16 +184,10 @@ class ChooseAnswer: UIViewController {
     func setupGridView() {
         let flow = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
         flow.minimumInteritemSpacing = CGFloat(self.cellMarginSize)
-        flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
+        flow.minimumLineSpacing = CGFloat(self.cellMarginSize*10)
     }
     
-    // MARK: UITableViewDataSource
-    @IBOutlet weak var submitButton: UIButton!
-    
-    
-    @IBAction func selectAnswer(_ sender: Any) {
-        submitButton.isEnabled = false;
-}
+
 
     func incrementQuestionsAndRounds() {
         if ( (Int(GlobalVariables.roundId)==3) && (Int(GlobalVariables.questionId)==3) ){
@@ -265,33 +261,65 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ItemCell", for: indexPath) as! ItemCell
         cell.setData(text: self.dataArray[indexPath.row])
+        cell.layer.masksToBounds = true
+        cell.layer.cornerRadius = 5
+        cell.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        cell.layer.shadowOffset = CGSize(width: 0, height: 20)
+        cell.layer.shadowRadius = 25
+        cell.layer.shadowOpacity = 1
+        cell.layer.borderWidth = 2
+        cell.layer.borderColor = UIColor(red: 255, green: 255, blue: 255, alpha: 1).cgColor;
         return cell
     }
     
+    func setupBackground()
+    {
+        // Setup Background
+        layer.frame = view.bounds
+        layer.colors = [UIColor(red: 0, green: 0, blue: 0, alpha: 1).cgColor /* #000000 */, UIColor(red: 0, green: 0.696, blue: 0.766, alpha: 1).cgColor /* #00B2C3 */]
+        layer.locations = [0, 0.757]
+        layer.startPoint = CGPoint(x: 0.311, y: 1.098)
+        layer.endPoint = CGPoint(x: 0.689, y: -0.098)
+        self.view.layer.insertSublayer(layer, at: 0)
+        
+                collectionView.backgroundColor = UIColor(displayP3Red: 0, green: 0, blue: 0, alpha: 0)
+    }
     
-
-    
+    func setupButtons()
+    {
+        // Setup buttons
+        leaveButton.layer.masksToBounds = true
+        leaveButton.layer.cornerRadius = 5
+        leaveButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.2).cgColor /* #000000 */
+        leaveButton.layer.shadowOffset = CGSize(width: 0, height: 20)
+        leaveButton.layer.shadowRadius = 25
+        leaveButton.layer.shadowOpacity = 1
+        
+    }
     
 }
 
 extension ChooseAnswer: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.calculateWith()
-        return CGSize(width: width, height: width)
+        return CGSize(width: width, height: width/2)
     }
     
     func calculateWith() -> CGFloat {
-        let estimatedWidth = CGFloat(estimateWidth)
-        let cellCount = floor(CGFloat(self.view.frame.size.width / estimatedWidth))
+        let cellCount = floor(CGFloat(2))
         
-        let margin = CGFloat(cellMarginSize * 2)
-        let width = (self.view.frame.size.width - CGFloat(cellMarginSize) * (cellCount - 1) - margin) / cellCount
+        let margin = CGFloat(1)
+        let width = ((self.view.frame.size.width/cellCount) - CGFloat(cellMarginSize) - (cellCount*margin*4)-(margin*cellCount*8))
         
         return width
     }
     
-
+    
+    
+    
 }
+
+
 
 
 
