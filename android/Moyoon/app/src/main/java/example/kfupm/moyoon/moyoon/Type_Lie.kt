@@ -117,7 +117,7 @@ class Type_Lie() : AppCompatActivity() {
     }
     private fun SendtoServer() {
         val queue = Volley.newRequestQueue(this)
-        val url = "http://68.183.67.247:8000/SubmitAnswer/?session_id=${Global.sessionID.trim()}&round_id=${Global.roundID[Global.roundNum].trim()}&question_id=${Global.questionNum.toString().trim()}&player_id=${Global.playerID.trim()}&answer=${Global.playerLie.trim()}"
+        val url = "http://68.183.67.247:80/SubmitAnswer/?session_id=${Global.sessionID.trim()}&round_id=${Global.roundID[Global.roundNum].trim()}&question_id=${Global.questionNum.toString().trim()}&player_id=${Global.playerID.trim()}&answer=${Global.playerLie.trim()}"
 
         Log.d("ttttttt", "not in >>>>>" + Global.questionNum.toString())
 
@@ -159,7 +159,7 @@ class Type_Lie() : AppCompatActivity() {
     private fun SendtoServerLeave() {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "http://68.183.67.247:8000/leaveSession/?session_id="+Global.sessionID+"&player_id="+Global.playerID
+        val url = "http://68.183.67.247:80/leaveSession/?session_id="+Global.sessionID+"&player_id="+Global.playerID
         Log.d("eeeeee","ohuuygu")
 
         // Request a string response from the provided URL.

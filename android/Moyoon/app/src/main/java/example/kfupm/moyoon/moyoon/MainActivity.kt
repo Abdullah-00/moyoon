@@ -97,7 +97,7 @@ class MainActivity : AppCompatActivity() {
     private fun SendtoServer() {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "http://68.183.67.247:8000/enterSession/?session_id="+Global.sessionID+"&nick_name="+Global.nickname
+        val url = "http://68.183.67.247:80/enterSession/?session_id="+Global.sessionID+"&nick_name="+Global.nickname
         // Request a string response from the provided URL.
         val stringRequest = StringRequest(Request.Method.GET, url,
             Response.Listener<String> { response ->
@@ -120,7 +120,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun SendtoServerR() {
         val queue = Volley.newRequestQueue(this)
-        val url = "http://68.183.67.247:8000/enterSession/?category=Algebra&nick_name="+Global.nickname
+        val url = "http://68.183.67.247:80/enterSession/?category=Algebra&nick_name="+Global.nickname
         Log.d("eeeeee","ohuuygu")
 
         // Request a string response from the provided URL.

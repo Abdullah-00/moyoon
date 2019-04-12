@@ -163,7 +163,7 @@ class Display_Answers : AppCompatActivity() {
     private fun SendtoServer() {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "http://68.183.67.247:8000/SubmitAnswerChoice/?session_id=${Global.sessionID.trim()}" +
+        val url = "http://68.183.67.247:80/SubmitAnswerChoice/?session_id=${Global.sessionID.trim()}" +
                 "&round_id=${Global.roundID[Global.roundNum].trim()}&question_id=" +
                 "${Global.questionNum.toString().trim()}&player_id=${Global.playerID.trim()}&answer=${Global.pAnswer.trim()}"
 
@@ -206,7 +206,7 @@ class Display_Answers : AppCompatActivity() {
     private fun SendtoServerLeave() {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "http://68.183.67.247:8000/leaveSession/?session_id="+Global.sessionID+"&player_id="+Global.playerID
+        val url = "http://68.183.67.247:80/leaveSession/?session_id="+Global.sessionID+"&player_id="+Global.playerID
         Log.d("eeeeee","ohuuygu")
 
         // Request a string response from the provided URL.

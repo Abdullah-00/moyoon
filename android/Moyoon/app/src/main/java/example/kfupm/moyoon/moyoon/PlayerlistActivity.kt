@@ -150,7 +150,7 @@ class PlayerlistActivity : AppCompatActivity() {
     private fun SendtoServerLeave() {
 
         val queue = Volley.newRequestQueue(this)
-        val url = "http://68.183.67.247:8000/leaveSession/?session_id="+Global.sessionID+"&player_id="+Global.playerID
+        val url = "http://68.183.67.247:80/leaveSession/?session_id="+Global.sessionID+"&player_id="+Global.playerID
         Log.d("eeeeee","ohuuygu")
 
         // Request a string response from the provided URL.
