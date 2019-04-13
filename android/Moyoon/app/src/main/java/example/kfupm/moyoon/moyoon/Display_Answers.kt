@@ -12,6 +12,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 import kotlin.collections.ArrayList
 import android.widget.AdapterView
 import android.os.CountDownTimer
+import android.os.Handler
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
@@ -39,6 +40,7 @@ class Display_Answers : AppCompatActivity() {
     private lateinit var intentEndOfGame : Intent
     lateinit var Home : Intent
     lateinit  var timer2: MyCounter
+    private var toTypeFlag: Boolean? = false
 
 
 
@@ -68,7 +70,7 @@ class Display_Answers : AppCompatActivity() {
 
 
 
-        roundText.text = roundText.text.toString() + Global.roundID[Global.roundNum]
+        roundText.text = roundText.text.toString() + (Global.roundNum+1)
         queistionText.text =   queistionText.text.toString() + Global.questionNum
 
         questionDesplay.text = Global.question
@@ -90,6 +92,9 @@ class Display_Answers : AppCompatActivity() {
 
             Log.d("nnnnnnnn", position.toString())
         }
+if(Global.LeaveSession)
+            ToTypeFlag()
+
 
     }
 
@@ -103,28 +108,9 @@ class Display_Answers : AppCompatActivity() {
         }
 
         override fun onFinish() {
-            if(Global.pAnswer.isEmpty() && Global.playerLie.isEmpty()){
-                Global.KickCounter++
-            }
+
             timerTxtAns.text = "انتهى الوقت"
-     SendtoServer()
 
-            if(Global.LeaveSession) {
-
-                if(Global.KickCounter == 3){
-                    Global.LeaveSession = false
-                    SendtoServerLeave()
-                    Toast.makeText(baseContext, "تم طردك لعدم النشاط", Toast.LENGTH_SHORT).show()
-                    startActivity(Home)
-
-                }else if (Global.roundNum == 2 && Global.questionNum == 3)
-                    startActivity(intentEndOfGame)
-                else
-                    startActivity(intentTypeLie)
-            }else timer2.cancel()
-
-            Global.pAnswer= ""
-            Global.playerLie = ""
         }
     }
 
@@ -132,7 +118,7 @@ class Display_Answers : AppCompatActivity() {
     private fun getAnswers(){
     var answerTemp :String
     db.collection("Session").document(Global.sessionID)
-        .collection("Rounds").document(Global.roundID[Global.roundNum])
+        .collection("Rounds").document((Global.roundNum+1).toString())
         .collection("Questions").document(Global.questionNum.toString())
         .collection("Answer")
         .addSnapshotListener(EventListener<QuerySnapshot> { documentReference, e ->
@@ -224,4 +210,44 @@ class Display_Answers : AppCompatActivity() {
 
 
     }
+
+    private fun ToTypeFlag() {
+
+        db.collection("Session").document(Global.sessionID)
+            .collection("Rounds").document(Global.roundID[Global.roundNum])
+            .collection("Questions").document(Global.questionNum.toString())
+            .addSnapshotListener(EventListener<DocumentSnapshot> { document , e ->
+                if (e != null) {
+                    Log.w("33333", "listen:error", e)
+                    return@EventListener
+                }
+                Log.w("asdfgh", toTypeFlag.toString())
+
+                toTypeFlag =  document!!.getBoolean("isDoneChooseAnswer")
+                Log.w("asdf", toTypeFlag.toString())
+                if (toTypeFlag!!) {
+                    if(Global.pAnswer.isEmpty() && Global.playerLie.isEmpty()){
+                        Global.KickCounter++
+                    }
+                    if(Global.LeaveSession) {
+                        SendtoServer()
+                        Global.pAnswer= ""
+                        Global.playerLie = ""
+                        if(Global.KickCounter == 3){
+                            Global.LeaveSession = false
+                            SendtoServerLeave()
+                            Toast.makeText(baseContext, "تم طردك لعدم النشاط", Toast.LENGTH_SHORT).show()
+                            startActivity(Home)
+
+                        }else if (Global.roundNum == 2 && Global.questionNum == 3)
+                            startActivity(intentEndOfGame)
+                        else
+                            startActivity(intentTypeLie)
+                    }
+                }
+
+            }
+            )
+    }
+
 }

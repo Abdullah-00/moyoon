@@ -1,11 +1,8 @@
 package example.kfupm.moyoon.moyoon
 
 import android.content.Intent
+import android.os.*
 import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import android.os.CountDownTimer
-import android.os.Parcel
-import android.os.Parcelable
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
@@ -20,6 +17,7 @@ import com.google.firebase.firestore.DocumentSnapshot
 import com.google.firebase.firestore.EventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_sign_in__facebook.*
+import java.util.*
 
 
 class Type_Lie() : AppCompatActivity() {
@@ -36,6 +34,8 @@ class Type_Lie() : AppCompatActivity() {
      lateinit var Home : Intent
     lateinit  var timer: MyCounter
     private var suspended: Double = 0.0
+    private var toAnswerFlag: Boolean? = false
+
 
 
 
@@ -54,7 +54,8 @@ class Type_Lie() : AppCompatActivity() {
         intentDisplayAnswers = Intent(this,Display_Answers::class.java)
          timer = MyCounter(10000, 1000)
 
-        if(Global.LeaveSession){
+       if(Global.LeaveSession){
+           if(0 < Global.KickCounter && Global.KickCounter <3)
         SusbendFlag()}
 
         Global.questionNum +=1
@@ -65,6 +66,7 @@ class Type_Lie() : AppCompatActivity() {
             Global.roundNum +=1
             Global.KickCounter = 0
         }
+
 
         Log.d("T","C2"+Global.roundNum+"tttttttttt"+Global.questionNum)
 
@@ -87,9 +89,11 @@ class Type_Lie() : AppCompatActivity() {
             }
 
         timer.start()
-        //isDoneSubmitAnswer()
-        if (submitAnswer == true)
-            timer.cancel()
+        Log.w("asd", toAnswerFlag.toString())
+
+        if(Global.LeaveSession)
+            ToAnswersFlag()
+
 
 }
 
@@ -103,15 +107,12 @@ class Type_Lie() : AppCompatActivity() {
         }
 
         override fun onFinish() {
-            println("Timer Completed.")
             timerTxt.text = "انتهى الوقت"
-            Global.playerLie = lie.text.toString()
-            if (Global.LeaveSession) {
-                if(Global.playerLie.isNotEmpty())
-                SendtoServer()
-                startActivity(intentDisplayAnswers)
-            }else timer.cancel()
+
+
         }
+
+
         //"http://68.183.67.247:8000/SubmitAnswer/?session_id="+Global.sessionID+
         //       "&round_id="+Global.roundNum+"&question_id="+Global.questionNum+"&player_id="+Global.playerID+"&answer="+playerLie
     }
@@ -146,6 +147,7 @@ class Type_Lie() : AppCompatActivity() {
             R.id.leave -> {
                 Global.LeaveSession =false
                 SendtoServerLeave()
+                timer.cancel()
                 Home = Intent(this,MainActivity::class.java)
                 startActivity(Home)
 
@@ -185,9 +187,11 @@ class Type_Lie() : AppCompatActivity() {
                     return@EventListener
                 }
 
-             if(Global.LeaveSession ){
-                 suspended = document!!.getDouble("Score")!!
-             }
+                Log.w("4444", "listen:error" )
+                if(Global.KickCounter !=3 && Global.KickCounter !=0)
+                suspended = document!!.getDouble("Score")!!
+                Log.w("5555555", "listen:error")
+
                 if (suspended.toInt() > -50 ) {
                     lie.visibility = View.VISIBLE
 
@@ -199,6 +203,33 @@ class Type_Lie() : AppCompatActivity() {
 
                 Log.w("33333aa", suspended.toString(), e)
 
+            }
+            )
+    }
+
+    private fun ToAnswersFlag() {
+
+        db.collection("Session").document(Global.sessionID)
+            .collection("Rounds").document(Global.roundID[Global.roundNum])
+            .collection("Questions").document(Global.questionNum.toString())
+            .addSnapshotListener(EventListener<DocumentSnapshot> { document , e ->
+                if (e != null) {
+                    Log.w("33333", "listen:error", e)
+                    return@EventListener
+                }
+
+                toAnswerFlag =  document!!.getBoolean("isDoneSubmitAnswer")
+                Log.w("asdf", toAnswerFlag.toString())
+                if (toAnswerFlag!!) {
+                    Log.w("asdfghjkl", toAnswerFlag.toString())
+
+                    Global.playerLie = lie.text.toString()
+                    if (Global.LeaveSession) {
+                        if(Global.playerLie.isNotEmpty())
+                            SendtoServer()
+                        startActivity(intentDisplayAnswers)
+                    }
+                }
             }
             )
     }

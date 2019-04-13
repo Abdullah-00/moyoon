@@ -24,6 +24,8 @@ class PlayerlistActivity : AppCompatActivity() {
     private lateinit var arrayAdapter : ArrayAdapter<String>
     private lateinit var intetToTypeLie :Intent
     lateinit var Home : Intent
+    private val timer = Timer()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,13 +35,13 @@ class PlayerlistActivity : AppCompatActivity() {
         players = findViewById<ListView>(R.id.players)
          intetToTypeLie = Intent(this, Type_Lie::class.java)
 
-        val timer = Timer()
 
         timer.scheduleAtFixedRate(
             object : TimerTask() {
 
                 override fun  run() {
                     getPlayers()
+                    Log.w("dsf", "ssshittt")
 
                 }
             },
@@ -65,8 +67,12 @@ class PlayerlistActivity : AppCompatActivity() {
                 }
 
                 startPlay =  document!!.getBoolean("addPlayers")
-                if (startPlay == false)
+                if (startPlay == false){
                     startActivity(intetToTypeLie)
+                timer.cancel()
+                    Log.w("999999", "listen:error", e)
+
+                }
                 Global.LeaveSession = true
             }
             )
