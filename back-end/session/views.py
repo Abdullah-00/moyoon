@@ -98,7 +98,7 @@ def createSessionView(request):
 
         # delete questions if creater asked to
         is_sharable = data.get('is_sharable', None)
-        if(is_sharable == "False"):
+        if(is_sharable.lower() == "false"):
             query_set.delete()
 
     return HttpResponse(x.id)
