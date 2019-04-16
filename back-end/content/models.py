@@ -22,7 +22,7 @@ class Category(models.Model):
 
     ## To Make a one to many relation with its self
 
-    parent = models.ForeignKey('self', on_delete=models.CASCADE, blank=True,
+    parent = models.ForeignKey('self', on_delete=models.SET_NULL, blank=True,
                                null=True)
 
     ## to represent the Category by the name
@@ -54,7 +54,7 @@ class Question(models.Model):
     question_image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
     # To Belong to a Category
 
-    Category_parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True, null=True)
+    Category_parent = models.ForeignKey('content.Category', on_delete=models.SET_NULL, blank=True, null=True)
     def __str__(self):
             return self.name
 
@@ -82,7 +82,7 @@ class QuestionTmp(models.Model):
     question_image = models.ImageField(upload_to=get_image_path, blank=True, null=True)
     # To Belong to a Category
 
-    Category_parent = models.ForeignKey('content.Category', on_delete=models.CASCADE, blank=True, null=True)
+    Category_parent = models.ForeignKey('content.Category', on_delete=models.SET_NULL, blank=True, null=True)
     is_approved = models.BooleanField(default=False)
     disapproved = models.BooleanField(default=False)
     def __str__(self):
