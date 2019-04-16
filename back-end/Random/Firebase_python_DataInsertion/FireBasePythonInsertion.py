@@ -97,7 +97,7 @@ def createSessionWithUserInput(questions, round_limit):
     k =0
     j = 0
     for i in questions:
-        k +=1
+        k += 1
         # round_col = session_id.collection(u'Rounds')
         # round_id = round_col.document(str(count+1))
         question_id = round_col.document(str(count + 1)).collection(u'Questions').document(str(k))
