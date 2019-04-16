@@ -14,7 +14,7 @@ import Alamofire
 
 class ChooseAnswer: UIViewController {
     
-    
+    var correctAnswer = ""
     let layer = CAGradientLayer()
     
     @IBOutlet var leaveButton: UIButton!
@@ -84,8 +84,8 @@ class ChooseAnswer: UIViewController {
         }
         
         // Answeres border enhancements
-        AnswersBorder.layer.cornerRadius = 10
-        AnswersBorder.layer.masksToBounds = true
+     //   AnswersBorder.layer.cornerRadius = 10
+      //  AnswersBorder.layer.masksToBounds = true
         
         // Question boreer enhancements
         QuestionBorder.layer.cornerRadius = 10
@@ -142,6 +142,7 @@ class ChooseAnswer: UIViewController {
                 //  print("Document Data -> \(document.data())")
                 let q = document.data()!["Correct_Answer"] as! String
                 answeresArray[0] = q
+                self.correctAnswer = q
                 
             } else {
                 print("Could not find correct ANSWER !!!!!!!")
@@ -253,7 +254,13 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
             sent=true;
             collectionView.allowsSelection = false;
             if let cell = collectionView.cellForItem(at: indexPath) as? ItemCell {
-                cell.backgroundColor = UIColor.orange
+                if(cell.textLabel.text == correctAnswer)
+                {
+                    cell.backgroundColor = hexStringToUIColor(hex: "#06BC00")
+                }
+                else{
+                    cell.backgroundColor = UIColor.red
+                }
                 sendAnswerToAPI(answer: cell.textLabel.text!)
             }
         }
@@ -323,6 +330,27 @@ extension ChooseAnswer: UICollectionViewDataSource, UICollectionViewDataSourcePr
         leaveButton.layer.shadowRadius = 25
         leaveButton.layer.shadowOpacity = 1
         
+    }
+    func hexStringToUIColor (hex:String) -> UIColor {
+        var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
+        
+        if (cString.hasPrefix("#")) {
+            cString.remove(at: cString.startIndex)
+        }
+        
+        if ((cString.characters.count) != 6) {
+            return UIColor.gray
+        }
+        
+        var rgbValue:UInt32 = 0
+        Scanner(string: cString).scanHexInt32(&rgbValue)
+        
+        return UIColor(
+            red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
+            green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
+            blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
+            alpha: CGFloat(1.0)
+        )
     }
     
 }
