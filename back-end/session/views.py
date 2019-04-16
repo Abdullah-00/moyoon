@@ -98,7 +98,7 @@ def createSessionView(request):
 
         # delete questions if creater asked to
         is_sharable = data.get('is_sharable', None)
-        if(is_sharable == "False"):
+        if(is_sharable.lower() == "false"):
             query_set.delete()
 
     return HttpResponse(x.id)
@@ -148,8 +148,11 @@ def SubmitAnswerView(request):
     round_id = request.GET.get('round_id')
     question_id = request.GET.get('question_id')
     answer = request.GET.get('answer')
+    answer2 = answer.strip()
+    answer2 = answer2.lower()
     correct_answer = isCorrctAnswer(session_id, round_id, question_id)
-    if(answer == correct_answer):
+    correct_answer = correct_answer.lower().strip()
+    if(answer2 == correct_answer):
         # Add 5 points to the player
         incrementPlayerScore(session_id, player_id, 5)
         return HttpResponse("Done")
@@ -164,8 +167,11 @@ def SubmitAnswerChoiceView(request):
     round_id = request.GET.get('round_id')
     question_id = request.GET.get('question_id')
     answer = request.GET.get('answer')
+    answer2 = answer.strip()
+    answer2 = answer2.lower()
     correct_answer = isCorrctAnswer(session_id, round_id, question_id)
-    if (answer == correct_answer):
+    correct_answer = correct_answer.lower().strip()
+    if (answer2 == correct_answer):
         # Add 10 points to the Player
         incrementPlayerScore(session_id, player_id, 10)
         return HttpResponse("Done Submit choice")
@@ -196,4 +202,41 @@ def leaveSession(request):
 
     return HttpResponse('Done')
 
+def addQuestions(request):
+    category_name = ["Linux Command Line", "Capital Cities", "Networking Port numbers"]
+    category_name_ar = ["سطر أوامر لينكس" , "عواصم الدول" , "أرقام منافذ الشبكات"]
+    for i in range(len(category_name)):
+        temp = Category.objects.create(name=category_name[i], name_ar=category_name_ar[i], age_rating="+10", difficulty=5)
+        temp.save()
+    #
+    question_name = ["What is the port number used by SSH?", "What is the port number used by HTTPS?", "What is the port number used by Telnet?", "What is the port number used by SMTP?", "What is the port number used by HTTP?", "What is the port number used by DNS?", "What is the port number used by TFTP?", "What is the port number used by POP3?", "What is the port number used by IMAP4?"]
+    question_name_ar = ["ما هو رقم المنفذ المستخدم بـ SSH؟", "ما هو رقم المنفذ المستخدم بـ HTTPS؟", "ما هو رقم المنفذ المستخدم بـ Telnet؟", "ما هو رقم المنفذ المستخدم بـ SMTP؟", "ما هو رقم المنفذ المستخدم بـ HTTP؟", "ما هو رقم المنفذ المستخدم بـ DNS؟", "ما هو رقم المنفذ المستخدم بـ TFTP؟", "ما هو رقم المنفذ المستخدم بـ POP3؟", "ما هو رقم المنفذ المستخدم بـ IMAP4؟"]
+    question_correct_answer = ["22", "443", "23", "25", "80", "53", "69", "110", "143"]
+    #
+    category = Category.objects.filter(name="Networking Port numbers")
+    for i in range(len(question_name)):
+        temp = Question.objects.create(name= question_name[i], name_ar= question_name_ar[i], age_rating="+10", Correct_answer= question_correct_answer[i], difficulty=5, Category_parent=category[0])
+        temp.save()
+    #
+    ####
+    question_name = ["What is the command to list files?", "What is the command to show the system's date?", "What is the command to show the system's uptime?", "What is the command to show your username?", "What is the command to change directory?", "What is the command to show the environment variables?", "What is the command to create a new directory?", "What is the command to show memory and swap usage?", "what is the command to show realtime info about processes?"]
+    question_name_ar = ["ما هو الأمر المستخدم لإظهار قائمة الملفات؟", "ما هو الأمر المستخدم لإظهار التاريخ المسجل بالنظام؟", "ما هو الأمر المستخدم لإظهار الوقت المنقضي منذ تشغيل النظام؟", "ما هو الأمرالمستخدم لإظهار اسم المستخدم؟", "ما هو الأمر المستخدم لتغيير المجلد؟", "ما هو الأمر المستخدم لإظهار متغيرات البيئة الحالية؟", "ما هو الأمر المستخدم لخلق مجلد جديد؟", "ما هو الأمر المستخدم لإظهار إستخدام الذاكرة و التبديل؟", "ما هو الأمر المستخدم لإظهار معلومات بوقت قصير عن المهام؟"]
+    question_correct_answer = ["ls", "date", "uptime", "whoami", "cd", "env", "mkdir", "free", "top"]
+    #
+    category = Category.objects.filter(name="Linux Command Line")
+    for i in range(len(question_name)):
+        temp = Question.objects.create(name= question_name[i], name_ar= question_name_ar[i], age_rating="+10", Correct_answer= question_correct_answer[i], difficulty=5, Category_parent=category[0])
+        temp.save()
+    ####
+    question_name = ["What is the capital city of Saudi Arabia?", "What is the capital city of Bahrain?", "What is the capital city of Kuwait?", "What is the capital city of France?", "What is the capital city of United Kingdom?", "What is the capital city of Russia?", "What is the capital city of India?", "What is the capital city of Malaysia?", "What is the capital city of China?"]
+    question_name_ar = ["ما هي عاصمة السعودية؟", "ما هي عاصمة البحرين؟", "ما هي عاصمة الكويت؟", "ما هي عاصمة فرنسا؟", "ما هي عاصمة المملكة المتحدة؟", "ما هي عاصمة روسيا؟", "ما هي عاصمة الهند؟", "ما هي عاصمة ماليزيا؟", "ما هي عاصمة الصين؟"]
+    question_correct_answer = ["Riyadh", "Manama", "Kuwait", "Paris", "London", "Moscow", "New Delhi", "Kuala Lumpur", "Beijing"]
+    #
+    category = Category.objects.filter(name="Capital Cities")
+    for i in range(len(question_name)):
+        temp = Question.objects.create(name= question_name[i], name_ar= question_name_ar[i], age_rating="+10", Correct_answer= question_correct_answer[i], difficulty=5, Category_parent=category[0])
+        temp.save()
+    return HttpResponse("Done")
 
+
+    

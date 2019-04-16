@@ -97,17 +97,16 @@ class Question: UIViewController {
     func getQuestion(){
         
 
-        let docRef = db.collection("Session").document(GlobalVariables.sessionId).collection("Rounds").document(GlobalVariables.roundId).collection("Questions").document(GlobalVariables.questionId)
-        
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                let q = document.data()!["name"] as! String
+        let docRef = db.collection("Session").document(GlobalVariables.sessionId).collection("Rounds").document(GlobalVariables.roundId).collection("Questions").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                let q = querySnapshot!.documents[Int(GlobalVariables.questionId)!-1].data()["name"] as! String
                 self.question.text = q
                 print("Document data: \(q)")
-            } else {
-                print("Document does not exist")
             }
         }
+        
     }
     
     @IBOutlet weak var timerLabel: UILabel!

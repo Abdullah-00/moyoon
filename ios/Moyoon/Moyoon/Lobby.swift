@@ -16,6 +16,10 @@ import Alamofire
 
 class Lobby: UIViewController {
     
+    override func viewDidAppear(_ animated: Bool) {
+        scanSession();
+    }
+    
     let layer = CAGradientLayer()
     
     @IBOutlet var players_inLobby: UILabel!
@@ -27,6 +31,33 @@ class Lobby: UIViewController {
         leaveSession()
     }
     
+    func scanSession(){
+        let db = Firestore.firestore();
+        let docRef = db.collection("Session").document(GlobalVariables.sessionId).collection("Rounds").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                let numberOfRounds = (querySnapshot?.documents.count)!
+                GlobalVariables.NumberOfRounds = numberOfRounds
+                print("Number of rounds is \(numberOfRounds)");
+                self.scanSessionRounds(numberOfRounds: numberOfRounds)
+            }
+        }
+    }
+    
+    func scanSessionRounds(numberOfRounds: Int){
+        let db = Firestore.firestore();
+        GlobalVariables.RoundQuestions = Array<Int>(repeating: -1, count: numberOfRounds)
+        for roundNum in 0...numberOfRounds-1{
+            let docRef = db.collection("Session").document(GlobalVariables.sessionId).collection("Rounds").document(String(roundNum+1)).collection("Questions").getDocuments() { (querySnapshot, err) in
+                if let err = err {
+                    print("Error getting documents: \(err)")
+                } else {
+                    GlobalVariables.RoundQuestions[roundNum] = (querySnapshot?.documents.count)!
+                }
+            }
+        }
+    }
     
     func leaveSession(){
         print("Sending leave Request")

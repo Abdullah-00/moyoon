@@ -44,6 +44,11 @@ struct GlobalVariables{
     static var roundId = "1";
     static var questionId = "1";
     static var currentScore = 0;
+    
     public static var submitCounter = 0;
     public static var isSunspended = false;
+    
+    static var RoundQuestions : [Int] = []
+    static var NumberOfRounds = 0
+    
 }
