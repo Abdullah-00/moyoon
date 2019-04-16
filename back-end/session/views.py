@@ -148,11 +148,11 @@ def SubmitAnswerView(request):
     round_id = request.GET.get('round_id')
     question_id = request.GET.get('question_id')
     answer = request.GET.get('answer')
-    answer = answer.strip()
-    answer = answer.lower()
+    answer2 = answer.strip()
+    answer2 = answer2.lower()
     correct_answer = isCorrctAnswer(session_id, round_id, question_id)
     correct_answer = correct_answer.lower().strip()
-    if(answer == correct_answer):
+    if(answer2 == correct_answer):
         # Add 5 points to the player
         incrementPlayerScore(session_id, player_id, 5)
         return HttpResponse("Done")
@@ -167,11 +167,11 @@ def SubmitAnswerChoiceView(request):
     round_id = request.GET.get('round_id')
     question_id = request.GET.get('question_id')
     answer = request.GET.get('answer')
-    answer = answer.strip()
-    answer = answer.lower()
+    answer2 = answer.strip()
+    answer2 = answer2.lower()
     correct_answer = isCorrctAnswer(session_id, round_id, question_id)
     correct_answer = correct_answer.lower().strip()
-    if (answer == correct_answer):
+    if (answer2 == correct_answer):
         # Add 10 points to the Player
         incrementPlayerScore(session_id, player_id, 10)
         return HttpResponse("Done Submit choice")
