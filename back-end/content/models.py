@@ -7,7 +7,7 @@ from django.dispatch import receiver
 
 
 from PIL import Image
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
 
 
 class Category(models.Model):
@@ -88,8 +88,8 @@ class QuestionTmp(models.Model):
     def __str__(self):
             return self.name_ar
 
-@receiver(pre_save, sender = QuestionTmp )
-def pre_save_ques(sender, instance, *args, **kwargs):
+@receiver(post_save, sender = QuestionTmp )
+def post_save_ques(sender, instance, *args, **kwargs):
     print('###########################')
     print(instance)
     is_approved = instance.is_approved
