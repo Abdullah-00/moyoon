@@ -105,14 +105,23 @@ class WriteAnswer: UIViewController, UITextFieldDelegate {
     @IBAction func submitAnswer(_ sender: Any) {
      //   var answer = answerField.text!
       //  sendAnswerToAPI(answer: answer)
-        answerField.isEnabled = false
-        submitButton.isEnabled = false;
-        GlobalVariables.submitCounter += 1;
+        if(answerField.text == "" || answerField.text == " "){
+            displayError(msg: "Please enter answer");
+        }
+        else
+        {
+            answerField.isEnabled = false
+            submitButton.isEnabled = false;
+            GlobalVariables.submitCounter += 1;
+        }
+        
     }
     
     
     func sendAnswerToAPIAux(){
-        sendAnswerToAPI(answer: (answerField.text)!);
+        if(answerField.text != "" || answerField.text != " "){
+            sendAnswerToAPI(answer: (answerField.text)!);
+        }
     }
     
     
@@ -172,6 +181,15 @@ class WriteAnswer: UIViewController, UITextFieldDelegate {
         leaveButton.layer.shadowOffset = CGSize(width: 0, height: 20)
         leaveButton.layer.shadowRadius = 25
         leaveButton.layer.shadowOpacity = 1
+        
+    }
+    fileprivate func displayError(msg : String) {
+        let alertController = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
+        let action1 = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
+            return;
+        }
+        alertController.addAction(action1)
+        self.present(alertController, animated: true, completion: nil)
         
     }
 }

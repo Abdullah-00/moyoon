@@ -110,13 +110,13 @@ class User {
             if let document = document, document.exists {
                 print("Found Doc!!!!")
                 self.totalScore = document.data()!["totalScore"] as! Int + newScore;
-                self.numberOfGamesPlayed = self.numberOfGamesPlayed ?? 0+1;
+                self.numberOfGamesPlayed = self.numberOfGamesPlayed + 1;
                 if(isWin){
-                    self.numberOfWins = self.numberOfWins ?? 0+1;
+                    self.numberOfWins = self.numberOfWins + 1;
                 }
                 docRef.updateData([
                     "totalScore": self.totalScore,
-                    "lastScore": self.lastScore,
+                    "lastScore": newScore,
                     "gamesPlayed": self.numberOfGamesPlayed,
                     "wins": self.numberOfWins
                 ]) { err in

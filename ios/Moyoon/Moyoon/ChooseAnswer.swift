@@ -173,9 +173,10 @@ class ChooseAnswer: UIViewController {
                 }
                 var i = 0
                 print("Number of answeres: ", answeresArray.count)
-                answeresArray.shuffle()
+                
                 if(answeresArray.count >= 2)
                 {
+                    answeresArray.shuffle()
                     while(i < answeresArray.count)
                     {
                         if(!self.dataArray.contains(answeresArray[i]))
