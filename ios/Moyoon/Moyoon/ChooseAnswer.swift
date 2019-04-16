@@ -133,9 +133,23 @@ class ChooseAnswer: UIViewController {
     }
     
     func getAnswers(){
-
-        // false answers
+        var answeresArray = [""]
+        // true answer
         
+        let docRef = db.collection("Session").document(GlobalVariables.sessionId).collection("Rounds").document(GlobalVariables.roundId).collection("Questions").document(GlobalVariables.questionId)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                //  print("Document Data -> \(document.data())")
+                let q = document.data()!["Correct_Answer"] as! String
+                answeresArray[0] = q
+                
+            } else {
+                print("Could not find correct ANSWER !!!!!!!")
+            }
+        }
+        
+        // false answers
+        var ansCounter = 0
         let path = "Session/\(GlobalVariables.sessionId)/Rounds/\(GlobalVariables.roundId)/Questions/\(GlobalVariables.questionId)/Answer"
         print (path)
         let docArray : [QueryDocumentSnapshot] = []
@@ -143,37 +157,46 @@ class ChooseAnswer: UIViewController {
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
+                
                 for document in querySnapshot!.documents {
                     let ans = document.data()["Answer"] as! String
                     if(!self.dataArray.contains(ans)){
-                    self.collectionView?.performBatchUpdates({
-                        let indexPath = IndexPath(row: self.dataArray.count, section: 0)
-                        self.dataArray.append(ans) //add your object to data source first
-                        self.collectionView?.insertItems(at: [indexPath])
-                        self.collectionView.reloadData()
-                    }, completion: nil)
+                        ansCounter += 1
+                  //  self.collectionView?.performBatchUpdates({
+                    //    let indexPath = IndexPath(row: self.dataArray.count, section: 0)
+                        answeresArray.append(ans) //add your object to data source first
+                     //   self.collectionView?.insertItems(at: [indexPath])
+                      //  self.collectionView.reloadData()
+                        
+                //    }, completion: nil)
                     }
                 }
+                var i = 0
+                print("Number of answeres: ", answeresArray.count)
+                answeresArray.shuffle()
+                if(answeresArray.count >= 2)
+                {
+                    while(i < answeresArray.count)
+                    {
+                        if(!self.dataArray.contains(answeresArray[i]))
+                        {
+                            self.collectionView?.performBatchUpdates({
+                                let indexPath = IndexPath(row: self.dataArray.count, section: 0)
+                                self.dataArray.append(answeresArray[i])
+                                self.collectionView?.insertItems(at: [indexPath])
+                                self.collectionView.reloadData()
+                            }, completion: nil)
+                        }
+                        
+                        i += 1
+                    }
+                }
+                
+                
             }
         }
         
-        // true answer
         
-        let docRef = db.collection("Session").document(GlobalVariables.sessionId).collection("Rounds").document(GlobalVariables.roundId).collection("Questions").document(GlobalVariables.questionId)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                print("Document Data -> \(document.data())")
-                let q = document.data()!["Correct_Answer"] as! String
-                self.collectionView?.performBatchUpdates({
-                    let indexPath = IndexPath(row: self.dataArray.count, section: 0)
-                    self.dataArray.append(q) //add your object to data source first
-                    self.collectionView?.insertItems(at: [indexPath])
-                    self.collectionView.reloadData()
-                }, completion: nil)
-            } else {
-                print("Could not find correct ANSWER !!!!!!!")
-            }
-    }
     }
 
     

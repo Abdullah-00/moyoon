@@ -14,7 +14,7 @@ import Alamofire
 import FirebaseUI
 
 class Homepage: UIViewController, UITextFieldDelegate {
-
+    
     //var text = "hey"
     let layer = CAGradientLayer()
     
@@ -52,7 +52,7 @@ class Homepage: UIViewController, UITextFieldDelegate {
         LoginButton.isHidden = true;
         SignoutButton.isHidden = true;
         
-
+        
         
     }
     override func viewDidLoad() {
@@ -65,7 +65,7 @@ class Homepage: UIViewController, UITextFieldDelegate {
         
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -76,10 +76,10 @@ class Homepage: UIViewController, UITextFieldDelegate {
         return true
     }
     /*func changeName(s: String?){
-        userName.text = s;
-        print(s!)
-        print(userName.text!)
-    }*/
+     userName.text = s;
+     print(s!)
+     print(userName.text!)
+     }*/
     
     @IBAction func SignOut(_ sender: Any) {
         try! Auth.auth().signOut()
@@ -91,16 +91,16 @@ class Homepage: UIViewController, UITextFieldDelegate {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-}
-
+    }
+    
     @IBAction func JoinSession(_ sender: UIButton) {
-         var session : String
-         var nickname : String
-         nickname = nicknameField.text!
-         session = sessionField.text!
-         //loadSession(session: session)
-         
-         requestJoinAPI(nickname: nickname, gameSession: session)
+        var session : String
+        var nickname : String
+        nickname = nicknameField.text!
+        session = sessionField.text!
+        //loadSession(session: session)
+        
+        requestJoinAPI(nickname: nickname, gameSession: session)
     }
     
     @IBAction func loginClicked(_ sender: Any) {
@@ -110,9 +110,9 @@ class Homepage: UIViewController, UITextFieldDelegate {
         self.present(authViewController, animated: true, completion: nil)
         
     }
-   
     
-
+    
+    
     
     fileprivate func displayError(msg : String) {
         let alertController = UIAlertController(title: "Alert", message: msg, preferredStyle: .alert)
@@ -139,7 +139,7 @@ class Homepage: UIViewController, UITextFieldDelegate {
         let urlString = urlRequest.url?.absoluteString
         
         Alamofire.request(urlString!, parameters: parameters).response { response in
-
+            
             if let data = response.data, let serverResponse = String(data: data, encoding: .utf8)?.components(separatedBy: ",") {
                 if(response.response?.statusCode != 200){
                     self.displayError(msg: "Cannot join a random session.")
@@ -164,21 +164,33 @@ class Homepage: UIViewController, UITextFieldDelegate {
             "nick_name": nickname,
             "session_id": gameSession
         ]
+        self.JoinButton.isEnabled = false;
+        self.JoinButton.isUserInteractionEnabled = false;
         let urlRequest = URLRequest(url: URL(string: GlobalVariables.hostname+urlExtension)!)
         let urlString = urlRequest.url?.absoluteString
-    
+        
         Alamofire.request(urlString!, parameters: parameters).response { response in
             if let data = response.data, let playerId = String(data: data, encoding: .utf8) {
+                
                 if(response.response?.statusCode != 200){
                     self.displayError(msg: "Session ID is not valid.")
                 }else{
                     GlobalVariables.playerId = playerId
                     GlobalVariables.sessionId = gameSession
+                    if(playerId == "Cannot get you inside the session."){
+                        self.displayError(msg: "Session ID is not valid.")
+                        self.JoinButton.isEnabled = true;
+                        self.JoinButton.isUserInteractionEnabled = true;
+                        return;
+                    }
                     print(response.response)
                     self.performSegue(withIdentifier: "JoinSession", sender: self)
                 }
             }
         }
+        self.JoinButton.isEnabled = true;
+        self.JoinButton.isUserInteractionEnabled = true;
+        
     }
     func setupBackground()
     {
@@ -239,7 +251,7 @@ class Homepage: UIViewController, UITextFieldDelegate {
     
     func loadSession(session: String){
         let db = Firestore.firestore()
-
+        
         let docRef = db.collection("Sessions").document(session)
         
         docRef.getDocument { (document, error) in
@@ -252,3 +264,4 @@ class Homepage: UIViewController, UITextFieldDelegate {
         }
     }
 }
+
