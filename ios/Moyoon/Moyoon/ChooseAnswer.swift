@@ -214,17 +214,21 @@ class ChooseAnswer: UIViewController {
 
 
     func incrementQuestionsAndRounds() {
-        if ( (Int(GlobalVariables.roundId)==3) && (Int(GlobalVariables.questionId)==3) ){
+        if(Int(GlobalVariables.roundId) == GlobalVariables.NumberOfRounds // if in last round
+            && Int(GlobalVariables.questionId) == GlobalVariables.RoundQuestions[GlobalVariables.NumberOfRounds-1]){ // if in last question
             performSegue(withIdentifier: "Finished", sender: self)
             return;
         }
-        if(GlobalVariables.submitCounter == 0 && Int(GlobalVariables.questionId) == 3)
+        if(GlobalVariables.submitCounter == 0 &&
+            Int(GlobalVariables.questionId) == GlobalVariables.RoundQuestions[Int(GlobalVariables.roundId)!-1]) // if submit = 0, & last question of this round
         {
             leaveSession();
             return;
         }
+            
         GlobalVariables.questionId = String(Int(GlobalVariables.questionId)!+1)
-        if(Int(GlobalVariables.questionId)! == 4){
+        
+        if(Int(GlobalVariables.questionId)! > GlobalVariables.RoundQuestions[Int(GlobalVariables.roundId)!-1]){
             GlobalVariables.submitCounter = 0;
             GlobalVariables.questionId = String(1)
             GlobalVariables.roundId = String(Int(GlobalVariables.roundId)!+1)
