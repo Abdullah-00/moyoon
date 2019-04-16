@@ -7,7 +7,7 @@ from django.dispatch import receiver
 
 
 from PIL import Image
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
 
 
 class Category(models.Model):
@@ -70,6 +70,12 @@ class CategoryTmp(models.Model):
     def __str__(self):
             return self.name
 
+YEAR_IN_SCHOOL_CHOICES = (
+    ('-', 'our_default'),
+    ('Approved', 'Approved'),
+    ('Disapproved', 'Disapproved'),
+)
+
 class QuestionTmp(models.Model):
     name = models.CharField(max_length=150, null=True)
     name_ar = models.CharField(max_length=150, null=True, blank=True)
@@ -83,25 +89,35 @@ class QuestionTmp(models.Model):
     # To Belong to a Category
 
     Category_parent = models.ForeignKey('content.Category', on_delete=models.SET_NULL, blank=True, null=True)
-    is_approved = models.BooleanField(default=False)
-    disapproved = models.BooleanField(default=False)
+    our_default = '-'
+    Aprroved = 'Approved'
+    Disapproved = 'Disapproved'
+    YEAR_IN_SCHOOL_CHOICES = (
+        (our_default, '-'),
+        (Aprroved, 'Approved'),
+        (Disapproved, 'Disapproved'),
+    )
+    Approval = models.CharField(
+        max_length=15,
+        choices=YEAR_IN_SCHOOL_CHOICES,
+        default=our_default,
+    )
     def __str__(self):
             return self.name_ar
 
-@receiver(pre_save, sender = QuestionTmp )
-def pre_save_ques(sender, instance, *args, **kwargs):
+@receiver(post_save, sender = QuestionTmp )
+def post_save_ques(sender, instance, *args, **kwargs):
     print('###########################')
     print(instance)
-    is_approved = instance.is_approved
-    disapproved = instance.disapproved
-    if(is_approved ==True):
+    approval = instance.Approval
+    if(approval == 'Approved'):
         # Create new question in Question model
         new_question = Question.objects.create(creator_id=None, name=instance.name, name_ar=instance.name_ar,
                                                    Correct_answer=instance.Correct_answer, difficulty=instance.difficulty,
                                                    age_rating=instance.age_rating, Category_parent=instance.Category_parent)
         # Delete current
         instance.delete()
-    elif(disapproved == True):
+    elif(approval == 'Disapproved'):
         instance.delete()
 
 
