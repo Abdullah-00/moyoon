@@ -68,6 +68,8 @@ class EndOfGame : AppCompatActivity() {
         Global.gamesPlayed++
         if(isWinner) {
             Global.wins++
+        }else{
+            Global.loses++
         }
         Global.totalScore += Global.lastScore
 

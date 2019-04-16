@@ -4,94 +4,28 @@
                                              android:layout_height="match_parent" android:background="@drawable/background_color">
 
     <TextView
-            android:text="@string/winsText"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:id="@+id/winsText"
-            android:textAppearance="@style/TextAppearance.Compat.Notification.Title" android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/totalScoreTxtV" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:textAlignment="center" android:textColor="#ffff"/>
-    <TextView
-            android:text="0"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:id="@+id/winsTxtV"
-            android:textSize="18sp"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/winsText" android:textColor="#ffff"
-    />
-    <TextView
-            android:text="0"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:id="@+id/totalScoreTxtV"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/totalScoreText"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center"
-            android:textColor="#ffff"/>
-    <TextView
-            android:text="@string/totalScoreText"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:id="@+id/totalScoreText"
-            android:textAppearance="@style/TextAppearance.Compat.Notification.Title" android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/lastScoreTxtV"
-            android:textAlignment="center" android:textColor="#ffff"/>
-    <TextView
-            android:text="@string/usernameTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_width="505dp"
+            android:layout_height="154dp"
             android:id="@+id/usernameTextView"
+            android:background="@drawable/profile_round_corners_b"
             app:layout_constraintEnd_toEndOf="parent"
             android:textSize="18sp"
             android:textStyle="bold" android:textAppearance="@style/TextAppearance.Compat.Notification.Title"
             android:textAlignment="center"
-            android:textColor="#ffff" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/profileTxtV"/>
+            android:textColor="#000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+    />
     <TextView
-            android:text="@string/emailTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="40dp"
-            android:id="@+id/emailTextView"
-            android:textAppearance="@style/TextAppearance.Compat.Notification.Title" android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/usernameTxtV" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:textAlignment="center" android:textColor="#ffff"/>
-    <TextView
-            android:text="@string/gamesPlayedText"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:id="@+id/gamesPlayedText"
-            android:textAppearance="@style/TextAppearance.Compat.Notification.Title" android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/emailTxtV" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:textAlignment="center" android:textColor="#ffff"/>
-    <TextView
-            android:text="@string/lastScoreText"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:id="@+id/lastScoreText"
-            android:textAppearance="@style/TextAppearance.Compat.Notification.Title" android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/gamesPLayedTxtV" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:textAlignment="center" android:textColor="#ffff"/>
+            android:id="@+id/userlevel" android:text="level" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/usernameTxtV" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/usernameTextView" android:textAlignment="center"
+            android:textSize="18sp" android:textColor="#00B2C3" android:fontFamily="@font/lato_black"
+            app:layout_constraintVertical_bias="0.0"/>
     <TextView
             android:text="Admin"
             android:layout_width="0dp"
@@ -99,60 +33,36 @@
             android:id="@+id/usernameTxtV"
             android:textSize="18sp"
             android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@+id/usernameTextView" android:layout_marginEnd="8dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:textColor="#ffff"/>
-    <TextView
-            android:text="Admin@mail.com"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:id="@+id/emailTxtV"
-            android:textSize="18sp" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toBottomOf="@+id/emailTextView" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:textAlignment="center" android:textColor="#ffff"/>
-    <TextView
-            android:text="0"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:id="@+id/gamesPLayedTxtV"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/gamesPlayedText"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center"
-            android:textColor="#ffff"/>
-    <TextView
-            android:text="0"
-            android:layout_width="0dp"
-            android:layout_height="40dp"
-            android:id="@+id/lastScoreTxtV"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/lastScoreText"
-            android:layout_marginStart="8dp" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:textAlignment="center"
-            android:textColor="#ffff"/>
+            app:layout_constraintStart_toStartOf="parent" android:textColor="#00B2C3"
+            app:layout_constraintHorizontal_bias="0.0"
+            android:fontFamily="@font/lato_black"
+            app:layout_constraintTop_toTopOf="parent" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/usernameTextView"/>
+    <ListView
+            android:layout_width="350dp"
+            android:textColor="#00B2C3"
+            android:background="@drawable/profile_round_corners_all"
+            android:layout_height="420dp" android:layout_marginTop="5dp"
+            app:layout_constraintTop_toBottomOf="@+id/usernameTextView" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:id="@+id/userinfo" android:scrollbars="none"
+            app:layout_constraintVertical_bias="0.06999999"/>
     <Button
-            android:text="@string/modifyButton"
+            android:text="BACK"
             android:layout_width="180dp"
             android:layout_height="50dp"
-            android:id="@+id/modifyButton"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/winsTxtV"
-            android:background="#ffff"
+            android:id="@+id/backhomebutton"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/userinfo"
+            android:background="@drawable/round_corner_button"
             android:textColor="#00B2C3"
             android:fontFamily="@font/lato_black"
-            android:textSize="20dp"
-    />
-    <TextView
-            android:text="@string/profileTxtV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/profileTxtV" android:textSize="30sp"
-            android:textAllCaps="true"
-            android:layout_marginEnd="8dp" app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginTop="8dp"
-            app:layout_constraintTop_toTopOf="parent" android:textColor="#ffff"/>
+            android:textSize="20dp"/>
+
 </android.support.constraint.ConstraintLayout>
