@@ -367,9 +367,9 @@ def checkPlayerScore(session_id):
 
     for i in players_list:
         player_info = i.to_dict()
-        if(player_info['Score'] >= -20):
+        if(player_info['Score'] >= 0):
             player_info['isSuspended'] = False
-        elif(player_info['Score'] <= -50):
+        elif(player_info['Score'] <= -20):
             player_info['isSuspended'] = True
         data = {
             u'nick-name': player_info['nick-name'],
