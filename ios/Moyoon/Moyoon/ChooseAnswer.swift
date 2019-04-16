@@ -189,7 +189,7 @@ class ChooseAnswer: UIViewController {
                         }
                         
                         i += 1
-                    }
+                    } //a
                 }
                 
                 
