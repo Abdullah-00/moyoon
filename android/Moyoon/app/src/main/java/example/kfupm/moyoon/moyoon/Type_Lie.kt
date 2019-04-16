@@ -33,7 +33,6 @@ class Type_Lie() : AppCompatActivity() {
     private lateinit var intentDisplayAnswers : Intent
      lateinit var Home : Intent
     lateinit  var timer: MyCounter
-    private var suspended: Double = 0.0
     private var toAnswerFlag: Boolean? = false
 
 
@@ -189,19 +188,19 @@ class Type_Lie() : AppCompatActivity() {
 
                 Log.w("4444", "listen:error" )
                 if(Global.KickCounter !=3 && Global.KickCounter !=0)
-                suspended = document!!.getDouble("Score")!!
+                Global.suspended = document!!.getDouble("Score")!!
                 Log.w("5555555", "listen:error")
 
-                if (suspended.toInt() > -50 ) {
+                if (Global.suspended.toInt() > -50 ) {
                     lie.visibility = View.VISIBLE
 
                 }else{
-                    lie.visibility = View.INVISIBLE
-                    Toast.makeText(baseContext, "انت موقوف", Toast.LENGTH_SHORT).show()
+                   // lie.visibility = View.INVISIBLE
+                    Toast.makeText(baseContext, "انت موقوف ", Toast.LENGTH_SHORT).show()
                 }
 
 
-                Log.w("33333aa", suspended.toString(), e)
+                Log.w("33333aa", Global.suspended.toString(), e)
 
             }
             )

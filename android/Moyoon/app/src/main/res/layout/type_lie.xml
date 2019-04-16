@@ -46,21 +46,22 @@
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="16dp"
             app:layout_constraintStart_toStartOf="parent"/>
     <TextView
-            android:layout_width="322dp"
+            android:text="Question"
+            android:layout_width="0dp"
             android:layout_height="76dp"
             android:id="@+id/question_desplay"
             android:textAlignment="center"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
-            android:textSize="14sp"
+            android:textSize="18sp"
             android:textColor="@android:color/black"
             android:background="@drawable/round_corner_buttom"
             android:fontFamily="@font/lato_black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/questionRoundText7"
-            android:text="Question" app:autoSizeTextType="none"
-            app:layout_constraintHorizontal_bias="0.47"/>
+            app:autoSizeTextType="none"
+    />
     <EditText
             android:layout_width="221dp"
             android:layout_height="56dp"

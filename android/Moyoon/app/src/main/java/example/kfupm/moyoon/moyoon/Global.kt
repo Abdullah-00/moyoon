@@ -18,6 +18,7 @@ class Global{
         var LeaveSession:Boolean= true
         var KickCounter: Int = 0
         var LoginUiFlag:Boolean = false
+        var suspended: Double = 0.0
 
         // Profile info
         var userid : String = ""

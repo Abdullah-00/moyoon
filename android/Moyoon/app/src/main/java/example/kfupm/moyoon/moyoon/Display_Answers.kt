@@ -47,11 +47,6 @@ class Display_Answers : AppCompatActivity() {
 
 
 
-    //private var chooseAnswer: Boolean? = false
-    //private lateinit var intentCorrect : Intent
-    //private lateinit var intentWrong : Intent
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -84,11 +79,13 @@ class Display_Answers : AppCompatActivity() {
         answerslist.setOnItemClickListener { parent: AdapterView<*>?, view: View?, position: Int, id: Long ->
         //
 
-            //   submit.text= "You choose: "+playersAnswer[position]
             Global.pAnswer = playersAnswer[position]
             Log.d("nnnnnnnn", playersAnswer[position])
-
-            Toast.makeText(baseContext, "انت اخترت: "+ Global.pAnswer, Toast.LENGTH_SHORT).show()
+            if (Global.suspended.toInt() > -50 ) {
+                Toast.makeText(baseContext, "انت اخترت: "+ Global.pAnswer, Toast.LENGTH_SHORT).show()
+            }else{
+                Toast.makeText(baseContext, "انت موقوف .. لا يمكنك اختيار اجابة", Toast.LENGTH_SHORT).show()
+            }
 
             Log.d("nnnnnnnn", position.toString())
         }
@@ -230,7 +227,9 @@ if(Global.LeaveSession)
                         Global.KickCounter++
                     }
                     if(Global.LeaveSession) {
-                        SendtoServer()
+                        if (Global.suspended.toInt() > -50 ) {
+                            SendtoServer()
+                        }
                         Global.pAnswer= ""
                         Global.playerLie = ""
                         if(Global.KickCounter == 3){
