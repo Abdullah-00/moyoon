@@ -41,7 +41,7 @@ class Profile : AppCompatActivity() {
         var totalScore = Global.totalScore.toInt()
         var gamesPlayed = Global.gamesPlayed.toInt()
         var wins = Global.wins.toInt()
-        var loses = Global.loses.toInt()
+        var loses = gamesPlayed - wins
         //// profile info
         ps.add("Email: \t" + Global.emailAddress)
         ps.add("Last Game Score: \t" + lastScore)
@@ -50,8 +50,8 @@ class Profile : AppCompatActivity() {
         ps.add("#Wins: \t" + wins)
         ps.add("#Loses: \t" + loses)
 
-        if(Global.gamesPlayed.toInt() != 0) {
-            Global.ratio = Global.wins/Global.gamesPlayed.toDouble()
+        if(loses != 0) {
+            Global.ratio = Global.wins/loses.toDouble()
         }
 
         ps.add("Ratio: \t" + Global.ratio.toString())
