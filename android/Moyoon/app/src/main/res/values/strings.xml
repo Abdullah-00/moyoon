@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Moyoon</string>
-    <string name="join">join</string>
+    <string name="join">JOIN</string>
     <string name="Session_Code">Session Code</string>
-    <string name="Lie">Lie</string>
+    <string name="Lie">LIE</string>
     <string name="Submit_lie">Submit</string>
     <string name="nickname">Enter your name</string>
-    <string name="login">Login</string>
-    <string name="joinR">JOIN RANDOMLY</string>
+    <string name="login">LOG IN</string>
+    <string name="joinR">FIND GAME</string>
     <string name="Sign_out">SIGN OUT</string>
     <string name="GoPlay">START PLAY</string>
     <string name="menuProfile">Profile</string>
