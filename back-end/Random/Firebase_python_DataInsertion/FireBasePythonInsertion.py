@@ -113,7 +113,7 @@ def createSessionWithUserInput(questions, round_limit):
         j +=1
         if(count >= round_limit-1):
             count = 0
-            question += 1
+            k += 1
         else:
             count += 1
 
