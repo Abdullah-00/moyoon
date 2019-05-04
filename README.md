@@ -1,6 +1,4 @@
 # Moyoon
-![Alt text](back-end/icon.png "Moyoon")
-
 Moyoon is a knowledge-based multiplayer game that focuses on entertaining
 groups of people present physically together. The game can be used for
 educational purpose, in addition to entertaining.
