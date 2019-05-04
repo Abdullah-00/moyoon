@@ -1,8 +1,13 @@
-# Moyoon - The Guessing Game
-The Guessing Game is a knowledge-based multiplayer game that focuses on entertaining
+# Moyoon
+![Alt text](back-end/icon.png "Moyoon")
+
+Moyoon is a knowledge-based multiplayer game that focuses on entertaining
 groups of people present physically together. The game can be used for
-educational purpose, as teachers can test at what level did their students understand from
-their lectures by creating their own questions.
+educational purpose, in addition to entertaining.
+
+
+## Platforms
+The game is available on iOS and Android, in addition to a website acting as a shared screen between the players.
 
 ## Development Team
 * Mohammed Alswailem - Back-end Dev. (Project Manager)
