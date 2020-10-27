@@ -15,7 +15,7 @@ command-not-found==0.3
 ConfigArgParse==0.11.0
 configobj==5.0.6
 constantly==15.1.0
-cryptography==2.1.4
+cryptography==3.2
 defusedxml==0.5.0
 distro-info==0.18
 Django==2.1.3
