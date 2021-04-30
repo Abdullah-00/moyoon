@@ -69,7 +69,7 @@ PyYAML==3.12
 requests==2.18.4
 requests-oauthlib==1.2.0
 requests-unixsocket==0.1.5
-rsa==4.0
+rsa==4.7
 SecretStorage==2.3.1
 service-identity==16.0.0
 six==1.11.0
